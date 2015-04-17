@@ -1,0 +1,1 @@
+mongod --dbpath srv/mongodb/
