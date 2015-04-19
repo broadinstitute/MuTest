@@ -51,7 +51,19 @@ reader = csv.DictReader(file, delimiter='\t')
 #writer.writeheader()
 
 for row in reader:
-    print row
+    sample_name = row['sample_name']
+
+    #for element in sorted(row.keys()):
+    #print element, row[element]
+
+    if ((sample_name,'tumor') in samples_index) | ((sample_name,'normal') in samples_index):
+	pass
+    else:
+        print sample_name
+	for key in sorted(row.keys()):
+		print key, row[key]
+	exit(0)
+
     #writer.writerow(row)
     #exit(0)
 
