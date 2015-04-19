@@ -1,5 +1,4 @@
 import argparse
-import pymongo
 import ast
 from pymongo import MongoClient
 

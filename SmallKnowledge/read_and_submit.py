@@ -22,7 +22,6 @@ file = open(args.input)
 reader = csv.DictReader(file,delimiter='\t')
 
 client = MongoClient('localhost', 27017)
-
 db = client['SomaticMutations']
 collection = db['ValidationData']
 
