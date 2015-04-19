@@ -40,25 +40,20 @@ for row in reader:
         else:
             samples_index[(sample_name,'normal')]=current
 
-for sample in samples_index:
-    print sample
-
-exit(0)
-
 
 file = open('/xchip/cga_home/mara/projects/m2/luad/luad.mutation_comparison.master_file.corrected.txt','r')
 reader = csv.DictReader(file, delimiter='\t')
 
-fieldnames = move_to_front(['Chromosome','Start_position','Reference_Allele','Tumor_Seq_Allele1','Tumor_Seq_Allele2'],reader.fieldnames)
 
-writer = csv.DictWriter( open('luad.mutation_comparison.master_file.corrected.vcf_column_shuffled.txt','w'), fieldnames = fieldnames, delimiter='\t')
+#writer = csv.DictWriter( open('luad.mutation_comparison.master_file.corrected.vcf_column_shuffled.txt','w'),    #                         fieldnames = reader.fieldnames,
+ #                        delimiter='\t')
 
-writer.writeheader()
+#writer.writeheader()
 
 for row in reader:
     print row
-    writer.writerow(row)
-    exit(0)
+    #writer.writerow(row)
+    #exit(0)
 
 file.close()
 
