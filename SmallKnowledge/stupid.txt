@@ -1,1 +1,0 @@
-/seq/picard_aggregation/D4491/Solexa-178365/v2/Solexa-178365.bam	/seq/picard_aggregation/D4491/Solexa-178366/v3/Solexa-178366.bam
