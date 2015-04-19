@@ -19,11 +19,13 @@ reader = csv.DictReader(file,delimiter='\t')
 def is_normal(sample_path):
     sample_name = os.path.basename(sample_path)
     sample_status = sample_name.split('-')[3]
-    sample_status = int(sample_status[1])
+    sample_status = int(sample_status[0])
     return bool(sample_status)
 
 def get_sample_name(filename):
     sample_name = filename.split('/')[4]
+    sample_name = sample_name.split('-')[0:3]
+    sample_name = "-".join(sample_name)
     return sample_name
 
 
@@ -36,8 +38,10 @@ for row in reader:
 
     if current != '':
         if is_normal(current):
+            if samples_index.has_key((sample_name,'tumor')): raise Exception("Sample ID duplicated in file."+sample_name)
             samples_index[(sample_name,'tumor')]=current
         else:
+            if samples_index.has_key((sample_name,'normal')): raise Exception("Sample ID duplicated in file."+sample_name)
             samples_index[(sample_name,'normal')]=current
 
 
@@ -51,7 +55,10 @@ reader = csv.DictReader(file, delimiter='\t')
 #writer.writeheader()
 
 for row in reader:
-    sample_name = row['sample_name']
+    sample_name = row['Tumor_Sample_Barcode'].split('-')[1:4]
+    sample_name = "-".join(sample_name)
+
+    #print sample_name
 
     #for element in sorted(row.keys()):
     #print element, row[element]
@@ -61,8 +68,7 @@ for row in reader:
     else:
         print sample_name
 	for key in sorted(row.keys()):
-		print key, row[key]
-	exit(0)
+		0#print key, row[key]
 
     #writer.writerow(row)
     #exit(0)
