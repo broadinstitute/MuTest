@@ -1,39 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/somaticDB/Variant.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/setup.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/somaticDB/version.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmallKnowledge/DatabaseParser.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmallKnowledge/DictUtilities.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmallKnowledge/SomaticDatabase.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmallKnowledge/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmallKnowledge/assess_vcf.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmallKnowledge/dream_files/m2_dream3.fp.intervals" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmallKnowledge/dream_files/m2_dream3.fp.intervals.vcf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmallKnowledge/dream_files/m2_dream3.tp.intervals" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmallKnowledge/dream_files/m2_dream3.tp.intervals.vcf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmallKnowledge/dream_files/split_dream_vcf.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmallKnowledge/dream_files/synthetic.challenge.set1.tumor.all.truth.vcf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmallKnowledge/dream_files/synthetic.challenge.set2.tumor.all.truth.vcf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmallKnowledge/dream_files/synthetic.challenge.set2.tumor.snv.truth.vcf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmallKnowledge/dream_files/synthetic.challenge.set3.tumor.20pctmasked.truth.vcf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmallKnowledge/dream_files/synthetic.challenge.set4.tumour.25pctmasked.truth.vcf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmallKnowledge/evaluator.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmallKnowledge/example_uses.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmallKnowledge/get_bams.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmallKnowledge/mara/luad.mutation_comparison.master_file.corrected.tsv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmallKnowledge/mara/make_maras_vcf.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmallKnowledge/mara/make_maras_vcf.py.save" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmallKnowledge/mara/make_maras_vcf.py.save.1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmallKnowledge/read_and_submit.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmallKnowledge/start_server.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmallKnowledge/start_server.sh" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmallKnowledge/submission_data.tsv" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="" />
     <ignored path="SomaticDB.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -80,8 +48,8 @@
       <file leaf-file-name="DatabaseParser.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/somaticDB/DatabaseParser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.78941685" vertical-offset="2149" max-vertical-offset="3105">
-              <caret line="192" column="34" selection-start-line="192" selection-start-column="34" selection-end-line="192" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.51403886" vertical-offset="1894" max-vertical-offset="3105">
+              <caret line="158" column="123" selection-start-line="158" selection-start-column="123" selection-end-line="158" selection-end-column="123" />
               <folding>
                 <element signature="e#1#12#0" expanded="true" />
               </folding>
@@ -594,8 +562,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/somaticDB/DatabaseParser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.78941685" vertical-offset="2149" max-vertical-offset="3105">
-          <caret line="192" column="34" selection-start-line="192" selection-start-column="34" selection-end-line="192" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.51403886" vertical-offset="1894" max-vertical-offset="3105">
+          <caret line="158" column="123" selection-start-line="158" selection-start-column="123" selection-end-line="158" selection-end-column="123" />
           <folding>
             <element signature="e#1#12#0" expanded="true" />
           </folding>
