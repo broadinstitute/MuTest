@@ -60,7 +60,6 @@ for row in reader:
         pass
     else:
         print sample_name
-    for key in sorted(row.keys()):
 
 
 file.close()
