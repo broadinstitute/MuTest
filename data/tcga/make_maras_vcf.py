@@ -56,7 +56,7 @@ for row in reader:
 
     if not writer.has_key(sample_name):
 
-        writer[sample_name] = csv.DictReader(open(file_stem+"."+sample_name+file_ext,'w'),
+        writer[sample_name] = csv.DictWriter(open(file_stem+"."+sample_name+file_ext,'w'),
                                              delimiter='\t',
                                              fieldnames=reader.fieldnames)
 
