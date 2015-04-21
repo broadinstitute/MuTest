@@ -60,7 +60,7 @@ for row in reader:
                                              delimiter='\t',
                                              fieldnames=reader.fieldnames)
 
-        writer.writeheader()
+        writer[sample_name].writeheader()
 
     writer[sample_name].writerow(row)
 
