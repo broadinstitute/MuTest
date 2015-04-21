@@ -48,30 +48,20 @@ for row in reader:
 file = open('/xchip/cga_home/mara/projects/m2/luad/luad.mutation_comparison.master_file.corrected.txt','r')
 reader = csv.DictReader(file, delimiter='\t')
 
-
-#writer = csv.DictWriter( open('luad.mutation_comparison.master_file.corrected.vcf_column_shuffled.txt','w'),    #                         fieldnames = reader.fieldnames,
- #                        delimiter='\t')
-
-#writer.writeheader()
+writer = {}
 
 for row in reader:
     sample_name = row['Tumor_Sample_Barcode'].split('-')[1:4]
     sample_name = "-".join(sample_name)
 
-    #print sample_name
-
-    #for element in sorted(row.keys()):
-    #print element, row[element]
+    print sample_name
 
     if ((sample_name,'tumor') in samples_index) | ((sample_name,'normal') in samples_index):
-	pass
+        pass
     else:
         print sample_name
-	for key in sorted(row.keys()):
-		0#print key, row[key]
+    for key in sorted(row.keys()):
 
-    #writer.writerow(row)
-    #exit(0)
 
 file.close()
 
