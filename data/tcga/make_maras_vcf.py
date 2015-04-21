@@ -58,13 +58,12 @@ for row in reader:
         writer[sample_name] = open(file_stem+"."+sample_name+file_ext,delimiter='\t')
         writer.writeheader(reader.fieldnames)
 
-    writer.writerow(row)
+    writer[sample_name].writerow(row)
 
     if ((sample_name,'tumor') in samples_index) | ((sample_name,'normal') in samples_index):
         pass
     else:
         raise Exception("Missing sample.")
-
 
 file.close()
 
