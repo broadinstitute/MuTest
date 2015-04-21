@@ -1,4 +1,0 @@
-tumor_bam	normal_bam	filename	dataset_name	TP
-/seq/picard_aggregation/D4491/Solexa-178365/v2/Solexa-178365.bam	/seq/picard_aggregation/D4491/Solexa-178366/v3/Solexa-178366.bam	/dsde/working/kcarr/HCC1143.mutect.March.24.2015.merged_by_hand.sorted.filter_MT_GL.vcf	HCC1143	TP
-/humgen/gsa-hpprojects/GATK/data/Validation_Data/cancer/dream3.integrationtest.tumor.bam	/humgen/gsa-hpprojects/GATK/data/Validation_Data/cancer/dream3.integrationtest.normal.bam	m2_dream3.tp.intervals.vcf	dream_challenge	TP
-/humgen/gsa-hpprojects/GATK/data/Validation_Data/cancer/dream3.integrationtest.tumor.bam	/humgen/gsa-hpprojects/GATK/data/Validation_Data/cancer/dream3.integrationtest.normal.bam	m2_dream3.fp.intervals.vcf	dream_challenge	FP
