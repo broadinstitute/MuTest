@@ -1,6 +1,5 @@
 import csv
 import os
-import pandas as pd
 
 filename = "/xchip/cga_home/mara/projects/m2/luad/fh.m2_evaluation_set.bam_file_paths.txt"
 
@@ -44,8 +43,9 @@ for row in reader:
             if samples_index.has_key((sample_name,'normal')): raise Exception("Sample ID duplicated in file."+sample_name)
             samples_index[(sample_name,'normal')]=current
 
-
-file = open('/xchip/cga_home/mara/projects/m2/luad/luad.mutation_comparison.master_file.corrected.txt','r')
+filename = '/xchip/cga_home/mara/projects/m2/luad/luad.mutation_comparison.master_file.corrected.txt'
+file = open(filename,'r')
+file_stem, file_ext = os.path.splitext(os.path.basename(filename))
 reader = csv.DictReader(file, delimiter='\t')
 
 writer = {}
@@ -54,12 +54,16 @@ for row in reader:
     sample_name = row['Tumor_Sample_Barcode'].split('-')[1:4]
     sample_name = "-".join(sample_name)
 
-    print sample_name
+    if not writer.has_key(sample_name):
+        writer[sample_name] = open(file_stem+"."+sample_name+file_ext,delimiter='\t')
+        writer.writeheader(reader.fieldnames)
+
+    writer.writerow(row)
 
     if ((sample_name,'tumor') in samples_index) | ((sample_name,'normal') in samples_index):
         pass
     else:
-        print sample_name
+        raise Exception("Missing sample.")
 
 
 file.close()
