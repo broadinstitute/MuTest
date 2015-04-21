@@ -45,32 +45,32 @@ for row in reader:
             samples_index[(sample_name,'normal')]=current
 
 
-file = open('/xchip/cga_home/mara/projects/m2/luad/luad.mutation_comparison.master_file.corrected.txt','r')
+filename = '/xchip/cga_home/mara/projects/m2/luad/luad.mutation_comparison.master_file.corrected.txt'
+file = open(filename,'r')
 reader = csv.DictReader(file, delimiter='\t')
 
 
-#writer = csv.DictWriter( open('luad.mutation_comparison.master_file.corrected.vcf_column_shuffled.txt','w'),    #                         fieldnames = reader.fieldnames,
- #                        delimiter='\t')
-
+#writer = csv.DictWriter( open('luad.mutation_comparison.master_file.corrected.vcf_column_shuffled.txt','w'),fieldnames = reader.fieldnames,delimiter='\t')
 #writer.writeheader()
+
+outfile = {}
+
+file_stem,file_ext = os.path.splitext( os.path.basename(filename) )
 
 for row in reader:
     sample_name = row['Tumor_Sample_Barcode'].split('-')[1:4]
     sample_name = "-".join(sample_name)
 
-    #print sample_name
-
-    #for element in sorted(row.keys()):
-    #print element, row[element]
+    if not outfile.has_key(sample_name):
+        outfile[sample_name] = open(file_stem+"."+sample_name+file_ext,'w')
+        outfile[sample_name] = csv.DictWriter(outfile,fieldnames = reader.fieldnames,delimiter='\t')
 
     if ((sample_name,'tumor') in samples_index) | ((sample_name,'normal') in samples_index):
 	pass
     else:
-        print sample_name
-	for key in sorted(row.keys()):
-		0#print key, row[key]
+        raise Expection("A sample ID is not unique: %s" % sample_name)
 
-    #writer.writerow(row)
+    outfile.writerow(row)
     #exit(0)
 
 file.close()
