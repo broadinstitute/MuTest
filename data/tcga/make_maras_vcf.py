@@ -44,9 +44,9 @@ for row in reader:
             samples_index[(sample_name,'normal')]=current
 
 
-filename = '/xchip/cga_home/mara/projects/m2/luad/luad.mutation_comparison.master_file.corrected.txt'
+filename = 'luad/luad.mutation_comparison.master_file.corrected.txt'
 file = open(filename,'r')
-file_stem = os.path.splitext(filename)[0]
+file_stem = os.path.splitext( filename)[0]
 file_ext=".maf"
 reader = csv.DictReader(file, delimiter='\t')
 
