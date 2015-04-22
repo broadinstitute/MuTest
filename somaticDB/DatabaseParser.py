@@ -62,8 +62,8 @@ class DatabaseParser:
         if dataset_type == 'VCF':
             self.file = vcf.Reader(self.file)
         else:
-            self.file = csv.DictReader(self.file)
             self.file = ifilter(lambda line: not line.startswith('#'), self.file)
+            self.file = csv.DictReader(self.file)
 
         for record in self.file:
             if dataset_type == 'VCF':
