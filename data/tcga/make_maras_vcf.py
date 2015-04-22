@@ -80,7 +80,7 @@ for row in reader:
 
         submission_file.writerow({'tumor_bam': samples_index[(sample_name,'tumor')],
                                    'normal_bam': samples_index[(sample_name,'normal')],
-                                   'filename':sample_filename,
+                                   'filename':os.path.abspath(sample_filename),
                                    'dataset_name':'LUAD',
                                    'TP':'TP'})
 
