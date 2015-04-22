@@ -47,12 +47,12 @@ class DatabaseParser:
                    self.filename.endswith(".table.gz")]):
                 dataset_type = "VCF_TABLE"
 
-            if any(self.filename.endswith(".vcf"),
-                   self.filename.endswith(".vcf.gz")):
+            if any([self.filename.endswith(".vcf"),
+                   self.filename.endswith(".vcf.gz")]):
                 dataset_type = "VCF"
 
-            if any(self.filename.endswith(".maf"),
-                   self.filename.endswith(".maf.gz")):
+            if any([self.filename.endswith(".maf"),
+                   self.filename.endswith(".maf.gz")]):
                 dataset_type = "MAF"
 
         if dataset_type not in ['VCF', 'MAF', 'VCF_TABLE']:
