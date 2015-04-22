@@ -15,9 +15,9 @@ def drop_weird_characters(s):
 def stringify_dict(D):
     for key in D:
         if type(D[key]) == list:
-            #D[key] = map(lambda s: drop_weird_characters(str(s)),D[key])
-            D[key] = map(unicode,D[key])
+            D[key] = map(lambda s: drop_weird_characters(str(s)),D[key])
+            #D[key] = map(unicode,D[key])
         else:
-            #D[key] = drop_weird_characters(str(D[key]))
-            D[key] = unicode(D[key])
+            D[key] = drop_weird_characters(str(D[key]))
+            #D[key] = unicode(D[key])
     return D
