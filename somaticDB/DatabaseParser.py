@@ -63,7 +63,7 @@ class DatabaseParser:
             self.file = vcf.Reader(self.file)
         else:
             self.file = ifilter(lambda line: not line.startswith('#'), self.file)
-            self.file = csv.DictReader(self.file)
+            self.file = csv.DictReader(self.file,delimiter='\t')
 
         for record in self.file:
             if dataset_type == 'VCF':
@@ -129,8 +129,6 @@ class DatabaseParser:
                     yield core_data
 
             if dataset_type == "MAF":
-
-       	        record = record.split('\t')
 
                 chrom = record['Chromosome']
                 start = record['Start_Position']
