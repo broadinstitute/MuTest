@@ -78,7 +78,7 @@ for row in reader:
 
         writer[sample_name].writeheader()
 
-        submission_file.writerrow({'tumor_bam': (sample_name,'tumor'),
+        submission_file.writerow({'tumor_bam': (sample_name,'tumor'),
                                    'normal_bam': (sample_name,'normla'),
                                    'filename':sample_filename,
                                    'dataset_name':'LUAD',
