@@ -28,8 +28,8 @@
       <file leaf-file-name="DatabaseParser.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/somaticDB/DatabaseParser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.51495016" vertical-offset="1545" max-vertical-offset="3105">
-              <caret line="134" column="35" selection-start-line="134" selection-start-column="35" selection-end-line="134" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.7508306" vertical-offset="2172" max-vertical-offset="3075">
+              <caret line="189" column="78" selection-start-line="189" selection-start-column="78" selection-end-line="189" selection-end-column="78" />
               <folding>
                 <element signature="e#1#12#0" expanded="true" />
               </folding>
@@ -627,8 +627,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/somaticDB/DatabaseParser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51495016" vertical-offset="1545" max-vertical-offset="3105">
-          <caret line="134" column="35" selection-start-line="134" selection-start-column="35" selection-end-line="134" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.7508306" vertical-offset="2172" max-vertical-offset="3075">
+          <caret line="189" column="78" selection-start-line="189" selection-start-column="78" selection-end-line="189" selection-end-column="78" />
           <folding>
             <element signature="e#1#12#0" expanded="true" />
           </folding>
