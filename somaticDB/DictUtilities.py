@@ -12,7 +12,7 @@ def clean_up_lists(D):
 def stringify_dict(D):
 	for key in D:
 		if type(D[key]) == list:
-			D[key] = map(unicode,D[key])
+			D[key] = map(lambda s: str(s).encode('utf-8'),D[key])
 		else:
-			D[key] = unicode(D[key])
+			D[key] = str(D[key]).encode('utf-8')
 	return D
