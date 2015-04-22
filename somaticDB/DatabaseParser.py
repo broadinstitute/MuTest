@@ -4,6 +4,7 @@ import vcf
 import csv
 import argparse
 import datetime
+from itertools import ifilter
 from pymongo import MongoClient, DESCENDING
 from DictUtilities import merge_dicts, stringify_dict
 
@@ -62,6 +63,7 @@ class DatabaseParser:
             self.file = vcf.Reader(self.file)
         else:
             self.file = csv.DictReader(self.file)
+            self.file = ifilter(lambda line: not line.startswith('#'), self.file)
 
         for record in self.file:
             if dataset_type == 'VCF':
@@ -127,7 +129,6 @@ class DatabaseParser:
                     yield core_data
 
             if dataset_type == "MAF":
-                if record.startswith('#'): continue
 
        	        record = record.split('\t')
 
