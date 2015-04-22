@@ -190,6 +190,8 @@ def main():
 
             mongo_submission = merge_dicts(variant_dict, additional_data_dict)
 
+            mongo_submission = stringify_dict(mongo_submission)
+
             collection.insert(mongo_submission)
 
     db.collection.ensure_index([("submission_time" , DESCENDING), ("unique" , True), ("dropDups" , True)])

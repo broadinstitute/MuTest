@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/somaticDB/DatabaseParser.py" afterPath="$PROJECT_DIR$/somaticDB/DatabaseParser.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/somaticDB/DictUtilities.py" afterPath="$PROJECT_DIR$/somaticDB/DictUtilities.py" />
     </list>
     <ignored path="SomaticDB.iws" />
@@ -38,8 +39,8 @@
       <file leaf-file-name="DatabaseParser.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/somaticDB/DatabaseParser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.230769" vertical-offset="1043" max-vertical-offset="3090">
-              <caret line="89" column="41" selection-start-line="89" selection-start-column="41" selection-end-line="89" selection-end-column="41" />
+            <state vertical-scroll-proportion="-26.23077" vertical-offset="2198" max-vertical-offset="3105">
+              <caret line="192" column="38" selection-start-line="192" selection-start-column="38" selection-end-line="192" selection-end-column="38" />
               <folding>
                 <element signature="e#1#12#0" expanded="true" />
               </folding>
@@ -114,8 +115,8 @@
       <file leaf-file-name="DictUtilities.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/somaticDB/DictUtilities.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.03322259" vertical-offset="0" max-vertical-offset="903">
-              <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.33222592" vertical-offset="0" max-vertical-offset="903">
+              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -658,8 +659,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/somaticDB/DatabaseParser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.230769" vertical-offset="1043" max-vertical-offset="3090">
-          <caret line="89" column="41" selection-start-line="89" selection-start-column="41" selection-end-line="89" selection-end-column="41" />
+        <state vertical-scroll-proportion="-26.23077" vertical-offset="2198" max-vertical-offset="3105">
+          <caret line="192" column="38" selection-start-line="192" selection-start-column="38" selection-end-line="192" selection-end-column="38" />
           <folding>
             <element signature="e#1#12#0" expanded="true" />
           </folding>
@@ -668,8 +669,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/somaticDB/DictUtilities.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.03322259" vertical-offset="0" max-vertical-offset="903">
-          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.33222592" vertical-offset="0" max-vertical-offset="903">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
           <folding />
         </state>
       </provider>
