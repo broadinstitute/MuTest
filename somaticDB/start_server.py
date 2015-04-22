@@ -15,7 +15,7 @@ parser.add_argument('-l','--location', help='The location of the server',
 
 args = parser.parse_args()
 
-locations = {"local": "srv/mongodb/",
+locations = {"local": "../srv/",
              "develop":"/dsde/working/somaticDB/develop/data",
              "current":"/dsde/working/somaticDB/current/data"}
 
