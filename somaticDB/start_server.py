@@ -1,3 +1,4 @@
+import os
 import argparse
 
 script_description="""A protype script for starting mongoDB server."""
@@ -20,3 +21,5 @@ locations = {"local": "srv/mongodb/",
 
 
 cmd = "mongod --dbpath %s" % locations[args.location]
+
+os.system(cmd)

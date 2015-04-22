@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tcga/make_maras_vcf.py" afterPath="$PROJECT_DIR$/data/tcga/make_maras_vcf.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/somaticDB/start_server.py" afterPath="$PROJECT_DIR$/somaticDB/start_server.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SomaticDB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,34 +26,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="assess_vcf.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/somaticDB/assess_vcf.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1245">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DatabaseParser.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/somaticDB/DatabaseParser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1894" max-vertical-offset="3105">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3030">
               <caret line="158" column="123" selection-start-line="158" selection-start-column="123" selection-end-line="158" selection-end-column="123" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="make_maras_vcf.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/data/tcga/make_maras_vcf.py">
+      <file leaf-file-name="luad.submit.tsv" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/luad.submit.tsv">
+          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.83388704" vertical-offset="477" max-vertical-offset="1455">
-              <caret line="82" column="78" selection-start-line="82" selection-start-column="78" selection-end-line="82" selection-end-column="78" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="8070">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -60,8 +52,8 @@
       <file leaf-file-name="Variant.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/somaticDB/Variant.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="240">
-              <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+              <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -70,7 +62,7 @@
       <file leaf-file-name="read_and_submit.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/somaticDB/read_and_submit.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1050" max-vertical-offset="1395">
+            <state vertical-scroll-proportion="0.0" vertical-offset="409" max-vertical-offset="1335">
               <caret line="70" column="10" selection-start-line="70" selection-start-column="0" selection-end-line="77" selection-end-column="29" />
               <folding />
             </state>
@@ -87,12 +79,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="start_server.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="start_server.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/somaticDB/start_server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.3887689" vertical-offset="0" max-vertical-offset="926">
+              <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -135,6 +129,7 @@
         <option value="$PROJECT_DIR$/somaticDB/Variant.py" />
         <option value="$PROJECT_DIR$/somaticDB/DatabaseParser.py" />
         <option value="$PROJECT_DIR$/data/tcga/make_maras_vcf.py" />
+        <option value="$PROJECT_DIR$/somaticDB/start_server.py" />
       </list>
     </option>
   </component>
@@ -230,46 +225,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="tcga" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SomaticDB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SomaticDB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tcga" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="luad" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SomaticDB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SomaticDB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dream_challenge" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -517,16 +472,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/tcga/make_maras_vcf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="1245">
-          <caret line="51" column="5" selection-start-line="51" selection-start-column="0" selection-end-line="54" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/somaticDB/Variant.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="240">
@@ -555,7 +500,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -596,25 +543,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/somaticDB/read_and_submit.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="601" max-vertical-offset="1410">
-          <caret line="70" column="10" selection-start-line="70" selection-start-column="0" selection-end-line="77" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/somaticDB/get_bams.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="809">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/somaticDB/start_server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="786">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -636,28 +567,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/somaticDB/Variant.py">
+    <entry file="file://$PROJECT_DIR$/data/luad.submit.tsv">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
-          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8070">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/somaticDB/DatabaseParser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1894" max-vertical-offset="3105">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3030">
           <caret line="158" column="123" selection-start-line="158" selection-start-column="123" selection-end-line="158" selection-end-column="123" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/tcga/make_maras_vcf.py">
+    <entry file="file://$PROJECT_DIR$/somaticDB/Variant.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.83388704" vertical-offset="477" max-vertical-offset="1455">
-          <caret line="82" column="78" selection-start-line="82" selection-start-column="78" selection-end-line="82" selection-end-column="78" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/somaticDB/read_and_submit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="409" max-vertical-offset="1335">
+          <caret line="70" column="10" selection-start-line="70" selection-start-column="0" selection-end-line="77" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/somaticDB/start_server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3887689" vertical-offset="0" max-vertical-offset="926">
+          <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
