@@ -48,8 +48,8 @@
       <file leaf-file-name="make_maras_vcf.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data/tcga/make_maras_vcf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8006644" vertical-offset="477" max-vertical-offset="1455">
-              <caret line="80" column="29" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.81727576" vertical-offset="477" max-vertical-offset="1455">
+              <caret line="81" column="86" selection-start-line="81" selection-start-column="86" selection-end-line="81" selection-end-column="86" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -654,8 +654,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/tcga/make_maras_vcf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8006644" vertical-offset="477" max-vertical-offset="1455">
-          <caret line="80" column="29" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.81727576" vertical-offset="477" max-vertical-offset="1455">
+          <caret line="81" column="86" selection-start-line="81" selection-start-column="86" selection-end-line="81" selection-end-column="86" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
