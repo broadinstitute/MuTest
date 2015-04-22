@@ -50,7 +50,7 @@ file_stem = os.path.splitext( filename)[0]
 file_ext=".maf"
 reader = csv.DictReader(file, delimiter='\t')
 
-submission_filename = "luad.submit.txt"
+submission_filename = "luad.submit.tsv"
 
 submission_file = open(submission_filename,'w')
 submission_file = csv.DictWriter(submission_file,
