@@ -57,26 +57,35 @@ submission_file = csv.DictWriter(submission_file,
                                  fieldnames=['tumor_bam','normal_bam','filename','dataset_name','TP'],
                                  delimiter='\t')
 
+submission_file.writeheader()
+
 writer = {}
 
 for row in reader:
     sample_name = row['Tumor_Sample_Barcode'].split('-')[1:4]
     sample_name = "-".join(sample_name)
 
+    if ((sample_name,'tumor') not in samples_index) | ((sample_name,'normal') not in samples_index):
+        raise Exception("Missing sample.")
+
     if not writer.has_key(sample_name):
 
-        writer[sample_name] = csv.DictWriter(open(file_stem+"."+sample_name+file_ext,'w'),
+        sample_filename = file_stem+"."+sample_name+file_ext
+
+        writer[sample_name] = csv.DictWriter(open(sample_filename,'w'),
                                              delimiter='\t',
                                              fieldnames=reader.fieldnames)
 
         writer[sample_name].writeheader()
 
+        submission_file.writerrow({'tumor_bam': (sample_name,'tumor'),
+                                   'normal_bam': (sample_name,'normla'),
+                                   'filename':sample_filename,
+                                   'dataset_name':'LUAD',
+                                   'TP':'TP'})
+
     writer[sample_name].writerow(row)
 
-    if ((sample_name,'tumor') in samples_index) | ((sample_name,'normal') in samples_index):
-        pass
-    else:
-        raise Exception("Missing sample.")
 
 file.close()
 
