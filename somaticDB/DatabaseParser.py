@@ -131,8 +131,8 @@ class DatabaseParser:
             if dataset_type == "MAF":
 
                 chrom = record['Chromosome']
-                start = record['Start_Position']
-                end = record['End_Position']
+                start = record['Start_position']
+                end = record['End_position']
                 ref   = record['Reference_Allele']
                 alt   = record['Tumor_Seq_Allele2']
 
