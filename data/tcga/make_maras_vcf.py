@@ -1,7 +1,7 @@
 import csv
 import os
 
-filename = "/xchip/cga_home/mara/projects/m2/luad/fh.m2_evaluation_set.bam_file_paths.txt"
+filename = "luad/fh.m2_evaluation_set.bam_file_paths.txt"
 
 def move_to_front(selections, columns):
     selection_index = []
@@ -44,7 +44,7 @@ for row in reader:
             samples_index[(sample_name,'normal')]=current
 
 
-filename = 'luad/luad.mutation_comparison.master_file.corrected.txt'
+filename = 'luad/luad.mutation_comparison.master_file.corrected.tsv'
 file = open(filename,'r')
 file_stem = os.path.splitext( filename)[0]
 file_ext=".maf"
