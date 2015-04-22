@@ -50,6 +50,13 @@ file_stem = os.path.splitext( filename)[0]
 file_ext=".maf"
 reader = csv.DictReader(file, delimiter='\t')
 
+submission_filename = "luad.submit.txt"
+
+submission_file = open(submission_filename,'w')
+submission_file = csv.DictWriter(submission_file,
+                                 fieldnames=['tumor_bam','normal_bam','filename','dataset_name','TP'],
+                                 delimiter='\t')
+
 writer = {}
 
 for row in reader:
