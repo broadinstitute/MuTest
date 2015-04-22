@@ -2,6 +2,7 @@
 import gzip
 import vcf
 import csv
+import codecs
 import argparse
 import datetime
 from itertools import ifilter

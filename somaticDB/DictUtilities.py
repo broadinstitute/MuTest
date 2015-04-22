@@ -14,5 +14,5 @@ def stringify_dict(D):
 		if type(D[key]) == list:
 			D[key] = map(str,D[key])
 		else:
-			D[key] = str(D[key])
+			D[key] = unicode(D[key])
 	return D
