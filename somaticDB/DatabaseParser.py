@@ -43,8 +43,8 @@ class DatabaseParser:
     def get_variants(self, dataset_type=None):
 
         if dataset_type is None:
-            if any(self.filename.endswith(".table"),
-                   self.filename.endswith(".table.gz")):
+            if any([self.filename.endswith(".table"),
+                   self.filename.endswith(".table.gz")]):
                 dataset_type = "VCF_TABLE"
 
             if any(self.filename.endswith(".vcf"),
