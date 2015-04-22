@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tcga/make_maras_vcf.py" afterPath="$PROJECT_DIR$/data/tcga/make_maras_vcf.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SomaticDB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,8 +49,8 @@
       <file leaf-file-name="make_maras_vcf.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data/tcga/make_maras_vcf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.48504984" vertical-offset="282" max-vertical-offset="1215">
-              <caret line="48" column="41" selection-start-line="48" selection-start-column="41" selection-end-line="48" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.5016611" vertical-offset="417" max-vertical-offset="1320">
+              <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -654,8 +655,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/tcga/make_maras_vcf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48504984" vertical-offset="282" max-vertical-offset="1215">
-          <caret line="48" column="41" selection-start-line="48" selection-start-column="41" selection-end-line="48" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.5016611" vertical-offset="417" max-vertical-offset="1320">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
