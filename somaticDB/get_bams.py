@@ -77,7 +77,7 @@ for pair in interval_list:
 
     current_interval_file.close()
 
-    interval_file.write( interval_list[pair] +'\n')
+    interval_file.write( current_filename +'\n')
 
 tumor_bam_file.close()
 normal_bam_file.close()
