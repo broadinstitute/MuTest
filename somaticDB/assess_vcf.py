@@ -1,9 +1,9 @@
 import argparse
 import ast
 from pymongo import MongoClient
-from somaticDB import ConfusionMatrixManager
-from somaticDB.DatabaseParser import DatabaseParser
-from somaticDB.DictUtilities import get_entries_from_dict
+from ConfusionMatrixManager import ConfusionMatrixManager
+from DatabaseParser import DatabaseParser
+from DictUtilities import get_entries_from_dict
 import csv
 
 def pp_dict(x):
