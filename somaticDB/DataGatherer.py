@@ -16,9 +16,9 @@ class DataGatherer:
         file = open(self.filename)
         reader = csv.DictReader(file,delimiter='\t')
 
-        print self.filename
-
         for file_data in reader:
+
+            print file_data
 
             meta_data_dict = get_entries_from_dict(file_data,
 
