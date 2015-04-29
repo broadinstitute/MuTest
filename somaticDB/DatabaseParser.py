@@ -2,8 +2,25 @@ import gzip
 from itertools import ifilter
 import vcf
 import csv
-from somaticDB.DataGatherer import adjustIndelFormat
 from somaticDB.DictUtilities import merge_dicts , stringify_dict
+
+def adjustIndelFormat(start_position, ref, alt):
+    end_position = start_position
+    if len(alt) > 1:
+        #insertion
+        alt = alt[1:]
+        ref = "-"
+        end_position = start_position + 1
+
+    elif len(ref) > 1:
+        #deletion
+        alt = "-"
+        ref = ref[1:]
+        start_position += 1
+        end_position = start_position + len(ref) - 1
+    else:
+        raise Exception('Should not be here')
+    return start_position, end_position, ref, alt
 
 
 class DatabaseParser:

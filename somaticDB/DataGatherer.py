@@ -35,26 +35,6 @@ class DataGatherer:
                 yield merge_dicts(variant_dict, meta_data_dict)
 
 
-def adjustIndelFormat(start_position, ref, alt):
-    end_position = start_position
-    if len(alt) > 1:
-        #insertion
-        alt = alt[1:]
-        ref = "-"
-        end_position = start_position + 1
-
-    elif len(ref) > 1:
-        #deletion
-        alt = "-"
-        ref = ref[1:]
-        start_position += 1
-        end_position = start_position + len(ref) - 1
-    else:
-        raise Exception('Should not be here')
-    return start_position, end_position, ref, alt
-
-
-
 def main():
     script_description="""A protype script for submitting data to MongoDB"""
     script_epilog="""Created for evaluation of performance of Mutect 2 positives evaluation """
