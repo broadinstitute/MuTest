@@ -62,7 +62,7 @@ def main():
     args = parser.parse_args()
 
     filename = args.input
-    if filename == "ALL": filename = "../data/submission_data.tsv"
+    if filename == "CORE": filename = "../data/submission_data.tsv"
 
     gather = DataGatherer(filename)
 

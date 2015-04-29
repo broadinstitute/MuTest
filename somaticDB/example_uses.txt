@@ -6,7 +6,7 @@ python SomaticDatabase.py start -p /Users/kareemcarr/Desktop/SOMETEST
 use admin
 db.shutdownServer()
 
-python DataGatherer.py -p
+python DataGatherer.py -i CORE
 
 python read_and_submit.py -i submission_data.txt
 python get_bams.py -q "{'chromosome':'1', 'ref':'A'}" -o test_set.txt
