@@ -24,6 +24,7 @@ class DataGatherer:
 
                                                    keys=['tumor_bam',
                                                          'normal_bam',
+                                                         'data_filename',
                                                          'dataset_name',
                                                          'data_subset_name',
                                                          'evidence_type'],
