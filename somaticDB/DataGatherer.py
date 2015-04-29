@@ -41,7 +41,7 @@ class DataGatherer:
 
                 yield merge_dicts(variant_dict, meta_data_dict)
 
-                break
+            break
 
 
 def main():
