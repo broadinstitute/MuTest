@@ -4,7 +4,7 @@ import argparse
 import datetime
 from pymongo import MongoClient
 from DictUtilities import merge_dicts
-from somaticDB import DatabaseParser
+from DatabaseParser import DatabaseParser
 from DictUtilities import get_entries_from_dict
 
 
