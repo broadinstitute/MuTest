@@ -75,7 +75,7 @@ def main():
                                                                     'dataset_name',
                                                                     'data_subset_name',
                                                                     'evidence_type'],
-                                            type=dict)
+                                            return_type=dict)
 
         collection.update(unique_data, mongo_submission, upsert=True)
 
