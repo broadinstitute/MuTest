@@ -56,8 +56,8 @@ for record in collection.find(ast.literal_eval(args.query)):
     interval_list[(tumor_bam, normal_bam)].add(interval)
 
 tumor_bam_file = open(args.tumor_bam_list,'w')
-normal_bam_file = open(args.tumor_bam_list,'w')
-interval_file = open(args.tumor_bam_list,'w')
+normal_bam_file = open(args.normal_bam_list,'w')
+interval_file = open(args.interval_list,'w')
 
 file_stem, file_ext = os.path.splitext(args.tumor_bam_list)
 
