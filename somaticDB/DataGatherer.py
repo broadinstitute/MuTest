@@ -4,8 +4,8 @@ import argparse
 import datetime
 from pymongo import MongoClient
 from DictUtilities import merge_dicts
-from somaticDB import DatabaseParser
-from somaticDB.DictUtilities import get_entries_from_dict
+from DatabaseParser import DatabaseParser
+from DictUtilities import get_entries_from_dict
 
 
 class DataGatherer:
@@ -13,18 +13,25 @@ class DataGatherer:
         self.filename = filename
 
     def data_iterator(self):
-        file = open(self.filename)
+        file = open(self.filename,'rU')
         reader = csv.DictReader(file,delimiter='\t')
 
         for file_data in reader:
+
+            print "submitting:"
+            print "\tdataset:", file_data['dataset_name']
+            print "\tsubset:", file_data['data_subset_name']
+            print "\tevidence type", file_data['evidence_type']
+            print
 
             meta_data_dict = get_entries_from_dict(file_data,
 
                                                    keys=['tumor_bam',
                                                          'normal_bam',
+                                                         'data_filename',
                                                          'dataset_name',
                                                          'data_subset_name',
-                                                         'TP'],
+                                                         'evidence_type'],
 
                                                    return_type=dict)
 
@@ -33,6 +40,8 @@ class DataGatherer:
             for variant_dict in D.get_variants():
 
                 yield merge_dicts(variant_dict, meta_data_dict)
+
+                break
 
 
 def main():
@@ -46,7 +55,7 @@ def main():
 
 
     parser.add_argument('-i','--input', help='Input file name',type=str,metavar='<input_file>', default="ALL",required=True)
-    parser.add_argument('-p','--port', help='Input file name',type=int,metavar='<input_file>', default=27017,required=True)
+    parser.add_argument('-p','--port', help='Input file name',type=int,metavar='<input_file>', default=27017)
 
     args = parser.parse_args()
 
@@ -71,8 +80,8 @@ def main():
                                                                     'alt',
                                                                     'dataset_name',
                                                                     'data_subset_name',
-                                                                    'TP'],
-                                            type=dict)
+                                                                    'evidence_type'],
+                                            return_type=dict)
 
         collection.update(unique_data, mongo_submission, upsert=True)
 

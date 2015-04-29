@@ -1,7 +1,5 @@
 import argparse
-import subprocess
 from FileUtilities import is_dir_empty, safe_mkdir, spawn_daemon
-import time
 
 HOME_DIR = "/dsde/working/somaticDB/current"
 DEVELOPMENT_DIR = "/dsde/working/somaticDB/development"

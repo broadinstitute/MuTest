@@ -2,7 +2,7 @@ import gzip
 from itertools import ifilter
 import vcf
 import csv
-from somaticDB.DictUtilities import merge_dicts , stringify_dict
+from DictUtilities import merge_dicts , stringify_dict
 
 def adjustIndelFormat(start_position, ref, alt):
     end_position = start_position
@@ -19,7 +19,7 @@ def adjustIndelFormat(start_position, ref, alt):
         start_position += 1
         end_position = start_position + len(ref) - 1
     else:
-        raise Exception('Should not be here')
+        end_position = start_position
     return start_position, end_position, ref, alt
 
 
