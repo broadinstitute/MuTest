@@ -66,7 +66,7 @@ for pair in interval_list:
     tumor_bam_file.write(tumor_bam+'\n')
     normal_bam_file.write(normal_bam+'\n')
 
-    sample = record["data_subset_name"]
+    sample = "_".join(record["data_subset_name"].split())
 
     current_filename = file_stem+"."+sample+file_ext
 
