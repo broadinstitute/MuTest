@@ -18,7 +18,11 @@ class DataGatherer:
 
         for file_data in reader:
 
-            print file_data
+            print "submitting:"
+            print "\tdataset:", file_data['dataset_name']
+            print "\tsubset:", file_data['data_subset_name']
+            print "\tevidence type", file_data['evidence_type']
+            print
 
             meta_data_dict = get_entries_from_dict(file_data,
 
@@ -36,6 +40,8 @@ class DataGatherer:
             for variant_dict in D.get_variants():
 
                 yield merge_dicts(variant_dict, meta_data_dict)
+
+                break
 
 
 def main():
