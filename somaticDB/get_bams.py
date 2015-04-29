@@ -18,22 +18,22 @@ parser.add_argument('-q','--query', help='The query needed to generate the bam l
 parser.add_argument('-n','--normal_bam_list',
                     help='normal bam list',
                     type=str,
-                    metavar='<output_file>',
+                    metavar='<normal_bam_list>',
                     required=True)
 
 parser.add_argument('-t','--tumor_bam_list',
                     help='tumor bam list',
                     type=str ,
-                    metavar='<output_file>',
+                    metavar='<tumor_bam_list>',
                     required=True)
 
 parser.add_argument('-i','--interval_list',
-                    help='tumor bam list',
+                    help='interval list',
                     type=str ,
-                    metavar='<output_file>',
+                    metavar='<interval_list>',
                     required=True)
 
-parser.add_argument('-p','--port', help='Input file name',type=int,metavar='<input_file>', default=27017)
+parser.add_argument('-p','--port', help='Port.',type=int,metavar='<port>', default=27017)
 
 args = parser.parse_args()
 
@@ -59,7 +59,7 @@ tumor_bam_file = open(args.tumor_bam_list,'w')
 normal_bam_file = open(args.tumor_bam_list,'w')
 interval_file = open(args.tumor_bam_list,'w')
 
-file_stem, file_ext = os.path.splitext(args.tumor_bam_list)[0]
+file_stem, file_ext = os.path.splitext(args.tumor_bam_list)
 
 for pair in interval_list:
     tumor_bam, normal_bam = pair
