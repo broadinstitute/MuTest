@@ -62,7 +62,7 @@
         <entry file="file://$PROJECT_DIR$/somaticDB/DataGatherer.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.24861878" vertical-offset="0" max-vertical-offset="1350">
-              <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+              <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
               <folding>
                 <element signature="e#1#11#0" expanded="true" />
               </folding>
@@ -885,7 +885,7 @@
     <entry file="file://$PROJECT_DIR$/somaticDB/DataGatherer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24861878" vertical-offset="0" max-vertical-offset="1350">
-          <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+          <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
           <folding>
             <element signature="e#1#11#0" expanded="true" />
           </folding>
