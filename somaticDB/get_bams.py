@@ -81,6 +81,6 @@ for pair in interval_list:
 
 tumor_bam_file.close()
 normal_bam_file.close()
-interval_list.close()
+interval_file.close()
 
 
