@@ -37,8 +37,10 @@ class DataGatherer:
 
             D = DatabaseParser(meta_data_dict['data_filename'])
 
+            n=0
             for variant_dict in D.get_variants():
-
+                n+=1
+                if (n > 100): break
                 yield merge_dicts(variant_dict, meta_data_dict)
 
             break
