@@ -71,7 +71,7 @@ def main():
                                                                     'alt',
                                                                     'dataset_name',
                                                                     'data_subset_name',
-                                                                    'TP'],
+                                                                    'evidence_type'],
                                             type=dict)
 
         collection.update(unique_data, mongo_submission, upsert=True)
