@@ -4,6 +4,12 @@ import ast
 import os
 from pymongo import MongoClient
 
+def get_sample_name(filename):
+    sample_name = filename.split('/')[4]
+    sample_name = sample_name.split('-')[0:3]
+    sample_name = "-".join(sample_name)
+    return sample_name
+
 script_description="""A protype script for figuring out what bams one needs to run one's samples on"""
 script_epilog="""Created for evaluation of performance of Mutect 2 positives evaluation """
 
@@ -66,7 +72,9 @@ for pair in interval_list:
     tumor_bam_file.write(tumor_bam+'\n')
     normal_bam_file.write(normal_bam+'\n')
 
-    sample = "_".join(record["data_subset_name"].split())
+    sample = get_sample_name(tumor_bam)
+
+    print sample
 
     current_filename = file_stem+"."+sample+file_ext
 
