@@ -24,7 +24,7 @@ class DataGatherer:
                                                          'normal_bam',
                                                          'dataset_name',
                                                          'data_subset_name',
-                                                         'TP'],
+                                                         'evidence_type'],
 
                                                    return_type=dict)
 
