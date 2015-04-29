@@ -13,7 +13,7 @@ class DataGatherer:
         self.filename = filename
 
     def data_iterator(self):
-        file = open(self.filename)
+        file = open(self.filename,'rt')
         reader = csv.DictReader(file,delimiter='\t')
 
         for file_data in reader:
