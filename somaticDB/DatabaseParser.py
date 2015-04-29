@@ -1,32 +1,10 @@
-
 import gzip
+from itertools import ifilter
 import vcf
 import csv
-import codecs
-import argparse
-import datetime
-from itertools import ifilter
-from pymongo import MongoClient, DESCENDING
-from DictUtilities import merge_dicts, stringify_dict
+from somaticDB.DataGatherer import adjustIndelFormat
+from somaticDB.DictUtilities import merge_dicts , stringify_dict
 
-
-def adjustIndelFormat(start_position, ref, alt):
-    end_position = start_position
-    if len(alt) > 1:
-        #insertion
-        alt = alt[1:]
-        ref = "-"
-        end_position = start_position + 1
-
-    elif len(ref) > 1:
-        #deletion
-        alt = "-"
-        ref = ref[1:]
-        start_position += 1
-        end_position = start_position + len(ref) - 1
-    else:
-        raise Exception('Should not be here')
-    return start_position, end_position, ref, alt
 
 class DatabaseParser:
     """
@@ -144,59 +122,3 @@ class DatabaseParser:
                         core_data[key] = record[key]
 
                 yield core_data
-
-
-def main():
-    script_description="""A protype script for submitting data to MongoDB"""
-    script_epilog="""Created for evaluation of performance of Mutect 2 positives evaluation """
-
-    parser = argparse.ArgumentParser(fromfile_prefix_chars='@',
-                                    description=script_description,
-                                    epilog=script_epilog,
-                                    formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-
-
-    parser.add_argument('-i','--input', help='Input file name',type=str,metavar='<input_file>', default="ALL",required=True)
-
-    args = parser.parse_args()
-
-    filename = args.input
-
-    if filename == "ALL": filename = "../data/submission_data.tsv"
-
-    file = open(args.input)
-    reader = csv.DictReader(file,delimiter='\t')
-
-    client = MongoClient('localhost', 27017)
-    db = client['SomaticMutations']
-    collection = db['ValidationData']
-
-    for file_data in reader:
-        tumor_bam     = file_data['tumor_bam']
-        normal_bam    = file_data['normal_bam']
-        dataset       = file_data['dataset_name']
-        evidence_type = file_data['TP']
-
-        D = DatabaseParser(file_data['filename'])
-
-        for variant_dict in D.get_variants():
-
-
-            additional_data_dict={'tumor_bam'      : tumor_bam,
-                                  'normal_bam'     : normal_bam,
-                                  'dataset'        : dataset,
-                                  'evidence_type'  : evidence_type,
-                                  'submission_time': str(datetime.datetime.utcnow())}
-
-            mongo_submission = merge_dicts(variant_dict, additional_data_dict)
-
-            mongo_submission = stringify_dict(mongo_submission)
-
-            collection.insert(mongo_submission)
-
-    db.collection.ensure_index([("submission_time" , DESCENDING), ("unique" , True), ("dropDups" , True)])
-
-
-
-if __name__ == "__main__":
-    main()
