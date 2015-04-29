@@ -1,6 +1,7 @@
+from collections import defaultdict
 import argparse
-import pymongo
 import ast
+import os
 from pymongo import MongoClient
 
 script_description="""A protype script for figuring out what bams one needs to run one's samples on"""
@@ -13,7 +14,25 @@ parser = argparse.ArgumentParser(fromfile_prefix_chars='@',
 
 
 parser.add_argument('-q','--query', help='The query needed to generate the bam list',type=str,metavar='<query>', required=True)
-parser.add_argument('-o','--output_file',help='The file to output the bam list to',type=str,metavar='<output_file>',required=True)
+
+parser.add_argument('-n','--normal_bam_list',
+                    help='normal bam list',
+                    type=str,
+                    metavar='<output_file>',
+                    required=True)
+
+parser.add_argument('-t','--tumor_bam_list',
+                    help='tumor bam list',
+                    type=str ,
+                    metavar='<output_file>',
+                    required=True)
+
+parser.add_argument('-i','--interval_list',
+                    help='tumor bam list',
+                    type=str ,
+                    metavar='<output_file>',
+                    required=True)
+
 parser.add_argument('-p','--port', help='Input file name',type=int,metavar='<input_file>', default=27017)
 
 args = parser.parse_args()
@@ -22,16 +41,46 @@ client = MongoClient('localhost', args.port)
 db = client['SomaticMutations']
 collection = db['ValidationData']
 
-bam_list=set([])
+tumor_bam_list  = set([])
+normal_bam_list = set([])
+interval_list   = defaultdict(set)
 
 for record in collection.find(ast.literal_eval(args.query)):
-	 bam_list.add((record['tumor_bam'],record['normal_bam']))
+    tumor_bam  = record['tumor_bam']
+    normal_bam = record['normal_bam']
 
-bam_list =list(bam_list)
+    interval = "%s:%s-%s" % (record['chromosome'],
+                             record['start'],
+                             record['end'])
 
-outfile = open(args.output_file,'w')
-for bam in bam_list:
-	print >>outfile,"\t".join(bam)
+    interval_list[(tumor_bam, normal_bam)].add(interval)
 
-outfile.close()
+tumor_bam_file = open(args.tumor_bam_list,'w')
+normal_bam_file = open(args.tumor_bam_list,'w')
+interval_file = open(args.tumor_bam_list,'w')
+
+file_stem, file_ext = os.path.splitext(args.tumor_bam_list)[0]
+
+for pair in interval_list:
+    tumor_bam, normal_bam = pair
+    tumor_bam_file.write(tumor_bam+'\n')
+    normal_bam_file.write(normal_bam+'\n')
+
+    sample = record["data_subset_name"]
+
+    current_filename = file_stem+"."+sample+file_ext
+
+    current_interval_file = open(current_filename,'w')
+
+    for interval in list(interval_list[pair]):
+        current_interval_file.write(interval+"\n")
+
+    current_interval_file.close()
+
+    interval_file.write( interval_list[pair] +'\n')
+
+tumor_bam_file.close()
+normal_bam_file.close()
+interval_list.close()
+
 

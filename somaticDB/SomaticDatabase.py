@@ -2,7 +2,7 @@ import argparse
 from FileUtilities import is_dir_empty, safe_mkdir, spawn_daemon
 
 HOME_DIR = "/dsde/working/somaticDB/current"
-DEVELOPMENT_DIR = "/dsde/working/somaticDB/development"
+DEVELOP_DIR = "/dsde/working/somaticDB/development"
 TEST_DIR = "/dsde/working/somaticDB/test"
 
 
@@ -17,7 +17,7 @@ class SomaticDatabase:
         if location == "HOME":
             self.location = HOME_DIR
         elif location == "DEVELOPMENT":
-            self.location = DEVELOPMENT_DIR
+            self.location = DEVELOP_DIR
         elif location == "TEST":
             self.location = TEST_DIR
         else:
