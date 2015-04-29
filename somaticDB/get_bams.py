@@ -14,10 +14,11 @@ parser = argparse.ArgumentParser(fromfile_prefix_chars='@',
 
 parser.add_argument('-q','--query', help='The query needed to generate the bam list',type=str,metavar='<query>', required=True)
 parser.add_argument('-o','--output_file',help='The file to output the bam list to',type=str,metavar='<output_file>',required=True)
+parser.add_argument('-p','--port', help='Input file name',type=int,metavar='<input_file>', default=27017)
 
 args = parser.parse_args()
 
-client = MongoClient('localhost', 27017)
+client = MongoClient('localhost', args.port)
 db = client['SomaticMutations']
 collection = db['ValidationData']
 
