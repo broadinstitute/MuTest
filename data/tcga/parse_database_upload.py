@@ -10,7 +10,7 @@ def selection_copy(source_file_names, destination_file_name,column,values):
 
     for source_file_name in source_file_names:
         infile = open(source_file_name,'r')
-        reader = csv.DictReader(infile)
+        reader = csv.DictReader(infile,delimiter='\t')
 
         if outfile is not None:
             outfile = open(destination_file_name,'w')
