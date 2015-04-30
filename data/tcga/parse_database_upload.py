@@ -41,13 +41,13 @@ for filename in filenames:
 
     for row in reader:
 
-        print row
+        if row['maf_file_capture_validated_consensus']=='': continue
 
         sample_id = get_sample_name(row['tumor_bam'])
 
         maf_filename = ".".join([tumor_type,sample_id,"snp.maf"])
 
-        if row['maf_file_capture_validated_consensus']=='': continue
+
 
         print "converting ... %s" % row['individual_id']
 
