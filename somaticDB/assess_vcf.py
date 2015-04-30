@@ -45,7 +45,7 @@ gather = DataGatherer(args.input)
 
 
 
-for variant_dict in gather.data_iterator(keys=['dataset_name','data_subset_name']):
+for variant_dict in gather.data_iterator(keys=['dataset_name','data_subset_name','data_filename']):
     variant_data = get_entries_from_dict(variant_dict, keys=VARIANT_FIELDS,return_type=list)
     test_data_set.add(variant_data)
 
