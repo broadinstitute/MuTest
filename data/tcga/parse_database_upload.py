@@ -2,6 +2,10 @@ import glob
 import os
 import csv
 
+def get_sample_name(filename):
+    sample_name = filename.split('/')[4]
+    return sample_name
+
 filenames = glob.glob("*database_upload.txt")
 
 def selection_copy(source_file_name, destination_file_name,column,values):
@@ -37,7 +41,9 @@ for filename in filenames:
 
     for row in reader:
 
-        maf_filename = ".".join([tumor_type,row['individual_id'],"snp.maf"])
+        sample_id = get_sample_name(row['tumor_bam'])
+
+        maf_filename = ".".join([tumor_type,sample_id,"snp.maf"])
 
         if row['maf_file_capture_validated_consensus']=='': continue
 
@@ -48,7 +54,7 @@ for filename in filenames:
         out_row['normal_bam'] = row['normal_bam']
         out_row['data_filename'] = os.path.abspath(os.path.join(tumor_type,maf_filename))
         out_row['dataset_name'] = tumor_type
-        out_row['data_subset_name'] = row['individual_id']
+        out_row['data_subset_name'] = sample_id
         out_row['evidence_type'] = 'TP'
         out_row['originator'] = 'Mara Rosenberg'
 

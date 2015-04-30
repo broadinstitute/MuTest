@@ -7,8 +7,6 @@ import random
 
 def get_sample_name(filename):
     sample_name = filename.split('/')[4]
-    sample_name = sample_name.split('-')[0:3]
-    sample_name = "-".join(sample_name)
     return sample_name
 
 script_description="""A protype script for figuring out what bams one needs to run one's samples on"""
