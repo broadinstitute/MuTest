@@ -17,8 +17,6 @@ def selection_copy(source_file_name, destination_file_name,column,values):
 
     for row in reader:
 
-        print row.keys()
-
         if row[column] in values:
             writer.writerow(row)
 
@@ -27,6 +25,8 @@ def selection_copy(source_file_name, destination_file_name,column,values):
 
 ['indel_maf_file_capture_validated_consensus', 'tumor_bam', 'normal_bam', 'individual_id', 'maf_file_capture_validated_consensus']
 
+outfile = open('tcga.tsv','w')
+writer = csv.DictWriter(outfile, delimiter='\t', fieldnames=fieldnames)
 
 for filename in filenames:
     tumor_type = filename.split('.')[0].lower()
@@ -36,9 +36,6 @@ for filename in filenames:
     reader = csv.DictReader(infile, delimiter='\t')
 
     fieldnames = ['tumor_bam','normal_bam','data_filename','dataset_name','data_subset_name','evidence_type','originator']
-
-    outfile = open('tcga.tsv','w')
-    writer = csv.DictWriter(outfile, delimiter='\t', fieldnames=fieldnames)
 
     for row in reader:
 
@@ -54,7 +51,7 @@ for filename in filenames:
         out_row['originator'] = 'Mara Rosenberg'
 
         selection_copy(source_file_name=row['maf_file_capture_validated_consensus'],
-                       destination_file_name=maf_filename,
+                       destination_file_name=os.path.join(tumor_type,maf_filename),
                        column='validation_status_consensus',
                        values=['TP'])
 
@@ -64,6 +61,3 @@ for filename in filenames:
 
         writer.writerow(out_row)
 
-        break
-
-    break
