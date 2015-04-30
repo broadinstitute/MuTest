@@ -26,7 +26,7 @@ class DataGatherer:
             print "submitting:"
             print "\tdataset:", file_data['dataset_name']
             print "\tsubset:", file_data['data_subset_name']
-            print "\tevidence type", file_data['evidence_type']
+            if file_data.has_key('evidence_type'): print "\tevidence type", file_data['evidence_type']
             print
 
             meta_data_dict = get_entries_from_dict(file_data,
