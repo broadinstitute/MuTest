@@ -41,6 +41,8 @@ for filename in filenames:
 
         if row['maf_file_capture_validated_consensus']=='': continue
 
+        print "converting ... %s" % row['individual_id']
+
         out_row={}
         out_row['tumor_bam']  = row['tumor_bam']
         out_row['normal_bam'] = row['normal_bam']
