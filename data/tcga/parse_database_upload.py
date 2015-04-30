@@ -19,8 +19,11 @@ def selection_copy(source_file_names, destination_file_name,column,values):
         values = set(values)
 
         for row in reader:
-                if row[column] in values:
-                        writer.writerow(row)
+
+            print row.keys()
+
+            if row[column] in values:
+                writer.writerow(row)
 
         infile.close()
     outfile.close()
