@@ -16,6 +16,7 @@ def selection_copy(source_file_name, destination_file_name,column,values):
 
     outfile = open(destination_file_name,'w')
     writer = csv.DictWriter(outfile, fieldnames=reader.fieldnames,delimiter='\t')
+    writer.writeheader()
 
     values = set(values)
 
@@ -31,6 +32,7 @@ fieldnames = ['tumor_bam','normal_bam','data_filename','dataset_name','data_subs
 
 outfile = open('tcga.tsv','w')
 writer = csv.DictWriter(outfile, delimiter='\t', fieldnames=fieldnames)
+writer.writeheader()
 
 for filename in filenames:
     tumor_type = filename.split('.')[0].lower()
