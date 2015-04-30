@@ -5,7 +5,7 @@ from ConfusionMatrixManager import ConfusionMatrixManager
 from DatabaseParser import DatabaseParser
 from DictUtilities import get_entries_from_dict
 import csv
-import DataGatherer
+from DataGatherer import DataGatherer
 
 
 def pp_dict(x):
