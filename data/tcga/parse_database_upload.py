@@ -41,6 +41,8 @@ for filename in filenames:
 
     for row in reader:
 
+        print row
+
         if row['maf_file_capture_validated_consensus']=='': continue
 
         sample_id = get_sample_name(row['tumor_bam'])
@@ -49,7 +51,7 @@ for filename in filenames:
 
 
 
-        print "converting ... %s" % row['individual_id']
+        print "converting ... %s" % sample_id
 
         out_row={}
         out_row['tumor_bam']  = row['tumor_bam']
