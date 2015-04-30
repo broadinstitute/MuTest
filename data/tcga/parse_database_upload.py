@@ -14,7 +14,7 @@ def selection_copy(source_file_names, destination_file_name,column,values):
 
         if outfile is not None:
             outfile = open(destination_file_name,'w')
-            writer = csv.DictWriter(outfile, fieldnames=reader.fieldnames)
+            writer = csv.DictWriter(outfile, fieldnames=reader.fieldnames,delimiter='\t')
 
         values = set(values)
 
