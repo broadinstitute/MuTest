@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/somaticDB/parse_database_upload.py" afterPath="$PROJECT_DIR$/somaticDB/parse_database_upload.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/submission_data.tsv" afterPath="$PROJECT_DIR$/data/submission_data.tsv" />
     </list>
     <ignored path="SomaticDB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parse_database_upload.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="parse_database_upload.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/somaticDB/parse_database_upload.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1260">
-              <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.09944751" vertical-offset="0" max-vertical-offset="1260">
+              <caret line="6" column="53" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -106,11 +105,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="submission_data.tsv" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="submission_data.tsv" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/submission_data.tsv">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2733485" vertical-offset="0" max-vertical-offset="878">
-              <caret line="8" column="239" selection-start-line="8" selection-start-column="239" selection-end-line="8" selection-end-column="239" />
+            <state vertical-scroll-proportion="-4.4444447" vertical-offset="0" max-vertical-offset="330">
+              <caret line="8" column="239" selection-start-line="8" selection-start-column="237" selection-end-line="8" selection-end-column="237" />
               <folding />
             </state>
           </provider>
@@ -187,8 +186,8 @@
         <option value="$PROJECT_DIR$/somaticDB/get_bams.py" />
         <option value="$PROJECT_DIR$/data/tcga/parse_database_upload.py" />
         <option value="$PROJECT_DIR$/somaticDB/example_uses.txt" />
-        <option value="$PROJECT_DIR$/somaticDB/parse_database_upload.py" />
         <option value="$PROJECT_DIR$/data/submission_data.tsv" />
+        <option value="$PROJECT_DIR$/somaticDB/parse_database_upload.py" />
       </list>
     </option>
   </component>
@@ -922,25 +921,25 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/somaticDB/parse_database_upload.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1260">
-          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/submission_data.tsv">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2733485" vertical-offset="0" max-vertical-offset="878">
-          <caret line="8" column="239" selection-start-line="8" selection-start-column="239" selection-end-line="8" selection-end-column="239" />
+        <state vertical-scroll-proportion="-4.4444447" vertical-offset="0" max-vertical-offset="330">
+          <caret line="8" column="239" selection-start-line="8" selection-start-column="237" selection-end-line="8" selection-end-column="237" />
           <folding />
         </state>
       </provider>
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/somaticDB/parse_database_upload.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09944751" vertical-offset="0" max-vertical-offset="1260">
+          <caret line="6" column="53" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

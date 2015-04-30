@@ -4,7 +4,7 @@ import csv
 
 def get_sample_name(filename):
     sample_name = filename.split('/')
-    position = sample_name.index('picard_aggregation'')
+    position = sample_name.index('picard_aggregation')
     return sample_name[position+2]
 
 os.chdir("../data/tcga")
