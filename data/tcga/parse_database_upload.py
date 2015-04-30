@@ -12,7 +12,7 @@ def selection_copy(source_file_names, destination_file_name,column,values):
         infile = open(source_file_name,'r')
         reader = csv.DictReader(infile,delimiter='\t')
 
-        if outfile is not None:
+        if outfile is None:
             outfile = open(destination_file_name,'w')
             writer = csv.DictWriter(outfile, fieldnames=reader.fieldnames,delimiter='\t')
 
