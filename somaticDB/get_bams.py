@@ -75,7 +75,7 @@ for pair in interval_list:
 
     #sample = get_sample_name(tumor_bam)
     sample =\
-        "".join([random.choice('abcdef0123456789') for k in range(40)])+".list"
+        "".join([random.choice('abcdef0123456789') for k in range(40)])
 
     print sample
 
