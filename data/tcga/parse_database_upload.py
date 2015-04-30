@@ -4,28 +4,25 @@ import csv
 
 filenames = glob.glob("*database_upload.txt")
 
-def selection_copy(source_file_names, destination_file_name,column,values):
+def selection_copy(source_file_name, destination_file_name,column,values):
 
-    outfile = None
+    infile = open(source_file_name,'r')
+    reader = csv.DictReader(infile,delimiter='\t')
 
-    for source_file_name in source_file_names:
-        infile = open(source_file_name,'r')
-        reader = csv.DictReader(infile,delimiter='\t')
 
-        if outfile is None:
-            outfile = open(destination_file_name,'w')
-            writer = csv.DictWriter(outfile, fieldnames=reader.fieldnames,delimiter='\t')
+    outfile = open(destination_file_name,'w')
+    writer = csv.DictWriter(outfile, fieldnames=reader.fieldnames,delimiter='\t')
 
-        values = set(values)
+    values = set(values)
 
-        for row in reader:
+    for row in reader:
 
-            print row.keys()
+        print row.keys()
 
-            if row[column] in values:
-                writer.writerow(row)
+        if row[column] in values:
+            writer.writerow(row)
 
-        infile.close()
+    infile.close()
     outfile.close()
 
 ['indel_maf_file_capture_validated_consensus', 'tumor_bam', 'normal_bam', 'individual_id', 'maf_file_capture_validated_consensus']
@@ -45,7 +42,7 @@ for filename in filenames:
 
     for row in reader:
 
-        maf_filename = ".".join([tumor_type,row['individual_id'],"maf"])
+        maf_filename = ".".join([tumor_type,row['individual_id'],"snp.maf"])
 
         out_row={}
         out_row['tumor_bam']  = row['tumor_bam']
@@ -56,11 +53,14 @@ for filename in filenames:
         out_row['evidence_type'] = 'TP'
         out_row['originator'] = 'Mara Rosenberg'
 
-        selection_copy(source_file_names=[row['indel_maf_file_capture_validated_consensus'],
-                                          row['maf_file_capture_validated_consensus']],
+        selection_copy(source_file_names=row['maf_file_capture_validated_consensus'],
                        destination_file_name=maf_filename,
                        column='validation_status_consensus',
                        values=['TP'])
+
+        #row['indel_maf_file_capture_validated_consensus'],
+
+
 
         writer.writerrow(out_row)
 

@@ -58,8 +58,8 @@
       <file leaf-file-name="parse_database_upload.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data/tcga/parse_database_upload.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2320442" vertical-offset="0" max-vertical-offset="1125">
-              <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.71823204" vertical-offset="175" max-vertical-offset="1125">
+              <caret line="55" column="84" selection-start-line="55" selection-start-column="84" selection-end-line="55" selection-end-column="84" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -905,8 +905,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/tcga/parse_database_upload.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2320442" vertical-offset="0" max-vertical-offset="1125">
-          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.71823204" vertical-offset="175" max-vertical-offset="1125">
+          <caret line="55" column="84" selection-start-line="55" selection-start-column="84" selection-end-line="55" selection-end-column="84" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
