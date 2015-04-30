@@ -39,7 +39,7 @@ for filename in filenames:
 
         maf_filename = ".".join([tumor_type,row['individual_id'],"snp.maf"])
 
-        print row
+        if row['maf_file_capture_validated_consensus']=='': continue
 
         out_row={}
         out_row['tumor_bam']  = row['tumor_bam']
