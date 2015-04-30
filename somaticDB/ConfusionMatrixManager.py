@@ -45,7 +45,7 @@ class ConfusionMatrixManager:
 
             writer.writerow(data_dict)
 
-            file.close()
+        file.close()
 
 
 
