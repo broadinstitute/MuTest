@@ -53,7 +53,7 @@ for filename in filenames:
         out_row['evidence_type'] = 'TP'
         out_row['originator'] = 'Mara Rosenberg'
 
-        selection_copy(source_file_names=row['maf_file_capture_validated_consensus'],
+        selection_copy(source_file_name=row['maf_file_capture_validated_consensus'],
                        destination_file_name=maf_filename,
                        column='validation_status_consensus',
                        values=['TP'])
