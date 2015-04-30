@@ -3,6 +3,7 @@ import argparse
 import ast
 import os
 from pymongo import MongoClient
+import random
 
 def get_sample_name(filename):
     sample_name = filename.split('/')[4]
@@ -72,7 +73,9 @@ for pair in interval_list:
     tumor_bam_file.write(tumor_bam+'\n')
     normal_bam_file.write(normal_bam+'\n')
 
-    sample = get_sample_name(tumor_bam)
+    #sample = get_sample_name(tumor_bam)
+    sample =\
+        "".join([random.choice('abcdef0123456789') for k in range(40)])+".list"
 
     print sample
 
