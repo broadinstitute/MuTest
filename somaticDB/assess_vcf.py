@@ -65,8 +65,6 @@ for record in collection.find(ast.literal_eval(args.query)):
 
     evidence_type = record['evidence_type']
 
-    print record
-
     if evidence_type == 'TP': truth_data_set.add(confirmation_data_tuple)
     if evidence_type == 'FP': false_data_set.add(confirmation_data_tuple)
 
