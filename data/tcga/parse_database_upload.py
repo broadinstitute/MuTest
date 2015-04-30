@@ -8,7 +8,7 @@ def selection_copy(source_file_names, destination_file_name,column,values):
 
     outfile = None
 
-    for source_file_name in source_file_names
+    for source_file_name in source_file_names:
         infile = open(source_file_name,'r')
         reader = csv.DictReader(infile)
 
