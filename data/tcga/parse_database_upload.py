@@ -41,6 +41,8 @@ for filename in filenames:
 
     for row in reader:
 
+        print row['tumor_bam']
+
         sample_id = get_sample_name(row['tumor_bam'])
 
         maf_filename = ".".join([tumor_type,sample_id,"snp.maf"])
