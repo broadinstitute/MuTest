@@ -62,7 +62,7 @@ for filename in filenames:
 
 
 
-        writer.writerrow(out_row)
+        writer.writerow(out_row)
 
         break
 
