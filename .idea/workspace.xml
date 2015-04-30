@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tcga/parse_database_upload.py" afterPath="$PROJECT_DIR$/data/tcga/parse_database_upload.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/somaticDB/DataGatherer.py" afterPath="$PROJECT_DIR$/somaticDB/DataGatherer.py" />
     </list>
     <ignored path="SomaticDB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,11 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parse_database_upload.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="parse_database_upload.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/tcga/parse_database_upload.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.16574585" vertical-offset="0" max-vertical-offset="1080">
-              <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
+              <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -111,11 +111,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataGatherer.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="DataGatherer.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/somaticDB/DataGatherer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1485">
-              <caret line="44" column="63" selection-start-line="44" selection-start-column="63" selection-end-line="44" selection-end-column="63" />
+            <state vertical-scroll-proportion="0.33701658" vertical-offset="580" max-vertical-offset="1485">
+              <caret line="59" column="75" selection-start-line="59" selection-start-column="75" selection-end-line="59" selection-end-column="75" />
               <folding>
                 <element signature="e#1#11#0" expanded="true" />
               </folding>
@@ -174,8 +174,8 @@
         <option value="$PROJECT_DIR$/somaticDB/SomaticDatabase.py" />
         <option value="$PROJECT_DIR$/somaticDB/get_bams.py" />
         <option value="$PROJECT_DIR$/somaticDB/example_uses.txt" />
-        <option value="$PROJECT_DIR$/somaticDB/DataGatherer.py" />
         <option value="$PROJECT_DIR$/data/tcga/parse_database_upload.py" />
+        <option value="$PROJECT_DIR$/somaticDB/DataGatherer.py" />
       </list>
     </option>
   </component>
@@ -877,16 +877,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/somaticDB/DataGatherer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1485">
-          <caret line="44" column="63" selection-start-line="44" selection-start-column="63" selection-end-line="44" selection-end-column="63" />
-          <folding>
-            <element signature="e#1#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/make_maras_vcf.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="1425">
@@ -905,10 +895,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/tcga/parse_database_upload.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16574585" vertical-offset="0" max-vertical-offset="1080">
-          <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
+          <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/somaticDB/DataGatherer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33701658" vertical-offset="580" max-vertical-offset="1485">
+          <caret line="59" column="75" selection-start-line="59" selection-start-column="75" selection-end-line="59" selection-end-column="75" />
+          <folding>
+            <element signature="e#1#11#0" expanded="true" />
           </folding>
         </state>
       </provider>

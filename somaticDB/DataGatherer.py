@@ -57,7 +57,7 @@ def main():
 
     parser.add_argument('-i','--input', help='Input file name',type=str,metavar='<input_file>', default="ALL",required=True)
     parser.add_argument('-p','--port', help='Input file name',type=int,metavar='<input_file>', default=27017)
-    parser.add_argument('-d','--demo', help='Demo mode',action=)
+    parser.add_argument('-d','--demo', help='Demo mode',action='store_true')
 
     args = parser.parse_args()
 
