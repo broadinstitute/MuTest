@@ -39,10 +39,12 @@ for filename in filenames:
 
         maf_filename = ".".join([tumor_type,row['individual_id'],"snp.maf"])
 
+        print row
+
         out_row={}
         out_row['tumor_bam']  = row['tumor_bam']
         out_row['normal_bam'] = row['normal_bam']
-        out_row['data_filename'] = os.path.join(tumor_type,maf_filename)
+        out_row['data_filename'] = os.path.abspath(os.path.join(tumor_type,maf_filename))
         out_row['dataset_name'] = tumor_type
         out_row['data_subset_name'] = row['individual_id']
         out_row['evidence_type'] = 'TP'
@@ -54,8 +56,6 @@ for filename in filenames:
                        values=['TP'])
 
         #row['indel_maf_file_capture_validated_consensus'],
-
-
 
         writer.writerow(out_row)
 
