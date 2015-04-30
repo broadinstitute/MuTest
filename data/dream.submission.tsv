@@ -1,3 +1,4 @@
+tumor_bam	normal_bam	data_filename	dataset_name	data_subset_name	evidence_type	originator
 /cga/tcga-gsc/benchmark/data/dream/synthetic.challenge.set1.tumor.v2.bam	/cga/tcga-gsc/benchmark/data/dream/synthetic.challenge.set1.normal.v2.bam	../data/dream_challenge/synthetic.challenge.set1.tumor.all.truth.vcf	dream	set_1	TP	Dream Challenge
 /cga/tcga-gsc/benchmark/data/dream/synthetic.challenge.set2.tumor.bam	/cga/tcga-gsc/benchmark/data/dream/synthetic.challenge.set2.normal.bam	../data/dream_challenge/synthetic.challenge.set2.tumor.all.truth.vcf	Dream	set_2	TP	Dream Challenge
 /cga/tcga-gsc/benchmark/data/dream/synthetic.challenge.set3.tumor.bam	/cga/tcga-gsc/benchmark/data/dream/synthetic.challenge.set3.normal.bam	../data/dream_challenge/synthetic.challenge.set3.tumor.20pctmasked.truth.vcf	dream	set_3	TP	Dream Challenge
