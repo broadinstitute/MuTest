@@ -37,7 +37,7 @@ class ConfusionMatrixManager:
             data_dict = [self.pool[key].get(score_type=fieldname) for\
                         fieldname in fieldnames]
 
-            if (isinstance(key) == list)|(isinstance(key) == tuple):
+            if isinstance(key,list)|isinstance(key,tuple):
                 data_dict["collection"] = "_".join(key)
             else:
                 data_dict["collection"] = key
