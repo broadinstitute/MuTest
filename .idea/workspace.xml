@@ -61,7 +61,7 @@
         <entry file="file://$PROJECT_DIR$/somaticDB/ConfusionMatrixManager.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.6132597" vertical-offset="0" max-vertical-offset="905">
-              <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
+              <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -923,7 +923,7 @@
     <entry file="file://$PROJECT_DIR$/somaticDB/ConfusionMatrixManager.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6132597" vertical-offset="0" max-vertical-offset="905">
-          <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
+          <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
           <folding />
         </state>
       </provider>

@@ -37,6 +37,8 @@ class ConfusionMatrixManager:
             data_dict = [self.pool[key].get(score_type=fieldname) for\
                         fieldname in fieldnames]
 
+            print key
+
             data_dict["collection"] = key
 
 
