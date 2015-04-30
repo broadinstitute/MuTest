@@ -70,6 +70,10 @@ for record in collection.find(ast.literal_eval(args.query)):
 
 all_variants = set.union(truth_data_set,false_data_set,test_data_set)
 
+print list(truth_data_set)[:10]
+print list(false_data_set)[:10]
+print list(test_data_set)[:10]
+exit(0)
 
 def save_set(filename = "", header=None, data=""):
     data = list(data)

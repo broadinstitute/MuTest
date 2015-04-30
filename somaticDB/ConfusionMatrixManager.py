@@ -33,6 +33,8 @@ class ConfusionMatrixManager:
                                 fieldnames=["collection"]+fieldnames,
                                 delimiter='\t')
 
+        writer.writeheader()
+
         for key in self.pool.keys():
             data_dict = dict([(fieldname,self.pool[key].get(score_type=fieldname)) for\
                         fieldname in fieldnames])
