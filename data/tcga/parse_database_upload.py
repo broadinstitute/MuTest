@@ -23,7 +23,7 @@ def selection_copy(source_file_name, destination_file_name,column,values):
     infile.close()
     outfile.close()
 
-['indel_maf_file_capture_validated_consensus', 'tumor_bam', 'normal_bam', 'individual_id', 'maf_file_capture_validated_consensus']
+fieldnames = ['tumor_bam','normal_bam','data_filename','dataset_name','data_subset_name','evidence_type','originator']
 
 outfile = open('tcga.tsv','w')
 writer = csv.DictWriter(outfile, delimiter='\t', fieldnames=fieldnames)
@@ -34,8 +34,6 @@ for filename in filenames:
 
     infile = open(filename)
     reader = csv.DictReader(infile, delimiter='\t')
-
-    fieldnames = ['tumor_bam','normal_bam','data_filename','dataset_name','data_subset_name','evidence_type','originator']
 
     for row in reader:
 
