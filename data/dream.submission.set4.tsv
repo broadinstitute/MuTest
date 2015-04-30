@@ -1,0 +1,2 @@
+tumor_bam	normal_bam	data_filename	dataset_name	data_subset_name	evidence_type	originator
+/cga/tcga-gsc/benchmark/data/dream/synthetic.challenge.set4.tumor.bam	/cga/tcga-gsc/benchmark/data/dream/synthetic.challenge.set4.normal.bam	../data/dream_challenge/synthetic.challenge.set4.tumour.25pctmasked.truth.vcf	dream	set_4	TP	Dream Challenge
