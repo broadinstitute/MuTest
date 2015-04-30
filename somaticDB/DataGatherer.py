@@ -12,7 +12,7 @@ class DataGatherer:
     def __init__(self, filename):
         self.filename = filename
 
-    def data_iterator(self):
+    def data_iterator(self, demo=False):
         file = open(self.filename,'rU')
         reader = csv.DictReader(file,delimiter='\t')
 
@@ -40,10 +40,9 @@ class DataGatherer:
             n=0
             for variant_dict in D.get_variants():
                 n+=1
-                if (n > 100): break
+                if demo:
+                    if (n > 50): break
                 yield merge_dicts(variant_dict, meta_data_dict)
-
-            break
 
 
 def main():
@@ -58,11 +57,12 @@ def main():
 
     parser.add_argument('-i','--input', help='Input file name',type=str,metavar='<input_file>', default="ALL",required=True)
     parser.add_argument('-p','--port', help='Input file name',type=int,metavar='<input_file>', default=27017)
+    parser.add_argument('-d','--demo', help='Demo mode',action=)
 
     args = parser.parse_args()
 
     filename = args.input
-    if filename == "CORE": filename = "../data/submission_data.tsv"
+    if filename == "DEFAULT": filename = "../data/submission_data.tsv"
 
     gather = DataGatherer(filename)
 
@@ -70,7 +70,7 @@ def main():
     db = client['SomaticMutations']
     collection = db['ValidationData']
 
-    for variant_dict in gather.data_iterator():
+    for variant_dict in gather.data_iterator(demo=args.demo):
 
         additional_data_dict={'submission_time': str(datetime.datetime.utcnow())}
 

@@ -8,6 +8,8 @@ db.shutdownServer()
 
 python DataGatherer.py -i CORE
 
+python get_bams.py -q "{'chromosome':'1'}" -n normal.list -t tumor.list -i interval.list
+
 python read_and_submit.py -i submission_data.txt
 python get_bams.py -q "{'chromosome':'1', 'ref':'A'}" -o test_set.txt
 python assess_vcf.py -i b37_cosmic_v54_120711.vcf -q "{'chromosome':'1', 'ref':'A'}"
