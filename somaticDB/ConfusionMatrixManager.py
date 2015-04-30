@@ -34,12 +34,12 @@ class ConfusionMatrixManager:
                                 delimiter='\t')
 
         for key in self.pool.keys():
-            data_dict = [self.pool[key].get(score_type=fieldname) for\
-                        fieldname in fieldnames]
+            data_dict = dict([(fieldname,self.pool[key].get(score_type=fieldname)) for\
+                        fieldname in fieldnames])
 
             if isinstance(key,list)|isinstance(key,tuple):
-                data_dict["collection"] = "-".join(list(key))
-            else:  
+                data_dict["collection"] = " ".join(list(key))
+            else:
                 data_dict["collection"] = key
 
 
