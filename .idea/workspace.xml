@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/somaticDB/parse_database_upload.py" afterPath="$PROJECT_DIR$/somaticDB/parse_database_upload.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/somaticDB/DatabaseParser.py" afterPath="$PROJECT_DIR$/somaticDB/DatabaseParser.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/somaticDB/FileUtilities.py" afterPath="$PROJECT_DIR$/somaticDB/FileUtilities.py" />
     </list>
     <ignored path="SomaticDB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,18 +29,18 @@
       <file leaf-file-name="assess_vcf.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/somaticDB/assess_vcf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2115">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1210" max-vertical-offset="2115">
               <caret line="3" column="57" selection-start-line="3" selection-start-column="57" selection-end-line="3" selection-end-column="57" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="version.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/somaticDB/version.py">
+      <file leaf-file-name="ConfusionMatrix.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/somaticDB/ConfusionMatrix.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
-              <caret line="0" column="17" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1230">
+              <caret line="50" column="9" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -48,7 +49,7 @@
       <file leaf-file-name="SomaticDatabase.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/somaticDB/SomaticDatabase.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="780" max-vertical-offset="1800">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1800">
               <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
@@ -57,20 +58,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="example_uses.txt" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/somaticDB/example_uses.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="parse_database_upload.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="parse_database_upload.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/somaticDB/parse_database_upload.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.21546961" vertical-offset="0" max-vertical-offset="1320">
+            <state vertical-scroll-proportion="0.0" vertical-offset="415" max-vertical-offset="1320">
               <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
@@ -79,11 +70,53 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="DataGatherer.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/somaticDB/DataGatherer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="385" max-vertical-offset="1395">
+              <caret line="59" column="75" selection-start-line="59" selection-start-column="75" selection-end-line="59" selection-end-column="75" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DatabaseParser.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/somaticDB/DatabaseParser.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.9146758" vertical-offset="1341" max-vertical-offset="2280">
+              <caret line="142" column="53" selection-start-line="142" selection-start-column="53" selection-end-line="142" selection-end-column="53" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileUtilities.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/somaticDB/FileUtilities.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
+              <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DictUtilities.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/somaticDB/DictUtilities.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
+              <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="GBM.database_upload.txt" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/tcga/GBM.database_upload.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0754717" vertical-offset="26" max-vertical-offset="146175">
-              <caret line="2" column="373" selection-start-line="2" selection-start-column="374" selection-end-line="2" selection-end-column="374" />
+            <state vertical-scroll-proportion="854.73584" vertical-offset="66856" max-vertical-offset="146175">
+              <caret line="1437" column="0" selection-start-line="1437" selection-start-column="0" selection-end-line="1437" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -96,45 +129,6 @@
         <entry file="file://$PROJECT_DIR$/data/tcga/LUAD.database_upload.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.49056605" vertical-offset="26" max-vertical-offset="96555">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="submission_data.tsv" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/submission_data.tsv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.4444447" vertical-offset="0" max-vertical-offset="330">
-              <caret line="8" column="239" selection-start-line="8" selection-start-column="237" selection-end-line="8" selection-end-column="237" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="STAD.database_upload.txt" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/tcga/STAD.database_upload.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="83.50944" vertical-offset="5416" max-vertical-offset="44805">
-              <caret line="66" column="38" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="THCA.database_upload.txt" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/tcga/THCA.database_upload.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49056605" vertical-offset="26" max-vertical-offset="53820">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -174,13 +168,11 @@
         <option value="$PROJECT_DIR$/somaticDB/DatabaseCollector.py" />
         <option value="$PROJECT_DIR$/somaticDB/evaluator.py" />
         <option value="$PROJECT_DIR$/somaticDB/ConfusionStatistics.py" />
-        <option value="$PROJECT_DIR$/somaticDB/FileUtilities.py" />
         <option value="$PROJECT_DIR$/somaticDB/DictUtilities.py" />
         <option value="$PROJECT_DIR$/somaticDB/ConfusionMatrix.py" />
         <option value="$PROJECT_DIR$/somaticDB/ConfusionMatrixManager.py" />
         <option value="$PROJECT_DIR$/somaticDB/Variant.py" />
         <option value="$PROJECT_DIR$/somaticDB/assess_vcf.py" />
-        <option value="$PROJECT_DIR$/somaticDB/DatabaseParser.py" />
         <option value="$PROJECT_DIR$/somaticDB/SomaticDatabase.py" />
         <option value="$PROJECT_DIR$/somaticDB/DataGatherer.py" />
         <option value="$PROJECT_DIR$/somaticDB/get_bams.py" />
@@ -188,6 +180,8 @@
         <option value="$PROJECT_DIR$/somaticDB/example_uses.txt" />
         <option value="$PROJECT_DIR$/data/submission_data.tsv" />
         <option value="$PROJECT_DIR$/somaticDB/parse_database_upload.py" />
+        <option value="$PROJECT_DIR$/somaticDB/FileUtilities.py" />
+        <option value="$PROJECT_DIR$/somaticDB/DatabaseParser.py" />
       </list>
     </option>
   </component>
@@ -773,54 +767,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/somaticDB/FileUtilities.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
-          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/somaticDB/DictUtilities.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
-          <caret line="25" column="7" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/somaticDB/DatabaseParser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2220">
-          <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#11#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/somaticDB/DataGatherer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="580" max-vertical-offset="1485">
-          <caret line="59" column="75" selection-start-line="59" selection-start-column="75" selection-end-line="59" selection-end-column="75" />
-          <folding>
-            <element signature="e#1#11#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/somaticDB/ConfusionMatrixManager.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855">
           <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/somaticDB/ConfusionMatrix.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="325" max-vertical-offset="1230">
-          <caret line="56" column="4" selection-start-line="56" selection-start-column="0" selection-end-line="70" selection-end-column="56" />
           <folding />
         </state>
       </provider>
@@ -843,16 +793,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/somaticDB/SomaticDatabase.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1800">
-          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/somaticDB/example_uses.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
@@ -861,10 +801,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/tcga/LUAD.database_upload.txt">
+    <entry file="file://$PROJECT_DIR$/somaticDB/version.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49056605" vertical-offset="26" max-vertical-offset="96555">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+          <caret line="0" column="17" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/submission_data.tsv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.4444447" vertical-offset="0" max-vertical-offset="330">
+          <caret line="8" column="239" selection-start-line="8" selection-start-column="237" selection-end-line="8" selection-end-column="237" />
           <folding />
         </state>
       </provider>
@@ -894,26 +842,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/somaticDB/assess_vcf.py">
+    <entry file="file://$PROJECT_DIR$/data/tcga/LUAD.database_upload.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2115">
-          <caret line="3" column="57" selection-start-line="3" selection-start-column="57" selection-end-line="3" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/somaticDB/version.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
-          <caret line="0" column="17" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/tcga/GBM.database_upload.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0754717" vertical-offset="26" max-vertical-offset="146175">
-          <caret line="2" column="373" selection-start-line="2" selection-start-column="374" selection-end-line="2" selection-end-column="374" />
+        <state vertical-scroll-proportion="0.49056605" vertical-offset="26" max-vertical-offset="96555">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -921,10 +853,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/submission_data.tsv">
+    <entry file="file://$PROJECT_DIR$/data/tcga/GBM.database_upload.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.4444447" vertical-offset="0" max-vertical-offset="330">
-          <caret line="8" column="239" selection-start-line="8" selection-start-column="237" selection-end-line="8" selection-end-column="237" />
+        <state vertical-scroll-proportion="854.73584" vertical-offset="66856" max-vertical-offset="146175">
+          <caret line="1437" column="0" selection-start-line="1437" selection-start-column="0" selection-end-line="1437" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -934,8 +866,68 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/somaticDB/parse_database_upload.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21546961" vertical-offset="0" max-vertical-offset="1320">
+        <state vertical-scroll-proportion="0.0" vertical-offset="415" max-vertical-offset="1320">
           <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/somaticDB/DataGatherer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="385" max-vertical-offset="1395">
+          <caret line="59" column="75" selection-start-line="59" selection-start-column="75" selection-end-line="59" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/somaticDB/assess_vcf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2115">
+          <caret line="3" column="57" selection-start-line="3" selection-start-column="57" selection-end-line="3" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/somaticDB/ConfusionMatrix.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1230">
+          <caret line="50" column="9" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/somaticDB/SomaticDatabase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1800">
+          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/somaticDB/DictUtilities.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/somaticDB/FileUtilities.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/somaticDB/DatabaseParser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9146758" vertical-offset="1341" max-vertical-offset="2280">
+          <caret line="142" column="53" selection-start-line="142" selection-start-column="53" selection-end-line="142" selection-end-column="53" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>

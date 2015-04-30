@@ -122,6 +122,8 @@ class DatabaseParser:
                             if "," in core_data[key]:
                                 core_data[key] = core_data[key].split(',')[k]
 
+                    core_data = stringify_dict(core_data)
+
                     yield core_data
 
             if dataset_type == "MAF":
@@ -137,5 +139,7 @@ class DatabaseParser:
                 for key in record:
                     if key not in ['Chromosome','Start_Position','End_Position','Reference_Allele','Tumor_Seq_Allele1','Tumor_Seq_Allele2']:
                         core_data[key] = record[key]
+
+                core_data = stringify_dict(core_data)
 
                 yield core_data
