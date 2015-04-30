@@ -67,10 +67,14 @@ for filename in filenames:
         out_row['evidence_type'] = 'TP'
         out_row['originator'] = 'Mara Rosenberg'
 
-        selection_copy(source_file_name=row['maf_file_capture_validated_consensus'],
-                       destination_file_name=os.path.join(tumor_type,maf_filename),
-                       column='validation_status_consensus',
-                       values=['TP'])
+        destination = os.path.join(tumor_type,maf_filename)
+
+        if not os.path.exists(destination):
+
+            selection_copy(source_file_name=row['maf_file_capture_validated_consensus'],
+                           destination_file_name=os.path.join(tumor_type,maf_filename),
+                           column='validation_status_consensus',
+                           values=['TP'])
 
         #row['indel_maf_file_capture_validated_consensus'],
 
