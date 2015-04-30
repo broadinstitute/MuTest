@@ -74,7 +74,7 @@ all_variants = set.union(truth_data_set,false_data_set,test_data_set)
 def save_set(filename = "", header=None, data=""):
     data = list(data)
 
-    file = open(filename)
+    file = open(filename,'w')
     writer = csv.DictWriter(file, fieldnames=header, delimiter='\t')
 
     for row in data:
