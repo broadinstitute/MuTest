@@ -6,7 +6,9 @@ def get_sample_name(filename):
     sample_name = filename.split('/')[4]
     return sample_name
 
-filenames = glob.glob("../data/tcga/*database_upload.txt")
+os.chdir("../data/tcga")
+
+filenames = glob.glob("*database_upload.txt")
 
 def selection_copy(source_file_name, destination_file_name,column,values):
 
@@ -30,7 +32,9 @@ def selection_copy(source_file_name, destination_file_name,column,values):
 
 fieldnames = ['tumor_bam','normal_bam','data_filename','dataset_name','data_subset_name','evidence_type','originator']
 
-outfile = open('../data/tcga.submission.tsv','w')
+
+
+outfile = open('../tcga.submission.tsv','w')
 writer = csv.DictWriter(outfile, delimiter='\t', fieldnames=fieldnames)
 writer.writeheader()
 
