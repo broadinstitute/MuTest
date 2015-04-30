@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/dream.submission.tsv" afterPath="$PROJECT_DIR$/data/dream.submission.tsv" />
-    </list>
+    <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="" />
     <ignored path="SomaticDB.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -107,8 +105,8 @@
       <file leaf-file-name="dream.submission.tsv" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data/dream.submission.tsv">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="905">
-              <caret line="0" column="102" selection-start-line="0" selection-start-column="102" selection-end-line="0" selection-end-column="102" />
+            <state vertical-scroll-proportion="0.13259669" vertical-offset="0" max-vertical-offset="905">
+              <caret line="4" column="142" selection-start-line="4" selection-start-column="142" selection-end-line="4" selection-end-column="142" />
               <folding />
             </state>
           </provider>
@@ -906,8 +904,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/dream.submission.tsv">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="905">
-          <caret line="0" column="102" selection-start-line="0" selection-start-column="102" selection-end-line="0" selection-end-column="102" />
+        <state vertical-scroll-proportion="0.13259669" vertical-offset="0" max-vertical-offset="905">
+          <caret line="4" column="142" selection-start-line="4" selection-start-column="142" selection-end-line="4" selection-end-column="142" />
           <folding />
         </state>
       </provider>
