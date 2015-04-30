@@ -41,7 +41,7 @@ for filename in filenames:
 
     for row in reader:
 
-        print row['tumor_bam']
+        print row['tumor_bam']+" (missing)"
 
         sample_id = get_sample_name(row['tumor_bam'])
 
