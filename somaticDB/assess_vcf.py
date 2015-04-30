@@ -5,6 +5,8 @@ from ConfusionMatrixManager import ConfusionMatrixManager
 from DatabaseParser import DatabaseParser
 from DictUtilities import get_entries_from_dict
 import csv
+import DataGatherer
+
 
 def pp_dict(x):
     for key in x.keys():
@@ -39,9 +41,11 @@ false_data_set = set([])
 missed_positives     = set([])
 discovered_negatives = set([])
 
-D = DatabaseParser(args.input)
+gather = DataGatherer(args.input)
 
-for variant_dict in D.get_variants():
+
+
+for variant_dict in gather.data_iterator(keys=['dataset_name','data_subset_name']):
     variant_data = get_entries_from_dict(variant_dict, keys=VARIANT_FIELDS,return_type=list)
     test_data_set.add(variant_data)
 
@@ -77,6 +81,8 @@ def save_set(filename = "", header=None, data=""):
         writer.writerow(dict(zip(header,row)))
 
     file.close()
+
+
 
 for variant in all_variants:
     false_positive = variant in false_data_set
