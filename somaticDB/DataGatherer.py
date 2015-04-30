@@ -70,7 +70,12 @@ def main():
     db = client['SomaticMutations']
     collection = db['ValidationData']
 
+
+    BULK_BUFFER = 100
+    buffer = []
+    n =0
     for variant_dict in gather.data_iterator(demo=args.demo):
+
 
         additional_data_dict={'submission_time': str(datetime.datetime.utcnow())}
 
@@ -85,8 +90,14 @@ def main():
                                                                     'evidence_type'],
                                             return_type=dict)
 
-        collection.update(unique_data, mongo_submission, upsert=True)
 
+        n+=1
+        if not n%BULK_BUFFER:
+            collection.update(buffer, mongo_submission, upsert=True)
+            buffer = []
+            #collection.update(unique_data, mongo_submission, upsert=True)
+        else:
+            buffer.append(unique_data)
 
 
 

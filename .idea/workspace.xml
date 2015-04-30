@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/somaticDB/DatabaseParser.py" afterPath="$PROJECT_DIR$/somaticDB/DatabaseParser.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/somaticDB/FileUtilities.py" afterPath="$PROJECT_DIR$/somaticDB/FileUtilities.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/somaticDB/DataGatherer.py" afterPath="$PROJECT_DIR$/somaticDB/DataGatherer.py" />
     </list>
     <ignored path="SomaticDB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,20 +69,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataGatherer.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="DataGatherer.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/somaticDB/DataGatherer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="385" max-vertical-offset="1395">
-              <caret line="59" column="75" selection-start-line="59" selection-start-column="75" selection-end-line="59" selection-end-column="75" />
+            <state vertical-scroll-proportion="0.83425415" vertical-offset="595" max-vertical-offset="1560">
+              <caret line="96" column="23" selection-start-line="96" selection-start-column="23" selection-end-line="96" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DatabaseParser.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="DatabaseParser.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/somaticDB/DatabaseParser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9146758" vertical-offset="1341" max-vertical-offset="2280">
+            <state vertical-scroll-proportion="-30.346153" vertical-offset="1341" max-vertical-offset="2280">
               <caret line="142" column="53" selection-start-line="142" selection-start-column="53" selection-end-line="142" selection-end-column="53" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
@@ -174,7 +173,6 @@
         <option value="$PROJECT_DIR$/somaticDB/Variant.py" />
         <option value="$PROJECT_DIR$/somaticDB/assess_vcf.py" />
         <option value="$PROJECT_DIR$/somaticDB/SomaticDatabase.py" />
-        <option value="$PROJECT_DIR$/somaticDB/DataGatherer.py" />
         <option value="$PROJECT_DIR$/somaticDB/get_bams.py" />
         <option value="$PROJECT_DIR$/data/tcga/parse_database_upload.py" />
         <option value="$PROJECT_DIR$/somaticDB/example_uses.txt" />
@@ -182,6 +180,7 @@
         <option value="$PROJECT_DIR$/somaticDB/parse_database_upload.py" />
         <option value="$PROJECT_DIR$/somaticDB/FileUtilities.py" />
         <option value="$PROJECT_DIR$/somaticDB/DatabaseParser.py" />
+        <option value="$PROJECT_DIR$/somaticDB/DataGatherer.py" />
       </list>
     </option>
   </component>
@@ -473,7 +472,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37423688" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37423688" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -874,14 +873,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/somaticDB/DataGatherer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="385" max-vertical-offset="1395">
-          <caret line="59" column="75" selection-start-line="59" selection-start-column="75" selection-end-line="59" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/somaticDB/assess_vcf.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2115">
@@ -926,11 +917,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/somaticDB/DatabaseParser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9146758" vertical-offset="1341" max-vertical-offset="2280">
+        <state vertical-scroll-proportion="-30.346153" vertical-offset="1341" max-vertical-offset="2280">
           <caret line="142" column="53" selection-start-line="142" selection-start-column="53" selection-end-line="142" selection-end-column="53" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/somaticDB/DataGatherer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.83425415" vertical-offset="595" max-vertical-offset="1560">
+          <caret line="96" column="23" selection-start-line="96" selection-start-column="23" selection-end-line="96" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
