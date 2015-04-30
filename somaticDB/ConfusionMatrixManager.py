@@ -28,7 +28,7 @@ class ConfusionMatrixManager:
         return self.pool[item]
 
     def save(self,filename=None, fieldnames = None):
-        file = open(file,'w')
+        file = open(filename,'w')
         writer = csv.DictWriter(file,
                                 fieldnames=["collection"]+fieldnames,
                                 delimiter='\t')
