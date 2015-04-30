@@ -44,6 +44,8 @@ for filename in filenames:
         print row
 
         if row['maf_file_capture_validated_consensus']=='': continue
+        if row['tumor_bam']=='': continue
+        if row['normal_bam']=='': continue
 
         sample_id = get_sample_name(row['tumor_bam'])
 
