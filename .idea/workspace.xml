@@ -28,8 +28,8 @@
       <file leaf-file-name="assess_vcf.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/somaticDB/assess_vcf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.10497238" vertical-offset="415" max-vertical-offset="2205">
-              <caret line="34" column="81" selection-start-line="34" selection-start-column="81" selection-end-line="34" selection-end-column="81" />
+            <state vertical-scroll-proportion="0.2044199" vertical-offset="520" max-vertical-offset="2205">
+              <caret line="47" column="76" selection-start-line="47" selection-start-column="76" selection-end-line="47" selection-end-column="76" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -920,8 +920,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/somaticDB/assess_vcf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10497238" vertical-offset="415" max-vertical-offset="2205">
-          <caret line="34" column="81" selection-start-line="34" selection-start-column="81" selection-end-line="34" selection-end-column="81" />
+        <state vertical-scroll-proportion="0.2044199" vertical-offset="520" max-vertical-offset="2205">
+          <caret line="47" column="76" selection-start-line="47" selection-start-column="76" selection-end-line="47" selection-end-column="76" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
