@@ -32,7 +32,7 @@ client = MongoClient('localhost', 27017)
 db = client['SomaticMutations']
 collection = db['ValidationData']
 
-VARIANT_FIELDS=['chromosome','start','ref','alt','dataset','data_subset']
+VARIANT_FIELDS=['chromosome','start','ref','alt','dataset_name','data_subset_name']
 
 test_data_set = set([])
 truth_data_set = set([])
