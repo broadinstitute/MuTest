@@ -79,7 +79,7 @@ for pair in interval_list:
 
     print sample
 
-    current_filename = file_stem+"."+sample+file_ext
+    current_filename = "intervals."+sample+".list"
 
     current_interval_file = open(current_filename,'w')
 
