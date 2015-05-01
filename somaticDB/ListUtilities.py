@@ -13,6 +13,7 @@ def make_list(x):
 def contains_a_list(s):
     for entry in s:
         if isinstance(entry, list): return True
+        if isinstance(entry, tuple): return True
     return False
 
 
