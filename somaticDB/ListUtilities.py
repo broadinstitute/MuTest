@@ -18,8 +18,10 @@ def list_product(*args):
     result = map(lambda x: chain(*x), result)
     result = list(result)
 
-    print "chain:", (result)
-    print
+    print "chain:", result
+
+    for thing in result:
+        print list(thing)
 
     result = map(list, result)
 
