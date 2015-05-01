@@ -68,10 +68,12 @@ class DatabaseParser:
                     start = record.POS
                     ref = record.REF
                     alt = str(alt)
+                    
+                    filter = record.FILTER
 
                     start, end, ref, alt = adjustIndelFormat(start, ref, alt)
 
-                    core_data = {"chromosome":chrom,"start":start,"end":end,"ref":ref,"alt":alt}
+                    core_data = {"chromosome":chrom,"start":start,"end":end,"ref":ref,"alt":alt,"FILTER":filter}
 
                     for key in record.INFO:
                         if key in ['MLEAC','MLEAF','AC','AF']:
