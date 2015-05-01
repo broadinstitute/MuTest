@@ -5,8 +5,17 @@ def drop_none(y):
 
 def list_product(*args, **kwargs):
     result = list(product(*args, **kwargs))
+
+    print result
+
     result = map(chain, result)
+
+    print result
+
     result = map(list, result)
+
+    print result
+
     return result
 
 def list_product_drop_none(*args, **kwargs):
