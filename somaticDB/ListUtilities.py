@@ -12,6 +12,7 @@ def make_list(x):
 
 def contains_a_list(s):
     for entry in s:
+        print entry
         if isinstance(entry, list): return True
         if isinstance(entry, tuple): return True
     return False
@@ -19,13 +20,10 @@ def contains_a_list(s):
 
 def flatten(s):
     if isinstance(s,list)|isinstance(s,tuple):
-        if contains_a_list(s):
-            data = [flatten(entry) for entry in s]
-            return list(chain(*data))
-        else:
-            return s
+        data = [flatten(entry) for entry in s]
+        return list(chain(*data))
     else:
-        return s
+        return [s]
 
 
 def list_product(*args):
