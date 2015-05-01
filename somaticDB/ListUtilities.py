@@ -13,7 +13,7 @@ def make_list(x):
 def flatten(s):
     if isinstance(s,list)|isinstance(s,tuple):
         data = [flatten(entry) for entry in s]
-        return chain(*data)
+        return list(chain(*data))
     else:
         return s
 
