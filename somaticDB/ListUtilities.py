@@ -20,7 +20,7 @@ def flatten(s):
     if isinstance(s,list)|isinstance(s,tuple):
         if contains_a_list(s):
             data = [flatten(entry) for entry in s]
-            return list(chain(data))
+            return list(chain(*data))
         else:
             return s
     else:
