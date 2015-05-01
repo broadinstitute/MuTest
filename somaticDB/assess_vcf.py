@@ -50,7 +50,7 @@ for variant_dict in gather.data_iterator(keys=['dataset_name','data_subset_name'
 
     filter = variant_dict['FILTER']
 
-    print filter, len(filter)
+    #print filter, len(filter)
 
     if len(filter) > 0: continue
 
