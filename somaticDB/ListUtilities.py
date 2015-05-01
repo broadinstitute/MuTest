@@ -11,7 +11,7 @@ def list_product(*args, **kwargs):
 
     result = map(chain, result)
 
-    print result
+    print list(result)
     print
 
     result = map(list, result)
