@@ -12,10 +12,10 @@ def make_list(x):
 def list_product(*args):
     result = list(product(*args))
 
-    print "product", result
+    print "product:", result
     print
 
-    result = map(chain, result)
+    result = map(lambda x: chain(*x), result)
 
     print "chain:", list(result)
     print
