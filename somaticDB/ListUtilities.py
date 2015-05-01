@@ -16,10 +16,12 @@ def list_product(*args):
     print
 
     result = map(lambda x: chain(*x), result)
-    result = drop_none(result)
+    result = list(result)
 
-    print "chain:", list(result)
+    print "chain:", (result)
     print
+
+    for thing in
 
     result = map(list, result)
 
