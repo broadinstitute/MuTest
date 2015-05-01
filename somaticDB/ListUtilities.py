@@ -21,8 +21,6 @@ def list_product(*args):
     print "chain:", (result)
     print
 
-    for thing in
-
     result = map(list, result)
 
     print result
