@@ -97,7 +97,7 @@ for variant in all_variants:
     dataset, data_subset = variant[4:]
 
     variant_categories = list_product_drop_none((dataset,(dataset, data_subset)),
-                                                (None, all_variants[variant]))
+                                                ((None), (all_variants[variant])))
 
 
     print variant_categories
