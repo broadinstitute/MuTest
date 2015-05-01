@@ -68,7 +68,7 @@ class DatabaseParser:
                     start = record.POS
                     ref = record.REF
                     alt = str(alt)
-                    
+
                     filter = record.FILTER
 
                     start, end, ref, alt = adjustIndelFormat(start, ref, alt)
