@@ -99,6 +99,9 @@ for variant in all_variants:
     variant_categories = list_product_drop_none((dataset,(dataset, data_subset)),
                                                 (None, all_variants[variant]))
 
+
+    print variant_categories
+
     if true_positive:
         if submitted:
             ConfusionDataTPs.add(keys=variant_categories,
