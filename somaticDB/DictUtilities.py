@@ -1,9 +1,11 @@
 import csv
 
-def merge_dicts(dict1, dict2):
+def merge_dicts(*dictionaries):
     new_dict = {}
-    for key in dict1: new_dict[key] = dict1[key]
-    for key in dict2: new_dict[key] = dict2[key]
+
+    for dictionary in dictionaries:
+        for key in dictionary: new_dict[key] = dictionary[key]
+
     return new_dict
 
 def clean_up_lists(D):

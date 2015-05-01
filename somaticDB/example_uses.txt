@@ -9,7 +9,6 @@ db.shutdownServer()
 python DataGatherer.py -i CORE
 python DataGatherer.py -i ../data/dream.submission.set4.tsv
 
-
 python get_bams.py -q "{'chromosome':'1'}" -n normal.list -t tumor.list -i interval.list
 
 

@@ -2,10 +2,12 @@ import argparse
 import ast
 from pymongo import MongoClient
 from ConfusionMatrixManager import ConfusionMatrixManager
-from DatabaseParser import DatabaseParser
-from DictUtilities import get_entries_from_dict
+from DictUtilities import get_entries_from_dict, merge_dicts
 import csv
 from DataGatherer import DataGatherer
+from ListUtilities import list_product_drop_none
+from Variant import is_indel, is_snp, is_sv, get_variant_type
+
 
 
 def pp_dict(x):
@@ -34,9 +36,9 @@ collection = db['ValidationData']
 
 VARIANT_FIELDS=['chromosome','start','ref','alt','dataset_name','data_subset_name']
 
-test_data_set = set([])
-truth_data_set = set([])
-false_data_set = set([])
+test_data_set  = {}
+truth_data_set = {}
+false_data_set = {}
 
 missed_positives     = set([])
 discovered_negatives = set([])
@@ -47,7 +49,7 @@ gather = DataGatherer(args.input)
 
 for variant_dict in gather.data_iterator(keys=['dataset_name','data_subset_name','data_filename']):
     variant_data = get_entries_from_dict(variant_dict, keys=VARIANT_FIELDS,return_type=tuple)
-    test_data_set.add(variant_data)
+    test_data_set[variant_data] = get_variant_type(variant_dict)
 
 data_collection=[]
 
@@ -65,10 +67,10 @@ for record in collection.find(ast.literal_eval(args.query)):
 
     evidence_type = record['evidence_type']
 
-    if evidence_type == 'TP': truth_data_set.add(confirmation_data_tuple)
-    if evidence_type == 'FP': false_data_set.add(confirmation_data_tuple)
+    if evidence_type == 'TP': truth_data_set[confirmation_data_tuple] = get_variant_type(record)
+    if evidence_type == 'FP': false_data_set[confirmation_data_tuple] = get_variant_type(record)
 
-all_variants = set.union(truth_data_set,false_data_set,test_data_set)
+all_variants = merge_dicts(truth_data_set,false_data_set,test_data_set)
 
 print list(truth_data_set)[:10]
 print list(false_data_set)[:10]
@@ -94,35 +96,38 @@ for variant in all_variants:
 
     dataset, data_subset = variant[4:]
 
+    variant_categories = list_product_drop_none((dataset,(dataset, data_subset)),
+                                                (None, all_variants[variant]))
+
     if true_positive:
         if submitted:
-            ConfusionDataTPs.add(keys=[dataset,(dataset, data_subset)],
+            ConfusionDataTPs.add(keys=variant_categories,
                                  test=True,
                                  truth=True)
         else:
-            ConfusionDataTPs.add(keys=[dataset,(dataset, data_subset)],
+            ConfusionDataTPs.add(keys=variant_categories,
                                  test=False,
                                  truth=True)
             missed_positives.add(variant)
     else:
         if submitted:
-            ConfusionDataTPs.add(keys=[dataset,(dataset, data_subset)],
+            ConfusionDataTPs.add(keys=variant_categories,
                                  test=True,
                                  truth=False)
 
     if false_positive:
         if submitted:
-            ConfusionDataFPs.add(keys=[dataset,(dataset, data_subset)],
+            ConfusionDataFPs.add(keys=variant_categories,
                                  test=True,
                                  truth=False)
             discovered_negatives.add(variant)
         else:
-            ConfusionDataFPs.add(keys=[dataset,(dataset, data_subset)],
+            ConfusionDataFPs.add(keys=variant_categories,
                                  test=False,
                                  truth=False)
     else:
         if submitted:
-            ConfusionDataFPs.add(keys=[dataset,(dataset, data_subset)],
+            ConfusionDataFPs.add(keys=variant_categories,
                                  test=True,
                                  truth=True)
 

@@ -8,14 +8,14 @@ def adjustIndelFormat(start_position, ref, alt):
     end_position = start_position
     if len(alt) > 1:
         #insertion
-        alt = alt[1:]
+        if not alt.startswith("<"): alt = alt[1:]
         ref = "-"
         end_position = start_position + 1
 
     elif len(ref) > 1:
         #deletion
         alt = "-"
-        ref = ref[1:]
+        if not ref.startswith("<"): ref = ref[1:]
         start_position += 1
         end_position = start_position + len(ref) - 1
     else:

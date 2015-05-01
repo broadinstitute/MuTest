@@ -1,5 +1,7 @@
 
-def isIndel(record):
+def is_indel(record):
+    if is_sv(record): return False
+
     ref = record['ref']
     alt = record['alt']
 
@@ -9,7 +11,9 @@ def isIndel(record):
     return len(ref) > 1 or len(alt) > 1
 
 
-def isSNP(record):
+def is_snp(record):
+    if is_sv(record): return False
+
     ref = record['ref']
     alt = record['alt']
 
@@ -17,3 +21,18 @@ def isSNP(record):
     if alt not in set(['A', 'C', 'G', 'T']): return False
 
     return True
+
+def is_sv(record):
+    ref = record['ref']
+    alt = record['alt']
+
+    if record.has_key("SVTYPE"): return True
+    if alt.startswith("<"): return True
+    if ref.startswith("<"): return True
+    return False
+
+def get_variant_type(record):
+    if is_snp(record): return "SNP"
+    if is_indel(record): return "INDEL"
+    if is_sv(record): return "SV"
+    return "UNKNOWN"
