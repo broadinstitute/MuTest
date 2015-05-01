@@ -3,15 +3,21 @@ from itertools import product , chain
 def drop_none(y):
     return filter(lambda x: x is not None, y)
 
-def list_product(*args, **kwargs):
-    result = list(product(*args, **kwargs))
+def make_list(x):
+    if isinstance(x,list):
+        return
+    else:
+        return [x]
 
-    print result
+def list_product(*args):
+    result = list(product(*args))
+
+    print "product", result
     print
 
     result = map(chain, result)
 
-    print list(result)
+    print "chain:", list(result)
     print
 
     result = map(list, result)
