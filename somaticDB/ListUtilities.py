@@ -16,6 +16,7 @@ def list_product(*args):
     print
 
     result = map(lambda x: chain(*x), result)
+    result = drop_none(result)
 
     print "chain:", list(result)
     print
