@@ -9,14 +9,23 @@ def make_list(x):
     else:
         return [x]
 
+
+def flatten(s):
+    if isinstance(s,list):
+        data = [flatten(entry) for entry in s]
+        return chain(*data)
+    else:
+        return s
+
+
 def list_product(*args):
     result = list(product(*args))
 
     print "product:", result
     print
 
-    result = map(lambda x: chain(*x), result)
-    result = list(result)
+    result = map(flatten, result)
+    result = map(list,result)
 
     print "chain:", result
 
@@ -32,3 +41,11 @@ def list_product(*args):
 
 def list_product_drop_none(*args, **kwargs):
     return map(drop_none,list_product(*args, **kwargs))
+
+def contains_a_list(s):
+    for entry in s:
+        if isinstance(s, list): return True
+    return False
+
+
+
