@@ -119,6 +119,7 @@ for variant in all_variants:
             ConfusionDataTPs.add(keys=variant_categories,
                                  test=True,
                                  truth=False)
+            print variant_categories
 
     if false_positive:
         if submitted:
