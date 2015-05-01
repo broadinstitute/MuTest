@@ -48,7 +48,7 @@ gather = DataGatherer(args.input)
 for variant_dict in gather.data_iterator(keys=['dataset_name','data_subset_name','data_filename']):
     variant_data = get_entries_from_dict(variant_dict, keys=VARIANT_FIELDS,return_type=tuple)
 
-    print variant_dict['FILTER']
+    print variant_dict.keys()
 
     if variant_dict.has_key('FILTER'):
         if (variant_dict['FILTER'] != '.')&(variant_dict['FILTER'] != 'PASS'):
