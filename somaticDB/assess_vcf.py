@@ -58,6 +58,10 @@ ConfusionDataFPs = ConfusionMatrixManager()
 
 for record in collection.find(ast.literal_eval(args.query)):
 
+    if record.has_key('FILTER'):
+        if (record['FILTER'] != '.')&(record['FILTER'] != 'PASS'):
+            continue
+
     confirmation_data_list =\
         get_entries_from_dict(record,
                               keys=VARIANT_FIELDS,
@@ -98,9 +102,6 @@ for variant in all_variants:
 
     variant_categories = list_product_drop_none((dataset,(dataset, data_subset)),
                                                 (None, all_variants[variant]))
-
-
-    print variant_categories
 
     if true_positive:
         if submitted:
