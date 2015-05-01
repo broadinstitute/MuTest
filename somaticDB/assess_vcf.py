@@ -49,6 +49,11 @@ gather = DataGatherer(args.input)
 
 for variant_dict in gather.data_iterator(keys=['dataset_name','data_subset_name','data_filename']):
     variant_data = get_entries_from_dict(variant_dict, keys=VARIANT_FIELDS,return_type=tuple)
+
+    if variant_dict.has_key('FILTER'):
+        if (variant_dict['FILTER'] != '.')&(variant_dict['FILTER'] != 'PASS'):
+            continue
+
     test_data_set[variant_data] = get_variant_type(variant_dict)
 
 data_collection=[]
@@ -57,11 +62,6 @@ ConfusionDataTPs = ConfusionMatrixManager()
 ConfusionDataFPs = ConfusionMatrixManager()
 
 for record in collection.find(ast.literal_eval(args.query)):
-    print record
-
-    if record.has_key('FILTER'):
-        if (record['FILTER'] != '.')&(record['FILTER'] != 'PASS'):
-            continue
 
     confirmation_data_list =\
         get_entries_from_dict(record,
