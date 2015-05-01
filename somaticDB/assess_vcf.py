@@ -57,6 +57,7 @@ ConfusionDataTPs = ConfusionMatrixManager()
 ConfusionDataFPs = ConfusionMatrixManager()
 
 for record in collection.find(ast.literal_eval(args.query)):
+    print record
 
     if record.has_key('FILTER'):
         if (record['FILTER'] != '.')&(record['FILTER'] != 'PASS'):
