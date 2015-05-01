@@ -40,8 +40,8 @@
       <file leaf-file-name="ListUtilities.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/somaticDB/ListUtilities.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38121548" vertical-offset="0" max-vertical-offset="905">
-              <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
+            <state vertical-scroll-proportion="0.5469613" vertical-offset="0" max-vertical-offset="905">
+              <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -908,8 +908,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/somaticDB/ListUtilities.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38121548" vertical-offset="0" max-vertical-offset="905">
-          <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.5469613" vertical-offset="0" max-vertical-offset="905">
+          <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
           <folding />
         </state>
       </provider>

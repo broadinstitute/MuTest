@@ -29,21 +29,9 @@ def flatten(s):
 def list_product(*args):
     result = list(product(*args))
 
-    print "product:", result
-    print
-
     result = map(flatten, result)
-    result = map(list,result)
 
-    print "chain:", result
-
-    for thing in result:
-        print list(thing)
-
-    result = map(list, result)
-
-    print result
-    print
+    result = map(tuple,result)
 
     return result
 
