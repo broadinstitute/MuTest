@@ -31,7 +31,7 @@ def list_product(*args):
 
     result = map(flatten, result)
 
-    result = map(tuple,result)
+    result = map(tuple ,result)
 
     return result
 
