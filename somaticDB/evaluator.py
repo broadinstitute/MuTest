@@ -204,11 +204,12 @@ def evaluate(submission, truth, vtype='SNV', ignorechroms=None, truthmask=True):
             if matched:
                 tpcount += 1
             else:
-                print subrec
+
 
                 if passfilter(subrec): 
                     if not SV_BND_multimatch: # don't penalize BND multi-matches to truth intervals
 
+                        print subrec
                         print "FILTERED"
 
                         fpcount += 1
