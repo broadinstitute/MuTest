@@ -210,11 +210,12 @@ def evaluate(submission, truth, vtype='SNV', ignorechroms=None, truthmask=True):
                     if not SV_BND_multimatch: # don't penalize BND multi-matches to truth intervals
 
                         print subrec
-                        print "FILTERED"
+                        print "NOT FILTERED"
 
                         fpcount += 1
                     else:
-                        print "NOT FILTERED"
+                        print subrec
+                        print "FILTERED"
 
         else:
             if relevant(subrec, vtype, ignorechroms):

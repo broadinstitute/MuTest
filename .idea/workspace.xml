@@ -80,8 +80,8 @@
       <file leaf-file-name="evaluator.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/somaticDB/evaluator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.63139933" vertical-offset="2595" max-vertical-offset="4200">
-              <caret line="211" column="36" selection-start-line="211" selection-start-column="36" selection-end-line="211" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.7337884" vertical-offset="2595" max-vertical-offset="4215">
+              <caret line="217" column="31" selection-start-line="217" selection-start-column="31" selection-end-line="217" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -918,8 +918,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/somaticDB/evaluator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63139933" vertical-offset="2595" max-vertical-offset="4200">
-          <caret line="211" column="36" selection-start-line="211" selection-start-column="36" selection-end-line="211" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.7337884" vertical-offset="2595" max-vertical-offset="4215">
+          <caret line="217" column="31" selection-start-line="217" selection-start-column="31" selection-end-line="217" selection-end-column="31" />
           <folding />
         </state>
       </provider>
