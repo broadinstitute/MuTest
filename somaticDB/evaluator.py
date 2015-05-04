@@ -222,6 +222,11 @@ def evaluate(submission, truth, vtype='SNV', ignorechroms=None, truthmask=True):
     if subrecs == 0:
         raise Exception("No unmasked variants in submission! Are you sure you selected the correct variant type (SNV/INDEL/SV)?\n")
 
+    print tpcount
+    print fpcount
+    print subrecs
+    print trurecs
+
     sensitivity = float(tpcount) / float(trurecs)
     precision   = float(tpcount) / float(tpcount + fpcount)
     specificity = 1.0 - float(fpcount) / float(subrecs)
