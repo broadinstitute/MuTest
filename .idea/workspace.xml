@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/somaticDB/assess_vcf.py" afterPath="$PROJECT_DIR$/somaticDB/assess_vcf.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/somaticDB/evaluator.py" afterPath="$PROJECT_DIR$/somaticDB/evaluator.py" />
     </list>
     <ignored path="SomaticDB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,10 +25,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="assess_vcf.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="assess_vcf.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/somaticDB/assess_vcf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5359116" vertical-offset="1330" max-vertical-offset="2415">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1330" max-vertical-offset="2415">
               <caret line="121" column="34" selection-start-line="121" selection-start-column="34" selection-end-line="121" selection-end-column="34" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
@@ -77,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="evaluator.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="evaluator.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/somaticDB/evaluator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.76923" vertical-offset="832" max-vertical-offset="4080">
-              <caret line="89" column="15" selection-start-line="89" selection-start-column="15" selection-end-line="89" selection-end-column="15" />
+            <state vertical-scroll-proportion="-0.017064847" vertical-offset="2655" max-vertical-offset="4185">
+              <caret line="177" column="18" selection-start-line="177" selection-start-column="12" selection-end-line="177" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -155,7 +155,6 @@
         <option value="$PROJECT_DIR$/somaticDB/start_server.py" />
         <option value="$PROJECT_DIR$/somaticDB/DatabaseParser2.py" />
         <option value="$PROJECT_DIR$/somaticDB/DatabaseCollector.py" />
-        <option value="$PROJECT_DIR$/somaticDB/evaluator.py" />
         <option value="$PROJECT_DIR$/somaticDB/ConfusionStatistics.py" />
         <option value="$PROJECT_DIR$/somaticDB/ConfusionMatrix.py" />
         <option value="$PROJECT_DIR$/somaticDB/SomaticDatabase.py" />
@@ -175,6 +174,7 @@
         <option value="$PROJECT_DIR$/somaticDB/ListUtilities.py" />
         <option value="$PROJECT_DIR$/somaticDB/DatabaseParser.py" />
         <option value="$PROJECT_DIR$/somaticDB/assess_vcf.py" />
+        <option value="$PROJECT_DIR$/somaticDB/evaluator.py" />
       </list>
     </option>
   </component>
@@ -882,14 +882,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/somaticDB/evaluator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.76923" vertical-offset="832" max-vertical-offset="4080">
-          <caret line="89" column="15" selection-start-line="89" selection-start-column="15" selection-end-line="89" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/somaticDB/DictUtilities.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
@@ -916,11 +908,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/somaticDB/assess_vcf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5359116" vertical-offset="1330" max-vertical-offset="2415">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1330" max-vertical-offset="2415">
           <caret line="121" column="34" selection-start-line="121" selection-start-column="34" selection-end-line="121" selection-end-column="34" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/somaticDB/evaluator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.017064847" vertical-offset="2655" max-vertical-offset="4185">
+          <caret line="177" column="18" selection-start-line="177" selection-start-column="12" selection-end-line="177" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
