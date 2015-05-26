@@ -1,2 +1,0 @@
-dataset_name	data_subset_name	data_filename
-dream	set_4	/cga/tcga-gsc/mutect/laura/M2_validation/DREAMeval/Apr16eval.vcf
