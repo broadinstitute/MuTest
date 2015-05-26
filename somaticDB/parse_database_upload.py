@@ -2,6 +2,11 @@ import glob
 import os
 import csv
 
+def change_extension(filename,extension):
+    filestem = os.path.splitext(filename)
+    if not extension.startswith("."): extension="."+extension
+    return filestem+extension
+
 def get_sample_name(filename):
     sample_name = filename.split('/')
     position = sample_name.index('picard_aggregation')
@@ -16,8 +21,8 @@ def selection_copy(source_file_name, destination_file_name,column,values):
     infile = open(source_file_name,'r')
     reader = csv.DictReader(infile,delimiter='\t')
 
-
     outfile = open(destination_file_name,'w')
+
     writer = csv.DictWriter(outfile, fieldnames=reader.fieldnames,delimiter='\t')
     writer.writeheader()
 
@@ -30,6 +35,7 @@ def selection_copy(source_file_name, destination_file_name,column,values):
 
     infile.close()
     outfile.close()
+
 
 fieldnames = ['tumor_bam','normal_bam','data_filename','dataset_name','data_subset_name','evidence_type','originator']
 
@@ -67,6 +73,8 @@ for filename in filenames:
         out_row['evidence_type'] = 'TP'
         out_row['originator'] = 'Mara Rosenberg'
 
+
+
         destination = os.path.join(tumor_type,maf_filename)
 
         if not os.path.exists(destination):
@@ -76,7 +84,6 @@ for filename in filenames:
                            column='validation_status_consensus',
                            values=['TP'])
 
-        #row['indel_maf_file_capture_validated_consensus'],
 
         writer.writerow(out_row)
 
