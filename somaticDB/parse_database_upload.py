@@ -3,7 +3,7 @@ import os
 import csv
 
 def change_extension(filename,extension):
-    filestem = os.path.splitext(filename)
+    filestem = os.path.splitext(filename)[0]
     if not extension.startswith("."): extension="."+extension
     return filestem+extension
 
@@ -46,6 +46,7 @@ writer = csv.DictWriter(outfile, delimiter='\t', fieldnames=fieldnames)
 writer.writeheader()
 
 for filename in filenames:
+
     tumor_type = filename.split('.')[0].lower()
     if not os.path.exists(tumor_type): os.mkdir(tumor_type)
 
@@ -77,13 +78,24 @@ for filename in filenames:
 
         destination = os.path.join(tumor_type,maf_filename)
 
+	tp_destination = change_extension(destination,".tp.maf")
+	fp_destination = change_extension(destination,".fp.maf")
+
+
+        print tp_destination, fp_destination
+        continue
+
         if not os.path.exists(destination):
 
             selection_copy(source_file_name=row['maf_file_capture_validated_consensus'],
-                           destination_file_name=os.path.join(tumor_type,maf_filename),
+                           destination_file_name=tp_destination,
                            column='validation_status_consensus',
                            values=['TP'])
 
+            selection_copy(source_file_name=row['maf_file_capture_validated_consensus'],
+                           destination_file_name=tp_destination,
+                           column='validation_status_consensus',
+                           values=['FP'])
 
         writer.writerow(out_row)
 
