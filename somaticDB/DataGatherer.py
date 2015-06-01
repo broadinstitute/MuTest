@@ -59,11 +59,6 @@ def main():
 
     args = parser.parse_args()
 
-    if not args.password:
-        args.password = 'p1IU5lec5WM7NeA'
-    if not args.username:
-        args.username = 'kareem'
-
     filename = args.input
     if filename == "DEFAULT": filename = "../data/submission_data.tsv"
 
