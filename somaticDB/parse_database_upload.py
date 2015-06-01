@@ -87,18 +87,14 @@ for filename in filenames:
 
         if not os.path.exists(destination):
 
-            selection_copy(source_file_name=row['validation_status_consensus'],
-                           destination_file_name=os.path.join(tumor_type,maf_filename),
+
+            selection_copy(source_file_name=row['maf_file_capture_validated_consensus'],
+                           destination_file_name=tp_destination,
                            column='validation_status_consensus',
                            values=['TP','TP_HighConf'])
 
             selection_copy(source_file_name=row['maf_file_capture_validated_consensus'],
-                           destination_file_name=tp_destination,
-                           column='validation_status_consensus',
-                           values=['FP'])
-
-            selection_copy(source_file_name=row['maf_file_capture_validated_consensus'],
-                           destination_file_name=tp_destination,
+                           destination_file_name=fp_destination,
                            column='validation_status_consensus',
                            values=['FP'])
 
