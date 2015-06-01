@@ -1,3 +1,0 @@
-url	104.197.21.136
-username	kareem
-password	p1IU5lec5WM7NeA

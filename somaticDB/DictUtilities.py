@@ -37,3 +37,27 @@ def get_entries_from_dict(D, keys=None,return_type=list):
        return dict(result)
 
     raise Exception("Type not supported in function get_entries_from_dict: %s" % str(return_type))
+
+
+def read_dict_from_file(filename,delimiter='\t'):
+    """
+    Read delimited file and return a dictionary where the first column is the key and the value is a list
+    composed of the remaining columns, or a single non-list value if there is only on remaining column.
+
+    :param filename:  The name of the file where the data is stored.
+    :param delimiter: The data is assumed to be stored in some delimited tabular form.
+    """
+
+    result = {}
+    file = open(filename)
+
+    for line in file:
+            line = line.strip().split(delimiter)
+            key = line[0]
+            value = line[1:]
+
+            if len(value) == 1: value = value[0]
+
+            result[key] = value
+
+    return result
