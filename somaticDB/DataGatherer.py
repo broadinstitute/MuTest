@@ -59,13 +59,19 @@ def main():
 
     args = parser.parse_args()
 
+    if not args.password:
+        args.password = 'p1IU5lec5WM7NeA'
+    if not args.username:
+        args.username = 'kareem'
+
     filename = args.input
     if filename == "DEFAULT": filename = "../data/submission_data.tsv"
 
     gather = DataGatherer(filename)
 
-    client = MongoClient('localhost', args.port )
-    db = client['SomaticMutations']
+    client = MongoClient('104.197.21.136', args.port )
+    client.somatic_db_master.authenticate('kareem', 'p1IU5lec5WM7NeA')
+    db = client['somatic_db_master']
     collection = db['ValidationData']
 
     for variant_dict in gather.data_iterator(demo=args.demo):
