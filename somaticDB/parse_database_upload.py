@@ -40,7 +40,6 @@ def selection_copy(source_file_name, destination_file_name,column,values):
 fieldnames = ['tumor_bam','normal_bam','data_filename','dataset_name','data_subset_name','evidence_type','originator']
 
 
-
 outfile = open('../tcga.submission.tsv','w')
 writer = csv.DictWriter(outfile, delimiter='\t', fieldnames=fieldnames)
 writer.writeheader()
@@ -75,27 +74,24 @@ for filename in filenames:
         out_row['originator'] = 'Mara Rosenberg'
 
 
-
         destination = os.path.join(tumor_type,maf_filename)
+
 
 	tp_destination = change_extension(destination,".tp.maf")
 	fp_destination = change_extension(destination,".fp.maf")
 
-
-        print tp_destination, fp_destination
-        continue
-
-        if not os.path.exists(destination):
+        if not os.path.exists(tp_destination):
 
             selection_copy(source_file_name=row['maf_file_capture_validated_consensus'],
                            destination_file_name=tp_destination,
                            column='validation_status_consensus',
-                           values=['TP'])
+                           values=['TP','TP_HighConf'])
+
+        if not os.path.exists(fp_destination):
 
             selection_copy(source_file_name=row['maf_file_capture_validated_consensus'],
-                           destination_file_name=tp_destination,
+                           destination_file_name=fp_destination,
                            column='validation_status_consensus',
                            values=['FP'])
 
         writer.writerow(out_row)
-
