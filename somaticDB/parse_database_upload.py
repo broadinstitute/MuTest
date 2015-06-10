@@ -78,8 +78,8 @@ for filename in filenames:
         destination = os.path.join(tumor_type,maf_filename)
 
 
-	tp_destination = change_extension(destination,".tp.maf")
-	fp_destination = change_extension(destination,".fp.maf")
+	tp_destination = os.path.abspath(change_extension(destination,".tp.maf"))
+	fp_destination = os.path.abspath(change_extension(destination,".fp.maf"))
 
         if not os.path.exists(tp_destination):
 
@@ -96,4 +96,9 @@ for filename in filenames:
                            column='validation_status_consensus',
                            values=['FP'])
 
+	out_row['data_filename'] = tp_destination
+	out_row['evidence_type'] = 'TP'
         writer.writerow(out_row)
+	out_row['data_filename'] = fp_destination
+	out_row['evidence_type'] = 'FP'
+	writer.writerow(out_row)
