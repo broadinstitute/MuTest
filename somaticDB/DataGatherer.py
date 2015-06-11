@@ -60,7 +60,7 @@ def main():
     args = parser.parse_args()
 
     filename = args.input
-    if filename == "DEFAULT": filename = "../data/submission_data.tsv"
+    if filename == "DEFAULT": filename = "/dsde/working/somaticDB/master/tcga/submission_data.tsv"
 
     gather = DataGatherer(filename)
 
