@@ -69,7 +69,15 @@ def main():
     db = client['somatic_db_master']
     collection = db['ValidationData']
 
+
+    bulk_count = 0
+    bulk = collection.initialize_unordered_bulk_op()
+
+
     for variant_dict in gather.data_iterator(demo=args.demo):
+
+        bulk_count+=1
+
 
         additional_data_dict={'submission_time': str(datetime.datetime.utcnow())}
 
@@ -85,7 +93,12 @@ def main():
                                             return_type=dict)
 
 
-        collection.update(unique_data, mongo_submission, upsert=True)
+        bulk.update(unique_data, mongo_submission, upsert=True)
+
+        if bulk_count == 10000:
+            bulk_count = 0
+            bulk.execute()
+
 
 
 if __name__ == "__main__":
