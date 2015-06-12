@@ -99,7 +99,7 @@ def main():
                                             return_type=dict)
 
 
-        bulk.insert(unique_data, mongo_submission, upsert=True)
+        bulk.insert(unique_data)
 
         if bulk_count == 10000:
             print "bulk upload."
