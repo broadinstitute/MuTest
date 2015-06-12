@@ -78,10 +78,12 @@ def main():
 
         bulk_count+=1
 
+        print bulk_count
 
-        additional_data_dict={'submission_time': str(datetime.datetime.utcnow())}
 
-        mongo_submission = merge_dicts(variant_dict, additional_data_dict)
+        #additional_data_dict={'submission_time': str(datetime.datetime.utcnow())}
+
+        #mongo_submission = merge_dicts(variant_dict, additional_data_dict)
 
         unique_data = get_entries_from_dict(mongo_submission, keys=['chromosome',
                                                                     'start',
