@@ -99,6 +99,7 @@ def main():
             print "bulk upload."
             bulk_count = 0
             bulk.execute()
+            bulk = collection.initialize_unordered_bulk_op()
 
 
 
