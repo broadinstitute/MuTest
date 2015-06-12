@@ -64,6 +64,8 @@ def main():
 
     gather = DataGatherer(filename)
 
+    print filename
+
     client = MongoClient('104.197.21.136', args.port )
     client.somatic_db_master.authenticate('kareem', 'p1IU5lec5WM7NeA')
     db = client['somatic_db_master']
