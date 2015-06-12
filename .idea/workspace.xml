@@ -70,8 +70,8 @@
       <file leaf-file-name="DataGatherer.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/somaticDB/DataGatherer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.73480666" vertical-offset="760" max-vertical-offset="1665">
-              <caret line="101" column="31" selection-start-line="101" selection-start-column="31" selection-end-line="101" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.1878453" vertical-offset="670" max-vertical-offset="1575">
+              <caret line="62" column="98" selection-start-line="62" selection-start-column="98" selection-end-line="62" selection-end-column="98" />
               <folding />
             </state>
           </provider>
@@ -809,8 +809,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/somaticDB/DataGatherer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73480666" vertical-offset="760" max-vertical-offset="1665">
-          <caret line="101" column="31" selection-start-line="101" selection-start-column="31" selection-end-line="101" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.1878453" vertical-offset="670" max-vertical-offset="1575">
+          <caret line="62" column="98" selection-start-line="62" selection-start-column="98" selection-end-line="62" selection-end-column="98" />
           <folding />
         </state>
       </provider>

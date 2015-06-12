@@ -62,11 +62,7 @@ def main():
     filename = args.input
     if filename == "DEFAULT": filename = "/dsde/working/somaticDB/master/tcga/submission_data.tsv"
 
-    print "died after this point."
-
     gather = DataGatherer(filename)
-
-    print filename
 
     client = MongoClient('104.197.21.136', args.port )
     client.somatic_db_master.authenticate('kareem', 'p1IU5lec5WM7NeA')
@@ -81,8 +77,6 @@ def main():
     for variant_dict in gather.data_iterator(demo=args.demo):
 
         bulk_count+=1
-
-        print bulk_count
 
 
         additional_data_dict={} #{'submission_time': str(datetime.datetime.utcnow())}
