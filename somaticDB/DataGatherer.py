@@ -96,6 +96,7 @@ def main():
         bulk.update(unique_data, mongo_submission, upsert=True)
 
         if bulk_count == 10000:
+            print "bulk upload."
             bulk_count = 0
             bulk.execute()
 
