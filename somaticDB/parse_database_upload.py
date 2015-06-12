@@ -90,26 +90,26 @@ for filename in filenames:
 
         destination = os.path.join(tumor_type , maf_filename)
 
-    tp_destination = os.path.abspath(change_extension(destination , ".tp.maf"))
-    fp_destination = os.path.abspath(change_extension(destination , ".fp.maf"))
+        tp_destination = os.path.abspath(change_extension(destination , ".tp.maf"))
+        fp_destination = os.path.abspath(change_extension(destination , ".fp.maf"))
 
-    if not os.path.exists(tp_destination):
-        selection_copy(
-            source_file_name=row['maf_file_capture_validated_consensus'] ,
-            destination_file_name=tp_destination ,
-            column='validation_status_consensus' ,
-            values=['TP' , 'TP_HighConf'])
+        if not os.path.exists(tp_destination):
+            selection_copy(
+                source_file_name=row['maf_file_capture_validated_consensus'] ,
+                destination_file_name=tp_destination ,
+                column='validation_status_consensus' ,
+                values=['TP' , 'TP_HighConf'])
 
-    if not os.path.exists(fp_destination):
-        selection_copy(
-            source_file_name=row['maf_file_capture_validated_consensus'] ,
-            destination_file_name=fp_destination ,
-            column='validation_status_consensus' ,
-            values=['FP'])
+        if not os.path.exists(fp_destination):
+            selection_copy(
+                source_file_name=row['maf_file_capture_validated_consensus'] ,
+                destination_file_name=fp_destination ,
+                column='validation_status_consensus' ,
+                values=['FP'])
 
-    out_row['data_filename'] = tp_destination
-    out_row['evidence_type'] = 'TP'
-    writer.writerow(out_row)
-    out_row['data_filename'] = fp_destination
-    out_row['evidence_type'] = 'FP'
-    writer.writerow(out_row)
+        out_row['data_filename'] = tp_destination
+        out_row['evidence_type'] = 'TP'
+        writer.writerow(out_row)
+        out_row['data_filename'] = fp_destination
+        out_row['evidence_type'] = 'FP'
+        writer.writerow(out_row)
