@@ -62,6 +62,8 @@ def main():
     filename = args.input
     if filename == "DEFAULT": filename = "/dsde/working/somaticDB/master/tcga/submission_data.tsv"
 
+    print "died after this point."
+
     gather = DataGatherer(filename)
 
     print filename
