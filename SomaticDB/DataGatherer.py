@@ -64,7 +64,11 @@ def main():
 
     gather = DataGatherer(filename)
 
-    client = MongoClient('104.197.21.136', args.port )
+    ip = '104.197.21.136'
+    ip = '69.173.65.217'
+
+
+    client = MongoClient(ip, args.port )
     client.somatic_db_master.authenticate('kareem', 'p1IU5lec5WM7NeA')
     db = client['somatic_db_master']
     collection = db['ValidationData']
