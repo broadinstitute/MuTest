@@ -1,0 +1,15 @@
+
+python SomaticDatabase.py deploy -p /Users/kareemcarr/Desktop/SOMETEST
+python SomaticDatabase.py refresh -p /Users/kareemcarr/Desktop/SOMETEST
+python SomaticDatabase.py start -p /Users/kareemcarr/Desktop/SOMETEST
+
+use admin
+db.shutdownServer()
+
+python DataGatherer.py -i CORE
+python DataGatherer.py -i ../data/dream.submission.set4.tsv
+
+python get_bams.py -q "{'chromosome':'1'}" -n normal.list -t tumor.list -i interval.list
+
+
+python assess_vcf.py -i test.txt -q "{'chromosome':'21','data_subset_name':'set_4','dataset_name':'dream'}" -s mutect -v 2
