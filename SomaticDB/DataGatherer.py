@@ -66,6 +66,7 @@ def main():
 
     ip = '104.197.21.136'
     ip = '69.173.65.217'
+    ip = '104.197.18.1'
 
 
     client = MongoClient(ip, args.port )
