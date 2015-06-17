@@ -11,6 +11,7 @@ from DictUtilities import get_entries_from_dict
 class DataGatherer:
     def __init__(self, filename):
         self.filename = filename
+        self.new_file = False
 
     def data_iterator(self, demo=False,keys=('tumor_bam',
                                              'normal_bam',
@@ -23,12 +24,6 @@ class DataGatherer:
 
         for file_data in reader:
 
-            #print "submitting:"
-            #print "\tdataset:", file_data['dataset_name']
-            #print "\tsubset:", file_data['data_subset_name']
-            #if file_data.has_key('evidence_type'): print "\tevidence type", file_data['evidence_type']
-            #print
-
             meta_data_dict = get_entries_from_dict(file_data,
                                                    keys=keys,
                                                    return_type=dict)
@@ -36,11 +31,15 @@ class DataGatherer:
             D = DatabaseParser(meta_data_dict['data_filename'])
 
             n=0
+
+            self.new_file = True
+
             for variant_dict in D.get_variants():
                 n+=1
                 if demo:
                     if (n > 50): break
                 yield merge_dicts(variant_dict, meta_data_dict)
+                if self.new_file == True: self.new_file = False
 
 
 def main():
@@ -74,6 +73,8 @@ def main():
     db = client['somatic_db_master']
     collection = db['ValidationData']
 
+    metacollection = db['ValidationDataIndex']
+
 
     bulk_count = 0
     bulk = collection.initialize_unordered_bulk_op()
@@ -83,7 +84,7 @@ def main():
 
         bulk_count+=1
 
-        additional_data_dict={} #{'submission_time': str(datetime.datetime.utcnow())}
+        additional_data_dict={}
 
         mongo_submission = merge_dicts(variant_dict, additional_data_dict)
 
@@ -95,6 +96,9 @@ def main():
                                                                     'data_subset_name',
                                                                     'evidence_type'],
                                             return_type=dict)
+
+        if gather.new_file: metacollection.insert({'dataset_name':unique_data['dataset_name'],
+                                                   'data_subset_name':unique_data['data_subset_name']})
 
 
         bulk.insert(unique_data)
