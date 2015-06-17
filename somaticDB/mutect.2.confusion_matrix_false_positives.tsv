@@ -1,9 +1,0 @@
-collection	true positives	false positives	true negatives	false negatives	sensitivity	specificity	precision	false discovery rate
-dream set_4 SNP	166.0	nan	nan	nan	nan	nan	nan	nan
-dream	294.0	nan	nan	nan	nan	nan	nan	nan
-dream set_4 INDEL	123.0	nan	nan	nan	nan	nan	nan	nan
-dream UNKNOWN	5.0	nan	nan	nan	nan	nan	nan	nan
-dream SNP	166.0	nan	nan	nan	nan	nan	nan	nan
-dream INDEL	123.0	nan	nan	nan	nan	nan	nan	nan
-dream set_4	294.0	nan	nan	nan	nan	nan	nan	nan
-dream set_4 UNKNOWN	5.0	nan	nan	nan	nan	nan	nan	nan
