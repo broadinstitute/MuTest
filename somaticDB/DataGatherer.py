@@ -78,7 +78,6 @@ def main():
 
         bulk_count+=1
 
-
         additional_data_dict={} #{'submission_time': str(datetime.datetime.utcnow())}
 
         mongo_submission = merge_dicts(variant_dict, additional_data_dict)
