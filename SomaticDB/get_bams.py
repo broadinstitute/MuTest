@@ -42,7 +42,6 @@ parser.add_argument('-p','--port', help='Port.',type=int,metavar='<port>', defau
 
 args = parser.parse_args()
 
-ip = '104.197.18.1'
 ip = '104.197.21.136'
 
 client = MongoClient(ip, args.port )
@@ -55,6 +54,9 @@ normal_bam_list = set([])
 interval_list   = defaultdict(set)
 
 for record in collection.find(ast.literal_eval(args.query)):
+
+    print record.keys()
+
     tumor_bam  = record['tumor_bam']
     normal_bam = record['normal_bam']
 
