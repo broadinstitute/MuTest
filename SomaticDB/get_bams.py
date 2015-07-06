@@ -43,6 +43,7 @@ parser.add_argument('-p','--port', help='Port.',type=int,metavar='<port>', defau
 args = parser.parse_args()
 
 ip = '104.197.18.1'
+ip = '104.197.21.136'
 
 client = MongoClient(ip, args.port )
 client.somatic_db_master.authenticate('kareem', 'p1IU5lec5WM7NeA')

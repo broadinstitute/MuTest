@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/somaticDB/ConfusionMatrix.py" afterPath="$PROJECT_DIR$/somaticDB/ConfusionMatrix.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/somaticDB/get_bams.py" afterPath="$PROJECT_DIR$/somaticDB/get_bams.py" />
     </list>
     <ignored path="SomaticDB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -69,8 +68,8 @@
       <file leaf-file-name="get_bams.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/somaticDB/get_bams.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5524862" vertical-offset="85" max-vertical-offset="1485">
-              <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.22099447" vertical-offset="370" max-vertical-offset="1500">
+              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -90,7 +89,7 @@
         <entry file="file://$PROJECT_DIR$/somaticDB/example_uses.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
-              <caret line="14" column="29" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="122" />
+              <caret line="11" column="3" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="88" />
               <folding />
             </state>
           </provider>
@@ -788,14 +787,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/somaticDB/example_uses.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
-          <caret line="14" column="29" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="122" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/somaticDB/evaluator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2005" max-vertical-offset="4290">
@@ -820,10 +811,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/somaticDB/example_uses.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
+          <caret line="11" column="3" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/somaticDB/get_bams.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5524862" vertical-offset="85" max-vertical-offset="1485">
-          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.22099447" vertical-offset="370" max-vertical-offset="1500">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding />
         </state>
       </provider>
