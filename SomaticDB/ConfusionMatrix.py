@@ -1,6 +1,9 @@
 import numpy as np
 
 class ConfusionMatrix:
+    """
+    A simple confusion matrix class. It is iterative.
+    """
     def __init__(self):
         self.reset()
 

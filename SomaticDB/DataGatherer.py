@@ -63,8 +63,6 @@ def main():
 
     gather = DataGatherer(filename)
 
-    ip = '104.197.21.136'
-    ip = '69.173.65.217'
     ip = '104.197.18.1'
 
 
