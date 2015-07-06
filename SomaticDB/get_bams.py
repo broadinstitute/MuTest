@@ -55,7 +55,7 @@ interval_list   = defaultdict(set)
 
 for record in collection.find(ast.literal_eval(args.query)):
 
-    print record.keys()
+    if not record.has_key('tumor_bam'): continue
 
     tumor_bam  = record['tumor_bam']
     normal_bam = record['normal_bam']
