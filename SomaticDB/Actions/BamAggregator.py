@@ -4,6 +4,8 @@ import ast
 import os
 from pymongo import MongoClient
 import random
+from somaticDB.Internals.MongoUtilities import connect_to_mongo
+
 
 def get_sample_name(filename):
     sample_name = filename.split('/')[4]
@@ -17,37 +19,39 @@ parser = argparse.ArgumentParser(fromfile_prefix_chars='@',
                                  epilog=script_epilog,
                                  formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-
-parser.add_argument('-q','--query', help='The query needed to generate the bam list',type=str,metavar='<query>', required=True)
+parser.add_argument('-q','--query',
+                    help='The query needed to generate the bam lists',
+                    type=str,metavar='<query>',
+                    required=True)
 
 parser.add_argument('-n','--normal_bam_list',
-                    help='normal bam list',
+                    help='The name of the normal bam list to be created.',
                     type=str,
                     metavar='<normal_bam_list>',
                     required=True)
 
 parser.add_argument('-t','--tumor_bam_list',
-                    help='tumor bam list',
+                    help='The name of the tumor bam list to be created.',
                     type=str ,
                     metavar='<tumor_bam_list>',
                     required=True)
 
 parser.add_argument('-i','--interval_list',
-                    help='interval list',
+                    help='The name of the intervals list to be created.',
                     type=str ,
                     metavar='<interval_list>',
                     required=True)
 
-parser.add_argument('-p','--port', help='Port.',type=int,metavar='<port>', default=27017)
+parser.add_argument('-o','--output_folder',
+                    help='An output folder for the files created.',
+                    type=str,
+                    metavar='<output_folder>',
+                    required=True)
+
 
 args = parser.parse_args()
 
-ip = '104.197.21.136'
-
-client = MongoClient(ip, args.port )
-client.somatic_db_master.authenticate('kareem', 'p1IU5lec5WM7NeA')
-db = client['somatic_db_master']
-collection = db['ValidationData']
+collection = connect_to_mongo()
 
 tumor_bam_list  = set([])
 normal_bam_list = set([])

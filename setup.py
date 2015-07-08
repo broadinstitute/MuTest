@@ -7,7 +7,7 @@ from somatidDB.version import VERSION
 setup(
     name='somaticDB',
 
-    version=VERSION,
+    version='alpha',
 
     entry_points={
         'console_scripts': [

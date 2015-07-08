@@ -1,8 +1,11 @@
 import gzip
 from itertools import ifilter
-import vcf
 import csv
-from DictUtilities import merge_dicts , stringify_dict
+
+import vcf
+
+from somaticDB.BasicSupportLibraries.DictUtilities import merge_dicts , stringify_dict
+
 
 def adjustIndelFormat(start_position, ref, alt):
     end_position = start_position

@@ -1,18 +1,20 @@
-import argparse
 import ast
-from pymongo import MongoClient
-from ConfusionMatrixManager import ConfusionMatrixManager
-from DictUtilities import get_entries_from_dict, merge_dicts
 import csv
-from DataGatherer import DataGatherer
-from ListUtilities import list_product_drop_none
-from Variant import is_indel, is_snp, is_sv, get_variant_type
 
+import argparse
+
+from somaticDB.BasicSupportLibraries.DictUtilities import get_entries_from_dict, merge_dicts
+from somaticDB.BasicSupportLibraries import ConfusionMatrixManager
+from somaticDB.Internals import DataGatherer
+from somaticDB.Internals.MongoUtilities import connect_to_mongo
+from somaticDB.Internals.Variant import get_variant_type
 
 
 def pp_dict(x):
     for key in x.keys():
         print key+": "+str(x[key])
+
+
 
 
 script_description="""A protype script that accesses true and false positives"""
@@ -23,16 +25,13 @@ parser = argparse.ArgumentParser(fromfile_prefix_chars='@',
                                  epilog=script_epilog,
                                  formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-parser.add_argument('-i','--input', help='The file to be assessed',type=str,metavar='<input_file>', required=True)
+parser.add_argument('-i','--input', help='The list of datasets to be assessed.',type=str,metavar='<input_file>', required=True)
 parser.add_argument('-q','--query', help='The query for the dataset needed',type=str,metavar='<query>', required=True)
-parser.add_argument('-s','--algorithm', help='The name of the submission',type=str,metavar='<algorithm_name>', required=True)
-parser.add_argument('-v','--version', help='The name of the submission',type=str,metavar='<algorithm_name>')
+
 
 args = parser.parse_args()
 
-client = MongoClient('localhost', 27017)
-db = client['SomaticMutations']
-collection = db['ValidationData']
+collection = connect_to_mongo()
 
 VARIANT_FIELDS=['chromosome','start','ref','alt','dataset_name','data_subset_name']
 
@@ -48,9 +47,8 @@ gather = DataGatherer(args.input)
 for variant_dict in gather.data_iterator(keys=['dataset_name','data_subset_name','data_filename']):
     variant_data = get_entries_from_dict(variant_dict, keys=VARIANT_FIELDS,return_type=tuple)
 
+    # remove everything that has a filter value. ADD TO VCF UPLOAD CODE
     filter = variant_dict['FILTER']
-
-    #print filter, len(filter)
 
     if len(filter) > 0: continue
 
@@ -99,10 +97,9 @@ for variant in all_variants:
     true_positive = variant in truth_data_set
     submitted = variant in test_data_set
 
-    dataset, data_subset = variant[4:]
+    project, dataset = variant[4:]
 
-    variant_categories = list_product_drop_none((dataset,(dataset, data_subset)),
-                                                (None, all_variants[variant]))
+    variant_categories = {project,(project, dataset)}
 
     if true_positive:
         if submitted:
