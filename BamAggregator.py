@@ -4,8 +4,8 @@ import os
 import random
 
 import argparse
-
-
+from DataGatherer import query_processor
+from MongoUtilities import connect_to_mongo
 
 
 def get_sample_name(filename):
