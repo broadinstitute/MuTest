@@ -4,6 +4,7 @@ import ast
 import os
 from pymongo import MongoClient
 import random
+from somaticDB.Internals.DataGatherer import query_processor
 from somaticDB.Internals.MongoUtilities import connect_to_mongo
 
 
@@ -18,6 +19,7 @@ parser = argparse.ArgumentParser(fromfile_prefix_chars='@',
                                  description=script_description,
                                  epilog=script_epilog,
                                  formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+
 
 parser.add_argument('-q','--query',
                     help='The query needed to generate the bam lists',
@@ -49,6 +51,7 @@ parser.add_argument('-o','--output_folder',
                     required=True)
 
 
+
 args = parser.parse_args()
 
 collection = connect_to_mongo()
@@ -57,7 +60,9 @@ tumor_bam_list  = set([])
 normal_bam_list = set([])
 interval_list   = defaultdict(set)
 
-for record in collection.find(ast.literal_eval(args.query)):
+query = query = query_processor(args.query)
+
+for record in collection.find(ast.literal_eval(query)):
 
     if not record.has_key('tumor_bam'):
         print record

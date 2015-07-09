@@ -6,6 +6,7 @@ import argparse
 from somaticDB.BasicSupportLibraries.DictUtilities import get_entries_from_dict, merge_dicts
 from somaticDB.BasicSupportLibraries import ConfusionMatrixManager
 from somaticDB.Internals import DataGatherer
+from somaticDB.Internals.DataGatherer import query_processor
 from somaticDB.Internals.MongoUtilities import connect_to_mongo
 from somaticDB.Internals.Variant import get_variant_type
 
@@ -25,7 +26,7 @@ parser = argparse.ArgumentParser(fromfile_prefix_chars='@',
                                  epilog=script_epilog,
                                  formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-parser.add_argument('-i','--input', help='The list of datasets to be assessed.',type=str,metavar='<input_file>', required=True)
+parser.add_argument('-t','--tsv', help='The list of datasets to be assessed.',type=str,metavar='<tsv>', required=True)
 parser.add_argument('-q','--query', help='The query for the dataset needed',type=str,metavar='<query>', required=True)
 
 
@@ -59,7 +60,9 @@ data_collection=[]
 ConfusionDataTPs = ConfusionMatrixManager()
 ConfusionDataFPs = ConfusionMatrixManager()
 
-for record in collection.find(ast.literal_eval(args.query)):
+query = query_processor(args.query)
+
+for record in collection.find(ast.literal_eval(query)):
 
     confirmation_data_list =\
         get_entries_from_dict(record,

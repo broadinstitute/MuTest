@@ -15,12 +15,11 @@ parser = argparse.ArgumentParser(fromfile_prefix_chars='@',
                                 formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
 
-parser.add_argument('-i','--input', help='Input file name',type=str,metavar='<input_file>', default="ALL",required=True)
+parser.add_argument('-t','--tsv', help='The list of datasets to be uploaded.',type=str,metavar='<tsv>',required=True)
 
 args = parser.parse_args()
 
-filename = args.input
-if filename == "DEFAULT": filename = "/dsde/working/somaticDB/master/tcga/submission_data.tsv"
+filename = args.tsv
 
 gather = DataGatherer(filename)
 
