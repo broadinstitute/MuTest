@@ -1,9 +1,7 @@
 import argparse
-
-from somaticDB.DictUtilities import merge_dicts , \
-    get_entries_from_dict
-from somaticDB.Internals import DataGatherer
-from somaticDB.MongoUtilities import connect_to_mongo
+from DataGatherer import DataGatherer
+from DictUtilities import merge_dicts , get_entries_from_dict
+from MongoUtilities import connect_to_mongo
 
 
 script_description="""A protype script for submitting data to MongoDB"""
