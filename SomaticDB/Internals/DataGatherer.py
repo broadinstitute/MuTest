@@ -2,9 +2,36 @@ import csv
 
 import argparse
 
-from somaticDB.BasicSupportLibraries.DictUtilities import merge_dicts
+from somaticDB.BasicSupportLibraries.DictUtilities import merge_dicts , tally
 from somaticDB.BasicSupportLibraries.DictUtilities import get_entries_from_dict
 from somaticDB.Internals import DatabaseParser
+
+def query_processor(selections):
+    if selections.startswith('{'):
+        query = selections
+    elif selections == 'all':
+        query = '{project : { $exists : true } }'
+    else:
+        selections = selections.split(',')
+        selections = [selection.split(':') for selection in selections]
+
+        print selections
+
+        selections = tally(selections)
+
+        query='$or{'
+
+        midquery = list()
+        for selection in selections:
+            midquery.append('{'+selection+':'+str(selections[selection])+'}')
+
+        query += ','.join(midquery)
+
+        query+='}'
+
+    return query
+
+
 
 
 class DataGatherer:

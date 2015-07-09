@@ -1,4 +1,4 @@
-import csv
+from collections import defaultdict
 
 def merge_dicts(*dictionaries):
     new_dict = {}
@@ -61,3 +61,12 @@ def read_dict_from_file(filename,delimiter='\t'):
             result[key] = value
 
     return result
+
+def tally(entries):
+        result = defaultdict(list)
+
+        for entry in entries:
+                key,value = entry
+                result[key].append(value)
+
+        return dict(result)

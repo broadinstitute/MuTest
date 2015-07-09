@@ -134,17 +134,17 @@ for variant in all_variants:
                                  test=True,
                                  truth=True)
 
-save_set(filename = "%s.%s.missed_true_positives.tsv" %(args.algorithm,args.version),
+save_set(filename = "missed_true_positives.tsv",
          header=VARIANT_FIELDS,
          data = missed_positives)
 
-save_set(filename = "%s.%s.discovered_false_positives.tsv" %(args.algorithm,args.version),
+save_set(filename = "discovered_false_positives.tsv",
          header=VARIANT_FIELDS,
          data = discovered_negatives)
 
 CONFUSION_FIELDS = ['true positives','false positives','true negatives',
                     'false negatives','sensitivity','specificity',
-                    'precision','false discovery rate']
+                    'precision','false discovery rate','MCC']
 
 ConfusionDataFPs.save(filename="%s.%s.confusion_matrix_false_positives.tsv" %(args.algorithm,args.version),
                       fieldnames=CONFUSION_FIELDS)
