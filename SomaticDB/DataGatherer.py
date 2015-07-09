@@ -1,10 +1,10 @@
 import csv
 
-import argparse
+from somaticDB import DatabaseParser
 
-from somaticDB.BasicSupportLibraries.DictUtilities import merge_dicts , tally
-from somaticDB.BasicSupportLibraries.DictUtilities import get_entries_from_dict
-from somaticDB.Internals import DatabaseParser
+from somaticDB.DictUtilities import merge_dicts , tally
+from somaticDB.DictUtilities import get_entries_from_dict
+
 
 def query_processor(selections):
     if selections.startswith('{'):

@@ -1,11 +1,12 @@
 from collections import defaultdict
-import argparse
 import ast
 import os
-from pymongo import MongoClient
 import random
+
+import argparse
+
 from somaticDB.Internals.DataGatherer import query_processor
-from somaticDB.Internals.MongoUtilities import connect_to_mongo
+from somaticDB.MongoUtilities import connect_to_mongo
 
 
 def get_sample_name(filename):

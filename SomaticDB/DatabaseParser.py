@@ -4,7 +4,7 @@ import csv
 
 import vcf
 
-from somaticDB.BasicSupportLibraries.DictUtilities import merge_dicts , stringify_dict
+from somaticDB.DictUtilities import merge_dicts , stringify_dict
 
 
 def adjustIndelFormat(start_position, ref, alt):

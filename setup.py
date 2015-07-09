@@ -2,7 +2,6 @@ import distribute_setup
 distribute_setup.use_setuptools()
 
 from setuptools import setup
-from somatidDB.version import VERSION
 
 setup(
     name='somaticDB',

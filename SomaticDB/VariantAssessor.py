@@ -3,12 +3,12 @@ import csv
 
 import argparse
 
-from somaticDB.BasicSupportLibraries.DictUtilities import get_entries_from_dict, merge_dicts
+from somaticDB.DictUtilities import get_entries_from_dict, merge_dicts
 from somaticDB.BasicSupportLibraries import ConfusionMatrixManager
 from somaticDB.Internals import DataGatherer
 from somaticDB.Internals.DataGatherer import query_processor
 from somaticDB.Internals.MongoUtilities import connect_to_mongo
-from somaticDB.Internals.Variant import get_variant_type
+from somaticDB.Variant import get_variant_type
 
 
 def pp_dict(x):
