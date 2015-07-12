@@ -65,8 +65,12 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
 
         current_interval_file = open(current_filename,'w')
 
+        sorted_intervals = sorted(list(interval_list[pair]),key=lambda x: int(x.split(':')[1].split('-')[0]))
 
-        for interval in sorted(list(interval_list[pair]),key=lambda x: int(x.split(':')[1].split('-')[0]) ):
+        sorted_intervals = sorted(sorted_intervals,key=lambda x:x.split(':'))
+
+
+        for interval in sorted_intervals:
             current_interval_file.write(interval+"\n")
 
         current_interval_file.close()
