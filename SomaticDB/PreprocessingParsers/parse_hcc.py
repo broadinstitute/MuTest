@@ -43,7 +43,7 @@ def main():
 
             destination = os.path.basename(filename)
 
-            destination = os.path.join('/dsde/working/somaticDB/master/data/%s/%s//'%(directory,directory),destination)
+            destination = os.path.join('/dsde/working/somaticDB/master/data/hcc/%s/'%(directory,directory),destination)
 
 
             tp_destination = change_extension(destination,".tp.maf")
