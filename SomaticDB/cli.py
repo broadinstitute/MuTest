@@ -1,5 +1,5 @@
 import argparse
-from SomaticDB.Actions import VariantUploader
+from SomaticDB.Actions.VariantUploader import VariantUploader
 from SomaticDB.Actions.BamAggregator import BamAggregator
 from SomaticDB.Actions.VariantAssessor import VariantAssessor
 
@@ -75,21 +75,17 @@ def main():
     args = parser.parse_args()
 
     if (args.subparser == "bam_aggregate"):
-        print 2
-        #BamAggregator(args.query, args.normal_bam_list, args.tumor_bam_list, args.interval_list)
+        BamAggregator(args.query, args.normal_bam_list, args.tumor_bam_list, args.interval_list)
 
 
     if (args.subparser == "variant_assess"):
-        print 3
-        #VariantAssessor(args.query,args.tsv)
+        VariantAssessor(args.query,args.tsv)
 
     if (args.subparser == "variant_upload"):
-        print 4
-        #VariantUploader(args.tsv,submit_to_filesystem=False)
+        VariantUploader(args.tsv,submit_to_filesystem=False)
 
     if (args.subparser == "variant_submit"):
-        print 5
-        #VariantUploader(args.tsv,submit_to_filesystem=True)
+        VariantUploader(args.tsv,submit_to_filesystem=True)
 
 if __name__ == '__main__':
     main()
