@@ -7,9 +7,9 @@ setup(
 
     entry_points={
         'console_scripts': [
-        'somaticdb = SomaticDB.cli:main',
-        'parse_mara = Somatic.PreprocessingParsers.parse_mara:main',
-        'parse_hcc = Somatic.PreprocessingParsers.parse_hcc:main',
+        'somaticdb  = SomaticDB.cli:main',
+        'parse_mara = SomaticDB.PreprocessingParsers.parse_mara:main',
+        'parse_hcc  = SomaticDB.PreprocessingParsers.parse_hcc:main',
         ]
     },
 
