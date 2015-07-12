@@ -3,18 +3,24 @@ from SomaticDB.BasicUtilities.DictUtilities import merge_dicts , \
     get_entries_from_dict
 from SomaticDB.BasicUtilities.MongoUtilities import connect_to_mongo
 from SomaticDB.SupportLibraries.DataGatherer import DataGatherer
+from SomaticDB.SupportLibraries.SomaticFileSystem import SomaticFileSystem
 
 
 script_description="""A protype script for submitting data to MongoDB"""
 script_epilog="""Created for evaluation of performance of Mutect 2 positives evaluation """
 
-def VariantUploader(tsv):
+def VariantUploader(tsv,submit_to_filesystem=False):
 
     filename = tsv
 
     gather = DataGatherer(filename)
 
     variants = connect_to_mongo()
+
+    if submit_to_filesystem:
+        filesystem = SomaticFileSystem('/dsde/working/somaticDB/master')
+    else:
+        filesystem = None
 
 
     bulk_count = 0
@@ -32,14 +38,21 @@ def VariantUploader(tsv):
                                                                     'start',
                                                                     'ref',
                                                                     'alt',
-                                                                    'dataset_name',
-                                                                    'data_subset_name',
+                                                                    'project',
+                                                                    'dataset',
                                                                     'evidence_type'],
                                             return_type=dict)
 
+        project = mongo_submission['project']
+        dataset = mongo_submission['dataset']
 
 
-        bulk.insert(unique_data)
+        filesystem.add_project(project)
+        filesystem[project].add_dataset(dataset)
+        filesystem[project][dataset].add_file(  )
+
+
+        bulk.insert(mongo_submission)
 
         if bulk_count == 10000:
             print "bulk upload."

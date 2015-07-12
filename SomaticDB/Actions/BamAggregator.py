@@ -6,6 +6,7 @@ import random
 import argparse
 from SomaticDB.BasicUtilities.MongoUtilities import connect_to_mongo
 from SomaticDB.SupportLibraries.DataGatherer import query_processor
+from SomaticDB.SupportLibraries.SomaticFileSystem import SomaticFileSystem
 
 
 def get_sample_name(filename):
@@ -21,10 +22,6 @@ script_epilog="""Created for evaluation of performance of Mutect 2 positives eva
 def BamAggregator(query, normal_bam_list, tumor_bam_list, interval_list):
 
     collection = connect_to_mongo()
-
-    tumor_bam_list  = set([])
-    normal_bam_list = set([])
-    interval_list   = defaultdict(set)
 
     query = query_processor(query)
 
@@ -46,8 +43,6 @@ def BamAggregator(query, normal_bam_list, tumor_bam_list, interval_list):
     tumor_bam_file = open(tumor_bam_list,'w')
     normal_bam_file = open(normal_bam_list,'w')
     interval_file = open(interval_list,'w')
-
-    file_stem, file_ext = os.path.splitext(tumor_bam_list)
 
     for pair in interval_list:
         tumor_bam, normal_bam = pair

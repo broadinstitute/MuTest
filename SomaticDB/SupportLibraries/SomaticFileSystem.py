@@ -89,7 +89,3 @@ class SomaticFileSystem:
     def __iter__(self):
         return iter(self.projects.values())
 
-
-S = SomaticFileSystem('/Users/kareemcarr/Desktop/TEST/vault')
-print S.list_projects()
-

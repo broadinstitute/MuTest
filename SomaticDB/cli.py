@@ -16,7 +16,7 @@ def main():
 
     subparsers = parser.add_subparsers(help='commands',dest='subparser')
 
-    bam_aggregator_parser = subparsers.add_parser('bam_aggregator',
+    bam_aggregator_parser = subparsers.add_parser('bam_aggregate',
                          help  ='Produces a list of bams for an assessment.')
 
 
@@ -50,7 +50,7 @@ def main():
                         required=True)
 
 
-    variant_assessor_parser = subparsers.add_parser('variant_assessor',
+    variant_assessor_parser = subparsers.add_parser('variant_assess',
                          help  ='Assesses a file of variants against truth data stored in the mongo database.')
 
 
@@ -58,20 +58,31 @@ def main():
     variant_assessor_parser.add_argument('-q','--query', help='The query for the dataset needed',type=str,metavar='<query>', required=True)
 
 
-    variant_uploader_parser = subparsers.add_parser('variant_uploader',
-                         help  ='Uploads data both to mongo and stores information on the filesystem (at /dsde)')
+    variant_uploader_parser = subparsers.add_parser('variant_upload',
+                         help  ="Uploads data both to mongo. WARNING: ONLY FOR INTERNAL USE. If you are an external user, please use 'variant_submit' instead")
 
 
     variant_uploader_parser.add_argument('-t','--tsv', help='The list of datasets to be uploaded.',type=str,metavar='<tsv>',required=True)
 
+
+    variant_submitter_parser = subparsers.add_parser('variant_submit',
+                         help  ='Sumbits data both to mongo and stores information on the filesystem (at /dsde)')
+
+
+    variant_submitter_parser.add_argument('-t','--tsv', help='The list of datasets to be uploaded.',type=str,metavar='<tsv>',required=True)
+
+
     args = parser.parse_args()
 
-    if (args.subparser == "bam_aggregator"):
+    if (args.subparser == "bam_aggregate"):
         BamAggregator(args.query, args.normal_bam_list, args.tumor_bam_list, args.interval_list)
 
 
-    if (args.subparser == "variant_assessor"):
+    if (args.subparser == "variant_assess"):
         VariantAssessor(args.query,args.tsv)
 
-    if (args.subparser == "variant_uploader"):
-        VariantUploader(args.tsv)
+    if (args.subparser == "variant_upload"):
+        VariantUploader(args.tsv,submit_to_filesystem=False)
+
+    if (args.subparser == "variant_submit"):
+        VariantUploader(args.tsv,submit_to_filesystem=True)
