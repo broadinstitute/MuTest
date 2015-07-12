@@ -54,7 +54,7 @@ def VariantUploader(tsv,submit_to_filesystem=False):
             dataset = mongo_submission['dataset']
             filesystem.add_project(project)
             filesystem[project].add_dataset(dataset)
-            filesystem[project][dataset].add_file(dataset = mongo_submission['data_filename'])
+            filesystem[project][dataset].add_file(mongo_submission['data_filename'])
 
 
         bulk.insert(mongo_submission)
