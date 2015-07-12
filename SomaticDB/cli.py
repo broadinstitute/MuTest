@@ -75,17 +75,21 @@ def main():
     args = parser.parse_args()
 
     if (args.subparser == "bam_aggregate"):
-        BamAggregator(args.query, args.normal_bam_list, args.tumor_bam_list, args.interval_list)
+        print 2
+        #BamAggregator(args.query, args.normal_bam_list, args.tumor_bam_list, args.interval_list)
 
 
     if (args.subparser == "variant_assess"):
-        VariantAssessor(args.query,args.tsv)
+        print 3
+        #VariantAssessor(args.query,args.tsv)
 
     if (args.subparser == "variant_upload"):
-        VariantUploader(args.tsv,submit_to_filesystem=False)
+        print 4
+        #VariantUploader(args.tsv,submit_to_filesystem=False)
 
     if (args.subparser == "variant_submit"):
-        VariantUploader(args.tsv,submit_to_filesystem=True)
+        print 5
+        #VariantUploader(args.tsv,submit_to_filesystem=True)
 
 if __name__ == '__main__':
     main()
