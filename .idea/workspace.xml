@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SomaticDB/Actions/BamAggregator.py" afterPath="$PROJECT_DIR$/SomaticDB/Actions/BamAggregator.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SomaticDB/cli.py" afterPath="$PROJECT_DIR$/SomaticDB/cli.py" />
     </list>
     <ignored path="SomaticDB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,12 +25,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="cli.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="cli.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SomaticDB/cli.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1470">
-              <caret line="1" column="38" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
-              <folding />
+            <state vertical-scroll-proportion="0.6780303" vertical-offset="633" max-vertical-offset="1470">
+              <caret line="77" column="101" selection-start-line="77" selection-start-column="101" selection-end-line="77" selection-end-column="101" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -97,10 +99,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BamAggregator.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="BamAggregator.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SomaticDB/Actions/BamAggregator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.50757575" vertical-offset="318" max-vertical-offset="1125">
+            <state vertical-scroll-proportion="0.0" vertical-offset="318" max-vertical-offset="1125">
               <caret line="56" column="75" selection-start-line="56" selection-start-column="75" selection-end-line="56" selection-end-column="75" />
               <folding />
             </state>
@@ -187,11 +189,11 @@
         <option value="$PROJECT_DIR$/SomaticDB/SupportLibraries/SomaticFileSystem.py" />
         <option value="$PROJECT_DIR$/SomaticDB/Scripts/clean_database.py" />
         <option value="$PROJECT_DIR$/setup.py" />
-        <option value="$PROJECT_DIR$/SomaticDB/cli.py" />
         <option value="$PROJECT_DIR$/SomaticDB/PreprocessingParsers/parse_mara.py" />
         <option value="$PROJECT_DIR$/SomaticDB/SupportLibraries/DataGatherer.py" />
         <option value="$PROJECT_DIR$/SomaticDB/Actions/VariantUploader.py" />
         <option value="$PROJECT_DIR$/SomaticDB/Actions/BamAggregator.py" />
+        <option value="$PROJECT_DIR$/SomaticDB/cli.py" />
       </list>
     </option>
   </component>
@@ -871,14 +873,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SomaticDB/cli.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1470">
-          <caret line="1" column="38" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SomaticDB/PreprocessingParsers/parse_mara.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="8.038462" vertical-offset="1019" max-vertical-offset="1785">
@@ -923,9 +917,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SomaticDB/Actions/BamAggregator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.50757575" vertical-offset="318" max-vertical-offset="1125">
+        <state vertical-scroll-proportion="0.0" vertical-offset="318" max-vertical-offset="1125">
           <caret line="56" column="75" selection-start-line="56" selection-start-column="75" selection-end-line="56" selection-end-column="75" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SomaticDB/cli.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6780303" vertical-offset="633" max-vertical-offset="1470">
+          <caret line="77" column="101" selection-start-line="77" selection-start-column="101" selection-end-line="77" selection-end-column="101" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

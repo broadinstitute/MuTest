@@ -43,10 +43,10 @@ def main():
                         metavar='<interval_list>',
                         required=True)
 
-    bam_aggregator_parser.add_argument('-o','--output_folder',
-                        help='An output folder for the files created.',
+    bam_aggregator_parser.add_argument('-f','--folder',
+                        help='A folder containing the intervals',
                         type=str,
-                        metavar='<output_folder>',
+                        metavar='<older>',
                         required=True)
 
 
@@ -75,7 +75,7 @@ def main():
     args = parser.parse_args()
 
     if (args.subparser == "bam_aggregate"):
-        BamAggregator(args.query, args.normal_bam_list, args.tumor_bam_list, args.interval_list)
+        BamAggregator(args.query, args.normal_bam_list, args.tumor_bam_list, args.interval_list,args.folder)
 
 
     if (args.subparser == "variant_assess"):
