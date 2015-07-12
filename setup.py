@@ -11,7 +11,7 @@ setup(
         ]
     },
 
-    packages=['SomaticDB','SomaticDB.Actions', 'SomaticDB.BasicUtilities', 'SomaticDB.SupportLibraries'],
+    packages=['SomaticDB','SomaticDB.cli','SomaticDB.Actions', 'SomaticDB.BasicUtilities', 'SomaticDB.SupportLibraries'],
 
     license='TODO: Determine license',
 
