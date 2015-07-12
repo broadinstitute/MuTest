@@ -56,6 +56,8 @@ class DataGatherer:
                                                    keys=keys,
                                                    return_type=dict)
 
+            print meta_data_dict
+
             D = DatabaseParser(meta_data_dict['data_filename'])
             self.current_file = meta_data_dict['data_filename']
 
