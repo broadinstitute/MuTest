@@ -9,7 +9,7 @@ setup(
         'console_scripts': [
         'somaticdb = SomaticDB.cli:main',
         'parse_mara = Somatic.PreprocessingParsers.parse_mara:main',
-        'parse_mara = Somatic.PreprocessingParsers.parse_hcc:main',
+        'parse_hcc = Somatic.PreprocessingParsers.parse_hcc:main',
         ]
     },
 
