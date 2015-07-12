@@ -14,7 +14,12 @@ setup(
         ]
     },
 
-    packages=['SomaticDB','SomaticDB.Actions', 'SomaticDB.BasicUtilities', 'SomaticDB.SupportLibraries','SomaticDB.PreprocessingParsers'],
+    packages=['SomaticDB',
+              'SomaticDB.Actions',
+              'SomaticDB.BasicUtilities',
+              'SomaticDB.Scripts',
+              'SomaticDB.SupportLibraries',
+              'SomaticDB.PreprocessingParsers'],
 
     license='TODO: Determine license',
 
