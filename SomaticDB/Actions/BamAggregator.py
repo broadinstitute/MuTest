@@ -23,7 +23,7 @@ def BamAggregator(query, normal_bam_list, tumor_bam_list, interval_list):
 
     query = query_processor(query)
 
-    interval_list = {}
+    interval_list = defaultdict(set)
 
     for record in collection.find(ast.literal_eval(query)):
 
