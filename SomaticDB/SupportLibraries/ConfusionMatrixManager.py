@@ -1,7 +1,7 @@
 from collections import defaultdict
 import csv
 
-import ConfusionMatrix
+from SomaticDB.SupportLibraries import ConfusionMatrix
 
 
 class ConfusionMatrixManager:

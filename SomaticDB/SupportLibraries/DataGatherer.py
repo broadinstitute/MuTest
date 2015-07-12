@@ -1,7 +1,8 @@
 import csv
 
-import DatabaseParser
-from DictUtilities import tally , get_entries_from_dict , merge_dicts
+from SomaticDB.BasicUtilities.DictUtilities import get_entries_from_dict , merge_dicts , \
+    tally
+from SomaticDB.SupportLibraries import DatabaseParser
 
 
 def query_processor(selections):
@@ -47,6 +48,9 @@ class DataGatherer:
         reader = csv.DictReader(file,delimiter='\t')
 
         for file_data in reader:
+
+            if file_data.has_key('FILTER'):
+                if len(filter) > 0: continue
 
             meta_data_dict = get_entries_from_dict(file_data,
                                                    keys=keys,

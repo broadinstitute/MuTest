@@ -1,6 +1,3 @@
-import distribute_setup
-distribute_setup.use_setuptools()
-
 from setuptools import setup
 
 setup(
@@ -10,21 +7,15 @@ setup(
 
     entry_points={
         'console_scripts': [
-        'data_parser = somaticDB.DatabaseParser:main'
+        'somaticDB = SomaticDB.cli:main',
         ]
     },
 
-    test_suite='test',
-
-    install_requires=['pyvcf'],
-
-    tests_require=['nose'],
-
-    packages=['SomaticDB'],
+    packages=['SomaticDB','SomaticDB.Actions', 'SomaticDB.BasicUtilities', 'SomaticDB.SupportLibraries'],
 
     license='TODO: Determine license',
 
-    long_description=open('README.rst').read(),
+    long_description='A somatic database in mongo.',
 
     classifiers=[
         'Development Status :: 5 - Production/Stable',
