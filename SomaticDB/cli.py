@@ -2,7 +2,7 @@ import argparse
 from SomaticDB.Actions.VariantUploader import VariantUploader
 from SomaticDB.Actions.BamAggregator import BamAggregator
 from SomaticDB.Actions.VariantAssessor import VariantAssessor
-import SomaticDB.Scripts as scripts
+from SomaticDB.Scripts.clean_database import delete_all
 
 
 def main():
@@ -92,7 +92,7 @@ def main():
         VariantUploader(args.tsv,submit_to_filesystem=True)
 
     if (args.subparser == "database_delete"):
-        scripts.clean_database.main()
+        delete_all()
 
 if __name__ == '__main__':
     main()
