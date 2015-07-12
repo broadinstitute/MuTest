@@ -27,8 +27,11 @@ def VariantUploader(tsv,submit_to_filesystem=False):
     bulk = variants.initialize_unordered_bulk_op()
 
     start_time = time.time()
+    n = 0
 
     for variant_dict in gather.data_iterator():
+        n+=1
+
 
         bulk_count+=1
 
@@ -57,7 +60,7 @@ def VariantUploader(tsv,submit_to_filesystem=False):
         bulk.insert(mongo_submission)
 
         if bulk_count == 10000:
-            print "variants uploaded: %d (%.2f seconds since start of upload)." % (bulk_count, time.time() - start_time)
+            print "variants uploaded: %d (%.2f seconds since start of upload)." % (n, time.time() - start_time)
             bulk_count = 0
             bulk.execute()
             bulk = variants.initialize_unordered_bulk_op()
