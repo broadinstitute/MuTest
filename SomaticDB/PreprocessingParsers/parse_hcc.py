@@ -32,7 +32,6 @@ def selection_copy(source_file_name, destination_file_name,column,values):
 def main():
     location = os.getcwd()
 
-
     for directory in ['hcc1143','hcc1954']:
         os.chdir(location)
 
@@ -40,23 +39,17 @@ def main():
 
         filenames = glob.glob('/dsde/working/somaticDB/master/originals/%s/*.maf'%directory)
 
-        #os.chdir('../data/%s/processed/'%directory)
-
         for filename in filenames:
 
             destination = os.path.basename(filename)
 
             destination = os.path.join('/dsde/working/somaticDB/master/data/%s/%s//'%(directory,directory),destination)
 
-            print "filename:", filename
-            print "destination:", destination
-            print
-
 
             tp_destination = change_extension(destination,".tp.maf")
             fp_destination = change_extension(destination,".fp.maf")
 
-            print os.getcwd()
+
 
             selection_copy(source_file_name=filename,
                                destination_file_name=tp_destination,
