@@ -17,7 +17,7 @@ script_description="""A protype script for figuring out what bams one needs to r
 script_epilog="""Created for evaluation of performance of Mutect 2 positives evaluation """
 
 
-def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_list_name):
+def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_list_name, folder):
 
     collection = connect_to_mongo()
 
@@ -44,6 +44,9 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
     normal_bam_file = open(normal_bam_list_name,'w')
     interval_file = open(interval_list_name,'w')
 
+
+    current_dir = os.getcwd()
+
     for pair in interval_list:
         tumor_bam, normal_bam = pair
         tumor_bam_file.write(tumor_bam+'\n')
@@ -53,11 +56,12 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
         sample =\
             "".join([random.choice('abcdef0123456789') for k in range(40)])
 
-        print sample
-
         current_filename = "intervals."+sample+".list"
 
         current_interval_file = open(current_filename,'w')
+
+        current_interval_file = os.join(current_dir, folder, current_interval_file)
+
 
         for interval in sorted(list(interval_list[pair]),key=lambda x: int(x.split(':')[1].split('-')[0]) ):
             current_interval_file.write(interval+"\n")
