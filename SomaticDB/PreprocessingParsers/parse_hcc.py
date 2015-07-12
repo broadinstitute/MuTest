@@ -35,7 +35,7 @@ def main():
     for directory in ['hcc1143','hcc1954']:
         os.chdir(location)
 
-        print os.getcwd()
+        print directory
 
         filenames = glob.glob('/dsde/working/somaticDB/master/originals/%s/*.maf'%directory)
 
