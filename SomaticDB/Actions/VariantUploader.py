@@ -64,3 +64,6 @@ def VariantUploader(tsv,submit_to_filesystem=False):
             bulk_count = 0
             bulk.execute()
             bulk = variants.initialize_unordered_bulk_op()
+
+    if bulk_count>0:
+        bulk.execute()

@@ -70,8 +70,8 @@
       <file leaf-file-name="VariantUploader.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SomaticDB/Actions/VariantUploader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6866841" vertical-offset="314" max-vertical-offset="1080">
-              <caret line="56" column="50" selection-start-line="56" selection-start-column="50" selection-end-line="56" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.92167103" vertical-offset="314" max-vertical-offset="1110">
+              <caret line="68" column="22" selection-start-line="68" selection-start-column="22" selection-end-line="68" selection-end-column="22" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -925,8 +925,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SomaticDB/Actions/VariantUploader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6866841" vertical-offset="314" max-vertical-offset="1080">
-          <caret line="56" column="50" selection-start-line="56" selection-start-column="50" selection-end-line="56" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.92167103" vertical-offset="314" max-vertical-offset="1110">
+          <caret line="68" column="22" selection-start-line="68" selection-start-column="22" selection-end-line="68" selection-end-column="22" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
