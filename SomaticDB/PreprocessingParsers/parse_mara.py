@@ -51,8 +51,8 @@ def selection_copy(source_file_name , destination_file_name , column , values):
     outfile.close()
 
 
-fieldnames = ['tumor_bam' , 'normal_bam' , 'data_filename' , 'dataset_name' ,
-              'data_subset_name' , 'evidence_type' , 'originator']
+fieldnames = ['tumor_bam' , 'normal_bam' , 'data_filename' , 'project' ,
+              'dataset' , 'evidence_type' , 'author']
 
 outfile = open('../tcga.submission.tsv' , 'w')
 writer = csv.DictWriter(outfile , delimiter='\t' , fieldnames=fieldnames)
@@ -83,10 +83,10 @@ for filename in filenames:
         out_row['normal_bam'] = row['normal_bam']
         out_row['data_filename'] = os.path.abspath(
             os.path.join(tumor_type , maf_filename))
-        out_row['dataset_name'] = tumor_type
-        out_row['data_subset_name'] = sample_id
+        out_row['project'] = tumor_type
+        out_row['dataset'] = sample_id
         out_row['evidence_type'] = 'TP'
-        out_row['originator'] = 'Mara Rosenberg'
+        out_row['author'] = 'Mara Rosenberg'
 
         destination = os.path.join(tumor_type , maf_filename)
 
