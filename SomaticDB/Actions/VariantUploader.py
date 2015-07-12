@@ -7,18 +7,19 @@ from SomaticDB.SupportLibraries.SomaticFileSystem import SomaticFileSystem
 import time
 import shutil
 import os
+from SomaticDB.SupportLibraries.SubmissionFile import SubmissionFile
 
 script_description="""A protype script for submitting data to MongoDB"""
 script_epilog="""Created for evaluation of performance of Mutect 2 positives evaluation """
 
+
+def change_data_filename(directory,filename):
+    return os.path.join(directory,os.path.basename(filename))
+
 def VariantUploader(tsv,submit_to_filesystem=False):
 
-    filename = tsv
 
-    shutil.copy2(filename,  os.path.join(  ,os.path.basename(filename)))
-
-
-    gather = DataGatherer(filename)
+    gather = DataGatherer(tsv)
 
     variants = connect_to_mongo()
 
@@ -59,6 +60,11 @@ def VariantUploader(tsv,submit_to_filesystem=False):
             dataset = mongo_submission['dataset']
             filesystem.add_project(project)
             filesystem[project].add_dataset(dataset)
+
+            mongo_submission['data_filename']=\
+                change_data_filename("/dsde/working/somaticDB/master/data/%s/%s/"%(project,dataset),
+                                     mongo_submission['data_filename'])
+
             filesystem[project][dataset].add_file(mongo_submission['data_filename'])
 
 
