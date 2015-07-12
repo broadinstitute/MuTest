@@ -26,7 +26,7 @@ def VariantUploader(tsv,submit_to_filesystem=False):
     bulk_count = 0
     bulk = variants.initialize_unordered_bulk_op()
 
-    for variant_dict in gather.data_iterator(demo=False):
+    for variant_dict in gather.data_iterator():
 
         bulk_count+=1
 
