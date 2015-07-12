@@ -38,7 +38,7 @@ def main():
 
         print os.getcwd()
 
-        filenames = glob.glob('/dsde/working/somaticDB/master/originals/%s/'%directory)
+        filenames = glob.glob('/dsde/working/somaticDB/master/originals/%s/*.maf'%directory)
 
         #os.chdir('../data/%s/processed/'%directory)
 
