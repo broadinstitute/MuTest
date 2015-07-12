@@ -57,10 +57,10 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
             "".join([random.choice('abcdef0123456789') for k in range(40)])
 
         current_filename = "intervals."+sample+".list"
+        current_filename = os.path.join(current_dir, folder, current_filename)
 
         current_interval_file = open(current_filename,'w')
 
-        current_interval_file = os.path.join(current_dir, folder, current_interval_file)
 
 
         for interval in sorted(list(interval_list[pair]),key=lambda x: int(x.split(':')[1].split('-')[0]) ):
