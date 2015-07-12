@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SomaticDB/Scripts/clean_database.py" afterPath="$PROJECT_DIR$/SomaticDB/Scripts/clean_database.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SomaticDB/cli.py" afterPath="$PROJECT_DIR$/SomaticDB/cli.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup.py" afterPath="$PROJECT_DIR$/setup.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SomaticDB/PreprocessingParsers/parse_hcc.py" afterPath="$PROJECT_DIR$/SomaticDB/PreprocessingParsers/parse_hcc.py" />
     </list>
     <ignored path="SomaticDB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,10 +35,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cli.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="cli.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SomaticDB/cli.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.7992424" vertical-offset="0" max-vertical-offset="1575">
+            <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="1575">
               <caret line="94" column="20" selection-start-line="94" selection-start-column="20" selection-end-line="94" selection-end-column="20" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
@@ -91,11 +89,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parse_hcc.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="parse_hcc.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SomaticDB/PreprocessingParsers/parse_hcc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="318" max-vertical-offset="1140">
-              <caret line="72" column="10" selection-start-line="72" selection-start-column="10" selection-end-line="72" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.46969697" vertical-offset="318" max-vertical-offset="1140">
+              <caret line="48" column="70" selection-start-line="48" selection-start-column="70" selection-end-line="48" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -186,7 +184,6 @@
         <option value="$PROJECT_DIR$/SomaticDB/SupportLibraries/DataGatherer.py" />
         <option value="$PROJECT_DIR$/SomaticDB/Actions/VariantAssessor.py" />
         <option value="$PROJECT_DIR$/SomaticDB/Actions/VariantUploader.py" />
-        <option value="$PROJECT_DIR$/SomaticDB/PreprocessingParsers/parse_hcc.py" />
         <option value="$PROJECT_DIR$/SomaticDB/Scripts/__init__.py" />
         <option value="$PROJECT_DIR$/SomaticDB/PreprocessingParsers/__init__.py" />
         <option value="$PROJECT_DIR$/SomaticDB/Legacy/__init__.py" />
@@ -196,6 +193,7 @@
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/SomaticDB/Scripts/clean_database.py" />
         <option value="$PROJECT_DIR$/SomaticDB/cli.py" />
+        <option value="$PROJECT_DIR$/SomaticDB/PreprocessingParsers/parse_hcc.py" />
       </list>
     </option>
   </component>
@@ -934,14 +932,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SomaticDB/PreprocessingParsers/parse_hcc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="318" max-vertical-offset="1140">
-          <caret line="72" column="10" selection-start-line="72" selection-start-column="10" selection-end-line="72" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SomaticDB/Actions/VariantUploader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="243" max-vertical-offset="1035">
@@ -976,11 +966,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SomaticDB/cli.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.7992424" vertical-offset="0" max-vertical-offset="1575">
+        <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="1575">
           <caret line="94" column="20" selection-start-line="94" selection-start-column="20" selection-end-line="94" selection-end-column="20" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SomaticDB/PreprocessingParsers/parse_hcc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46969697" vertical-offset="318" max-vertical-offset="1140">
+          <caret line="48" column="70" selection-start-line="48" selection-start-column="70" selection-end-line="48" selection-end-column="70" />
+          <folding />
         </state>
       </provider>
     </entry>

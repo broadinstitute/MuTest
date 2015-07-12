@@ -38,7 +38,7 @@ def main():
 
         print os.getcwd()
 
-        filenames = glob.glob('../data/%s/original/*.maf'%directory)
+        filenames = glob.glob('/dsde/working/somaticDB/master/originals/%s/'%directory)
 
         #os.chdir('../data/%s/processed/'%directory)
 
@@ -46,7 +46,7 @@ def main():
 
             destination = os.path.basename(filename)
 
-            destination = os.path.join('../data/%s/processed/'%directory,destination)
+            destination = os.path.join('/dsde/working/somaticDB/master/data/%s/%s//'%(directory,directory),destination)
 
             print "filename:", filename
             print "destination:", destination
