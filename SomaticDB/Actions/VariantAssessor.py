@@ -50,8 +50,6 @@ def VariantAssessor(query,tsv):
 
         test_data_set[variant_data] = get_variant_type(variant_dict)
 
-    data_collection=[]
-
     ConfusionDataTPs = ConfusionMatrixManager()
     ConfusionDataFPs = ConfusionMatrixManager()
 

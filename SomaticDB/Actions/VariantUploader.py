@@ -66,4 +66,5 @@ def VariantUploader(tsv,submit_to_filesystem=False):
             bulk = variants.initialize_unordered_bulk_op()
 
     if bulk_count>0:
+        print "variants uploaded: %d (%.2f seconds since start of upload)." % (n, time.time() - start_time)
         bulk.execute()

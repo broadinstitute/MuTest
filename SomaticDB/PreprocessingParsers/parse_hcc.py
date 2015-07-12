@@ -29,42 +29,45 @@ def selection_copy(source_file_name, destination_file_name,column,values):
     infile.close()
     outfile.close()
 
-
-location = os.getcwd()
-
-
-for directory in ['hcc1143','hcc1954']:
-	os.chdir(location)
-
-	print os.getcwd()
-
-	filenames = glob.glob('../data/%s/original/*.maf'%directory)
-
-	#os.chdir('../data/%s/processed/'%directory)
-
-	for filename in filenames:
-
-		destination = os.path.basename(filename)
-
-		destination = os.path.join('../data/%s/processed/'%directory,destination)
-
-		print "filename:", filename
-		print "destination:", destination
-		print
+def main():
+    location = os.getcwd()
 
 
-		tp_destination = change_extension(destination,".tp.maf")
-		fp_destination = change_extension(destination,".fp.maf")
+    for directory in ['hcc1143','hcc1954']:
+        os.chdir(location)
 
-		print os.getcwd()
+        print os.getcwd()
 
-		selection_copy(source_file_name=filename,
-                           destination_file_name=tp_destination,
-                           column='Status',
-                           values=['TP'])
+        filenames = glob.glob('../data/%s/original/*.maf'%directory)
+
+        #os.chdir('../data/%s/processed/'%directory)
+
+        for filename in filenames:
+
+            destination = os.path.basename(filename)
+
+            destination = os.path.join('../data/%s/processed/'%directory,destination)
+
+            print "filename:", filename
+            print "destination:", destination
+            print
 
 
-		selection_copy(source_file_name=filename,
-                           destination_file_name=fp_destination,
-                           column='Status',
-                           values=['FP','UNKNOWN'])
+            tp_destination = change_extension(destination,".tp.maf")
+            fp_destination = change_extension(destination,".fp.maf")
+
+            print os.getcwd()
+
+            selection_copy(source_file_name=filename,
+                               destination_file_name=tp_destination,
+                               column='Status',
+                               values=['TP'])
+
+
+            selection_copy(source_file_name=filename,
+                               destination_file_name=fp_destination,
+                               column='Status',
+                               values=['FP','UNKNOWN'])
+
+if __name__ == '__main__':
+    main()

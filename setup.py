@@ -8,10 +8,12 @@ setup(
     entry_points={
         'console_scripts': [
         'somaticdb = SomaticDB.cli:main',
+        'parse_mara = Somatic.PreprocessingParsers.parse_mara:main',
+        'parse_mara = Somatic.PreprocessingParsers.parse_hcc:main',
         ]
     },
 
-    packages=['SomaticDB','SomaticDB.Actions', 'SomaticDB.BasicUtilities', 'SomaticDB.SupportLibraries'],
+    packages=['SomaticDB','SomaticDB.Actions', 'SomaticDB.BasicUtilities', 'SomaticDB.SupportLibraries','SomaticDB.PreprocessingParsers'],
 
     license='TODO: Determine license',
 
