@@ -44,7 +44,11 @@ def selection_copy(source_file_name , destination_file_name , column , values):
 
 def main():
 
-    os.chdir("/dsde/working/somaticDB/master/tcga")
+    tcga_dir = "/dsde/working/somaticDB/master/data/tcga"
+
+    if not os.path.exists(tcga_dir): os.mkdir(tcga_dir)
+
+    os.chdir(tcga_dir)
 
     filenames = glob.glob("*database_upload.txt")
 
@@ -52,7 +56,7 @@ def main():
     fieldnames = ['tumor_bam' , 'normal_bam' , 'data_filename' , 'project' ,
                   'dataset','sample', 'evidence_type' , 'author']
 
-    outfile = open('../tcga.submission.tsv' , 'w')
+    outfile = open('/dsde/working/somaticDB/master/records/tcga.tsv' , 'w')
     writer = csv.DictWriter(outfile , delimiter='\t' , fieldnames=fieldnames)
     writer.writeheader()
 
