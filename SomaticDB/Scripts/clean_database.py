@@ -1,4 +1,8 @@
 from SomaticDB.BasicUtilities.MongoUtilities import connect_to_mongo
 
-variants = connect_to_mongo()
-variants.remove()
+def main():
+    variants = connect_to_mongo()
+    variants.remove()
+
+if __name__ == '__main__':
+    main()

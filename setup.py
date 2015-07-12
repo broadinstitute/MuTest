@@ -10,6 +10,7 @@ setup(
         'somaticdb  = SomaticDB.cli:main',
         'parse_mara = SomaticDB.PreprocessingParsers.parse_mara:main',
         'parse_hcc  = SomaticDB.PreprocessingParsers.parse_hcc:main',
+        'clean_database = SomaticDB.Scripts.clean_database:main'
         ]
     },
 
