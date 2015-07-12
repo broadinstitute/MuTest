@@ -43,13 +43,13 @@ def VariantUploader(tsv,submit_to_filesystem=False):
                                                                     'evidence_type'],
                                             return_type=dict)
 
-        project = mongo_submission['project']
-        dataset = mongo_submission['dataset']
 
-
-        filesystem.add_project(project)
-        filesystem[project].add_dataset(dataset)
-        filesystem[project][dataset].add_file(  )
+        if filesystem:
+            project = mongo_submission['project']
+            dataset = mongo_submission['dataset']
+            filesystem.add_project(project)
+            filesystem[project].add_dataset(dataset)
+            filesystem[project][dataset].add_file(  )
 
 
         bulk.insert(mongo_submission)

@@ -17,8 +17,6 @@ script_description="""A protype script for figuring out what bams one needs to r
 script_epilog="""Created for evaluation of performance of Mutect 2 positives evaluation """
 
 
-
-
 def BamAggregator(query, normal_bam_list, tumor_bam_list, interval_list):
 
     collection = connect_to_mongo()
