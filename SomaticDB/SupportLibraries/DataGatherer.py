@@ -9,7 +9,7 @@ def query_processor(selections):
     if selections.startswith('{'):
         query = selections
     elif selections == 'all':
-        query = '{project : { $exists : true } }'
+        query = "{'project' : { '$exists' : 'true' } }"
     else:
         selections = selections.split(',')
         selections = [selection.split(':') for selection in selections]
@@ -55,8 +55,6 @@ class DataGatherer:
             meta_data_dict = get_entries_from_dict(file_data,
                                                    keys=keys,
                                                    return_type=dict)
-
-            print meta_data_dict
 
             D = DatabaseParser(meta_data_dict['data_filename'])
             self.current_file = meta_data_dict['data_filename']

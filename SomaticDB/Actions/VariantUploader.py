@@ -5,6 +5,8 @@ from SomaticDB.BasicUtilities.MongoUtilities import connect_to_mongo
 from SomaticDB.SupportLibraries.DataGatherer import DataGatherer
 from SomaticDB.SupportLibraries.SomaticFileSystem import SomaticFileSystem
 import time
+import shutil
+import os
 
 script_description="""A protype script for submitting data to MongoDB"""
 script_epilog="""Created for evaluation of performance of Mutect 2 positives evaluation """
@@ -12,6 +14,9 @@ script_epilog="""Created for evaluation of performance of Mutect 2 positives eva
 def VariantUploader(tsv,submit_to_filesystem=False):
 
     filename = tsv
+
+    shutil.copy2(filename,  os.path.join(  ,os.path.basename(filename)))
+
 
     gather = DataGatherer(filename)
 
