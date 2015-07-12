@@ -4,7 +4,7 @@ from SomaticDB.BasicUtilities.DictUtilities import merge_dicts , \
 from SomaticDB.BasicUtilities.MongoUtilities import connect_to_mongo
 from SomaticDB.SupportLibraries.DataGatherer import DataGatherer
 from SomaticDB.SupportLibraries.SomaticFileSystem import SomaticFileSystem
-
+import time
 
 script_description="""A protype script for submitting data to MongoDB"""
 script_epilog="""Created for evaluation of performance of Mutect 2 positives evaluation """
@@ -25,6 +25,8 @@ def VariantUploader(tsv,submit_to_filesystem=False):
 
     bulk_count = 0
     bulk = variants.initialize_unordered_bulk_op()
+
+    start_time = time.time()
 
     for variant_dict in gather.data_iterator():
 
@@ -55,7 +57,7 @@ def VariantUploader(tsv,submit_to_filesystem=False):
         bulk.insert(mongo_submission)
 
         if bulk_count == 10000:
-            print "bulk upload."
+            print "variants uploaded: %d (%.2f seconds since start of upload)." % (bulk_count, time.time() - start_time)
             bulk_count = 0
             bulk.execute()
             bulk = variants.initialize_unordered_bulk_op()
