@@ -18,6 +18,7 @@ setup(
               'SomaticDB.Actions',
               'SomaticDB.BasicUtilities',
               'SomaticDB.Scripts',
+              'SomaticDB.Scripts.clean_database',
               'SomaticDB.SupportLibraries',
               'SomaticDB.PreprocessingParsers'],
 

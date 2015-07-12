@@ -2,6 +2,7 @@ import argparse
 from SomaticDB.Actions.VariantUploader import VariantUploader
 from SomaticDB.Actions.BamAggregator import BamAggregator
 from SomaticDB.Actions.VariantAssessor import VariantAssessor
+import SomaticDB.Scripts as scripts
 
 
 def main():
@@ -72,6 +73,9 @@ def main():
     variant_submitter_parser.add_argument('-t','--tsv', help='The list of datasets to be uploaded.',type=str,metavar='<tsv>',required=True)
 
 
+    database_delete_parser = subparsers.add_parser('database_delete',
+                         help  ='Remove all data in the database')
+
     args = parser.parse_args()
 
     if (args.subparser == "bam_aggregate"):
@@ -86,6 +90,9 @@ def main():
 
     if (args.subparser == "variant_submit"):
         VariantUploader(args.tsv,submit_to_filesystem=True)
+
+    if (args.subparser == "database_delete"):
+        scripts.clean_database.main()
 
 if __name__ == '__main__':
     main()
