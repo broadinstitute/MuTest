@@ -27,6 +27,8 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
 
     for record in collection.find(ast.literal_eval(query)):
 
+        print record
+
         if not record.has_key('tumor_bam'):
             print record
             continue
