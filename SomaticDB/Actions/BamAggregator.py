@@ -59,7 +59,7 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
 
         current_interval_file = open(current_filename,'w')
 
-        for interval in list(interval_list[pair]):
+        for interval in sorted(list(interval_list[pair]),lambda x: int(x.split(':')[1].split('-')[0]) ):
             current_interval_file.write(interval+"\n")
 
         current_interval_file.close()
