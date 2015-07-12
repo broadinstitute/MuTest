@@ -1,17 +1,17 @@
 from setuptools import setup
 
 setup(
-    name='somaticDB',
+    name='SomaticDB',
 
     version='alpha',
 
     entry_points={
         'console_scripts': [
-        'somaticDB = SomaticDB.cli:main',
+        'somaticdb = SomaticDB.cli:main',
         ]
     },
 
-    packages=['SomaticDB','SomaticDB.cli','SomaticDB.Actions', 'SomaticDB.BasicUtilities', 'SomaticDB.SupportLibraries'],
+    packages=['SomaticDB','SomaticDB.Actions', 'SomaticDB.BasicUtilities', 'SomaticDB.SupportLibraries'],
 
     license='TODO: Determine license',
 
