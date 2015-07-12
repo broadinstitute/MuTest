@@ -50,7 +50,7 @@ def main():
 
 
     fieldnames = ['tumor_bam' , 'normal_bam' , 'data_filename' , 'project' ,
-                  'dataset' , 'evidence_type' , 'author']
+                  'dataset','sample', 'evidence_type' , 'author']
 
     outfile = open('../tcga.submission.tsv' , 'w')
     writer = csv.DictWriter(outfile , delimiter='\t' , fieldnames=fieldnames)
