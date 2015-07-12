@@ -86,3 +86,6 @@ def main():
 
     if (args.subparser == "variant_submit"):
         VariantUploader(args.tsv,submit_to_filesystem=True)
+
+if __name__ == '__main__':
+    main()
