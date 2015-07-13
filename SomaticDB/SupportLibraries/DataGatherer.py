@@ -43,6 +43,7 @@ class DataGatherer:
                                              'data_filename',
                                              'project',
                                              'dataset',
+                                             'sample',
                                              'evidence_type')):
         file = open(self.filename,'rU')
         reader = csv.DictReader(file,delimiter='\t')
