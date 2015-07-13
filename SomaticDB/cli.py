@@ -50,6 +50,11 @@ def main():
                         metavar='<older>',
                         required=True)
 
+    bam_aggregator_parser.add_argument('-m','--metadata_list',
+                        help='A folder containing the metadata',
+                        type=str,
+                        metavar='<older>',
+                        required=True)
 
     variant_assessor_parser = subparsers.add_parser('variant_assess',
                          help  ='Assesses a file of variants against truth data stored in the mongo database.')
