@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SomaticDB/Actions/VariantUploader.py" afterPath="$PROJECT_DIR$/SomaticDB/Actions/VariantUploader.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SomaticDB/Actions/BamAggregator.py" afterPath="$PROJECT_DIR$/SomaticDB/Actions/BamAggregator.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SomaticDB/Actions/VariantAssessor.py" afterPath="$PROJECT_DIR$/SomaticDB/Actions/VariantAssessor.py" />
     </list>
     <ignored path="SomaticDB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -69,12 +70,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BamAggregator.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="BamAggregator.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SomaticDB/Actions/BamAggregator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.653846" vertical-offset="0" max-vertical-offset="1230">
-              <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-              <folding />
+            <state vertical-scroll-proportion="0.8631699" vertical-offset="623" max-vertical-offset="1515">
+              <caret line="92" column="25" selection-start-line="92" selection-start-column="25" selection-end-line="92" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -101,11 +104,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VariantUploader.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="VariantUploader.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SomaticDB/Actions/VariantUploader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.60661346" vertical-offset="443" max-vertical-offset="1350">
-              <caret line="65" column="84" selection-start-line="65" selection-start-column="84" selection-end-line="65" selection-end-column="84" />
+            <state vertical-scroll-proportion="-15.846154" vertical-offset="383" max-vertical-offset="1350">
+              <caret line="53" column="27" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
               <folding>
                 <element signature="e#0#92#0" expanded="true" />
               </folding>
@@ -128,8 +131,8 @@
       <file leaf-file-name="VariantAssessor.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SomaticDB/Actions/VariantAssessor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="2145">
-              <caret line="50" column="68" selection-start-line="50" selection-start-column="68" selection-end-line="50" selection-end-column="68" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="1950">
+              <caret line="34" column="78" selection-start-line="34" selection-start-column="78" selection-end-line="34" selection-end-column="78" />
               <folding />
             </state>
           </provider>
@@ -186,12 +189,10 @@
         <option value="$PROJECT_DIR$/SupportLibraries/DataGatherer.py" />
         <option value="$PROJECT_DIR$/SupportLibraries/DatabaseParser.py" />
         <option value="$PROJECT_DIR$/SomaticDB/SupportLibraries/SomaticFileSystem.py" />
-        <option value="$PROJECT_DIR$/SomaticDB/Actions/VariantAssessor.py" />
         <option value="$PROJECT_DIR$/SomaticDB/Scripts/__init__.py" />
         <option value="$PROJECT_DIR$/SomaticDB/PreprocessingParsers/__init__.py" />
         <option value="$PROJECT_DIR$/SomaticDB/Legacy/__init__.py" />
         <option value="$PROJECT_DIR$/SomaticDB/__init__.py" />
-        <option value="$PROJECT_DIR$/SomaticDB/Actions/BamAggregator.py" />
         <option value="$PROJECT_DIR$/SomaticDB/PreprocessingParsers/parse_mara.py" />
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/SomaticDB/cli.py" />
@@ -200,6 +201,8 @@
         <option value="$PROJECT_DIR$/SomaticDB/SupportLibraries/DataGatherer.py" />
         <option value="$PROJECT_DIR$/SomaticDB/SupportLibraries/SubmissionFile.py" />
         <option value="$PROJECT_DIR$/SomaticDB/Actions/VariantUploader.py" />
+        <option value="$PROJECT_DIR$/SomaticDB/Actions/VariantAssessor.py" />
+        <option value="$PROJECT_DIR$/SomaticDB/Actions/BamAggregator.py" />
       </list>
     </option>
   </component>
@@ -934,22 +937,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SomaticDB/Actions/VariantAssessor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="2145">
-          <caret line="50" column="68" selection-start-line="50" selection-start-column="68" selection-end-line="50" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SomaticDB/Actions/BamAggregator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.653846" vertical-offset="0" max-vertical-offset="1230">
-          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SomaticDB/SupportLibraries/DataGatherer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1125">
@@ -990,10 +977,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SomaticDB/Actions/VariantUploader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60661346" vertical-offset="443" max-vertical-offset="1350">
-          <caret line="65" column="84" selection-start-line="65" selection-start-column="84" selection-end-line="65" selection-end-column="84" />
+        <state vertical-scroll-proportion="-15.846154" vertical-offset="383" max-vertical-offset="1350">
+          <caret line="53" column="27" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
           <folding>
             <element signature="e#0#92#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SomaticDB/Actions/VariantAssessor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="1950">
+          <caret line="34" column="78" selection-start-line="34" selection-start-column="78" selection-end-line="34" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SomaticDB/Actions/BamAggregator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8631699" vertical-offset="623" max-vertical-offset="1515">
+          <caret line="92" column="25" selection-start-line="92" selection-start-column="25" selection-end-line="92" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>

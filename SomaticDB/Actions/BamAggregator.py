@@ -2,6 +2,7 @@ from collections import defaultdict
 import ast
 import os
 import random
+import csv
 
 import argparse
 from SomaticDB.BasicUtilities.MongoUtilities import connect_to_mongo
@@ -17,13 +18,15 @@ script_description="""A protype script for figuring out what bams one needs to r
 script_epilog="""Created for evaluation of performance of Mutect 2 positives evaluation """
 
 
-def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_list_name, folder):
+def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_list_name, metadata_list_name, folder):
 
     collection = connect_to_mongo()
 
     query = query_processor(query)
 
     interval_list = defaultdict(set)
+
+    metadata_list = {}
 
     for record in collection.find(ast.literal_eval(query)):
 
@@ -40,10 +43,16 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
 
         interval_list[(tumor_bam, normal_bam)].add(interval)
 
+        metadata_list[(tumor_bam, normal_bam)] = {'project':record['project'],
+                                                  'dataset':record['dataset'],
+                                                  'sample':record['sample']}
+
     tumor_bam_file = open(tumor_bam_list_name,'w')
     normal_bam_file = open(normal_bam_list_name,'w')
     interval_file = open(interval_list_name,'w')
 
+    metadata_file = csv.DictWriter(open(metadata_list_name),fieldnames=['project','dataset','sample'])
+    metadata_file.writeheader()
 
     current_dir = os.getcwd()
 
@@ -52,7 +61,8 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
         tumor_bam_file.write(tumor_bam+'\n')
         normal_bam_file.write(normal_bam+'\n')
 
-        #sample = get_sample_name(tumor_bam)
+        metadata_file.writerow(metadata_list[(tumor_bam, normal_bam)])
+
         sample =\
             "".join([random.choice('abcdef0123456789') for k in range(40)])
 
@@ -80,5 +90,6 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
     tumor_bam_file.close()
     normal_bam_file.close()
     interval_file.close()
+    metadata_file.close()
 
 

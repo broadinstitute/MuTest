@@ -17,24 +17,11 @@ def pp_dict(x):
         print key+": "+str(x[key])
 
 
-
-
-script_description="""A protype script that accesses true and false positives"""
-script_epilog="""Created for evaluation of performance of Mutect 2 """
-
-parser = argparse.ArgumentParser(fromfile_prefix_chars='@',
-                                 description=script_description,
-                                 epilog=script_epilog,
-                                 formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-
-
-
-
 def VariantAssessor(query,tsv):
 
     collection = connect_to_mongo()
 
-    VARIANT_FIELDS=['chromosome','start','ref','alt','dataset_name','data_subset_name']
+    VARIANT_FIELDS=['chromosome','start','ref','alt','project','dataset','sample']
 
     test_data_set  = {}
     truth_data_set = {}
@@ -45,7 +32,7 @@ def VariantAssessor(query,tsv):
 
     gather = DataGatherer(tsv)
 
-    for variant_dict in gather.data_iterator(keys=['dataset_name','data_subset_name','data_filename']):
+    for variant_dict in gather.data_iterator(keys=['project','dataset','sample','data_filename']):
         variant_data = get_entries_from_dict(variant_dict, keys=VARIANT_FIELDS,return_type=tuple)
 
         test_data_set[variant_data] = get_variant_type(variant_dict)
