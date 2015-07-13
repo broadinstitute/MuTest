@@ -1,11 +1,9 @@
-import argparse
 from SomaticDB.BasicUtilities.DictUtilities import merge_dicts , \
     get_entries_from_dict
 from SomaticDB.BasicUtilities.MongoUtilities import connect_to_mongo
 from SomaticDB.SupportLibraries.DataGatherer import DataGatherer
 from SomaticDB.SupportLibraries.SomaticFileSystem import SomaticFileSystem
 import time
-import shutil
 import os
 from SomaticDB.SupportLibraries.SubmissionFile import SubmissionFile
 
@@ -24,7 +22,11 @@ def VariantUploader(tsv,submit_to_filesystem=False):
     variants = connect_to_mongo()
 
     if submit_to_filesystem:
-        filesystem = SomaticFileSystem('/dsde/working/somaticDB/master')
+        filesystem = SomaticFileSystem('/dsde/working/somaticDB/master/data')
+
+        S = SubmissionFile(tsv)
+        S.change_file_dir()
+        S.to_csv(os.path.join('/dsde/working/somaticDB/master/records',os.path.basename(tsv)))
     else:
         filesystem = None
 

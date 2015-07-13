@@ -11,7 +11,7 @@ class SubmissionFile(object):
         else:
             self.data = pd.read_csv(filename,sep='\t')
 
-    def change_file_dir(self,directory):
+    def change_file_dir(self):
         n = len(self.data)
         for k in range(n):
             filename = self.data.ix[k,'data_filename']
