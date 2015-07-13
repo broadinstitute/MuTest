@@ -63,11 +63,13 @@ def VariantUploader(tsv,submit_to_filesystem=False):
             filesystem.add_project(project)
             filesystem[project].add_dataset(dataset)
 
+            filesystem[project][dataset].add_file(mongo_submission['data_filename'])
+
             mongo_submission['data_filename']=\
                 change_data_filename("/dsde/working/somaticDB/master/data/%s/%s/"%(project,dataset),
                                      mongo_submission['data_filename'])
 
-            filesystem[project][dataset].add_file(mongo_submission['data_filename'])
+
 
 
         bulk.insert(mongo_submission)

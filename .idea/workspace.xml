@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SomaticDB/SupportLibraries/SubmissionFile.py" afterPath="$PROJECT_DIR$/SomaticDB/SupportLibraries/SubmissionFile.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SomaticDB/Actions/VariantUploader.py" afterPath="$PROJECT_DIR$/SomaticDB/Actions/VariantUploader.py" />
     </list>
     <ignored path="SomaticDB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -101,11 +101,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VariantUploader.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="VariantUploader.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SomaticDB/Actions/VariantUploader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="1320">
-              <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.60661346" vertical-offset="443" max-vertical-offset="1350">
+              <caret line="65" column="84" selection-start-line="65" selection-start-column="84" selection-end-line="65" selection-end-column="84" />
               <folding>
                 <element signature="e#0#92#0" expanded="true" />
               </folding>
@@ -113,10 +113,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SubmissionFile.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SubmissionFile.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SomaticDB/SupportLibraries/SubmissionFile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28239202" vertical-offset="0" max-vertical-offset="903">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
               <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
@@ -198,8 +198,8 @@
         <option value="$PROJECT_DIR$/SomaticDB/Scripts/clean_database.py" />
         <option value="$PROJECT_DIR$/SomaticDB/PreprocessingParsers/parse_hcc.py" />
         <option value="$PROJECT_DIR$/SomaticDB/SupportLibraries/DataGatherer.py" />
-        <option value="$PROJECT_DIR$/SomaticDB/Actions/VariantUploader.py" />
         <option value="$PROJECT_DIR$/SomaticDB/SupportLibraries/SubmissionFile.py" />
+        <option value="$PROJECT_DIR$/SomaticDB/Actions/VariantUploader.py" />
       </list>
     </option>
   </component>
@@ -978,22 +978,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SomaticDB/Actions/VariantUploader.py">
+    <entry file="file://$PROJECT_DIR$/SomaticDB/SupportLibraries/SubmissionFile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="1320">
-          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
+          <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
           <folding>
-            <element signature="e#0#92#0" expanded="true" />
+            <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SomaticDB/SupportLibraries/SubmissionFile.py">
+    <entry file="file://$PROJECT_DIR$/SomaticDB/Actions/VariantUploader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28239202" vertical-offset="0" max-vertical-offset="903">
-          <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.60661346" vertical-offset="443" max-vertical-offset="1350">
+          <caret line="65" column="84" selection-start-line="65" selection-start-column="84" selection-end-line="65" selection-end-column="84" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#0#92#0" expanded="true" />
           </folding>
         </state>
       </provider>
