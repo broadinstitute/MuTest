@@ -15,12 +15,12 @@ class SubmissionFile(object):
         n = len(self.data)
         for k in range(n):
             filename = self.data.ix[k,'data_filename']
-            basename = os.path.join(directory,os.path.basename(filename))
+            basename = os.path.basename(filename)
             project = self.data.ix[k,'project']
             dataset = self.data.ix[k,'dataset']
 
             self.data.ix[k,'data_filename'] =\
-                "/dsde/working/somaticDB/master/data/%s/%s/"%(project,dataset)
+                os.path.join("/dsde/working/somaticDB/master/data/%s/%s/"%(project,dataset),basename)
 
     def fp(self):
         text = StringIO()
