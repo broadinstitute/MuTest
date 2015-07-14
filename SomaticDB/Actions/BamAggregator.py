@@ -94,6 +94,4 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
     tumor_bam_file.close()
     normal_bam_file.close()
     interval_file.close()
-    metadata_file.close()
-
 
