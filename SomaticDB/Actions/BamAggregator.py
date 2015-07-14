@@ -5,6 +5,7 @@ import random
 import csv
 
 import argparse
+from SomaticDB.BasicUtilities.DictUtilities import get_entries_from_dict
 from SomaticDB.BasicUtilities.MongoUtilities import connect_to_mongo
 from SomaticDB.SupportLibraries.DataGatherer import query_processor
 from SomaticDB.SupportLibraries.SomaticFileSystem import SomaticFileSystem
@@ -28,9 +29,8 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
 
     metadata_list = {}
 
-    for record in collection.find(ast.literal_eval(query)):
 
-        print record
+    for record in collection.find(ast.literal_eval(query)):
 
         if not record.has_key('tumor_bam'):
             print record
@@ -45,15 +45,16 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
 
         interval_list[(tumor_bam, normal_bam)].add(interval)
 
-        metadata_list[(tumor_bam, normal_bam)] = {'project':record['project'],
-                                                  'dataset':record['dataset'],
-                                                  'sample':record['sample']}
+        field_names=['tumor_bam','normal_bam','data_filename','project','dataset','sample','author']
+        metadata_list[(tumor_bam, normal_bam)] = get_entries_from_dict(record,keys=field_names,return_type=list)
+        record['assessment_type'] = '.'
 
     tumor_bam_file = open(tumor_bam_list_name,'w')
     normal_bam_file = open(normal_bam_list_name,'w')
     interval_file = open(interval_list_name,'w')
 
-    metadata_file = csv.DictWriter(open(metadata_list_name),fieldnames=['project','dataset','sample'])
+    fieldnames=['tumor_bam','normal_bam','data_filename','project','dataset','sample','assessment_type','author']
+    metadata_file = csv.DictWriter(open(metadata_list_name),fieldnames=fieldnames,sep='\t')
     metadata_file.writeheader()
 
     current_dir = os.getcwd()

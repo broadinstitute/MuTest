@@ -6,3 +6,4 @@ def connect_to_mongo():
     db = client['somatic_db_master']
     variants = db['ValidationData']
     return variants
+

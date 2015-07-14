@@ -1,136 +1,154 @@
 import ast
+from collections import defaultdict
 import csv
-from SomaticDB.SupportLibraries.ConfusionMatrixManager import \
-    ConfusionMatrixManager
-from SomaticDB.SupportLibraries.Variant import get_variant_type
-
-import argparse
+from SomaticDB.SupportLibraries.ConfusionMatrix import ConfusionMatrix
 from SomaticDB.BasicUtilities.DictUtilities import get_entries_from_dict , \
     merge_dicts
 from SomaticDB.BasicUtilities.MongoUtilities import connect_to_mongo
 from SomaticDB.SupportLibraries.DataGatherer import DataGatherer , \
     query_processor
-
+import pandas as pd
+import numpy as np
 
 def pp_dict(x):
     for key in x.keys():
         print key+": "+str(x[key])
 
 
+def save_set(filename,list_data,header=None):
+    file = open(filename)
+
+    if header is not None:
+        file.write("\t".join(header)+"\n")
+
+    list_data = list(list_data)
+    for entry in list_data:
+        file.write("\t".join(entry)+"\n")
+    file.close()
+
+
 def VariantAssessor(query,tsv):
 
     collection = connect_to_mongo()
 
-    VARIANT_FIELDS=['chromosome','start','ref','alt','project','dataset','sample']
+    caller_output = pd.read_csv(tsv,sep='\t')
 
-    test_data_set  = {}
-    truth_data_set = {}
-    false_data_set = {}
+    known_true     = defaultdict(set)
+    known_false    = defaultdict(set)
+    found_variants = defaultdict(set)
 
-    missed_positives     = set([])
-    discovered_negatives = set([])
-
-    gather = DataGatherer(tsv)
-
-    for variant_dict in gather.data_iterator(keys=['project','dataset','sample','data_filename']):
-        variant_data = get_entries_from_dict(variant_dict, keys=VARIANT_FIELDS,return_type=tuple)
-
-        test_data_set[variant_data] = get_variant_type(variant_dict)
-
-    ConfusionDataTPs = ConfusionMatrixManager()
-    ConfusionDataFPs = ConfusionMatrixManager()
+    false_positive = defaultdict(int)
 
     query = query_processor(query)
 
+    # collect query information
     for record in collection.find(ast.literal_eval(query)):
 
-        confirmation_data_list =\
-            get_entries_from_dict(record,
-                                  keys=VARIANT_FIELDS,
-                                  return_type=list)
+        sample_information = get_entries_from_dict(record, keys=['project','dataset','sample'],return_type=tuple)
+        variant = get_entries_from_dict(record, keys=['chromosome','start','ref','alt'],return_type=tuple)
 
-        confirmation_data_tuple = tuple(map(str, confirmation_data_list))
+        sample_information = tuple(map(str, sample_information))
+        variant = tuple(map(str, variant))
 
         evidence_type = record['evidence_type']
 
-        if evidence_type == 'TP': truth_data_set[confirmation_data_tuple] = get_variant_type(record)
-        if evidence_type == 'FP': false_data_set[confirmation_data_tuple] = get_variant_type(record)
+        if 'TP' in evidence_type:
+            known_true[sample_information].add(variant)
 
-    all_variants = merge_dicts(truth_data_set,false_data_set,test_data_set)
-
-    print list(truth_data_set)[:10]
-    print list(false_data_set)[:10]
-    print list(test_data_set)[:10]
-
-    def save_set(filename = "", header=None, data=""):
-        data = list(data)
-
-        file = open(filename,'w')
-        writer = csv.DictWriter(file, fieldnames=header, delimiter='\t')
-
-        for row in data:
-            writer.writerow(dict(zip(header,row)))
-
-        file.close()
+        if 'FP' in evidence_type:
+            known_false[sample_information].add(variant)
 
 
+    roc_like = set([])
+    normal_normal = set([])
+    cm = set([])
 
-    for variant in all_variants:
-        false_positive = variant in false_data_set
-        true_positive = variant in truth_data_set
-        submitted = variant in test_data_set
-
-        project, dataset = variant[4:]
-
-        variant_categories = {project,(project, dataset)}
-
-        if true_positive:
-            if submitted:
-                ConfusionDataTPs.add(keys=variant_categories,
-                                     test=True,
-                                     truth=True)
-            else:
-                ConfusionDataTPs.add(keys=variant_categories,
-                                     test=False,
-                                     truth=True)
-                missed_positives.add(variant)
+    #index the type of assessment to be done for each datatype.
+    for k,row in caller_output.iterrows():
+        sample_information = (row['project'],row['dataset'],row['sample'])
+        if row['assessment_type'] == 'ROCL':
+            roc_like.add(sample_information)
+        elif row['assessment_type'] == 'NN':
+            normal_normal.add(sample_information)
+        elif row['assessment_type'] == 'CM':
+            cm.add(sample_information)
         else:
-            if submitted:
-                ConfusionDataTPs.add(keys=variant_categories,
-                                     test=True,
-                                     truth=False)
-                print "fp:", variant, all_variants[variant]
+            roc_like.add(sample_information) #by default, ROC-like curves are used.
 
-        if false_positive:
-            if submitted:
-                ConfusionDataFPs.add(keys=variant_categories,
-                                     test=True,
-                                     truth=False)
-                discovered_negatives.add(variant)
-            else:
-                ConfusionDataFPs.add(keys=variant_categories,
-                                     test=False,
-                                     truth=False)
+    gather = DataGatherer(tsv)
+
+    #data from file (algorithm being tested)
+    for variant_dict in gather.data_iterator():
+        sample_information = get_entries_from_dict(variant_dict, keys=['project','dataset','sample'],return_type=tuple)
+        variant = get_entries_from_dict(variant_dict, keys=['chromosome','start','ref','alt'],return_type=tuple)
+
+        if sample_information in roc_like:
+            if 'TP' in variant_dict['evidence_type']: found_variants[sample_information].add(variant)
+
+        if sample_information in cm:
+            if 'TP' in variant_dict['evidence_type']: found_variants[sample_information].add(variant)
+
+        if sample_information in normal_normal:
+            false_positive[sample_information]+=1
+
+
+    caller_samples = caller_output[['project','dataset','sample']].values.tolist()
+
+    data = []
+
+    for sample_information in map(tuple,caller_samples):
+
+        if sample_information in roc_like:
+            assessment_type = 'ROCL'
+        elif sample_information in normal_normal:
+            assessment_type = 'NN'
+        elif sample_information in cm:
+            assessment_type = 'CM'
         else:
-            if submitted:
-                ConfusionDataFPs.add(keys=variant_categories,
-                                     test=True,
-                                     truth=True)
+            assessment_type = 'ROCL'
 
-    save_set(filename = "missed_true_positives.tsv",
-             header=VARIANT_FIELDS,
-             data = missed_positives)
 
-    save_set(filename = "discovered_false_positives.tsv",
-             header=VARIANT_FIELDS,
-             data = discovered_negatives)
+        row_dict = {'project': sample_information[0],
+                    'dataset': sample_information[1],
+                    'sample' : sample_information[2],
+                    'false_positives': np.nan,
+                    'true_positives': np.nan,
+                    'tpr': np.nan,
+                    'fpr': np.nan,
+                    'precision': np.nan,
+                    'assessment_type': assessment_type }
 
-    CONFUSION_FIELDS = ['true positives','false positives','true negatives',
-                        'false negatives','sensitivity','specificity',
-                        'precision','false discovery rate','MCC']
+        if assessment_type == 'NN':
+            row_dict['false_positives'] = false_positive
 
-    ConfusionDataFPs.save(filename="confusion_matrix_false_positives.tsv",
-                          fieldnames=CONFUSION_FIELDS)
+        if assessment_type == 'ROCL':
+            TP = len(found_variants.intersection(known_true))
+            FN = len(known_true.difference(found_variants))
 
-    ConfusionDataTPs.save(filename="confusion_matrix_true_positives.tsv",
-                          fieldnames=CONFUSION_FIELDS)
+            row_dict['tpr']  = TP/(TP+FN)
+
+            row_dict['true_positives'] = TP
+
+            FP = found_variants.intersection(known_false)
+            TN = known_false.difference(found_variants)
+
+            row_dict['fpr']  = FP/(FP+TN)
+
+            row_dict['false_positives'] = FP
+
+        if assessment_type == 'CM':
+            TP = len(found_variants.intersection(known_true))
+            FP = len(found_variants.different(known_true))
+            FN = len(known_true.difference(found_variants))
+
+            row_dict['true_positives'] = TP
+            row_dict['false_positives'] = FP
+
+            row_dict['tpr']  = TP/(TP+FN)
+            row_dict['precision'] = TP/(TP+TP)
+
+        data.append(row_dict)
+
+
+        filename = "-".join(sample_information)+".missed_positives.tsv"
+        save_set(filename,list(known_true.difference(found_variants)),header=['chromosome','start','ref','alt'])

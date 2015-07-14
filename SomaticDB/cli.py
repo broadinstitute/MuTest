@@ -81,6 +81,34 @@ def main():
     database_delete_parser = subparsers.add_parser('database_delete',
                          help  ='Remove all data in the database')
 
+
+    assessment_file_create_parser = subparsers.add_parser('assessment_file_create',
+                         help  ='Creates the file used for assessment of algorithmic results')
+
+
+    assessment_file_create_parser.add_argument('-t','--tsv',
+                                               help='The list of datasets originally submitted to the bam aggregator.',
+                                               type=str,
+                                               metavar='<tsv>',
+                                               required=True)
+
+    assessment_file_create_parser.add_argument('-r','--results',
+                                               help='A list of all files created by the test algorithm in the same order as bams.',
+                                               type=str,
+                                               metavar='<results>',
+                                               required=True)
+
+    assessment_file_create_parser.add_argument('-o','--output_file',
+                                               help='The name of the assessment file to be created.',
+                                               type=str,
+                                               metavar='<output_file>',
+                                               required=True)
+
+    assessment_file_create_parser.add_argument('-e','--evaluation rules',
+                                               help='Rules for how to treat evidence in the somaticDB. eg. "tcga:ROCL,hcc:CM"',
+                                               type=str,
+                                               metavar='<output_file>')
+
     args = parser.parse_args()
 
     if (args.subparser == "bam_aggregate"):
@@ -97,6 +125,9 @@ def main():
         VariantUploader(args.tsv,submit_to_filesystem=True)
 
     if (args.subparser == "database_delete"):
+        delete_all()
+
+    if (args.subparser == "assessment_file_create"):
         delete_all()
 
 if __name__ == '__main__':
