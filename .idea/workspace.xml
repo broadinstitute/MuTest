@@ -51,7 +51,7 @@
         <entry file="file://$PROJECT_DIR$/SomaticDB/Actions/BamAggregator.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.33295324" vertical-offset="458" max-vertical-offset="1575">
-              <caret line="50" column="21" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
+              <caret line="50" column="46" selection-start-line="50" selection-start-column="46" selection-end-line="50" selection-end-column="46" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -929,7 +929,7 @@
     <entry file="file://$PROJECT_DIR$/SomaticDB/Actions/BamAggregator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33295324" vertical-offset="458" max-vertical-offset="1575">
-          <caret line="50" column="21" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
+          <caret line="50" column="46" selection-start-line="50" selection-start-column="46" selection-end-line="50" selection-end-column="46" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
