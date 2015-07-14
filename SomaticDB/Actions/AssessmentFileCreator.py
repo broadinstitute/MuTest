@@ -20,6 +20,10 @@ def create_assessment_file(tsv, results, output_file, evaluation_rules):
         metadata['data_filename']   = result
         metadata['assessment_type'] = evaluation_rules[metadata['project'] ]
 
+        print
+
+        print metadata
+
         out_rows.append(metadata)
 
     out = pd.DataFrame(out_rows)
