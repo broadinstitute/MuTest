@@ -47,8 +47,8 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
 
         field_names=['tumor_bam','normal_bam','data_filename','project','dataset','sample']
         metadata_list[(tumor_bam, normal_bam)] = get_entries_from_dict(record,keys=field_names,return_type=list)
-        record['assessment_type'] = '.'
-        record['author']='.'
+        metadata_list['assessment_type'] = '.'
+        metadata_list['author']='.'
 
     tumor_bam_file = open(tumor_bam_list_name,'w')
     normal_bam_file = open(normal_bam_list_name,'w')
