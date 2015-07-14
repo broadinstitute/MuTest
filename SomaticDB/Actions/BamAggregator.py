@@ -55,7 +55,7 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
     interval_file = open(interval_list_name,'w')
 
     fieldnames=['tumor_bam','normal_bam','data_filename','project','dataset','sample','assessment_type','author']
-    metadata_file = csv.DictWriter(open(metadata_list_name),fieldnames=fieldnames,sep='\t')
+    metadata_file = csv.DictWriter(open(metadata_list_name,'w'),fieldnames=fieldnames,sep='\t')
     metadata_file.writeheader()
 
     current_dir = os.getcwd()
