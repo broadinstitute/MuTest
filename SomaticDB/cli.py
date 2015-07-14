@@ -1,4 +1,5 @@
 import argparse
+from SomaticDB.Actions.AssessmentFileCreator import create_assessment_file
 from SomaticDB.Actions.VariantUploader import VariantUploader
 from SomaticDB.Actions.BamAggregator import BamAggregator
 from SomaticDB.Actions.VariantAssessor import VariantAssessor
@@ -104,10 +105,10 @@ def main():
                                                metavar='<output_file>',
                                                required=True)
 
-    assessment_file_create_parser.add_argument('-e','--evaluation rules',
+    assessment_file_create_parser.add_argument('-e','--evaluation_rules',
                                                help='Rules for how to treat evidence in the somaticDB. eg. "tcga:ROCL,hcc:CM"',
                                                type=str,
-                                               metavar='<output_file>')
+                                               metavar='<evaluation_rules>')
 
     args = parser.parse_args()
 
@@ -128,7 +129,7 @@ def main():
         delete_all()
 
     if (args.subparser == "assessment_file_create"):
-        delete_all()
+        create_assessment_file(args.tsv, args.results, args.output_file, args.evaluation_rules)
 
 if __name__ == '__main__':
     main()
