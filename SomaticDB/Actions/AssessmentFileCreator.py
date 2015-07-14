@@ -1,7 +1,7 @@
 import pandas as pd
 
 def create_assessment_file(tsv, results, output_file, evaluation_rules):
-    metadata = pd.read_csv(tsv)
+    metadata = pd.read_csv(tsv,'\t')
 
     evaluation_rules  = evaluation_rules.split(',')
     evaluation_rules  = map(lambda x: tuple(x.split(':')),evaluation_rules)
