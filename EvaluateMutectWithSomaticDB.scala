@@ -49,9 +49,11 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
       m2_out_files += m2.out
 
+
       add(m2)
     }
 
+    /*
     val results_filename: String = "%_results.tsv".format(project_name)
     val bw = new BufferedWriter(new FileWriter(results_filename))
 
@@ -62,7 +64,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     bw.close()
 
-    /*
+    
     val submissions_filename: String = "%_submissions.tsv"
 
     add(new CreateAssessment(metadata_filename, results_filename, submissions_filename, evaluation_rules))
