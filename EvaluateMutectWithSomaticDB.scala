@@ -87,7 +87,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
 
     this.reference_sequence = new File("/humgen/1kg/reference/human_g1k_v37_decoy.fasta")
-    this.cosmic :+= new File("/home/unix/gauthier/workspaces/MuTect/b37_cosmic_v54_120711.vcf")
+    this.cosmic :+= new File("/dsde/working/kcarr/b37_cosmic_v54_120711.vcf")
     this.dbsnp = new File("/humgen/gsa-hpprojects/GATK/bundle/current/b37/dbsnp_138.b37.vcf")
     this.intervalsString = List(intervalFile)
     this.interval_padding = Some(50)
