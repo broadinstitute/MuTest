@@ -111,7 +111,7 @@ somaticdb bam_aggregate [-h] -q <query>
     val intervals: File = interval_list
 
     override def commandLine: String = {
-      val cmd = "somaticdb bam_aggregate -q %s -n %s -t %s -i %s -f %s -m %s".format(query,
+      val cmd = "somaticdb bam_aggregate -q \"%s\" -n %s -t %s -i %s -f %s -m %s".format(query,
         normal_bam_list, tumor_bam_list, interval_list, folder, metadata)
       println(cmd)
       cmd
