@@ -43,7 +43,7 @@ def VariantAssessor(query,tsv,output_file):
     query = query_processor(query)
 
     # collect query information
-    for record in collections.find(ast.literal_eval(query)):
+    for record in collection.find(ast.literal_eval(query)):
 
         sample_information = get_entries_from_dict(record, keys=['project','dataset','sample'],return_type=tuple)
         variant = get_entries_from_dict(record, keys=['chromosome','start','ref','alt'],return_type=tuple)

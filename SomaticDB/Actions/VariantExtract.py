@@ -1,6 +1,6 @@
 from SomaticDB.BasicUtilities.DictUtilities import get_entries_from_dict
+from SomaticDB.BasicUtilities.MongoUtilities import connect_to_mongo
 from SomaticDB.SupportLibraries.DataGatherer import query_processor
-import collections
 import ast
 import pandas as pd
 
@@ -10,7 +10,9 @@ def variant_extract(query, output_filename, max_number_of_records):
 
     output = []
 
-    for record in collections.find(ast.literal_eval(query)):
+    collection = connect_to_mongo()
+
+    for record in collection.find(ast.literal_eval(query)):
 
         sample_information = get_entries_from_dict(record, keys=['chromosome',
                                                                  'start',
