@@ -124,7 +124,7 @@
       <file leaf-file-name="BamAggregator.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SomaticDB/Actions/BamAggregator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.17747441" vertical-offset="666" max-vertical-offset="1545">
+            <state vertical-scroll-proportion="0.5802048" vertical-offset="0" max-vertical-offset="1545">
               <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
@@ -997,7 +997,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SomaticDB/Actions/BamAggregator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.17747441" vertical-offset="666" max-vertical-offset="1545">
+        <state vertical-scroll-proportion="0.5802048" vertical-offset="0" max-vertical-offset="1545">
           <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />

@@ -49,7 +49,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
       m2_out_files += m2.out
 
-
+      println(m2.out)
       add(m2)
     }
 
@@ -64,7 +64,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     bw.close()
 
-    
+
     val submissions_filename: String = "%_submissions.tsv"
 
     add(new CreateAssessment(metadata_filename, results_filename, submissions_filename, evaluation_rules))
@@ -83,7 +83,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     def swapExt(orig: String, ext: String) = (orig.split('.') match {
       case xs @ Array(x) => xs
       case y => y.init
-    }) :+ "js" mkString "."
+    }) :+ ext mkString "."
 
 
     this.reference_sequence = new File("/humgen/1kg/reference/human_g1k_v37_decoy.fasta")
