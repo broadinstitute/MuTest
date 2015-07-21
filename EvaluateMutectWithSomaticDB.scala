@@ -91,40 +91,28 @@ somaticdb bam_aggregate [-h] -q <query>
                              -m <metadata>
 */
   case class AggregateBams(query: String,
-                           normal_bam_list: String,
-                           tumor_bam_list: String,
-                           interval_list: String,
-                           folder: String,
+                           normal_bam_list: File,
+                           tumor_bam_list: File,
+                           interval_list: File,
+                           folder: File,
                            metadata: String) extends CommandLineFunction {
-    @Input(doc = "")
-    val q: String = query
 
-    @Input(doc = "")
-    val n: String = normal_bam_list
-
-    @Input(doc = "")
-    val t: String = tumor_bam_list
-
-    @Input(doc = "")
-    val i: String = interval_list
-
-    @Input(doc = "")
-    val f: String = folder
-
-    @Input(doc = "")
-    val m: String = metadata
 
     @Output(doc = "")
-    val normals: File = new File(normal_bam_list)
+    val f: File = folder
 
     @Output(doc = "")
-    val tumors: File = new File(tumor_bam_list)
+    val normals: File = normal_bam_list
 
     @Output(doc = "")
-    val intervals: File = new File(interval_list)
+    val tumors: File = tumor_bam_list
+
+    @Output(doc = "")
+    val intervals: File = interval_list
 
     override def commandLine: String = {
-      "somaticdb bam_aggregate -q %s -n %s -t %s -i %s -f %s -m %s".format(q, n, t, i, f, m)
+      "somaticdb bam_aggregate -q %s -n %s -t %s -i %s -f %s -m %s".format(query,
+        normal_bam_list, tumor_bam_list, interval_list, folder, metadata)
     }
   }
 
