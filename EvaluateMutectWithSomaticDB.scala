@@ -53,7 +53,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     }
 
     val results_filename: String = "%_results.tsv".format(project_name)
-    val bw = new BufferedWriter(new FileWriter(File))
+    val bw = new BufferedWriter(new FileWriter(results_filename))
 
     for (filename <- results_filename)
     {
