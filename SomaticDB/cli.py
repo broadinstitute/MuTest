@@ -157,7 +157,7 @@ def main():
         create_assessment_file(args.tsv, args.results, args.output_file, args.evaluation_rules)
 
     if (args.subparser == "variant_extract"):
-        variant_extract(args.output_filename, args.max_number_of_records)
+        variant_extract(args.query, args.output_filename, args.max_number_of_records)
 
 if __name__ == '__main__':
     main()
