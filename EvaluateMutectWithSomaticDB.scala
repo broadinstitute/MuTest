@@ -158,6 +158,7 @@ somaticdb bam_aggregate [-h] -q <query>
       println(cmd)
       cmd
 
+    }
   }
 
 
