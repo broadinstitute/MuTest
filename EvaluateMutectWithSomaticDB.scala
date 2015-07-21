@@ -2,7 +2,7 @@ import java.io._
 import scala.collection.mutable.ListBuffer
 import org.broadinstitute.gatk.queue.QScript
 import org.broadinstitute.gatk.queue.extensions.gatk._
-import org.broadinstitute.gatk.queue.function.CommandLineFunction
+import org.broadinstitute.gatk.queue.function.{InProcessFunction, CommandLineFunction}
 import org.broadinstitute.gatk.queue.util.QScriptUtils
 import org.broadinstitute.gatk.utils.commandline.{Output, Input}
 
@@ -53,20 +53,14 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
       add(m2)
     }
 
-    /*
     val results_filename: String = "%_results.tsv".format(project_name)
-    val bw = new BufferedWriter(new FileWriter(results_filename))
 
-    for (filename <- results_filename)
-    {
-      bw.write(filename+'\n')
-    }
-
-    bw.close()
-
+    add( new MakeStringFileList(m2_out_files, results_filename))
 
     val submissions_filename: String = "%_submissions.tsv"
 
+
+    /*
     add(new CreateAssessment(metadata_filename, results_filename, submissions_filename, evaluation_rules))
 
     add(new VariantAssessment(submissions_filename, query))
@@ -78,27 +72,56 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
 
 
-  case class mutect2(tumorFile: String, normalFile: String, intervalFile: String, scatter: Int) extends M2 {
+
+  case class mutect2(tumor: File, normal: File, interval: File, scatter: Int) extends M2 {
 
     def swapExt(orig: String, ext: String) = (orig.split('.') match {
       case xs @ Array(x) => xs
       case y => y.init
     }) :+ ext mkString "."
 
+    @Input(doc = "")
+    val tumorFile: File = tumor
+
+    @Input(doc = "")
+    val normalFile: File = normal
+
+    @Input(doc = "")
+    val intervalFile: File = interval
 
     this.reference_sequence = new File("/humgen/1kg/reference/human_g1k_v37_decoy.fasta")
     this.cosmic :+= new File("/dsde/working/kcarr/b37_cosmic_v54_120711.vcf")
     this.dbsnp = new File("/humgen/gsa-hpprojects/GATK/bundle/current/b37/dbsnp_138.b37.vcf")
-    this.intervalsString = List(intervalFile)
+    this.intervalsString = List(intervalFile.toString)
     this.interval_padding = Some(50)
     this.memoryLimit = Some(2)
     this.input_file = List(new TaggedFile(normalFile, "normal"), new TaggedFile(tumorFile, "tumor"))
     this.out = new File(swapExt(intervalFile.toString, "vcf"))
     this.scatterCount = scatter
 
+
+    @Output(doc = "")
+    val f: File = this.out
+
     //this.allowNonUniqueKmersInRef = true
     //this.minDanglingBranchLength = 2
   }
+
+case class MakeStringFileList ( stringList: Seq[String], outputFilename: File) extends InProcessFunction {
+
+  @Output(doc = "")
+  val f: File = outputFilename
+
+  override def run (): Unit ={
+    writeList(stringList, outputFilename)
+  }
+
+  def writeList (inFile : Seq[String], outFile : File) = {
+    val writer = new PrintWriter(new File(outFile.getAbsolutePath))
+    writer.write(inFile.mkString("\n"))
+    writer.close()
+  }
+}
 
 
   /*
@@ -134,8 +157,9 @@ somaticdb bam_aggregate [-h] -q <query>
         normal_bam_list, tumor_bam_list, interval_list, folder, metadata)
       println(cmd)
       cmd
-    }
+
   }
+
 
 
   /*
