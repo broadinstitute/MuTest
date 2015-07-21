@@ -4,11 +4,11 @@ from SomaticDB.Actions.VariantUploader import VariantUploader
 from SomaticDB.Actions.BamAggregator import BamAggregator
 from SomaticDB.Actions.VariantAssessor import VariantAssessor
 from SomaticDB.Scripts.clean_database import delete_all
-
+from SomaticDB.Actions.VariantExtract import variant_extract
 
 def main():
 
-    description = '\nSomatic Caller Assessor'
+    description = '\nSomatic caller'
 
     epilog = """Created as a testing framework for somatic mutation callers.\n\n"""
 
@@ -46,15 +46,15 @@ def main():
                         required=True)
 
     bam_aggregator_parser.add_argument('-f','--folder',
-                        help='A folder containing the intervals',
+                        help='A folder for storing the interval files.',
                         type=str,
-                        metavar='<older>',
+                        metavar='<folder>',
                         required=True)
 
     bam_aggregator_parser.add_argument('-m','--metadata_list',
-                        help='A folder containing the metadata',
+                        help='A file containing the metadata',
                         type=str,
-                        metavar='<older>',
+                        metavar='<metadata_list>',
                         required=True)
 
     variant_assessor_parser = subparsers.add_parser('variant_assess',
@@ -63,6 +63,7 @@ def main():
 
     variant_assessor_parser.add_argument('-t','--tsv', help='The list of datasets to be assessed.',type=str,metavar='<tsv>', required=True)
     variant_assessor_parser.add_argument('-q','--query', help='The query for the dataset needed',type=str,metavar='<query>', required=True)
+    variant_assessor_parser.add_argument('-o','--output_file', help='The name of the file to be outputted.',type=str,metavar='<tsv>', required=True)
 
 
     variant_uploader_parser = subparsers.add_parser('variant_upload',
@@ -78,6 +79,8 @@ def main():
 
     variant_submitter_parser.add_argument('-t','--tsv', help='The list of datasets to be uploaded.',type=str,metavar='<tsv>',required=True)
 
+
+    variant_submitter_parser.add_argument('-a','--author', help='The list of datasets to be uploaded.',type=str,metavar='<tsv>',required=True)
 
     database_delete_parser = subparsers.add_parser('database_delete',
                          help  ='Remove all data in the database')
@@ -110,6 +113,28 @@ def main():
                                                type=str,
                                                metavar='<evaluation_rules>')
 
+
+    variant_extract_parser = subparsers.add_parser('variant_extract',
+                         help  ='Saves output from database to a file.')
+
+
+    variant_extract_parser.add_argument('-o','--output_filename',
+                                        help='The file to which the results are mapped.',
+                                        type=str,
+                                        default='<stdin>',
+                                        metavar='<output_filename>')
+
+    variant_extract_parser.add_argument('-m','--max_number_of_records',
+                                        help='The max number of records to be outputted.',
+                                        type=str,
+                                        metavar='<max_number_of_records>')
+
+
+    variant_extract_parser.add_argument('-q','--query',
+                                        help='The query needed to generate the bam lists',
+                                        type=str,metavar='<query>',
+                                        required=True)
+
     args = parser.parse_args()
 
     if (args.subparser == "bam_aggregate"):
@@ -130,6 +155,9 @@ def main():
 
     if (args.subparser == "assessment_file_create"):
         create_assessment_file(args.tsv, args.results, args.output_file, args.evaluation_rules)
+
+    if (args.subparser == "variant_extract"):
+        variant_extract(args.output_filename, args.max_number_of_records)
 
 if __name__ == '__main__':
     main()

@@ -9,6 +9,7 @@ from SomaticDB.SupportLibraries.DataGatherer import DataGatherer , \
     query_processor
 import pandas as pd
 import numpy as np
+import collections
 
 def pp_dict(x):
     for key in x.keys():
@@ -27,7 +28,7 @@ def save_set(filename,list_data,header=None):
     file.close()
 
 
-def VariantAssessor(query,tsv):
+def VariantAssessor(query,tsv,output_file):
 
     collection = connect_to_mongo()
 
@@ -42,7 +43,7 @@ def VariantAssessor(query,tsv):
     query = query_processor(query)
 
     # collect query information
-    for record in collection.find(ast.literal_eval(query)):
+    for record in collections.find(ast.literal_eval(query)):
 
         sample_information = get_entries_from_dict(record, keys=['project','dataset','sample'],return_type=tuple)
         variant = get_entries_from_dict(record, keys=['chromosome','start','ref','alt'],return_type=tuple)
@@ -152,3 +153,5 @@ def VariantAssessor(query,tsv):
 
         filename = "-".join(sample_information)+".missed_positives.tsv"
         save_set(filename,list(known_true.difference(found_variants)),header=['chromosome','start','ref','alt'])
+
+        pd.DataFrame(data).to_csv(output_file, sep='\t')

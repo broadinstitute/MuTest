@@ -14,15 +14,9 @@ def create_assessment_file(tsv, results, output_file, evaluation_rules):
     out_rows=[]
 
     for result,metadata in zip(results_data, metadata_rows):
-        print metadata
-
 
         metadata['data_filename']   = result
         metadata['assessment_type'] = evaluation_rules[metadata['project'] ]
-
-        print
-
-        print metadata
 
         out_rows.append(metadata)
 
