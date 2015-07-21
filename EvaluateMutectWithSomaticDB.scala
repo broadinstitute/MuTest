@@ -1,9 +1,9 @@
-import java.io.File
-
+import java.io._
+import scala.collection.mutable.ListBuffer
 import org.broadinstitute.gatk.queue.QScript
 import org.broadinstitute.gatk.queue.extensions.gatk._
 import org.broadinstitute.gatk.queue.function.CommandLineFunction
-import org.broadinstitute.gatk.queue.util.QScriptUtils._
+import org.broadinstitute.gatk.queue.util.QScriptUtils
 import org.broadinstitute.gatk.utils.commandline.{Output, Input}
 
 
@@ -23,6 +23,8 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
   @Argument(shortName = "sc", required = false, doc = "base scatter count")
   var scatter = 50
 
+
+
   def script() {
 
     var scatter: Int = 10
@@ -35,8 +37,8 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     val Ag = new AggregateBams(query, normal_filename, tumor_filename, intervals_filename, project_name, metadata_filename)
     add(Ag)
 
+    val m2_out_files = new ListBuffer[String]
 
-    /*
     val tumor_bams = QScriptUtils.createSeqFromFile(Ag.tumors)
     val normal_bams = QScriptUtils.createSeqFromFile(Ag.normals)
     val intervals_files = QScriptUtils.createSeqFromFile(Ag.intervals)
@@ -44,10 +46,23 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     for (sampleIndex <- 0 until normal_bams.size) {
 
       val m2 = new mutect2(tumor_bams(sampleIndex), normal_bams(sampleIndex), intervals_files(sampleIndex), scatter)
+
+      m2_out_files += m2.out
+
       add(m2)
     }
 
-    val results_filename: String = "%_results.tsv"
+    val results_filename: String = "%_results.tsv".format(project_name)
+    val bw = new BufferedWriter(new FileWriter(File))
+
+    for (filename <- results_filename)
+    {
+      bw.write(filename+'\n')
+    }
+
+    bw.close()
+
+    /*
     val submissions_filename: String = "%_submissions.tsv"
 
     add(new CreateAssessment(metadata_filename, results_filename, submissions_filename, evaluation_rules))
@@ -57,6 +72,8 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
   }
 
 }
+
+
 
 
   case class mutect2(tumorFile: String, normalFile: String, intervalFile: String, scatter: Int) extends M2 {
