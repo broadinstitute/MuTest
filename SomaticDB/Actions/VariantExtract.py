@@ -35,14 +35,21 @@ def variant_extract(query, output_filename, max_number_of_records):
     if len(output) > max_number_of_records: output = output[:max_number_of_records]
 
 
-    if output_filename == "<stdin>":
+    if output_filename == "<stdout>":
         print "project, dataset, sample, evidence_type, chromosome, start, ref, alt"
         for k, row in output.iterrows():
             row = [row['project'],row['dataset'],row['sample'],row['evidence_type'],row['chrosome'],row['start'],row['ref'],row['alt']]
             row =",".join(row)
             print row
     else:
-        output.to_csv(output_filename, sep='\t')
+        output.to_csv(output_filename,index=False,fieldnames=["project",
+                                                              "dataset",
+                                                              "sample",
+                                                              "evidence_type",
+                                                              "chromosome",
+                                                              "start",
+                                                              "ref",
+                                                              "alt"], sep='\t')
 
 
 

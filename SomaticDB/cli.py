@@ -121,7 +121,7 @@ def main():
     variant_extract_parser.add_argument('-o','--output_filename',
                                         help='The file to which the results are mapped.',
                                         type=str,
-                                        default='<stdin>',
+                                        default='<stdout>',
                                         metavar='<output_filename>')
 
     variant_extract_parser.add_argument('-m','--max_number_of_records',
