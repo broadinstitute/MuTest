@@ -42,14 +42,14 @@ def variant_extract(query, output_filename, max_number_of_records):
             row =",".join(row)
             print row
     else:
-        output.to_csv(output_filename,index=False,fieldnames=["project",
-                                                              "dataset",
-                                                              "sample",
-                                                              "evidence_type",
-                                                              "chromosome",
-                                                              "start",
-                                                              "ref",
-                                                              "alt"], sep='\t')
+        output.to_csv(output_filename,index=False,columns=["project",
+                                                           "dataset",
+                                                           "sample",
+                                                           "evidence_type",
+                                                           "chromosome",
+                                                           "start",
+                                                           "ref",
+                                                           "alt"], sep='\t')
 
 
 
