@@ -10,6 +10,10 @@ from SomaticDB.BasicUtilities.MongoUtilities import connect_to_mongo
 from SomaticDB.SupportLibraries.DataGatherer import query_processor
 from SomaticDB.SupportLibraries.SomaticFileSystem import SomaticFileSystem
 
+import re
+
+def picard_version_to_current(path):
+    return re.sub('/v[0-9]/','/current/','/seq/picard_aggregation/C282/TCGA-16-0861-10A-01W/v2/TCGA-16-0861-10A-01W.bam')
 
 def get_sample_name(filename):
     sample_name = filename.split('/')[4]
@@ -36,8 +40,8 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
             print record
             continue
 
-        tumor_bam  = record['tumor_bam']
-        normal_bam = record['normal_bam']
+        tumor_bam  = picard_version_to_current(record['tumor_bam'])
+        normal_bam = picard_version_to_current(record['normal_bam'])
 
         interval = "%s:%s-%s" % (record['chromosome'],
                                  record['start'],
