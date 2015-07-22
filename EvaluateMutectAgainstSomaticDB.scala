@@ -99,12 +99,8 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     this.interval_padding = Some(50)
     this.memoryLimit = Some(2)
     this.input_file = List(new TaggedFile(normalFile, "normal"), new TaggedFile(tumorFile, "tumor"))
-    this.out = new File(swapExt(intervalFile.toString, "vcf"))
+    this.out = new File(swapExt(tumorFile.toString, "vcf"))
     this.scatterCount = scatter
-
-
-    @Output(doc = "")
-    val f: File = this.out
 
     //this.allowNonUniqueKmersInRef = true
     //this.minDanglingBranchLength = 2
