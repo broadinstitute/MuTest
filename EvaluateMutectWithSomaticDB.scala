@@ -38,10 +38,10 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     val m2_out_files = new ListBuffer[String]
 
-  /*
+
     val Gen = new GenerateIntervals(tumor_filename, normal_filename, intervals_filename)
     add(Gen)
-
+/*
 
     val tumor_bams = Gen.tumor_bams
     val normal_bams = Gen.normal_bams
@@ -107,32 +107,18 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     //this.minDanglingBranchLength = 2
   }
 
-  case class GenerateIntervals(tt: File, nn: File, ii: File)  extends InProcessFunction {
-
-    @Input(doc = "")
-    val t: File = tt
-
-
-    @Input(doc = "")
-    val n: File = nn
-
-
-    @Input(doc = "")
-    val i: File = ii
-
+  case class GenerateIntervals(@Input tumor_bams_file:  File,
+                               @Input normal_bams_file: File,
+                               @Input intervals_file:   File)  extends InProcessFunction {
 
     @Output(doc = "")
-    val tumor_bams = QScriptUtils.createSeqFromFile(t)
-
+    val tumor_bams = QScriptUtils.createSeqFromFile(tumor_bams_file)
+    
+    @Output(doc = "")
+    val normal_bams = QScriptUtils.createSeqFromFile(normal_bams_file)
 
     @Output(doc = "")
-    val normal_bams = QScriptUtils.createSeqFromFile(n)
-
-
-    @Output(doc = "")
-    val intervals_files = QScriptUtils.createSeqFromFile(i)
-
-
+    val intervals_files = QScriptUtils.createSeqFromFile(intervals_file)
 
     override def run(): Unit = {}
 
