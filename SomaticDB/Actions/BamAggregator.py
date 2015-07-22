@@ -40,8 +40,12 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
             print record
             continue
 
-        tumor_bam  = picard_version_to_current(record['tumor_bam'])
-        normal_bam = picard_version_to_current(record['normal_bam'])
+
+        record['tumor_bam']=picard_version_to_current(record['tumor_bam'])
+        record['normla_bam']=picard_version_to_current(record['normal_bam'])
+
+        tumor_bam  = record['tumor_bam']
+        normal_bam = record['normal_bam']
 
         interval = "%s:%s-%s" % (record['chromosome'],
                                  record['start'],

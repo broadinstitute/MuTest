@@ -4,7 +4,6 @@
     <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SomaticDB/Actions/BamAggregator.py" afterPath="$PROJECT_DIR$/SomaticDB/Actions/BamAggregator.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EvaluateMutectAgainstSomaticDB.scala" afterPath="$PROJECT_DIR$/EvaluateMutectAgainstSomaticDB.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SomaticDB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,8 +71,8 @@
       <file leaf-file-name="BamAggregator.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SomaticDB/Actions/BamAggregator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.032327585" vertical-offset="0" max-vertical-offset="1425">
-              <caret line="14" column="9" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.5657328" vertical-offset="0" max-vertical-offset="1485">
+              <caret line="47" column="41" selection-start-line="47" selection-start-column="41" selection-end-line="47" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -931,8 +930,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SomaticDB/Actions/BamAggregator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.032327585" vertical-offset="0" max-vertical-offset="1425">
-          <caret line="14" column="9" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.5657328" vertical-offset="0" max-vertical-offset="1485">
+          <caret line="47" column="41" selection-start-line="47" selection-start-column="41" selection-end-line="47" selection-end-column="41" />
           <folding />
         </state>
       </provider>

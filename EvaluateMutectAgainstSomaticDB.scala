@@ -59,6 +59,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
       MakeStringFileList(m2_out_files, resultsFilename)
 
+      
 
     /*
 
