@@ -21,7 +21,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
   var evaluation_rules: String = "tcga:ROCL,hcc:CM"
 
   @Argument(shortName = "sc", required = false, doc = "base scatter count")
-  var scatter = 1
+  var scatter = 200
 
   @Argument(shortName = "do_bams", required = false, doc = "base scatter count")
   var do_bams = 1
