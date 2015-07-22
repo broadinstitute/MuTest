@@ -11,8 +11,8 @@ import org.broadinstitute.gatk.utils.commandline.{Output, Input}
 
 class Qscript_Mutect_with_SomaticDB extends QScript {
 
-  @Argument(shortName = "project_name", required = true, doc = "list of all normal files")
-  var project_name: String = "default_project"
+  @Argument(shortName = "proj", required = true, doc = "list of all normal files")
+  var proj: String = "default_project"
 
   @Argument(shortName = "query", required = true, doc = "list of all normal files")
   var query: String = "all"
@@ -27,11 +27,11 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
   def script() {
 
-    val tumor_filename: File = new File("%s_tumor.list".format(project_name))
-    val normal_filename: File = new File("%s_normal.list".format(project_name))
-    val intervals_filename: File = new File("%s_intervals.list".format(project_name))
-    val metadata_filename: File = new File("%s_metadata.tsv".format(project_name))
-    val folder : File = new File(project_name)
+    val tumor_filename: File = new File("%s_tumor.list".format(proj))
+    val normal_filename: File = new File("%s_normal.list".format(proj))
+    val intervals_filename: File = new File("%s_intervals.list".format(proj))
+    val metadata_filename: File = new File("%s_metadata.tsv".format(proj))
+    val folder : File = new File(proj)
 
     val Ag = AggregateBams(query, normal_filename, tumor_filename, intervals_filename, folder, metadata_filename)
     add(Ag)
