@@ -27,11 +27,11 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
   def script() {
 
-    val tumor_filename: File = new File("%s_tumor.list".format(proj))
-    val normal_filename: File = new File("%s_normal.list".format(proj))
-    val intervals_filename: File = new File("%s_intervals.list".format(proj))
-    val metadata_filename: File = new File("%s_metadata.tsv".format(proj))
-    val folder : File = new File(proj)
+    val tumor_filename: String = "%s_tumor.list".format(proj)
+    val normal_filename: String = "%s_normal.list".format(proj)
+    val intervals_filename: String = "%s_intervals.list".format(proj)
+    val metadata_filename:String = "%s_metadata.tsv".format(proj)
+    val folder : String =  proj
 
     val Ag = AggregateBams(query, normal_filename, tumor_filename, intervals_filename, folder, metadata_filename)
     add(Ag)
@@ -166,10 +166,10 @@ somaticdb bam_aggregate [-h] -q <query>
                              -m <metadata>
 */
   case class AggregateBams(query: String,
-                           normal_bam_list: File,
-                           tumor_bam_list: File,
-                           interval_list: File,
-                           folder: File,
+                           normal_bam_list: String,
+                           tumor_bam_list: String,
+                           interval_list: String,
+                           folder: String,
                            metadata: String) extends CommandLineFunction {
 
     @Output(doc = "")
