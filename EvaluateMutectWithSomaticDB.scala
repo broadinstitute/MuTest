@@ -39,9 +39,13 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     val m2_out_files = new ListBuffer[String]
 
-    val tumor_bams = QScriptUtils.createSeqFromFile(Ag.tumors)
-    val normal_bams = QScriptUtils.createSeqFromFile(Ag.normals)
-    val intervals_files = QScriptUtils.createSeqFromFile(Ag.intervals)
+    val Gen = new GenerateIntervals(Ag.tumors, Ag.normals, Ag.intervals)
+
+    val tumor_bams = Gen.tumor_bams
+    val normal_bams = Gen.normal_bams
+    val intervals_files = Gen.intervals_files
+
+    
 
     for (sampleIndex <- 0 until normal_bams.size) {
 
@@ -54,7 +58,6 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     }
 
     val results_filename: String = "%_results.tsv".format(project_name)
-
     add( new MakeStringFileList(m2_out_files, results_filename))
 
     val submissions_filename: String = "%_submissions.tsv"
@@ -106,6 +109,27 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     //this.allowNonUniqueKmersInRef = true
     //this.minDanglingBranchLength = 2
   }
+
+case class GenerateIntervals(t: File, n: File, i: File)  extends InProcessFunction {
+
+  @Output(doc = "")
+  val tumor_bams = QScriptUtils.createSeqFromFile(t)
+
+
+  @Output(doc = "")
+  val normal_bams = QScriptUtils.createSeqFromFile(n)
+
+
+  @Output(doc = "")
+  val intervals_files = QScriptUtils.createSeqFromFile(i)
+
+
+
+  override def run(): Unit = {}
+
+
+}
+
 
 case class MakeStringFileList ( stringList: Seq[String], outputFilename: File) extends InProcessFunction {
 
