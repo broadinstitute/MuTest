@@ -27,21 +27,21 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
   def script() {
 
-    var scatter: Int = 10
-
     val tumor_filename: File = new File("%s_tumor.list".format(project_name))
     val normal_filename: File = new File("%s_normal.list".format(project_name))
     val intervals_filename: File = new File("%s_intervals.list".format(project_name))
     val metadata_filename: File = new File("%s_metadata.tsv".format(project_name))
+    val folder : File = new File(project_name)
 
-    val Ag = new AggregateBams(query, normal_filename, tumor_filename, intervals_filename, project_name, metadata_filename)
+    val Ag = new AggregateBams(query, normal_filename, tumor_filename, intervals_filename, folder, metadata_filename)
     add(Ag)
 
     val m2_out_files = new ListBuffer[String]
 
-    /*
-    val Gen = new GenerateIntervals(Ag.tumors, Ag.normals, Ag.intervals)
+  /*
+    val Gen = new GenerateIntervals(tumor_filename, normal_filename, intervals_filename)
     add(Gen)
+
 
     val tumor_bams = Gen.tumor_bams
     val normal_bams = Gen.normal_bams
