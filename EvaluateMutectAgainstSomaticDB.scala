@@ -24,7 +24,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
   var scatter = 50
 
   @Argument(shortName = "do_bams", required = false, doc = "base scatter count")
-  var do_bam = 1
+  var do_bams = 1
 
 
   def script() {
@@ -36,7 +36,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     val folder : String = project_name
     val resultsFilename: String = "%s_results.tsv".format(project_name)
 
-    if(do_bam==1) {
+    if(do_bams==1) {
       val Ag = new AggregateBams(query, normalFilename, tumorFilename, intervalsFilename, folder, metadataFilename)
       add(Ag)
     }

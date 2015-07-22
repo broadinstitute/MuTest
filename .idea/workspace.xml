@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/EvaluateMutectWithSomaticDB.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/somefile.tsv" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dist/somaticDB-alpha-py2.7.egg" afterPath="$PROJECT_DIR$/dist/SomaticDB-alpha-py2.7.egg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dist/somaticDB-alpha.tar.gz" afterPath="$PROJECT_DIR$/dist/SomaticDB-alpha.tar.gz" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SomaticDB/Actions/VariantExtract.py" afterPath="$PROJECT_DIR$/SomaticDB/Actions/VariantExtract.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/lib/SomaticDB/Actions/VariantExtract.py" afterPath="$PROJECT_DIR$/build/lib/SomaticDB/Actions/VariantExtract.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SomaticDB/cli.py" afterPath="$PROJECT_DIR$/SomaticDB/cli.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/lib/SomaticDB/cli.py" afterPath="$PROJECT_DIR$/build/lib/SomaticDB/cli.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="" />
     <ignored path="SomaticDB.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
