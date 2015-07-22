@@ -39,7 +39,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     val m2_out_files = new ListBuffer[String]
 
 
-    val Gen = new GenerateIntervals(tumor_filename, normal_filename, intervals_filename)
+    val Gen = GenerateIntervals(tumor_filename, normal_filename, intervals_filename)
     add(Gen)
 /*
 
@@ -113,7 +113,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     @Output(doc = "")
     val tumor_bams = QScriptUtils.createSeqFromFile(tumor_bams_file)
-    
+
     @Output(doc = "")
     val normal_bams = QScriptUtils.createSeqFromFile(normal_bams_file)
 
