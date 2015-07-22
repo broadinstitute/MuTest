@@ -32,12 +32,14 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     val intervalsFilename: String = "%s_intervals.list".format(proj)
     val metadataFilename:String = "%s_metadata.tsv".format(proj)
     val folder : String = proj
-    //val resultsFilename: String = "%_results.tsv".format(proj)
+    val resultsFilename: String = "%_results.tsv".format(proj)
 
+
+    /*
     val Ag = AggregateBams(query, normalFilename, tumorFilename, intervalsFilename, folder, metadataFilename)
     add(Ag)
 
-    /*
+
     val Gen = GenerateIntervals(tumor_filename, normal_filename, intervals_filename,results_filename)
     add(Gen)
 
