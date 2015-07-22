@@ -32,7 +32,8 @@ def variant_extract(query, output_filename, max_number_of_records):
 
     output = pd.DataFrame(output)
 
-    if len(output) > max_number_of_records: output = output[:max_number_of_records]
+    if max_number_of_records is not None:
+        if len(output) > max_number_of_records: output = output[:max_number_of_records]
 
 
     if output_filename == "<stdout>":

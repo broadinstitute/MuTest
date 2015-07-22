@@ -8,7 +8,7 @@ from SomaticDB.Actions.VariantExtract import variant_extract
 
 def main():
 
-    description = '\nSomatic caller'
+    description = '\nA set of tools for assessment of somatic variant calling.'
 
     epilog = """Created as a testing framework for somatic mutation callers.\n\n"""
 
@@ -19,11 +19,11 @@ def main():
     subparsers = parser.add_subparsers(help='commands',dest='subparser')
 
     bam_aggregator_parser = subparsers.add_parser('bam_aggregate',
-                         help  ='Produces a list of bams for an assessment.')
+                         help  ='Produces a list of bams matching some criteria for an evaluation.')
 
 
     bam_aggregator_parser.add_argument('-q','--query',
-                        help='The query needed to generate the bam lists',
+                        help='The query needed to generate the bam lists for evaluation.',
                         type=str,metavar='<query>',
                         required=True)
 
@@ -67,14 +67,14 @@ def main():
 
 
     variant_uploader_parser = subparsers.add_parser('variant_upload',
-                         help  ="Uploads data both to mongo. WARNING: ONLY FOR INTERNAL USE. If you are an external user, please use 'variant_submit' instead")
+                         help  ="Uploads data to the mongo database. WARNING: ONLY FOR INTERNAL USE. If you are an external user, please use 'variant_submit' instead")
 
 
     variant_uploader_parser.add_argument('-t','--tsv', help='The list of datasets to be uploaded.',type=str,metavar='<tsv>',required=True)
 
 
     variant_submitter_parser = subparsers.add_parser('variant_submit',
-                         help  ='Sumbits data both to mongo and stores information on the filesystem (at /dsde)')
+                         help  ='Sumbits data both to the mongo database and stores information on the filesystem (at /dsde/working/somaticdb)')
 
 
     variant_submitter_parser.add_argument('-t','--tsv', help='The list of datasets to be uploaded.',type=str,metavar='<tsv>',required=True)
@@ -83,7 +83,7 @@ def main():
     variant_submitter_parser.add_argument('-a','--author', help='The list of datasets to be uploaded.',type=str,metavar='<tsv>',required=True)
 
     database_delete_parser = subparsers.add_parser('database_delete',
-                         help  ='Remove all data in the database')
+                         help  ='Remove all data in the database. WARNING: ONLY FOR INTERNAL USE.')
 
 
     assessment_file_create_parser = subparsers.add_parser('assessment_file_create',
@@ -115,7 +115,7 @@ def main():
 
 
     variant_extract_parser = subparsers.add_parser('variant_extract',
-                         help  ='Saves output from database to a file.')
+                         help  ='Saves output from a database query to a file or prints the results to screen.')
 
 
     variant_extract_parser.add_argument('-o','--output_filename',
@@ -127,11 +127,12 @@ def main():
     variant_extract_parser.add_argument('-m','--max_number_of_records',
                                         help='The max number of records to be outputted.',
                                         type=str,
-                                        metavar='<max_number_of_records>')
+                                        metavar='<max_number_of_records>',
+                                        default = None)
 
 
     variant_extract_parser.add_argument('-q','--query',
-                                        help='The query needed to generate the bam lists',
+                                        help='The query needed to generate the bam lists.',
                                         type=str,metavar='<query>',
                                         required=True)
 
