@@ -32,34 +32,16 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     val intervals_filename: String = "%s_intervals.list".format(proj)
     val metadata_filename:String = "%s_metadata.tsv".format(proj)
     val folder : String = proj
+    val results_filename: String = "%_results.tsv".format(proj)
 
     val Ag = AggregateBams(query, normal_filename, tumor_filename, intervals_filename, folder, metadata_filename)
     add(Ag)
 
-    val m2_out_files = new ListBuffer[String]
-
-
-    val Gen = GenerateIntervals(tumor_filename, normal_filename, intervals_filename)
+    val Gen = GenerateIntervals(tumor_filename, normal_filename, intervals_filename,results_filename)
     add(Gen)
+
 /*
 
-    val tumor_bams = Gen.tumor_bams
-    val normal_bams = Gen.normal_bams
-    val intervals_files = Gen.intervals_files
-
-
-
-    for (sampleIndex <- 0 until normal_bams.size) {
-
-      val m2 = new mutect2(tumor_bams(sampleIndex), normal_bams(sampleIndex), intervals_files(sampleIndex), scatter)
-
-      m2_out_files += m2.out
-
-      println(m2.out)
-      add(m2)
-    }
-
-    val results_filename: String = "%_results.tsv".format(project_name)
     add( new MakeStringFileList(m2_out_files, results_filename))
 
     val submissions_filename: String = "%_submissions.tsv"
@@ -109,18 +91,29 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
   case class GenerateIntervals(@Input tumor_bams_file:  File,
                                @Input normal_bams_file: File,
-                               @Input intervals_file:   File)  extends InProcessFunction {
+                               @Input intervals_file:   File,
+                               @Input results_filename: File)  extends InProcessFunction {
 
-    @Output(doc = "")
-    val tumor_bams = QScriptUtils.createSeqFromFile(tumor_bams_file)
+    override def run(): Unit = {
 
-    @Output(doc = "")
-    val normal_bams = QScriptUtils.createSeqFromFile(normal_bams_file)
+      val m2_out_files = new ListBuffer[String]
 
-    @Output(doc = "")
-    val intervals_files = QScriptUtils.createSeqFromFile(intervals_file)
+      val tumor_bams = QScriptUtils.createSeqFromFile(tumor_bams_file)
+      val normal_bams = QScriptUtils.createSeqFromFile(normal_bams_file)
+      val intervals_files = QScriptUtils.createSeqFromFile(intervals_file)
 
-    override def run(): Unit = {}
+      for (sampleIndex <- 0 until normal_bams.size) {
+
+        val m2 = new mutect2(tumor_bams(sampleIndex), normal_bams(sampleIndex), intervals_files(sampleIndex), scatter)
+
+        m2_out_files += m2.out
+
+        println(m2.out)
+        add(m2)
+      }
+      
+      MakeStringFileList(m2_out_files, results_filename)
+    }
 
 
   }
