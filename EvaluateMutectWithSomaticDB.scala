@@ -29,10 +29,10 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     var scatter: Int = 10
 
-    val tumor_filename: String = "%s_tumor.list".format(project_name)
-    val normal_filename: String = "%s_normal.list".format(project_name)
-    val intervals_filename: String = "%s_intervals.list".format(project_name)
-    val metadata_filename: String = "%s_metadata.tsv".format(project_name)
+    val tumor_filename: File = new File("%s_tumor.list".format(project_name))
+    val normal_filename: File = new File("%s_normal.list".format(project_name))
+    val intervals_filename: File = new File("%s_intervals.list".format(project_name))
+    val metadata_filename: File = new File("%s_metadata.tsv".format(project_name))
 
     val Ag = new AggregateBams(query, normal_filename, tumor_filename, intervals_filename, project_name, metadata_filename)
     add(Ag)
