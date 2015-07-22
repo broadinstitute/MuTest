@@ -54,7 +54,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
         m2_out_files += m2.out
 
-        println(m2.out)
+        //println(m2.out)
         add(m2)
       }
 
