@@ -38,11 +38,11 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     val Ag = new AggregateBams(query, normalFilename, tumorFilename, intervalsFilename, folder, metadataFilename)
     add(Ag)
 
-    /*
-    val Gen = GenerateIntervals(tumor_filename, normal_filename, intervals_filename,results_filename)
+
+    val Gen = GenerateIntervals(tumorFilename, normalFilename, intervalsFilename,resultsFilename)
     add(Gen)
 
-
+    /*
 
     add( new MakeStringFileList(m2_out_files, results_filename))
 
