@@ -33,6 +33,8 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     val metadata_filename:String = "%s_metadata.tsv".format(proj)
     val folder : String =  proj
 
+    // comment
+
     val Ag = AggregateBams(query, normal_filename, tumor_filename, intervals_filename, folder, metadata_filename)
     add(Ag)
 
