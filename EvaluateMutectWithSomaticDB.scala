@@ -39,6 +39,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     val m2_out_files = new ListBuffer[String]
 
+    /*
     val Gen = new GenerateIntervals(Ag.tumors, Ag.normals, Ag.intervals)
     add(Gen)
 
@@ -64,7 +65,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     val submissions_filename: String = "%_submissions.tsv"
 
 
-    /*
+
     add(new CreateAssessment(metadata_filename, results_filename, submissions_filename, evaluation_rules))
 
     add(new VariantAssessment(submissions_filename, query))
