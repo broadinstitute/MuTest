@@ -11,8 +11,8 @@ import org.broadinstitute.gatk.utils.commandline.{Output, Input}
 
 class Qscript_Mutect_with_SomaticDB extends QScript {
 
-  @Argument(shortName = "proj", required = true, doc = "list of all normal files")
-  var proj: String = "default_project"
+  @Argument(shortName = "project_name", required = true, doc = "list of all normal files")
+  var project_name: String = "default_project"
 
   @Argument(shortName = "query", required = true, doc = "list of all normal files")
   var query: String = "all"
@@ -32,7 +32,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     val intervalsFilename: String = "%s_intervals.list".format(proj)
     val metadataFilename:String = "%s_metadata.tsv".format(proj)
     val folder : String = proj
-    val resultsFilename: String = "%_results.tsv".format(proj)
+    val resultsFilename: String = "%s_results.tsv".format(proj)
 
 
     /*
