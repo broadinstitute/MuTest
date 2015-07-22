@@ -45,7 +45,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     val normal_bams = Gen.normal_bams
     val intervals_files = Gen.intervals_files
 
-    
+
 
     for (sampleIndex <- 0 until normal_bams.size) {
 
@@ -110,7 +110,19 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     //this.minDanglingBranchLength = 2
   }
 
-case class GenerateIntervals(t: File, n: File, i: File)  extends InProcessFunction {
+case class GenerateIntervals(tt: File, nn: File, ii: File)  extends InProcessFunction {
+
+  @Input(doc = "")
+  val t: File = tt
+
+
+  @Input(doc = "")
+  val n: File = nn
+
+
+  @Input(doc = "")
+  val i: File = ii
+
 
   @Output(doc = "")
   val tumor_bams = QScriptUtils.createSeqFromFile(t)
