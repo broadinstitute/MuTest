@@ -2,7 +2,7 @@ import java.io._
 import scala.collection.mutable.ListBuffer
 import org.broadinstitute.gatk.queue.QScript
 import org.broadinstitute.gatk.queue.extensions.gatk._
-import org.broadinstitute.gatk.queue.function.{InProcessFunction, CommandLineFunction}
+import org.broadinstitute.gatk.queue.function.{CommandLineFunction, InProcessFunction}
 import org.broadinstitute.gatk.queue.util.QScriptUtils
 import org.broadinstitute.gatk.utils.commandline.{Output, Input}
 
@@ -33,7 +33,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     val metadata_filename: File = new File("%s_metadata.tsv".format(project_name))
     val folder : File = new File(project_name)
 
-    val Ag = new AggregateBams(query, normal_filename, tumor_filename, intervals_filename, folder, metadata_filename)
+    val Ag = AggregateBams(query, normal_filename, tumor_filename, intervals_filename, folder, metadata_filename)
     add(Ag)
 
     val m2_out_files = new ListBuffer[String]
@@ -72,11 +72,6 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     */
   }
 
-}
-
-
-
-
 
   case class mutect2(tumor: File, normal: File, interval: File, scatter: Int) extends M2 {
 
@@ -112,61 +107,61 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     //this.minDanglingBranchLength = 2
   }
 
-case class GenerateIntervals(tt: File, nn: File, ii: File)  extends InProcessFunction {
+  case class GenerateIntervals(tt: File, nn: File, ii: File)  extends InProcessFunction {
 
-  @Input(doc = "")
-  val t: File = tt
-
-
-  @Input(doc = "")
-  val n: File = nn
+    @Input(doc = "")
+    val t: File = tt
 
 
-  @Input(doc = "")
-  val i: File = ii
+    @Input(doc = "")
+    val n: File = nn
 
 
-  @Output(doc = "")
-  val tumor_bams = QScriptUtils.createSeqFromFile(t)
+    @Input(doc = "")
+    val i: File = ii
 
 
-  @Output(doc = "")
-  val normal_bams = QScriptUtils.createSeqFromFile(n)
+    @Output(doc = "")
+    val tumor_bams = QScriptUtils.createSeqFromFile(t)
 
 
-  @Output(doc = "")
-  val intervals_files = QScriptUtils.createSeqFromFile(i)
+    @Output(doc = "")
+    val normal_bams = QScriptUtils.createSeqFromFile(n)
+
+
+    @Output(doc = "")
+    val intervals_files = QScriptUtils.createSeqFromFile(i)
 
 
 
-  override def run(): Unit = {}
+    override def run(): Unit = {}
 
 
-}
-
-
-case class MakeStringFileList ( stringList: Seq[String], outputFilename: File) extends InProcessFunction {
-
-  @Output(doc = "")
-  val f: File = outputFilename
-
-  override def run (): Unit ={
-    writeList(stringList, outputFilename)
   }
 
-  def writeList (inFile : Seq[String], outFile : File) = {
-    val writer = new PrintWriter(new File(outFile.getAbsolutePath))
-    writer.write(inFile.mkString("\n"))
-    writer.close()
+
+  case class MakeStringFileList ( stringList: Seq[String], outputFilename: File) extends InProcessFunction {
+
+    @Output(doc = "")
+    val f: File = outputFilename
+
+    override def run (): Unit ={
+      writeList(stringList, outputFilename)
+    }
+
+    def writeList (inFile : Seq[String], outFile : File) = {
+      val writer = new PrintWriter(new File(outFile.getAbsolutePath))
+      writer.write(inFile.mkString("\n"))
+      writer.close()
+    }
   }
-}
 
 
   /*
 somaticdb bam_aggregate [-h] -q <query>
                              -n <normal_bam_list>
                              -t <tumor_bam_list>
-                             -i <interval_list> 
+                             -i <interval_list>
                              -f <folder>
                              -m <metadata>
 */
@@ -176,7 +171,6 @@ somaticdb bam_aggregate [-h] -q <query>
                            interval_list: File,
                            folder: File,
                            metadata: String) extends CommandLineFunction {
-
 
     @Output(doc = "")
     val f: File = folder
@@ -242,6 +236,14 @@ somaticdb variant_assess -t <tsv>
       "somaticdb variant_assess -t %s -q %s".format(t, q)
     }
   }
+
+}
+
+
+
+
+
+
 
 
 
