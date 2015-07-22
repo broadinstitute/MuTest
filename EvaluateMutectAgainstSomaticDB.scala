@@ -42,8 +42,23 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     }
     else {
 
-      val Gen = GenerateIntervals(tumorFilename, normalFilename, intervalsFilename, resultsFilename)
-      add(Gen)
+      val m2_out_files = new ListBuffer[String]
+
+      val tumor_bams = QScriptUtils.createSeqFromFile(tumorFilename)
+      val normal_bams = QScriptUtils.createSeqFromFile(normalFilename)
+      val intervals_files = QScriptUtils.createSeqFromFile(intervalsFilename)
+
+      for (sampleIndex <- 0 until normal_bams.size) {
+
+        val m2 = mutect2(tumor_bams(sampleIndex), normal_bams(sampleIndex), intervals_files(sampleIndex), scatter)
+
+        m2_out_files += m2.out
+
+        println(m2.out)
+        add(m2)
+      }
+
+      MakeStringFileList(m2_out_files, resultsFilename)
 
       /*
 
@@ -93,35 +108,6 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     //this.allowNonUniqueKmersInRef = true
     //this.minDanglingBranchLength = 2
-  }
-
-  case class GenerateIntervals(@Input tumor_bams_file:  File,
-                               @Input normal_bams_file: File,
-                               @Input intervals_file:   File,
-                               @Input results_filename: File)  extends InProcessFunction {
-
-    override def run(): Unit = {
-
-      val m2_out_files = new ListBuffer[String]
-
-      val tumor_bams = QScriptUtils.createSeqFromFile(tumor_bams_file)
-      val normal_bams = QScriptUtils.createSeqFromFile(normal_bams_file)
-      val intervals_files = QScriptUtils.createSeqFromFile(intervals_file)
-
-      for (sampleIndex <- 0 until normal_bams.size) {
-
-        val m2 = mutect2(tumor_bams(sampleIndex), normal_bams(sampleIndex), intervals_files(sampleIndex), scatter)
-
-        m2_out_files += m2.out
-
-        println(m2.out)
-        add(m2)
-      }
-
-      MakeStringFileList(m2_out_files, results_filename)
-    }
-
-
   }
 
 
