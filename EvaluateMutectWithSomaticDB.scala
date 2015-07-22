@@ -27,12 +27,12 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
   def script() {
 
-    val tumorFilename: String = "%s_tumor.list".format(proj)
-    val normalFilename: String = "%s_normal.list".format(proj)
-    val intervalsFilename: String = "%s_intervals.list".format(proj)
-    val metadataFilename:String = "%s_metadata.tsv".format(proj)
-    val folder : String = proj
-    val resultsFilename: String = "%s_results.tsv".format(proj)
+    val tumorFilename: String = "%s_tumor.list".format(project_name)
+    val normalFilename: String = "%s_normal.list".format(project_name)
+    val intervalsFilename: String = "%s_intervals.list".format(project_name)
+    val metadataFilename:String = "%s_metadata.tsv".format(project_name)
+    val folder : String = project_name
+    val resultsFilename: String = "%s_results.tsv".format(project_name)
 
 
     /*
