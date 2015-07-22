@@ -31,9 +31,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     val normal_filename: String = "%s_normal.list".format(proj)
     val intervals_filename: String = "%s_intervals.list".format(proj)
     val metadata_filename:String = "%s_metadata.tsv".format(proj)
-    val folder : String =  proj
-
-    // comment
+    val folder : String = proj
 
     val Ag = AggregateBams(query, normal_filename, tumor_filename, intervals_filename, folder, metadata_filename)
     add(Ag)
@@ -167,28 +165,16 @@ somaticdb bam_aggregate [-h] -q <query>
                              -f <folder>
                              -m <metadata>
 */
-  case class AggregateBams(query: String,
-                           normal_bam_list: String,
-                           tumor_bam_list: String,
-                           interval_list: String,
-                           folder: String,
-                           metadata: String) extends CommandLineFunction {
+  case class AggregateBams(@Argument query: String,
+                           @Output normal_bam_list: File,
+                           @Output tumor_bam_list: File,
+                           @Output interval_list: File,
+                           @Output folder: File,
+                           @Argument metadata: String) extends CommandLineFunction {
 
-    @Output(doc = "")
-    val f: File = folder
-
-    @Output(doc = "")
-    val normals: File = normal_bam_list
-
-    @Output(doc = "")
-    val tumors: File = tumor_bam_list
-
-    @Output(doc = "")
-    val intervals: File = interval_list
 
     override def commandLine: String = {
-      "somaticdb bam_aggregate -q \"%s\" -n %s -t %s -i %s -f %s -m %s".format(query,
-        normal_bam_list, tumor_bam_list, interval_list, folder, metadata)
+      "somaticdb bam_aggregate -q \"%s\" -n %s -t %s -i %s -f %s -m %s".format(query, normal_bam_list, tumor_bam_list, interval_list, folder, metadata)
     }
   }
 
