@@ -22,7 +22,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
   var evaluation_rules: String = "tcga:ROCL,hcc:CM"
 
   @Argument(shortName = "sc", required = false, doc = "base scatter count")
-  var scatter = 10
+  var scatter = 50
 
 
   def script() {
@@ -59,10 +59,11 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     add(new MakeStringFileList(m2_out_files, resultsFilename))
 
 
-    /*
+
 
     add(new CreateAssessment(metadata_filename, results_filename, submissions_filename, evaluation_rules))
 
+    /*
     add(new VariantAssessment(submissions_filename, query))
     */
     }
@@ -147,21 +148,18 @@ somaticdb assessment_file_create -t <tsv>
                                  -o <output_file>
                                  -e <evaluation_rules>
 */
-  case class CreateAssessment(tsv: String,
-                              results: String,
-                              output_file: String,
+  case class CreateAssessment(tsv: File,
+                              results: File,
+                              output_file: File,
                               rules: String) extends CommandLineFunction {
     @Input(doc = "")
-    val t: String = tsv
+    val t: File = tsv
 
     @Input(doc = "")
-    val r: String = results
+    val r: File = results
 
     @Output(doc = "")
-    val o: String = output_file
-
-    @Input(doc = "")
-    val e: String = rules
+    val o: File = output_file
 
     override def commandLine: String = {
       "somaticdb assessment_file_create -t %s -r %s -o %s -e %s".format(t, r, o, e)

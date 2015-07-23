@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="" />
+    <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EvaluateMutectAgainstSomaticDB.scala" afterPath="$PROJECT_DIR$/EvaluateMutectAgainstSomaticDB.scala" />
+    </list>
     <ignored path="SomaticDB.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -78,7 +80,7 @@
       <file leaf-file-name="EvaluateMutectAgainstSomaticDB.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/EvaluateMutectAgainstSomaticDB.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.59794986" vertical-offset="555" max-vertical-offset="3105">
+            <state vertical-scroll-proportion="-0.59794986" vertical-offset="555" max-vertical-offset="3075">
               <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
