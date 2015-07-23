@@ -148,21 +148,14 @@ somaticdb assessment_file_create -t <tsv>
                                  -o <output_file>
                                  -e <evaluation_rules>
 */
-  case class CreateAssessment(tsv: File,
-                              results: File,
-                              output_file: File,
-                              rules: String) extends CommandLineFunction {
-    @Input(doc = "")
-    val t: File = tsv
+  case class CreateAssessment(@Input tsv: File,
+                              @Input results: File,
+                              @Output output_file: File,
+                              @Argument rules: String) extends CommandLineFunction {
 
-    @Input(doc = "")
-    val r: File = results
-
-    @Output(doc = "")
-    val o: File = output_file
 
     override def commandLine: String = {
-      "somaticdb assessment_file_create -t %s -r %s -o %s -e %s".format(t, r, o, e)
+      "somaticdb assessment_file_create -t %s -r %s -o %s -e %s".format(tsv, results, output_file, rules)
     }
   }
 
