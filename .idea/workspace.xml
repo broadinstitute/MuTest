@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SomaticDB/Actions/BamAggregator.py" afterPath="$PROJECT_DIR$/SomaticDB/Actions/BamAggregator.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EvaluateMutectAgainstSomaticDB.scala" afterPath="$PROJECT_DIR$/EvaluateMutectAgainstSomaticDB.scala" />
     </list>
     <ignored path="SomaticDB.iws" />
@@ -81,8 +80,8 @@
       <file leaf-file-name="EvaluateMutectAgainstSomaticDB.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/EvaluateMutectAgainstSomaticDB.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3120">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-0.59794986" vertical-offset="555" max-vertical-offset="3120">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -105,7 +104,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/somaticDB/Variant.py" />
         <option value="$PROJECT_DIR$/somaticDB/DatabaseParser.py" />
         <option value="$PROJECT_DIR$/somaticDB/ListUtilities.py" />
         <option value="$PROJECT_DIR$/somaticDB/evaluator.py" />
@@ -156,6 +154,7 @@
         <option value="$PROJECT_DIR$/SomaticDB/Actions/VariantExtract.py" />
         <option value="$PROJECT_DIR$/SomaticDB/cli.py" />
         <option value="$PROJECT_DIR$/SomaticDB/Actions/BamAggregator.py" />
+        <option value="$PROJECT_DIR$/EvaluateMutectAgainstSomaticDB.scala" />
       </list>
     </option>
   </component>
@@ -943,8 +942,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/EvaluateMutectAgainstSomaticDB.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3120">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="-0.59794986" vertical-offset="555" max-vertical-offset="3120">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>

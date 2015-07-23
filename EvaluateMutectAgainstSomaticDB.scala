@@ -37,10 +37,12 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     val folder : String = project_name
     val resultsFilename: String = "%s_results.tsv".format(project_name)
 
-
+    println("Aggretating bams")
     val cmd = AggregateBams(query, normalFilename, tumorFilename, intervalsFilename, folder, metadataFilename)
 
     cmd !
+
+    println("Aggregation complete.")
 
     val m2_out_files = new ListBuffer[String]
 
