@@ -24,9 +24,6 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
   @Argument(shortName = "sc", required = false, doc = "base scatter count")
   var scatter = 10
 
-  @Argument(shortName = "do_bams", required = false, doc = "base scatter count")
-  var do_bams = 1
-
 
   def script() {
 
