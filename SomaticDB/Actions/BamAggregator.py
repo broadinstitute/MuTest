@@ -13,7 +13,7 @@ from SomaticDB.SupportLibraries.SomaticFileSystem import SomaticFileSystem
 import re
 
 def picard_version_to_current(path):
-    return re.sub('/v[0-9]/','/current/',path)
+    return re.sub('/v\d+/','/current/',path)
 
 def get_sample_name(filename):
     sample_name = filename.split('/')[4]

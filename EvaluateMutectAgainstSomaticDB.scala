@@ -5,6 +5,7 @@ import org.broadinstitute.gatk.queue.extensions.gatk._
 import org.broadinstitute.gatk.queue.function.{CommandLineFunction, InProcessFunction}
 import org.broadinstitute.gatk.queue.util.QScriptUtils
 import org.broadinstitute.gatk.utils.commandline.{Output, Input}
+import scala.sys.process._
 
 
 
@@ -36,30 +37,28 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     val folder : String = project_name
     val resultsFilename: String = "%s_results.tsv".format(project_name)
 
-    if(do_bams==1) {
-      val Ag = new AggregateBams(query, normalFilename, tumorFilename, intervalsFilename, folder, metadataFilename)
-      add(Ag)
-    }
-    else {
 
-      val m2_out_files = new ListBuffer[String]
+    val cmd = AggregateBams(query, normalFilename, tumorFilename, intervalsFilename, folder, metadataFilename)
 
-      val tumor_bams = QScriptUtils.createSeqFromFile(tumorFilename)
-      val normal_bams = QScriptUtils.createSeqFromFile(normalFilename)
-      val intervals_files = QScriptUtils.createSeqFromFile(intervalsFilename)
+    cmd !
 
-      for (sampleIndex <- 0 until normal_bams.size) {
+    val m2_out_files = new ListBuffer[String]
 
-        val m2 = mutect2(tumor_bams(sampleIndex), normal_bams(sampleIndex), intervals_files(sampleIndex), scatter)
+    val tumor_bams = QScriptUtils.createSeqFromFile(tumorFilename)
+    val normal_bams = QScriptUtils.createSeqFromFile(normalFilename)
+    val intervals_files = QScriptUtils.createSeqFromFile(intervalsFilename)
+
+    for (sampleIndex <- 0 until normal_bams.size) {
+
+        val m2 = new mutect2(tumor_bams(sampleIndex), normal_bams(sampleIndex), intervals_files(sampleIndex), scatter)
 
         m2_out_files += m2.out
 
         add(m2)
-      }
+    }
 
-      MakeStringFileList(m2_out_files, resultsFilename)
+    add(new MakeStringFileList(m2_out_files, resultsFilename))
 
-      
 
     /*
 
@@ -68,7 +67,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     add(new VariantAssessment(submissions_filename, query))
     */
     }
-  }
+
 
 
   case class mutect2(tumor: File, normal: File, interval: File, scatter: Int) extends M2 {
@@ -128,17 +127,17 @@ somaticdb bam_aggregate [-h] -q <query>
                              -f <folder>
                              -m <metadata>
 */
-  case class AggregateBams(@Argument query: String,
-                           @Output normal_bam_list: File,
-                           @Output tumor_bam_list: File,
-                           @Output interval_list: File,
-                           @Output folder: File,
-                           @Argument metadata: String) extends CommandLineFunction {
+ def AggregateBams(query: String,
+                   normal_bam_list: File,
+                   tumor_bam_list: File,
+                   interval_list: File,
+                   folder: File,
+                   metadata: String) : String = {
 
 
-    override def commandLine: String = {
-      "somaticdb bam_aggregate -q \"%s\" -n %s -t %s -i %s -f %s -m %s".format(query, normal_bam_list, tumor_bam_list, interval_list, folder, metadata)
-    }
+   val cmd: String = "somaticdb bam_aggregate -q \"%s\" -n %s -t %s -i %s -f %s -m %s".format(query, normal_bam_list, tumor_bam_list, interval_list, folder, metadata)
+
+    return(cmd)
   }
 
 
