@@ -22,4 +22,4 @@ def create_assessment_file(tsv, results, output_file, evaluation_rules):
 
     out = pd.DataFrame(out_rows)
 
-    out.to_csv(output_file,sep='\t')
+    out.to_csv(output_file,sep='\t',index=False)

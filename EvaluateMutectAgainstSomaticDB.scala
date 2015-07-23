@@ -51,7 +51,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
         val m2 = new mutect2(tumor_bams(sampleIndex), normal_bams(sampleIndex), intervals_files(sampleIndex), scatter)
 
-        m2_out_files += m2.out
+        m2_out_files += m2.out.getAbsolutePath()
 
         add(m2)
     }

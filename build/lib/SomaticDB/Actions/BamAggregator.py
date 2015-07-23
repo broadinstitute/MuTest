@@ -10,6 +10,10 @@ from SomaticDB.BasicUtilities.MongoUtilities import connect_to_mongo
 from SomaticDB.SupportLibraries.DataGatherer import query_processor
 from SomaticDB.SupportLibraries.SomaticFileSystem import SomaticFileSystem
 
+import re
+
+def picard_version_to_current(path):
+    return re.sub('/v\d+/','/current/',path)
 
 def get_sample_name(filename):
     sample_name = filename.split('/')[4]
@@ -35,6 +39,14 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
         if not record.has_key('tumor_bam'):
             print record
             continue
+
+        #print record['tumor_bam']
+
+        record['tumor_bam']=picard_version_to_current(record['tumor_bam'])
+        record['normal_bam']=picard_version_to_current(record['normal_bam'])
+
+        #print record['tumor_bam']
+        #print
 
         tumor_bam  = record['tumor_bam']
         normal_bam = record['normal_bam']

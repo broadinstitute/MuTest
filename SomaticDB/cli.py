@@ -8,15 +8,19 @@ from SomaticDB.Actions.VariantExtract import variant_extract
 
 def main():
 
-    description = '\nA set of tools for assessment of somatic variant calling.'
+    description = """\nSomaticDB is a python package for interacting with a mongo database that stores somatic variants. It provides a centralized way of benchmarking the perfomance of algorithms which either generate or refine somatic variant calls.."""
 
-    epilog = """Created as a testing framework for somatic mutation callers.\n\n"""
+    epilog = """Created for the DSDE methods group to assess mutect 2.\n\n"""
 
     parser = argparse.ArgumentParser(description=description,
                      epilog=epilog,
                      formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
     subparsers = parser.add_subparsers(help='commands',dest='subparser')
+
+    assessment_file_create_parser = subparsers.add_parser('assessment_file_create',
+                    help  ='Creates the file used for assessment of algorithmic results')
+
 
     bam_aggregator_parser = subparsers.add_parser('bam_aggregate',
                          help  ='Produces a list of bams matching some criteria for an evaluation.')
@@ -57,8 +61,15 @@ def main():
                         metavar='<metadata_list>',
                         required=True)
 
+    database_delete_parser = subparsers.add_parser('database_delete',
+                         help  ='Remove all data in the database. WARNING: ONLY FOR INTERNAL USE.')
+
+
     variant_assessor_parser = subparsers.add_parser('variant_assess',
-                         help  ='Assesses a file of variants against truth data stored in the mongo database.')
+                         help  ='Assesses a file containing variants against truth data stored in the mongo database.')
+
+    variant_extract_parser = subparsers.add_parser('variant_extract',
+                         help  ='Saves output from a database query to a file or prints the results to screen.')
 
 
     variant_assessor_parser.add_argument('-t','--tsv', help='The list of datasets to be assessed.',type=str,metavar='<tsv>', required=True)
@@ -82,12 +93,10 @@ def main():
 
     variant_submitter_parser.add_argument('-a','--author', help='The list of datasets to be uploaded.',type=str,metavar='<tsv>',required=True)
 
-    database_delete_parser = subparsers.add_parser('database_delete',
-                         help  ='Remove all data in the database. WARNING: ONLY FOR INTERNAL USE.')
 
 
-    assessment_file_create_parser = subparsers.add_parser('assessment_file_create',
-                         help  ='Creates the file used for assessment of algorithmic results')
+
+
 
 
     assessment_file_create_parser.add_argument('-t','--tsv',
@@ -114,8 +123,7 @@ def main():
                                                metavar='<evaluation_rules>')
 
 
-    variant_extract_parser = subparsers.add_parser('variant_extract',
-                         help  ='Saves output from a database query to a file or prints the results to screen.')
+
 
 
     variant_extract_parser.add_argument('-o','--output_filename',
@@ -143,7 +151,7 @@ def main():
 
 
     if (args.subparser == "variant_assess"):
-        VariantAssessor(args.query,args.tsv)
+        VariantAssessor(args.query,args.tsv,args.output_file)
 
     if (args.subparser == "variant_upload"):
         VariantUploader(args.tsv,submit_to_filesystem=False)
