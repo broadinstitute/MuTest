@@ -20,7 +20,7 @@ def save_set(fp,list_data):
 
     list_data = list(list_data)
     for entry in list_data:
-        file.write("\t".join(entry)+"\n")
+        fp.write("\t".join(entry)+"\n")
 
 
 
