@@ -130,8 +130,10 @@ def VariantAssessor(query,tsv,output_file):
             print len(found_variants[sample_information])
             print 'known:'
             print known_true[sample_information]
+            print len(known_true[sample_information])
+            print
             print sample_information
-            print(known_true[sample_information])
+            print
             print
 
             TP = len(found_variants[sample_information].intersection(known_true))
