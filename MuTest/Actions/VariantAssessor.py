@@ -16,16 +16,12 @@ def pp_dict(x):
         print key+": "+str(x[key])
 
 
-def save_set(filename,list_data,header=None):
-    file = open(filename)
-
-    if header is not None:
-        file.write("\t".join(header)+"\n")
+def save_set(fp,list_data):
 
     list_data = list(list_data)
     for entry in list_data:
         file.write("\t".join(entry)+"\n")
-    file.close()
+
 
 
 def VariantAssessor(query,tsv,output_file):
@@ -97,6 +93,11 @@ def VariantAssessor(query,tsv,output_file):
 
     data = []
 
+
+    filename = "missed_positives.tsv"
+    fp = open(filename,'w')
+    fp.write("\t".join(['chromosome','start','ref','alt']))
+
     for sample_information in map(tuple,caller_samples):
 
         if sample_information in roc_like:
@@ -159,8 +160,7 @@ def VariantAssessor(query,tsv,output_file):
 
         data.append(row_dict)
 
+        save_set(fp,list(known_true[sample_information].difference(found_variants[sample_information])))
 
-        filename = "-".join(sample_information)+".missed_positives.tsv"
-        save_set(filename,list(known_true[sample_information].difference(found_variants[sample_information])),header=['chromosome','start','ref','alt'])
-
-        pd.DataFrame(data).to_csv(output_file, sep='\t',index=False)
+    fp.close()
+    pd.DataFrame(data).to_csv(output_file, sep='\t',index=False)
