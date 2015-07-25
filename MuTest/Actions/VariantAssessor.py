@@ -79,6 +79,8 @@ def VariantAssessor(query,tsv,output_file):
         sample_information = get_entries_from_dict(variant_dict, keys=['project','dataset','sample'],return_type=tuple)
         variant = get_entries_from_dict(variant_dict, keys=['chromosome','start','ref','alt'],return_type=tuple)
 
+        print variant_dict
+
         if sample_information in roc_like:
             if 'TP' in variant_dict['evidence_type']: found_variants[sample_information].add(variant)
 
