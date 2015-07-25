@@ -124,6 +124,11 @@ def VariantAssessor(query,tsv,output_file):
             row_dict['false_positives'] = false_positive
 
         if assessment_type == 'ROCL':
+            print found_variants[sample_information]
+            print known_true[sample_information]
+            print sample_information
+            print
+
             TP = len(found_variants[sample_information].intersection(known_true))
             FN = len(known_true[sample_information].difference(found_variants))
 
