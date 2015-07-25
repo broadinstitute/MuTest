@@ -1,11 +1,11 @@
 import ast
 from collections import defaultdict
 import csv
-from SomaticDB.SupportLibraries.ConfusionMatrix import ConfusionMatrix
-from SomaticDB.BasicUtilities.DictUtilities import get_entries_from_dict , \
+from MuTest.SupportLibraries.ConfusionMatrix import ConfusionMatrix
+from MuTest.BasicUtilities.DictUtilities import get_entries_from_dict , \
     merge_dicts
-from SomaticDB.BasicUtilities.MongoUtilities import connect_to_mongo
-from SomaticDB.SupportLibraries.DataGatherer import DataGatherer , \
+from MuTest.BasicUtilities.MongoUtilities import connect_to_mongo
+from MuTest.SupportLibraries.DataGatherer import DataGatherer , \
     query_processor
 import pandas as pd
 import numpy as np
@@ -117,7 +117,7 @@ def VariantAssessor(query,tsv,output_file):
                     'tpr': np.nan,
                     'fpr': np.nan,
                     'precision': np.nan,
-                    'assessment_type': assessment_type }
+                    'evidence_type': assessment_type }
 
         if assessment_type == 'NN':
             row_dict['false_positives'] = false_positive

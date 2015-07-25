@@ -1,14 +1,14 @@
 import argparse
-from SomaticDB.Actions.AssessmentFileCreator import create_assessment_file
-from SomaticDB.Actions.VariantUploader import VariantUploader
-from SomaticDB.Actions.BamAggregator import BamAggregator
-from SomaticDB.Actions.VariantAssessor import VariantAssessor
-from SomaticDB.Scripts.clean_database import delete_all
-from SomaticDB.Actions.VariantExtract import variant_extract
+from MuTest.Actions.AssessmentFileCreator import create_assessment_file
+from MuTest.Actions.VariantUploader import VariantUploader
+from MuTest.Actions.BamAggregator import BamAggregator
+from MuTest.Actions.VariantAssessor import VariantAssessor
+from MuTest.Scripts.clean_database import delete_all
+from MuTest.Actions.VariantExtract import variant_extract
 
 def main():
 
-    description = """\nSomaticDB is a python package for interacting with a mongo database that stores somatic variants. It provides a centralized way of benchmarking the perfomance of algorithms which either generate or refine somatic variant calls.."""
+    description = """\nMuTest is a python package for interacting with a mongo database that stores somatic variants. It provides a centralized way of benchmarking the perfomance of algorithms which either generate or refine somatic variant calls.."""
 
     epilog = """Created for the DSDE methods group to assess mutect 2.\n\n"""
 
@@ -85,7 +85,7 @@ def main():
 
 
     variant_submitter_parser = subparsers.add_parser('variant_submit',
-                         help  ='Sumbits data both to the mongo database and stores information on the filesystem (at /dsde/working/somaticdb)')
+                         help  ='Sumbits data both to the mongo database and stores information on the filesystem (at /dsde/working/mutestdb)')
 
 
     variant_submitter_parser.add_argument('-t','--tsv', help='The list of datasets to be uploaded.',type=str,metavar='<tsv>',required=True)
@@ -118,7 +118,7 @@ def main():
                                                required=True)
 
     assessment_file_create_parser.add_argument('-e','--evaluation_rules',
-                                               help='Rules for how to treat evidence in the somaticDB. eg. "tcga:ROCL,hcc:CM"',
+                                               help='Rules for how to treat evidence in the mutestDB. eg. "tcga:ROCL,hcc:CM"',
                                                type=str,
                                                metavar='<evaluation_rules>')
 

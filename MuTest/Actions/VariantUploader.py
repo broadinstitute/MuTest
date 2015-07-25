@@ -1,11 +1,11 @@
-from SomaticDB.BasicUtilities.DictUtilities import merge_dicts , \
+from MuTest.BasicUtilities.DictUtilities import merge_dicts , \
     get_entries_from_dict
-from SomaticDB.BasicUtilities.MongoUtilities import connect_to_mongo
-from SomaticDB.SupportLibraries.DataGatherer import DataGatherer
-from SomaticDB.SupportLibraries.SomaticFileSystem import SomaticFileSystem
+from MuTest.BasicUtilities.MongoUtilities import connect_to_mongo
+from MuTest.SupportLibraries.DataGatherer import DataGatherer
+from MuTest.SupportLibraries.SomaticFileSystem import SomaticFileSystem
 import time
 import os
-from SomaticDB.SupportLibraries.SubmissionFile import SubmissionFile
+from MuTest.SupportLibraries.SubmissionFile import SubmissionFile
 
 script_description="""A protype script for submitting data to MongoDB"""
 script_epilog="""Created for evaluation of performance of Mutect 2 positives evaluation """

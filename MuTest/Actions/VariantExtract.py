@@ -1,6 +1,6 @@
-from SomaticDB.BasicUtilities.DictUtilities import get_entries_from_dict
-from SomaticDB.BasicUtilities.MongoUtilities import connect_to_mongo
-from SomaticDB.SupportLibraries.DataGatherer import query_processor
+from MuTest.BasicUtilities.DictUtilities import get_entries_from_dict
+from MuTest.BasicUtilities.MongoUtilities import connect_to_mongo
+from MuTest.SupportLibraries.DataGatherer import query_processor
 import ast
 import pandas as pd
 

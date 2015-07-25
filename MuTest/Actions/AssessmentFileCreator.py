@@ -16,7 +16,7 @@ def create_assessment_file(tsv, results, output_file, evaluation_rules):
     for result,metadata in zip(results_data, metadata_rows):
 
         metadata['data_filename']   = result
-        metadata['assessment_type'] = evaluation_rules[metadata['project'] ]
+        metadata['evidence_type'] = evaluation_rules[metadata['project'] ]
 
         out_rows.append(metadata)
 

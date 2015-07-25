@@ -1,25 +1,25 @@
 from setuptools import setup
 
 setup(
-    name='SomaticDB',
+    name='MuTest',
 
     version='alpha',
 
     entry_points={
         'console_scripts': [
-        'somaticdb  = SomaticDB.cli:main',
-        'parse_mara = SomaticDB.PreprocessingParsers.parse_mara:main',
-        'parse_hcc  = SomaticDB.PreprocessingParsers.parse_hcc:main',
-        'clean_database = SomaticDB.Scripts.clean_database:main'
+        'mutest  = MuTest.cli:main',
+        'parse_mara = MuTest.PreprocessingParsers.parse_mara:main',
+        'parse_hcc  = MuTest.PreprocessingParsers.parse_hcc:main',
+        'clean_database = MuTest.Scripts.clean_database:main'
         ]
     },
 
-    packages=['SomaticDB',
-              'SomaticDB.Actions',
-              'SomaticDB.BasicUtilities',
-              'SomaticDB.Scripts',
-              'SomaticDB.SupportLibraries',
-              'SomaticDB.PreprocessingParsers'],
+    packages=['MuTest',
+              'MuTest.Actions',
+              'MuTest.BasicUtilities',
+              'MuTest.Scripts',
+              'MuTest.SupportLibraries',
+              'MuTest.PreprocessingParsers'],
 
     license='TODO: Determine license',
 

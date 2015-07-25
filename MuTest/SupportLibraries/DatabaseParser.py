@@ -109,6 +109,17 @@ class DatabaseParser:
                     ac = record['AC'].split(',')
                     af = record['AF'].split(',')
 
+                    #filters for callers
+
+                    if record.FILTER is None or record.FILTER == '.' or not record.FILTER or record.FILTER=='PASS':
+                        pass
+                    else:
+                        continue
+
+                    #filters for dream challenge
+
+                    if record.INFO.get('SVTYPE') in ('IGN', 'MSK'): continue
+
                     for key in record:
 
                         if key in ['CHROM','POS','REF','MLEAF','MLEAC','AC','AF']: continue

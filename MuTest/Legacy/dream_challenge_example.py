@@ -10,19 +10,30 @@ Requires PyVCF (https://github.com/jamescasbon/PyVCF)
 '''
 
 def match(subrec, trurec, vtype='SNV'):
+    """
+    :param subrec: submission records
+    :param trurec: ground truth records
+    :param vtype: variant type
+    :return: returns true if two variants match
+    """
     assert vtype in ('SNV', 'SV', 'INDEL')
 
+    #match occurs if 1. we are looking for SNPs, 2. our records are both SNPS and 3. the records match.
     if vtype == 'SNV' and subrec.is_snp and trurec.is_snp:
         if subrec.POS == trurec.POS and subrec.REF == trurec.REF and subrec.ALT == trurec.ALT:
             return True
 
+    #match occurs if 1. we are looking for INDELs, 2. our records are both INDELs and 3. the records match.
     if vtype == 'INDEL' and subrec.is_indel and trurec.is_indel:
         if subrec.POS == trurec.POS and subrec.REF == trurec.REF and subrec.ALT == trurec.ALT:
             return True
 
+    #match occurs if 1. we are looking for SNVs, 2. our records are both SNVs and 3. the records match.
     if vtype == 'SV' and subrec.is_sv and trurec.is_sv:
         trustart, truend = expand_sv_ends(trurec)
         substart, subend = expand_sv_ends(subrec)
+
+        #sequence doesn't matter for SV. It's just about whether their confidence intervals overlap.
 
         # check for overlap
         if min(truend, subend) - max(trustart, substart) > 0:
@@ -32,6 +43,10 @@ def match(subrec, trurec, vtype='SNV'):
 
 
 def expand_sv_ends(rec):
+    """
+    :param rec: finds the confidence intervals of the SV and finds the expanded region that includes these intervals
+    :return: tuple of the new start and end position
+    """
     ''' assign start and end positions to SV calls using conf. intervals if present '''
     startpos, endpos = rec.start, rec.end
     assert rec.is_sv
@@ -63,6 +78,13 @@ def expand_sv_ends(rec):
 
 
 def relevant(rec, vtype, ignorechroms):
+    """
+    Figures out if vcf is on an ignored chromosome, the type of variant being analyzed and not in a masked or ignored region
+    :param rec: a vcf record
+    :param vtype: variant type
+    :param ignorechroms: chromosomes to ignore
+    :return: returns false if so.
+    """
     ''' Return true if a record matches the type of variant being investigated '''
     rel = (rec.is_snp and vtype == 'SNV') or (rec.is_sv and vtype == 'SV') or (rec.is_indel and vtype == 'INDEL')
 
@@ -75,6 +97,13 @@ def relevant(rec, vtype, ignorechroms):
 
 
 def passfilter(rec):
+    """
+    :param rec : a vcf record
+    :return: boolean saying whether it passed the filter of the caller
+    """
+
+    #passing the filter means there is no filter tag or the filter tag is '.'
+
     ''' Return true if a record is unfiltered or has 'PASS' in the filter field (pyvcf sets FILTER to None) '''
     if rec.FILTER is None or rec.FILTER == '.' or not rec.FILTER:
         return True
@@ -82,14 +111,24 @@ def passfilter(rec):
 
 
 def mask(rec, vcfh, truchroms, debug=False, active=True):
+    """
+    :param rec: records
+    :param vcfh: reference vcf associated with truth positives
+    :param truchroms: chromosomes to be evaluated on (not ignored)
+    :param debug: flag for debugging (not sure what type of debugging)
+    :param active:
+    :return:
+    """
     ''' mask calls in IGN/MSK regions '''
 
     if rec.CHROM in truchroms:
 
         # SNV and INDEL calls are ignored in IGN regions, cannot be deactivated with active=False 
-        for overlap_rec in vcfh.fetch(rec.CHROM, rec.POS-1, rec.POS):
+        for overlap_rec in vcfh.fetch(rec.CHROM, rec.POS-1, rec.POS): #looking at all overlapping regions
             if (rec.is_snp or rec.is_indel) and overlap_rec.INFO.get('SVTYPE') == 'IGN':
-                return True
+                return True # if even one is of type ignore, then ignore
+
+        # both true and false positives! are ignored.
 
         # all calls are ignored in MSK regions
         for overlap_rec in vcfh.fetch(rec.CHROM, rec.POS-1, rec.POS):
@@ -104,6 +143,14 @@ def mask(rec, vcfh, truchroms, debug=False, active=True):
 
 
 def countrecs(submission, truth, vtype='SNV', ignorechroms=None, truthmask=True):
+    """
+    :param submission:
+    :param truth:
+    :param vtype:
+    :param ignorechroms:
+    :param truthmask:
+    :return:
+    """
     ''' return number of records in submission '''
     
     assert vtype in ('SNV', 'SV', 'INDEL')
@@ -129,6 +176,14 @@ def countrecs(submission, truth, vtype='SNV', ignorechroms=None, truthmask=True)
 
 
 def evaluate(submission, truth, vtype='SNV', ignorechroms=None, truthmask=True):
+    """
+    :param submission:
+    :param truth:
+    :param vtype:
+    :param ignorechroms:
+    :param truthmask:
+    :return:
+    """
     ''' return stats on sensitivity, specificity, balanced accuracy '''
 
     assert vtype in ('SNV', 'SV', 'INDEL')
@@ -236,10 +291,10 @@ def evaluate(submission, truth, vtype='SNV', ignorechroms=None, truthmask=True):
     print subrecs
     print trurecs
 
-    sensitivity = float(tpcount) / float(trurecs)
+    sensitivity = float(tpcount) / float(trurecs) #trurecs is a standin TP+FN
     precision   = float(tpcount) / float(tpcount + fpcount)
-    specificity = 1.0 - float(fpcount) / float(subrecs)
-    balaccuracy = (sensitivity + specificity) / 2.0
+    specificity = 1.0 - float(fpcount) / float(subrecs) #subrecs is a standin for TP+FP
+    balaccuracy = (sensitivity + specificity) / 2.0     # balaccuracy
 
     return sensitivity, specificity, balaccuracy
 
@@ -252,18 +307,23 @@ if __name__ == '__main__':
         if len(sys.argv) == 5:
             chromlist = sys.argv[4].split(',')
 
+        #submission vcf
         if not subvcf.endswith('.vcf') and not subvcf.endswith('.vcf.gz'):
-            sys.stderr.write("submission VCF filename does not enc in .vcf or .vcf.gz\n")
+            sys.stderr.write("submission VCF filename does not end in .vcf or .vcf.gz\n")
             sys.exit(1)
 
+        #truth data vcf
         if not os.path.exists(truvcf + '.tbi'):
             sys.stderr.write("truth VCF does not appear to be indexed. bgzip + tabix index required.\n")
             sys.exit(1)
 
+        #evidence type is just a specification of whether one is accessing snvs or indels
         if evtype not in ('SV', 'SNV', 'INDEL'):
             sys.stderr.write("last arg must be either SV, SNV, or INDEL\n")
             sys.exit(1)
 
+
+        #two main functions evaluate and count records, masked and unmasked
         print "\nmasked:"
         result = evaluate(subvcf, truvcf, vtype=evtype, ignorechroms=chromlist, truthmask=True)
         count  = countrecs(subvcf, truvcf, vtype=evtype, ignorechroms=chromlist, truthmask=True)
