@@ -35,7 +35,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     val normalFilename: File = new File(project_dir,"%s_normal.list".format(project_name))
     val intervalsFilename: File = new File(project_dir,"%s_intervals.list".format(project_name))
     val metadataFilename: File = new File(project_dir,"%s_metadata.tsv".format(project_name))
-    val folder : String = project_name
+    val folder : String = new File(project_dir,project_name)
     val resultsFilename: File = new File(project_dir,"%s_results.tsv".format(project_name))
 
     println("Aggretating bams")
