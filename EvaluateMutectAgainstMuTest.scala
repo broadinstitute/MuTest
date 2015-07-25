@@ -77,9 +77,9 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     val assessmentFilename: File = new File(project_dir,"%s_assessment.tsv".format(project_name))
 
-    /*
+    
     add(new VariantAssessment(submissionsFilename, query,assessmentFilename))
-    */
+
     }
 
 
