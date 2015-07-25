@@ -130,8 +130,8 @@ def VariantAssessor(query,tsv,output_file):
 
             row_dict['true_positives'] = TP
 
-            FP = found_variants[sample_information].intersection(known_false)
-            TN = known_false[sample_information].difference(found_variants)
+            FP = len(found_variants[sample_information].intersection(known_false))
+            TN = len(known_false[sample_information].difference(found_variants))
 
             row_dict['fpr']  = FP/(FP+TN)
 
