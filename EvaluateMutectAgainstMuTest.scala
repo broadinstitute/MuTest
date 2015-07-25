@@ -31,6 +31,8 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     val cwd = System.getProperty("user.dir")
     val project_dir: String = (Path( cwd ) / project_name).toString()
 
+    println(project_dir)
+
     val tumorFilename: File = new File(project_dir,"%s_tumor.list".format(project_name))
     val normalFilename: File = new File(project_dir,"%s_normal.list".format(project_name))
     val intervalsFilename: File = new File(project_dir,"%s_intervals.list".format(project_name))
@@ -38,7 +40,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     val folder : File = new File(project_dir,project_name)
     val resultsFilename: File = new File(project_dir,"%s_results.tsv".format(project_name))
 
-    folder.mkdir()
+    (new File(project_dir)).mkdir()
 
     println("Aggretating bams")
     val cmd = AggregateBams(query, normalFilename, tumorFilename, intervalsFilename, folder, metadataFilename)
