@@ -126,14 +126,21 @@ def VariantAssessor(query,tsv,output_file):
             TP = len(found_variants[sample_information].intersection(known_true))
             FN = len(known_true[sample_information].difference(found_variants))
 
-            row_dict['tpr']  = TP/(TP+FN)
+            try:
+                row_dict['tpr']  = TP/(TP+FN)
+            except:
+                row_dict['tpr']  = np.nan
+
 
             row_dict['true_positives'] = TP
 
             FP = len(found_variants[sample_information].intersection(known_false))
             TN = len(known_false[sample_information].difference(found_variants))
 
-            row_dict['fpr']  = FP/(FP+TN)
+            try:
+                row_dict['fpr']  = FP/(FP+TN)
+            except:
+                row_dict['fpr'] = np.nan
 
             row_dict['false_positives'] = FP
 
