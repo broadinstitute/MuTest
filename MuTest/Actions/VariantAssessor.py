@@ -123,30 +123,32 @@ def VariantAssessor(query,tsv,output_file):
             row_dict['false_positives'] = false_positive
 
         if assessment_type == 'ROCL':
-            TP = len(found_variants.intersection(known_true))
-            FN = len(known_true.difference(found_variants))
+            TP = len(found_variants[sample_information].intersection(known_true))
+            FN = len(known_true[sample_information].difference(found_variants))
 
             row_dict['tpr']  = TP/(TP+FN)
 
             row_dict['true_positives'] = TP
 
-            FP = found_variants.intersection(known_false)
-            TN = known_false.difference(found_variants)
+            FP = found_variants[sample_information].intersection(known_false)
+            TN = known_false[sample_information].difference(found_variants)
 
             row_dict['fpr']  = FP/(FP+TN)
 
             row_dict['false_positives'] = FP
 
         if assessment_type == 'CM':
-            TP = len(found_variants.intersection(known_true))
-            FP = len(found_variants.different(known_true))
-            FN = len(known_true.difference(found_variants))
+            TP = len(found_variants[sample_information].intersection(known_true))
+            FP = len(found_variants[sample_information].different(known_true))
+            FN = len(known_true[sample_information].difference(found_variants))
 
             row_dict['true_positives'] = TP
             row_dict['false_positives'] = FP
 
             row_dict['tpr']  = TP/(TP+FN)
-            row_dict['precision'] = TP/(TP+TP)
+            row_dict['precision'] = TP/(TP+FP)
+
+            row_dict['dream_accuracy'] = (row_dict['tpr'] + 1 -row_dict['precision'])/2.0
 
         data.append(row_dict)
 
@@ -154,4 +156,4 @@ def VariantAssessor(query,tsv,output_file):
         filename = "-".join(sample_information)+".missed_positives.tsv"
         save_set(filename,list(known_true.difference(found_variants)),header=['chromosome','start','ref','alt'])
 
-        pd.DataFrame(data).to_csv(output_file, sep='\t')
+        pd.DataFrame(data).to_csv(output_file, sep='\t',index=False)

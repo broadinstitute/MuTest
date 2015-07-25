@@ -135,7 +135,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
 
   /*
-somaticdb bam_aggregate [-h] -q <query>
+mutest bam_aggregate [-h] -q <query>
                              -n <normal_bam_list>
                              -t <tumor_bam_list>
                              -i <interval_list>
@@ -150,7 +150,7 @@ somaticdb bam_aggregate [-h] -q <query>
                    metadata: String) : String = {
 
 
-   val cmd: String = "somaticdb bam_aggregate -q %s -n %s -t %s -i %s -f %s -m %s".format(query, normal_bam_list, tumor_bam_list, interval_list, folder, metadata)
+   val cmd: String = "mutest bam_aggregate -q %s -n %s -t %s -i %s -f %s -m %s".format(query, normal_bam_list, tumor_bam_list, interval_list, folder, metadata)
 
     return(cmd)
   }
@@ -158,7 +158,7 @@ somaticdb bam_aggregate [-h] -q <query>
 
 
   /*
-somaticdb assessment_file_create -t <tsv>
+mutest assessment_file_create -t <tsv>
                                  -r <results>
                                  -o <output_file>
                                  -e <evaluation_rules>
@@ -170,13 +170,13 @@ somaticdb assessment_file_create -t <tsv>
 
 
     override def commandLine: String = {
-      "somaticdb assessment_file_create -t %s -r %s -o %s -e %s".format(tsv, results, output_file, rules)
+      "mutest assessment_file_create -t %s -r %s -o %s -e %s".format(tsv, results, output_file, rules)
     }
   }
 
 
   /*
-somaticdb variant_assess -t <tsv>
+mutest variant_assess -t <tsv>
                          -q <query>
 */
   case class VariantAssessment(@Input tsv: File,
@@ -184,7 +184,7 @@ somaticdb variant_assess -t <tsv>
                                @Output output: File) extends CommandLineFunction {
 
     override def commandLine: String = {
-      "somaticdb variant_assess -t %s -q %s -o %s".format(tsv, query, output)
+      "mutest variant_assess -t %s -q %s -o %s".format(tsv, query, output)
     }
   }
 
