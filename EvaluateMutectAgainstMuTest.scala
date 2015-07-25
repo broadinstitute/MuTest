@@ -37,8 +37,8 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     val normalFilename: File = new File(project_dir,"%s_normal.list".format(project_name))
     val intervalsFilename: File = new File(project_dir,"%s_intervals.list".format(project_name))
     val metadataFilename: File = new File(project_dir,"%s_metadata.tsv".format(project_name))
-    val folder : File = new File(project_dir,project_name)
-    val resultsFilename: File = new File(project_dir,"%s_results.tsv".format(project_name))
+    val folder : File = new File(project_dir,project_name+"_intervals")
+    val mutectResultsFilename: File = new File(project_dir,"%s_mutect_results.tsv".format(project_name))
 
     (new File(project_dir)).mkdir()
 
@@ -57,22 +57,28 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     for (sampleIndex <- 0 until normal_bams.size) {
 
-        val m2 = new mutect2(tumor_bams(sampleIndex), normal_bams(sampleIndex), intervals_files(sampleIndex), scatter, project_dir.toString)
+        val mutect_out_dir: String = (Path( cwd ) / project_name / "mutect_results").toString()
+
+        (new File(mutect_out_dir)).mkdir()
+
+        val m2 = new mutect2(tumor_bams(sampleIndex), normal_bams(sampleIndex), intervals_files(sampleIndex), scatter, mutect_out_dir.toString)
 
         m2_out_files += m2.out.getAbsolutePath()
 
         add(m2)
     }
 
-    add(new MakeStringFileList(m2_out_files, resultsFilename))
+    add(new MakeStringFileList(m2_out_files, mutectResultsFilename))
 
 
-    val submissionsFilename: String = "%s_assessment.tsv".format(project_name)
+    val submissionsFilename: File = new File(project_dir,"%s_submission.tsv".format(project_name))
 
-    add(new CreateAssessment(metadataFilename, resultsFilename, submissionsFilename, evaluation_rules))
+    add(new CreateAssessment(metadataFilename, mutectResultsFilename, submissionsFilename, evaluation_rules))
+
+    val assessmentFilename: File = new File(project_dir,"%s_assessment.tsv".format(project_name))
 
     /*
-    add(new VariantAssessment(submissions_filename, query))
+    add(new VariantAssessment(submissionsFilename, query,assessmentFilename))
     */
     }
 
@@ -173,16 +179,12 @@ somaticdb assessment_file_create -t <tsv>
 somaticdb variant_assess -t <tsv>
                          -q <query>
 */
-  case class VariantAssessment(tsv: String,
-                               query: String) extends CommandLineFunction {
-    @Input(doc = "")
-    val t: String = tsv
-
-    @Input(doc = "")
-    val q: String = query
+  case class VariantAssessment(@Input tsv: File,
+                               @Argument query: String,
+                               @Output output: File) extends CommandLineFunction {
 
     override def commandLine: String = {
-      "somaticdb variant_assess -t %s -q %s".format(t, q)
+      "somaticdb variant_assess -t %s -q %s -o %s".format(tsv, query, output)
     }
   }
 

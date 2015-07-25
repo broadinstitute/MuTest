@@ -67,11 +67,11 @@ def VariantAssessor(query,tsv,output_file):
     #index the type of assessment to be done for each datatype.
     for k,row in caller_output.iterrows():
         sample_information = (row['project'],row['dataset'],row['sample'])
-        if row['assessment_type'] == 'ROCL':
+        if row['evidence_type'] == 'ROCL':
             roc_like.add(sample_information)
-        elif row['assessment_type'] == 'NN':
+        elif row['evidence_type'] == 'NN':
             normal_normal.add(sample_information)
-        elif row['assessment_type'] == 'CM':
+        elif row['evidence_type'] == 'CM':
             cm.add(sample_information)
         else:
             roc_like.add(sample_information) #by default, ROC-like curves are used.

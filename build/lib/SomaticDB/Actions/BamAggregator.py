@@ -59,14 +59,14 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
 
         field_names=['tumor_bam','normal_bam','data_filename','project','dataset','sample']
         metadata_list[(tumor_bam, normal_bam)] = get_entries_from_dict(record,keys=field_names,return_type=dict)
-        metadata_list[(tumor_bam, normal_bam)]['assessment_type'] = '.'
+        metadata_list[(tumor_bam, normal_bam)]['evidence_type'] = '.'
         metadata_list[(tumor_bam, normal_bam)]['author']='.'
 
     tumor_bam_file = open(tumor_bam_list_name,'w')
     normal_bam_file = open(normal_bam_list_name,'w')
     interval_file = open(interval_list_name,'w')
 
-    fieldnames=['tumor_bam','normal_bam','data_filename','project','dataset','sample','assessment_type','author']
+    fieldnames=['tumor_bam','normal_bam','data_filename','project','dataset','sample','evidence_type','author']
     metadata_file = csv.DictWriter(open(metadata_list_name,'w'),fieldnames=fieldnames,delimiter='\t')
     metadata_file.writeheader()
 
