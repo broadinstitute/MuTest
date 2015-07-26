@@ -33,11 +33,11 @@ def VariantAssessor(query,tsv,output_file):
 
     caller_output = pd.read_csv(tsv,sep='\t')
 
-    known_true     = {'snv': defaultdict(set),'indel': defaultdict(set)}
-    known_false    = {'snv': defaultdict(set),'indel': defaultdict(set)}
-    found_variants = {'snv': defaultdict(set),'indel': defaultdict(set)}
+    known_true     = {'snp': defaultdict(set),'indel': defaultdict(set)}
+    known_false    = {'snp': defaultdict(set),'indel': defaultdict(set)}
+    found_variants = {'snp': defaultdict(set),'indel': defaultdict(set)}
 
-    false_positive = {'snv': defaultdict(set),'indel': defaultdict(set)}
+    false_positive = {'snp': defaultdict(set),'indel': defaultdict(set)}
 
     query = query_processor(query)
 
