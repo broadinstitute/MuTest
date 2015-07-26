@@ -128,11 +128,11 @@ def VariantAssessor(query,tsv,output_file):
             print
             print
 
-            TP = 1.0*len(found_variants[sample_information].intersection(known_true[sample_information]))
-            FN = 1.0*len(known_true[sample_information].difference(found_variants[sample_information]))
-            FP = 1.0*len(found_variants[sample_information].difference(known_true[sample_information]))
+            TP = np.float(len(found_variants[sample_information].intersection(known_true[sample_information])))
+            FN = np.float(len(known_true[sample_information].difference(found_variants[sample_information])))
+            FP = np.float(len(found_variants[sample_information].difference(known_true[sample_information])))
 
-            print TP, FN
+            print TP, FN, FP
 
             try:
                 row_dict['tpr']  = TP/(TP+FN)
@@ -147,6 +147,8 @@ def VariantAssessor(query,tsv,output_file):
             row_dict['precision'] = TP/(TP+FP)
 
             row_dict['dream_accuracy'] = (row_dict['tpr'] + 1 -row_dict['precision'])/2.0
+
+            print row_dict['tpr'], row_dict['precision'], row_dict['dream_accuracy']
 
 
         data.append(row_dict)
