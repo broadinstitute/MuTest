@@ -206,7 +206,7 @@ def main():
         NormalNormalUploader(args.tsv)
 
     if (args.subparser == "normal_normal_collector"):
-        NormalNormalAggregator(args.query, args.output_filename)
+        NormalNormalAggregator(args.query, args.output_file)
 
     if (args.subparser == "assessment_file_create"):
         create_assessment_file(args.tsv, args.results, args.output_file, args.evaluation_rules)
