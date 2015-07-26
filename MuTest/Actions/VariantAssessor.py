@@ -42,7 +42,7 @@ def VariantAssessor(query,tsv,output_file):
 
     query = query_processor(query)
 
-    logging.getLogger(__name__).info("Quering database for variants.")
+    logging.getLogger(__name__).info("Querying database for variants.")
 
     # collect query information
     for record in collection.find(ast.literal_eval(query)):
@@ -203,7 +203,7 @@ def VariantAssessor(query,tsv,output_file):
                       'dataset':sample_information[1],
                       'sample':sample_information[2]}
 
-            save_set(fp[feature],list(known_true[sample_information].difference(found_variants[sample_information])),found_feature_data,prefix=prefix)
+            save_set(fp[feature],list(known_true[sample_information].difference(found_variants[feature][sample_information])),found_feature_data,prefix=prefix)
 
 
 
