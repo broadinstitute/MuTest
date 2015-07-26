@@ -1,4 +1,4 @@
-from SomaticDB.BasicUtilities.MongoUtilities import connect_to_mongo
+from MuTest.BasicUtilities.MongoUtilities import connect_to_mongo
 
 def delete_all():
     variants = connect_to_mongo()
