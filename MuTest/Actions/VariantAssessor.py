@@ -182,6 +182,4 @@ def VariantAssessor(query,tsv,output_file):
     fp.close()
     fieldnames=['project','dataset','sample' ,'false_positives','true_positives','false_negatives','tpr','fpr','precision','evidence_type','dream_accuracy']
 
-    pd.DataFrame(data).to_csv(output_file, sep='\t',index=False,columns=[])
-
-    ['project','dataset','sample' ,'false_positives','true_positives','false_negatives','tpr','fpr','precision','evidence_type']
+    pd.DataFrame(data).to_csv(output_file, sep='\t',index=False,columns=fieldnames)
