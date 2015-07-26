@@ -59,9 +59,7 @@ def VariantAssessor(query,tsv,output_file):
     #index the type of assessment to be done for each datatype.
     for k,row in caller_output.iterrows():
         sample_information = (row['project'],row['dataset'],row['sample'])
-        if row['evidence_type'] == 'ROCL':
-            roc_like.add(sample_information)
-        elif row['evidence_type'] == 'NN':
+        if row['evidence_type'] == 'NN':
             normal_normal.add(sample_information)
         elif row['evidence_type'] == 'CM':
             cm.add(sample_information)
@@ -97,14 +95,12 @@ def VariantAssessor(query,tsv,output_file):
 
     for sample_information in map(tuple,caller_samples):
 
-        if sample_information in roc_like:
-            assessment_type = 'ROCL'
-        elif sample_information in normal_normal:
+        if sample_information in normal_normal:
             assessment_type = 'NN'
         elif sample_information in cm:
             assessment_type = 'CM'
         else:
-            assessment_type = 'ROCL'
+            assessment_type = 'CM'
 
 
         row_dict = {'project': sample_information[0],
@@ -120,7 +116,7 @@ def VariantAssessor(query,tsv,output_file):
         if assessment_type == 'NN':
             row_dict['false_positives'] = false_positive
 
-        if assessment_type == 'ROCL':
+        if assessment_type == 'CM':
             print 'found:'
             print found_variants[sample_information]
             print len(found_variants[sample_information])
@@ -134,6 +130,7 @@ def VariantAssessor(query,tsv,output_file):
 
             TP = 1.0*len(found_variants[sample_information].intersection(known_true[sample_information]))
             FN = 1.0*len(known_true[sample_information].difference(found_variants[sample_information]))
+            FP = 1.0*len(found_variants[sample_information].difference(known_true[sample_information]))
 
             print TP, FN
 
@@ -143,34 +140,14 @@ def VariantAssessor(query,tsv,output_file):
                 row_dict['tpr']  = np.nan
 
 
-            row_dict['true_positives'] = TP
+            row_dict['true_positives']   = TP
+            row_dict['false_negatives']  = FN
+            row_dict['false_positives'] =  FP
 
-            FP = 1.0*len(found_variants[sample_information].intersection(known_false[sample_information]))
-            TN = 1.0*len(known_false[sample_information].difference(found_variants[sample_information]))
-
-            print FP, TN
-
-            try:
-                row_dict['fpr']  = FP/(FP+TN)
-            except:
-                row_dict['fpr'] = np.nan
-
-            row_dict['false_positives'] = FP
-
-        if assessment_type == 'CM':
-            TP = 1.0*len(found_variants[sample_information].intersection(known_true[sample_information]))
-            FP = 1.0*len(found_variants[sample_information].difference(known_true[sample_information]))
-            FN = 1.0*len(known_true[sample_information].difference(found_variants[sample_information]))
-
-            print TP, FP, TP
-
-            row_dict['true_positives'] = TP
-            row_dict['false_positives'] = FP
-
-            row_dict['tpr']  = TP/(TP+FN)
             row_dict['precision'] = TP/(TP+FP)
 
             row_dict['dream_accuracy'] = (row_dict['tpr'] + 1 -row_dict['precision'])/2.0
+
 
         data.append(row_dict)
 
