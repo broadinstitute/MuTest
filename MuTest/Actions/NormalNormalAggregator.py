@@ -13,7 +13,7 @@ def NormalNormalAggregator(query, output_filename):
     bam_sets=defaultdict(set)
 
     for record in collection.find(ast.literal_eval(query)):
-        bam_sets[(record['project'],record['dataset'])].add(record['file'])
+        bam_sets[(record['project'],record['dataset'])].add((record['sample'],record['file']))
 
 
     for bam_set in bam_sets:
@@ -31,15 +31,15 @@ def NormalNormalAggregator(query, output_filename):
             for j in range(n):
                 if i == j: continue
 
-                bam1 = bams[i]
-                bam2 = bams[j]
+                sample1,bam1 = bams[i]
+                sample2,bam2 = bams[j]
 
                 row={'tumor_bam':bam1,
                  'normal_bam':bam2,
                  'data_filename':'.' ,
                  'project': project,
                  'dataset': dataset,
-                 'sample': '%d-%d'%(i,j),
+                 'sample': '%s-%s'%(sample1,sample2),
                  'evidence_type': 'NN',
                  'author': 'None'}
 
