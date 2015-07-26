@@ -136,8 +136,8 @@ def VariantAssessor(query,tsv,output_file):
             print
             print
 
-            TP = 1.0*len(found_variants[sample_information].intersection(known_true))
-            FN = 1.0*len(known_true[sample_information].difference(found_variants))
+            TP = 1.0*len(found_variants[sample_information].intersection(known_true[sample_information]))
+            FN = 1.0*len(known_true[sample_information].difference(found_variants[sample_information]))
 
             try:
                 row_dict['tpr']  = TP/(TP+FN)
@@ -147,8 +147,8 @@ def VariantAssessor(query,tsv,output_file):
 
             row_dict['true_positives'] = TP
 
-            FP = 1.0*len(found_variants[sample_information].intersection(known_false))
-            TN = 1.0*len(known_false[sample_information].difference(found_variants))
+            FP = 1.0*len(found_variants[sample_information].intersection(known_false[sample_information]))
+            TN = 1.0*len(known_false[sample_information].difference(found_variants[sample_information]))
 
             try:
                 row_dict['fpr']  = FP/(FP+TN)
@@ -158,9 +158,11 @@ def VariantAssessor(query,tsv,output_file):
             row_dict['false_positives'] = FP
 
         if assessment_type == 'CM':
-            TP = 1.0*len(found_variants[sample_information].intersection(known_true))
-            FP = 1.0*len(found_variants[sample_information].difference(known_true))
-            FN = 1.0*len(known_true[sample_information].difference(found_variants))
+            TP = 1.0*len(found_variants[sample_information].intersection(known_true[sample_information]))
+            FP = 1.0*len(found_variants[sample_information].difference(known_true[sample_information]))
+            FN = 1.0*len(known_true[sample_information].difference(found_variants[sample_information]))
+
+            print TP, FP, TP
 
             row_dict['true_positives'] = TP
             row_dict['false_positives'] = FP
