@@ -1,5 +1,7 @@
 import argparse
 from MuTest.Actions.AssessmentFileCreator import create_assessment_file
+from MuTest.Actions.NormalNormalAggregator import NormalNormalAggregator
+from MuTest.Actions.NormalNormalUploader import NormalNormalUploader
 from MuTest.Actions.VariantUploader import VariantUploader
 from MuTest.Actions.BamAggregator import BamAggregator
 from MuTest.Actions.VariantAssessor import VariantAssessor
@@ -40,6 +42,26 @@ def main():
 
     bam_aggregator_parser = subparsers.add_parser('bam_aggregate',
                          help  ='Produces a list of bams matching some criteria for an evaluation.')
+
+    normal_normal_uploader_parser = subparsers.add_parser('normal_normal_uploader',
+                         help  ='Upload normal-normal data to mongo database.')
+
+    normal_normal_uploader_parser.add_argument('-t','--tsv', help='The lists of normals to be uploaded.',type=str,metavar='<tsv>',required=True)
+
+
+    normal_normal_collector_parser = subparsers.add_parser('normal_normal_collector',
+                                        help  ='Collects .')
+
+    normal_normal_collector_parser.add_argument('-q','--query',
+                                                help='The query for the dataset needed',
+                                                type=str,metavar='<query>', required=True)
+
+    normal_normal_collector_parser.add_argument('-o','--output_file',
+                                                help='The name of the file to be outputted.',
+                                                type=str,metavar='<tsv>', required=True)
+
+
+
 
 
     bam_aggregator_parser.add_argument('-q','--query',
@@ -179,6 +201,12 @@ def main():
 
     if (args.subparser == "database_delete"):
         delete_all()
+
+    if (args.subparser == "database_delete"):
+        NormalNormalUploader(args.tsv)
+
+    if (args.subparser == "database_delete"):
+        NormalNormalAggregator(args.query, args.output_filename)
 
     if (args.subparser == "assessment_file_create"):
         create_assessment_file(args.tsv, args.results, args.output_file, args.evaluation_rules)

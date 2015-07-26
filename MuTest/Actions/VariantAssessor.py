@@ -17,15 +17,21 @@ def pp_dict(x):
     for key in x.keys():
         print key+": "+str(x[key])
 
+def save_set(fp,list_data,sample_information,extra_information, prefix=None):
 
-def save_set(fp,list_data,extra_information, prefix=None):
+    if prefix is None: prefix = {}
 
-    if prefix is None: prefix = []
+    prefix={'project': sample_information[0],
+            'dataset': sample_information[1],
+            'sample': sample_information[2]}
 
     list_data = list(list_data)
     for entry in list_data:
-        query = (prefix['project'],prefix['dataset'],prefix['sample'])
-        prefix = merge_dicts(prefix, extra_information[query][entry])
+
+        print prefix
+        print extra_information.keys()
+
+        prefix = merge_dicts(prefix, extra_information[entry])
         fp.writerow("\t".join(prefix+entry)+"\n")
 
 
@@ -204,7 +210,11 @@ def VariantAssessor(query,tsv,output_file):
                       'dataset':sample_information[1],
                       'sample':sample_information[2]}
 
-            save_set(fp[feature],list(known_true[feature][sample_information].difference(found_variants[feature][sample_information])),found_feature_data,prefix=prefix)
+            save_set(fp[feature],
+                     list(known_true[feature][sample_information].difference(found_variants[feature][sample_information])),
+                     sample_information,
+                     found_feature_data[sample_information],
+                     prefix=prefix)
 
 
 
