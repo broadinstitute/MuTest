@@ -18,12 +18,13 @@ def pp_dict(x):
         print key+": "+str(x[key])
 
 
-def save_set(fp,list_data,prefix=None):
+def save_set(fp,list_data,extra_information, prefix=None):
 
     if prefix is None: prefix = []
 
     list_data = list(list_data)
     for entry in list_data:
+        prefix = merge_dicts(prefix, extra_information[prefix][entry])
         fp.writerow("\t".join(prefix+entry)+"\n")
 
 
@@ -86,11 +87,14 @@ def VariantAssessor(query,tsv,output_file):
 
     logging.getLogger(__name__).info("Collection of variants from user submitted files.")
 
+    found_feature_data = defaultdict(dict)
+
     #data from file (algorithm being tested)
     for variant_dict in gather.data_iterator():
         sample_information = get_entries_from_dict(variant_dict, keys=['project','dataset','sample'],return_type=tuple)
         variant = get_entries_from_dict(variant_dict, keys=['chromosome','start','ref','alt'],return_type=tuple)
 
+        found_feature_data[sample_information][variant] = get_entries_from_dict(variant_dict, keys=['ECNT','HCNT','NLOD','TLOD'],return_type=dict)
 
         if is_snp(variant_dict):
             if sample_information in cm:
@@ -102,10 +106,10 @@ def VariantAssessor(query,tsv,output_file):
 
         elif is_indel(variant_dict):
             if sample_information in cm:
-                found_variants['snp'][sample_information].add(variant)
+                found_variants['indel'][sample_information].add(variant)
 
             if sample_information in normal_normal:
-                false_positive['snp'][sample_information].add(variant)
+                false_positive['indel'][sample_information].add(variant)
 
 
 
@@ -199,11 +203,7 @@ def VariantAssessor(query,tsv,output_file):
                       'dataset':sample_information[1],
                       'sample':sample_information[2]}
 
-            features = get_entries_from_dict(keys=['ECNT','HCNT','NLOD','TLOD'],return_type=dict)
-
-            prefix=merge_dicts(prefix,features)
-
-            save_set(fp[feature],list(known_true[sample_information].difference(found_variants[sample_information])),prefix=prefix)
+            save_set(fp[feature],list(known_true[sample_information].difference(found_variants[sample_information])),found_feature_data,prefix=prefix)
 
 
 
