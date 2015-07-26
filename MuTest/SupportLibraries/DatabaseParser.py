@@ -1,7 +1,6 @@
 import gzip
 from itertools import ifilter
 import csv
-
 import vcf
 
 from SomaticDB.BasicUtilities.DictUtilities import stringify_dict , merge_dicts
@@ -84,19 +83,15 @@ class DatabaseParser:
                         else:
                             core_data[key] = record.INFO[key]
 
-                     #filters for callers
-
-                    print record.FILTER
-
+                    #filters for callers
                     if record.FILTER is None or record.FILTER == '.' or (not record.FILTER) or record.FILTER=='PASS':
-                        print "accepted: ", record.FILTER
+                        pass
                     else:
-                        print "rejected: ", record.FILTER
                         continue
 
                     #filters for dream challenge
 
-                    if record.INFO.get('SVTYPE') in ('IGN', 'MSK'): continue
+                    if record.INFO.get('SVTYPE') in ('IGN', 'MSK','BND'): continue
 
 
                     core_data = merge_dicts(core_data,record.INFO)
