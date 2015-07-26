@@ -86,6 +86,8 @@ class DatabaseParser:
 
                      #filters for callers
 
+                    print record.FILTER
+
                     if record.FILTER is None or record.FILTER == '.' or (not record.FILTER) or record.FILTER=='PASS':
                         print "accepted: ", record.FILTER
                     else:
