@@ -135,6 +135,8 @@ def VariantAssessor(query,tsv,output_file):
             TP = 1.0*len(found_variants[sample_information].intersection(known_true[sample_information]))
             FN = 1.0*len(known_true[sample_information].difference(found_variants[sample_information]))
 
+            print TP, FN
+
             try:
                 row_dict['tpr']  = TP/(TP+FN)
             except:
@@ -145,6 +147,8 @@ def VariantAssessor(query,tsv,output_file):
 
             FP = 1.0*len(found_variants[sample_information].intersection(known_false[sample_information]))
             TN = 1.0*len(known_false[sample_information].difference(found_variants[sample_information]))
+
+            print FP, TN
 
             try:
                 row_dict['fpr']  = FP/(FP+TN)
