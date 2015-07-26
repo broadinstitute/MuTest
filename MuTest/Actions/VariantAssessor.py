@@ -177,5 +177,7 @@ def VariantAssessor(query,tsv,output_file):
 
     data.append(all_dict)
 
+    print data
+
     fp.close()
     pd.DataFrame(data).to_csv(output_file, sep='\t',index=False)
