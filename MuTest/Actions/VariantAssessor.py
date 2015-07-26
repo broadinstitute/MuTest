@@ -112,7 +112,7 @@ def VariantAssessor(query,tsv,output_file):
             if sample_information in normal_normal:
                 false_positive['indel'][sample_information].add(variant)
 
-
+    print found_feature_data.keys()
 
     caller_samples = caller_output[['project','dataset','sample']].values.tolist()
 
