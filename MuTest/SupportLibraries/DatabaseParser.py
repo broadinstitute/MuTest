@@ -37,7 +37,7 @@ class DatabaseParser:
 
     def refresh(self):
 
-        logging.getLogger(__name__).info("Re-opening file:"+ self.filename)
+        logging.getLogger(__name__).info("Opening file:"+ self.filename)
 
         if self.filename.endswith(".gz"):
             self.file = gzip.open(self.filename, 'r')
@@ -60,6 +60,8 @@ class DatabaseParser:
             if any([self.filename.endswith(".maf"),
                    self.filename.endswith(".maf.gz")]):
                 dataset_type = "MAF"
+
+        logging.getLogger(__name__).info("Using vcf module: "+vcf.__file__)
 
         logging.getLogger(__name__).info("File is of type:"+ dataset_type)
 
