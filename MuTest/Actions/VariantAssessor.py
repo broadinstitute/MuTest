@@ -94,9 +94,9 @@ def VariantAssessor(query,tsv,output_file):
     fp.write("\t".join(['chromosome','start','ref','alt'])+'\n')
 
 
-    all_dict = {'project': sample_information[0],
-                'dataset': sample_information[1],
-                'sample' : sample_information[2],
+    all_dict = {'project': 'all',
+                'dataset': 'all',
+                'sample' : 'all',
                 'false_positives': 0,
                 'true_positives': 0,
                 'tpr': np.nan,
@@ -156,8 +156,8 @@ def VariantAssessor(query,tsv,output_file):
             row_dict['false_positives'] =  FP
 
             all_dict['true_positives']  += TP
-            row_dict['false_negatives'] += FN
-            row_dict['false_positives'] +=  FP
+            all_dict['false_negatives'] += FN
+            all_dict['false_positives'] +=  FP
 
             row_dict['precision'] = TP/(TP+FP)
 
@@ -170,9 +170,9 @@ def VariantAssessor(query,tsv,output_file):
 
         save_set(fp,list(known_true[sample_information].difference(found_variants[sample_information])))
 
-    all_dict['precision'] = all_dict['true_positives']/(all_dict['true_positives']+row_dict['false_positives'])
+    all_dict['tpr'] = all_dict['true_positives']/(all_dict['true_positives']+all_dict['false_negatives'])
     all_dict['dream_accuracy'] = (all_dict['tpr'] + 1 -all_dict['precision'])/2.0
-    all_dict['precision'] = all_dict['true_positives']/(all_dict['true_positives']+row_dict['false_positives'])
+    all_dict['precision'] = all_dict['true_positives']/(all_dict['true_positives']+all_dict['false_positives'])
 
     data.append(all_dict)
 
