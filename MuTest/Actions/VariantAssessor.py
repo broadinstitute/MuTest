@@ -118,7 +118,7 @@ def VariantAssessor(query,tsv,output_file):
         filename = {}; fp = {}; all_dict={}
 
         filename[feature] = feature+".missed_positives.tsv"
-        fp[feature] = csv.DictWriter(open(filename[feature],'w'),sep='\t',
+        fp[feature] = csv.DictWriter(open(filename[feature],'w'),delimiter='\t',
             fieldnames=['project','dataset','sample','chromosome','start','ref','alt','ECNT','HCNT','NLOD','TLOD']  )
 
         for eval_type in ['CM','NN']:
