@@ -84,6 +84,20 @@ class DatabaseParser:
                         else:
                             core_data[key] = record.INFO[key]
 
+                     #filters for callers
+
+                    if record.FILTER is None or record.FILTER == '.' or (not record.FILTER) or record.FILTER=='PASS':
+                        pass
+
+                        print "accepted: ", record.FILTER
+                    else:
+                        print "rejected: ", record.FILTER
+                        continue
+
+                    #filters for dream challenge
+
+                    if record.INFO.get('SVTYPE') in ('IGN', 'MSK'): continue
+
 
                     core_data = merge_dicts(core_data,record.INFO)
 
@@ -111,13 +125,11 @@ class DatabaseParser:
 
                     #filters for callers
 
-                    if record.FILTER is None or record.FILTER == '.' or (not record.FILTER) or record.FILTER=='PASS':
-                        pass
-
-                        print "accepted: ", record.FILTER
-                    else:
-                        print "rejected: ", record.FILTER
-                        continue
+                    if record.has_key('FILTER'):
+                        if record['FILTER'] == '.' or record['FILTER'] =='PASS':
+                            pass
+                        else:
+                            continue
 
                     #filters for dream challenge
 
