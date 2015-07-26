@@ -51,24 +51,29 @@ class DataGatherer:
 
         for file_data in reader:
 
-            if file_data.has_key('FILTER'):
-                if len(filter) > 0: continue
+            try:
 
-            meta_data_dict = get_entries_from_dict(file_data,
-                                                   keys=keys,
-                                                   return_type=dict)
+                if file_data.has_key('FILTER'):
+                    if len(filter) > 0: continue
 
-            logging.getLogger(__name__).info("Gathering variants from individual file:"+ meta_data_dict['data_filename'])
+                meta_data_dict = get_entries_from_dict(file_data,
+                                                       keys=keys,
+                                                       return_type=dict)
 
-            D = DatabaseParser(meta_data_dict['data_filename'])
-            self.current_file = meta_data_dict['data_filename']
+                logging.getLogger(__name__).info("Gathering variants from individual file:"+ meta_data_dict['data_filename'])
 
-            n=0
+                D = DatabaseParser(meta_data_dict['data_filename'])
+                self.current_file = meta_data_dict['data_filename']
 
-            self.new_file = True
+                n=0
 
-            for variant_dict in D.get_variants():
-                yield merge_dicts(variant_dict, meta_data_dict)
-                if self.new_file == True: self.new_file = False
+                self.new_file = True
+
+                for variant_dict in D.get_variants():
+                    yield merge_dicts(variant_dict, meta_data_dict)
+                    if self.new_file == True: self.new_file = False
+
+            except:
+                pass
 
         self.current_file = None
