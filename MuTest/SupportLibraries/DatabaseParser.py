@@ -61,7 +61,7 @@ class DatabaseParser:
                    self.filename.endswith(".maf.gz")]):
                 dataset_type = "MAF"
 
-        logging.getLogger(__name__).info("File is of type:"+ self.dataset_type)
+        logging.getLogger(__name__).info("File is of type:"+ dataset_type)
 
         if dataset_type not in ['VCF', 'MAF', 'VCF_TABLE']:
             raise Exception("Bad file format: %s"%self.filename)
