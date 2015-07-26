@@ -111,9 +111,12 @@ class DatabaseParser:
 
                     #filters for callers
 
-                    if record.FILTER is None or record.FILTER == '.' or not record.FILTER or record.FILTER=='PASS':
+                    if record.FILTER is None or record.FILTER == '.' or (not record.FILTER) or record.FILTER=='PASS':
                         pass
+
+                        print "accepted: ", record.FILTER
                     else:
+                        print "rejected: ", record.FILTER
                         continue
 
                     #filters for dream challenge

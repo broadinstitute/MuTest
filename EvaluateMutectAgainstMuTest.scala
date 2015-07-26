@@ -178,7 +178,8 @@ mutest assessment_file_create -t <tsv>
 
   /*
 mutest variant_assess -t <tsv>
-                         -q <query>
+                      -q <query>
+                      -o <output>
 */
   case class VariantAssessment(@Input resultsFiles: Seq[File],
                                @Input tsv: File,
