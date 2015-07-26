@@ -203,7 +203,7 @@ def VariantAssessor(query,tsv,output_file):
                       'dataset':sample_information[1],
                       'sample':sample_information[2]}
 
-            save_set(fp[feature],list(known_true[sample_information].difference(found_variants[feature][sample_information])),found_feature_data,prefix=prefix)
+            save_set(fp[feature],list(known_true[feature][sample_information].difference(found_variants[feature][sample_information])),found_feature_data,prefix=prefix)
 
 
 
