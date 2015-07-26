@@ -51,8 +51,6 @@ class DataGatherer:
 
         for file_data in reader:
 
-            try:
-
                 if file_data.has_key('FILTER'):
                     if len(filter) > 0: continue
 
@@ -73,7 +71,5 @@ class DataGatherer:
                     yield merge_dicts(variant_dict, meta_data_dict)
                     if self.new_file == True: self.new_file = False
 
-            except:
-                pass
 
         self.current_file = None
