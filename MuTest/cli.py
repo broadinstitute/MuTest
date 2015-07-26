@@ -202,10 +202,10 @@ def main():
     if (args.subparser == "database_delete"):
         delete_all()
 
-    if (args.subparser == "database_delete"):
+    if (args.subparser == "normal_normal_uploader"):
         NormalNormalUploader(args.tsv)
 
-    if (args.subparser == "database_delete"):
+    if (args.subparser == "normal_normal_collector"):
         NormalNormalAggregator(args.query, args.output_filename)
 
     if (args.subparser == "assessment_file_create"):

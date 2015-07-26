@@ -7,3 +7,5 @@ def connect_to_mongo(collection='ValidationData'):
     variants = db[collection]
     return variants
 
+#mongo 104.197.21.136 -u kareem -p p1IU5lec5WM7NeA
+#use somatic_db_master
