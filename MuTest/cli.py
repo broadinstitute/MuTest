@@ -6,6 +6,22 @@ from MuTest.Actions.VariantAssessor import VariantAssessor
 from MuTest.Scripts.clean_database import delete_all
 from MuTest.Actions.VariantExtract import variant_extract
 
+import logging
+
+
+def setup_logging(log_filename):
+
+    loggingFormat = '%(asctime)s %(levelname)s [%(name)s:%(lineno)d] %(message)s'
+    logging.basicConfig(filename=log_filename, level=logging.INFO, format=loggingFormat)
+
+    ch = logging.StreamHandler()
+    ch.setLevel(logging.INFO)
+    formatter = logging.Formatter(loggingFormat)
+    ch.setFormatter(formatter)
+
+    logging.getLogger('').addHandler(ch)
+
+
 def main():
 
     description = """\nMuTest is a python package for interacting with a mongo database that stores somatic variants. It provides a centralized way of benchmarking the perfomance of algorithms which either generate or refine somatic variant calls.."""
@@ -145,6 +161,8 @@ def main():
                                         required=True)
 
     args = parser.parse_args()
+
+    setup_logging('test.log')
 
     if (args.subparser == "bam_aggregate"):
         BamAggregator(args.query, args.normal_bam_list, args.tumor_bam_list, args.interval_list,args.metadata_list,args.folder)

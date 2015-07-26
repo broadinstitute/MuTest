@@ -7,6 +7,8 @@ from MuTest.SupportLibraries.DataGatherer import DataGatherer , \
 import pandas as pd
 import numpy as np
 
+import logging
+
 def pp_dict(x):
     for key in x.keys():
         print key+": "+str(x[key])
@@ -33,6 +35,8 @@ def VariantAssessor(query,tsv,output_file):
     false_positive = defaultdict(int)
 
     query = query_processor(query)
+
+    logging.getLogger(__name__).info("Quering database for variants.")
 
     # collect query information
     for record in collection.find(ast.literal_eval(query)):
@@ -67,6 +71,9 @@ def VariantAssessor(query,tsv,output_file):
             roc_like.add(sample_information) #by default, ROC-like curves are used.
 
     gather = DataGatherer(tsv)
+
+
+    logging.getLogger(__name__).info("Collection of variants from user submitted files.")
 
     #data from file (algorithm being tested)
     for variant_dict in gather.data_iterator():

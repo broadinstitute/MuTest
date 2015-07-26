@@ -1,7 +1,7 @@
 import csv
 from MuTest.BasicUtilities.DictUtilities import get_entries_from_dict , merge_dicts , tally
 from MuTest.SupportLibraries.DatabaseParser import DatabaseParser
-
+import logging
 
 def query_processor(selections):
     if selections.startswith('{'):
@@ -37,6 +37,7 @@ class DataGatherer:
         self.new_file = False
         self.current_file = None
 
+
     def data_iterator(self,keys=('tumor_bam','normal_bam',
                                              'data_filename',
                                              'project',
@@ -46,6 +47,8 @@ class DataGatherer:
         file = open(self.filename,'rU')
         reader = csv.DictReader(file,delimiter='\t')
 
+        logging.getLogger(__name__).info("Gathering variants from table of files:"+ self.filename)
+
         for file_data in reader:
 
             if file_data.has_key('FILTER'):
@@ -54,6 +57,8 @@ class DataGatherer:
             meta_data_dict = get_entries_from_dict(file_data,
                                                    keys=keys,
                                                    return_type=dict)
+
+            logging.getLogger(__name__).info("Gathering variants from individual file:"+ meta_data_dict['data_filename'])
 
             D = DatabaseParser(meta_data_dict['data_filename'])
             self.current_file = meta_data_dict['data_filename']

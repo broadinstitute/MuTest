@@ -3,6 +3,8 @@ from itertools import ifilter
 import csv
 import vcf
 
+import logging
+
 from MuTest.BasicUtilities.DictUtilities import stringify_dict , merge_dicts
 
 
@@ -34,12 +36,17 @@ class DatabaseParser:
         self.refresh()
 
     def refresh(self):
+
+        logging.getLogger(__name__).info("Re-opening file:"+ self.filename)
+
         if self.filename.endswith(".gz"):
             self.file = gzip.open(self.filename, 'r')
         else:
             self.file = open(self.filename, 'r')
 
     def get_variants(self, dataset_type=None):
+
+        logging.getLogger(__name__).info("Opening file:"+ self.filename)
 
         if dataset_type is None:
             if any([self.filename.endswith(".table"),
@@ -53,6 +60,8 @@ class DatabaseParser:
             if any([self.filename.endswith(".maf"),
                    self.filename.endswith(".maf.gz")]):
                 dataset_type = "MAF"
+
+        logging.getLogger(__name__).info("File is of type:"+ self.dataset_type)
 
         if dataset_type not in ['VCF', 'MAF', 'VCF_TABLE']:
             raise Exception("Bad file format: %s"%self.filename)
