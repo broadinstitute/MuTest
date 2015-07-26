@@ -1,6 +1,7 @@
 import ast
 from collections import defaultdict
-from MuTest.BasicUtilities.DictUtilities import get_entries_from_dict
+from MuTest.BasicUtilities.DictUtilities import get_entries_from_dict , \
+    merge_dicts
 from MuTest.BasicUtilities.MongoUtilities import connect_to_mongo
 from MuTest.SupportLibraries.DataGatherer import DataGatherer , \
     query_processor
@@ -8,18 +9,22 @@ import pandas as pd
 import numpy as np
 
 import logging
+from MuTest.SupportLibraries.Variant import is_snp , is_indel
+
+import csv
 
 def pp_dict(x):
     for key in x.keys():
         print key+": "+str(x[key])
 
 
-def save_set(fp,list_data):
+def save_set(fp,list_data,prefix=None):
+
+    if prefix is None: prefix = []
 
     list_data = list(list_data)
     for entry in list_data:
-        fp.write("\t".join(entry)+"\n")
-
+        fp.writerow("\t".join(prefix+entry)+"\n")
 
 
 def VariantAssessor(query,tsv,output_file):
@@ -28,11 +33,11 @@ def VariantAssessor(query,tsv,output_file):
 
     caller_output = pd.read_csv(tsv,sep='\t')
 
-    known_true     = defaultdict(set)
-    known_false    = defaultdict(set)
-    found_variants = defaultdict(set)
+    known_true     = {'snv': defaultdict(set),'indel': defaultdict(set)}
+    known_false    = {'snv': defaultdict(set),'indel': defaultdict(set)}
+    found_variants = {'snv': defaultdict(set),'indel': defaultdict(set)}
 
-    false_positive = defaultdict(int)
+    false_positive = {'snv': defaultdict(set),'indel': defaultdict(set)}
 
     query = query_processor(query)
 
@@ -49,14 +54,20 @@ def VariantAssessor(query,tsv,output_file):
 
         evidence_type = record['evidence_type']
 
-        if 'TP' in evidence_type:
-            known_true[sample_information].add(variant)
+        if is_snp(record):
+            if 'TP' in evidence_type:
+                known_true['snp'][sample_information].add(variant)
 
-        if 'FP' in evidence_type:
-            known_false[sample_information].add(variant)
+            if 'FP' in evidence_type:
+                known_false['snp'][sample_information].add(variant)
 
+        elif is_indel(record):
+            if 'TP' in evidence_type:
+                known_true['indel'][sample_information].add(variant)
 
-    roc_like = set([])
+            if 'FP' in evidence_type:
+                known_false['indel'][sample_information].add(variant)
+
     normal_normal = set([])
     cm = set([])
 
@@ -68,7 +79,7 @@ def VariantAssessor(query,tsv,output_file):
         elif row['evidence_type'] == 'CM':
             cm.add(sample_information)
         else:
-            roc_like.add(sample_information) #by default, ROC-like curves are used.
+            cm.add(sample_information) #by default, ROC-like curves are used.
 
     gather = DataGatherer(tsv)
 
@@ -81,112 +92,132 @@ def VariantAssessor(query,tsv,output_file):
         variant = get_entries_from_dict(variant_dict, keys=['chromosome','start','ref','alt'],return_type=tuple)
 
 
-        if sample_information in roc_like:
-            found_variants[sample_information].add(variant)
+        if is_snp(variant_dict):
+            if sample_information in cm:
+                found_variants['snp'][sample_information].add(variant)
 
-        if sample_information in cm:
-            found_variants[sample_information].add(variant)
+            if sample_information in normal_normal:
+                false_positive['snp'][sample_information].add(variant)
 
-        if sample_information in normal_normal:
-            false_positive[sample_information]+=1
+
+        elif is_indel(variant_dict):
+            if sample_information in cm:
+                found_variants['snp'][sample_information].add(variant)
+
+            if sample_information in normal_normal:
+                false_positive['snp'][sample_information].add(variant)
+
 
 
     caller_samples = caller_output[['project','dataset','sample']].values.tolist()
 
     data = []
 
+    for feature in ['snp','indel']:
 
-    filename = "missed_positives.tsv"
-    fp = open(filename,'w')
-    fp.write("\t".join(['chromosome','start','ref','alt'])+'\n')
+        filename = {}; fp = {}; all_dict={}
 
+        filename[feature] = feature+".missed_positives.tsv"
+        fp[feature] = csv.DictWriter(open(filename[feature],'w'),sep='\t',
+            fieldnames=['project','dataset','sample','chromosome','start','ref','alt','ECNT','HCNT','NLOD','TLOD']  )
 
-    all_dict = {'project': 'all',
-                'dataset': 'all',
-                'sample' : 'all',
-                'false_positives': 0,
-                'true_positives':  0,
-                'false_negatives': 0,
-                'tpr': np.nan,
-                'fpr': np.nan,
-                'precision': np.nan,
-                'evidence_type': 'CM' }
+        for eval_type in ['CM','NN']:
 
-    for sample_information in map(tuple,caller_samples):
-
-        if sample_information in normal_normal:
-            assessment_type = 'NN'
-        elif sample_information in cm:
-            assessment_type = 'CM'
-        else:
-            assessment_type = 'CM'
+            all_dict[eval_type] = {'project': 'all',
+                                   'dataset': 'all',
+                                   'sample' : 'all',
+                                   'false_positives': 0,
+                                   'true_positives':  0,
+                                   'false_negatives': 0,
+                                   'tpr': np.nan,
+                                   'fpr': np.nan,
+                                   'precision': np.nan,
+                                   'evidence_type': eval_type,
+                                   'variant_type': feature }
 
 
-        row_dict = {'project': sample_information[0],
-                    'dataset': sample_information[1],
-                    'sample' : sample_information[2],
-                    'false_positives': 0,
-                    'true_positives': 0,
-                    'tpr': np.nan,
-                    'fpr': np.nan,
-                    'precision': np.nan,
-                    'evidence_type': assessment_type }
+        for sample_information in map(tuple,caller_samples):
 
-        if assessment_type == 'NN':
-            row_dict['false_positives'] = false_positive
-
-        if assessment_type == 'CM':
-            print 'found:'
-            print found_variants[sample_information]
-            print len(found_variants[sample_information])
-            print 'known:'
-            print known_true[sample_information]
-            print len(known_true[sample_information])
-            print
-            print sample_information
-            print
-            print
-
-            TP = np.float(len(found_variants[sample_information].intersection(known_true[sample_information])))
-            FN = np.float(len(known_true[sample_information].difference(found_variants[sample_information])))
-            FP = np.float(len(found_variants[sample_information].difference(known_true[sample_information])))
-
-            print TP, FN, FP
-
-            try:
-                row_dict['tpr']  = TP/(TP+FN)
-            except:
-                row_dict['tpr']  = np.nan
+            if sample_information in normal_normal:
+                assessment_type = 'NN'
+            elif sample_information in cm:
+                assessment_type = 'CM'
+            else:
+                assessment_type = 'CM'
 
 
-            row_dict['true_positives']  = TP
-            row_dict['false_negatives'] = FN
-            row_dict['false_positives'] =  FP
 
-            all_dict['true_positives']  += TP
-            all_dict['false_negatives'] += FN
-            all_dict['false_positives'] +=  FP
+            row_dict = {'project': sample_information[0],
+                        'dataset': sample_information[1],
+                        'sample' : sample_information[2],
+                        'false_positives': 0,
+                        'true_positives': 0,
+                        'false_negatives': 0,
+                        'tpr': np.nan,
+                        'fpr': np.nan,
+                        'precision': np.nan,
+                        'evidence_type': assessment_type,
+                        'variant_type': feature}
 
-            row_dict['precision'] = TP/(TP+FP)
+            if assessment_type == 'NN':
 
-            row_dict['dream_accuracy'] = (row_dict['tpr'] + 1 -row_dict['precision'])/2.0
+                row_dict['false_positives'] =len(false_positive)
+                all_dict[['NN']] += len(false_positive)
 
-            print row_dict['tpr'], row_dict['precision'], row_dict['dream_accuracy']
+            if assessment_type == 'CM':
+
+                TP = np.float(len(found_variants[feature][sample_information].intersection(known_true[feature][sample_information])))
+                FN = np.float(len(known_true[feature][sample_information].difference(found_variants[feature][sample_information])))
+                FP = np.float(len(found_variants[feature][sample_information].difference(known_true[feature][sample_information])))
+
+                print TP, FN, FP
+
+                try:
+                    row_dict['tpr']  = TP/(TP+FN)
+                except:
+                    row_dict['tpr']  = np.nan
 
 
-        data.append(row_dict)
+                row_dict['true_positives']  = TP
+                row_dict['false_negatives'] = FN
+                row_dict['false_positives'] =  FP
 
-        save_set(fp,list(known_true[sample_information].difference(found_variants[sample_information])))
+                all_dict['CM']['true_positives']  += TP
+                all_dict['CM']['false_negatives'] += FN
+                all_dict['CM']['false_positives'] +=  FP
 
-    all_dict['tpr'] = all_dict['true_positives']/(all_dict['true_positives']+all_dict['false_negatives'])
-    all_dict['dream_accuracy'] = (all_dict['tpr'] + 1 -all_dict['precision'])/2.0
-    all_dict['precision'] = all_dict['true_positives']/(all_dict['true_positives']+all_dict['false_positives'])
+                row_dict['precision'] = TP/(TP+FP)
 
-    data.append(all_dict)
+                row_dict['dream_accuracy'] = (row_dict['tpr'] + 1 -row_dict['precision'])/2.0
 
-    print data
+                print row_dict['tpr'], row_dict['precision'], row_dict['dream_accuracy']
 
-    fp.close()
+
+            data.append(row_dict)
+
+            prefix = {'project': sample_information[0],
+                      'dataset':sample_information[1],
+                      'sample':sample_information[2]}
+
+            features = get_entries_from_dict(keys=['ECNT','HCNT','NLOD','TLOD'],return_type=dict)
+
+            prefix=merge_dicts(prefix,features)
+
+            save_set(fp[feature],list(known_true[sample_information].difference(found_variants[sample_information])),prefix=prefix)
+
+
+
+        all_dict['CM']['tpr'] = all_dict['CM']['true_positives']/(all_dict['CM']['true_positives']+all_dict['CM']['false_negatives'])
+        all_dict['CM']['dream_accuracy'] = (all_dict['CM']['tpr'] + 1 -all_dict['CM']['precision'])/2.0
+        all_dict['CM']['precision'] = all_dict['CM']['true_positives']/(all_dict['CM']['true_positives']+all_dict['CM']['false_positives'])
+
+        all_dict['CM']['dream_accuracy'] = (all_dict['CM']['tpr'] + 1 -all_dict['CM']['precision'])/2.0
+
+        data.append(all_dict['CM'])
+        data.append(all_dict['NN'])
+
+        fp.close()
+
     fieldnames=['project','dataset','sample' ,'false_positives','true_positives','false_negatives','tpr','fpr','precision','evidence_type','dream_accuracy']
 
     pd.DataFrame(data).to_csv(output_file, sep='\t',index=False,columns=fieldnames)
