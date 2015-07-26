@@ -97,7 +97,7 @@ def VariantAssessor(query,tsv,output_file):
 
     filename = "missed_positives.tsv"
     fp = open(filename,'w')
-    fp.write("\t".join(['chromosome','start','ref','alt']))
+    fp.write("\t".join(['chromosome','start','ref','alt'])+'\n')
 
     for sample_information in map(tuple,caller_samples):
 

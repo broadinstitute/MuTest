@@ -77,8 +77,9 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     val assessmentFilename: File = new File(project_dir,"%s_assessment.tsv".format(project_name))
 
-    
-    add(new VariantAssessment(submissionsFilename, query,assessmentFilename))
+    println(assessmentFilename.toString)
+
+    add(new VariantAssessment(m2_out_files.map(x => new File(x)) ,submissionsFilename, query,assessmentFilename))
 
     }
 
@@ -179,7 +180,8 @@ mutest assessment_file_create -t <tsv>
 mutest variant_assess -t <tsv>
                          -q <query>
 */
-  case class VariantAssessment(@Input tsv: File,
+  case class VariantAssessment(@Input resultsFiles: Seq[File],
+                               @Input tsv: File,
                                @Argument query: String,
                                @Output output: File) extends CommandLineFunction {
 
