@@ -1,8 +1,6 @@
 import csv
-
-from SomaticDB.BasicUtilities.DictUtilities import get_entries_from_dict , merge_dicts , \
-    tally
-from SomaticDB.SupportLibraries.DatabaseParser import DatabaseParser
+from MuTest.BasicUtilities.DictUtilities import get_entries_from_dict , merge_dicts , tally
+from MuTest.SupportLibraries.DatabaseParser import DatabaseParser
 
 
 def query_processor(selections):

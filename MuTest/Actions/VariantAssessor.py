@@ -1,15 +1,11 @@
 import ast
 from collections import defaultdict
-import csv
-from MuTest.SupportLibraries.ConfusionMatrix import ConfusionMatrix
-from MuTest.BasicUtilities.DictUtilities import get_entries_from_dict , \
-    merge_dicts
+from MuTest.BasicUtilities.DictUtilities import get_entries_from_dict
 from MuTest.BasicUtilities.MongoUtilities import connect_to_mongo
 from MuTest.SupportLibraries.DataGatherer import DataGatherer , \
     query_processor
 import pandas as pd
 import numpy as np
-import collections
 
 def pp_dict(x):
     for key in x.keys():

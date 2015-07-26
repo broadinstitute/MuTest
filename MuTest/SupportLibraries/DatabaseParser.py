@@ -3,7 +3,7 @@ from itertools import ifilter
 import csv
 import vcf
 
-from SomaticDB.BasicUtilities.DictUtilities import stringify_dict , merge_dicts
+from MuTest.BasicUtilities.DictUtilities import stringify_dict , merge_dicts
 
 
 def adjustIndelFormat(start_position, ref, alt):
