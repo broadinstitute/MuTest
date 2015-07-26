@@ -24,7 +24,8 @@ def save_set(fp,list_data,extra_information, prefix=None):
 
     list_data = list(list_data)
     for entry in list_data:
-        prefix = merge_dicts(prefix, extra_information[prefix][entry])
+        query = (prefix['project'],prefix['dataset'],prefix['sample'])
+        prefix = merge_dicts(prefix, extra_information[query][entry])
         fp.writerow("\t".join(prefix+entry)+"\n")
 
 
