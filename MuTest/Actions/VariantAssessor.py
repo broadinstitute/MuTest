@@ -216,8 +216,6 @@ def VariantAssessor(query,tsv,output_file):
 
             for variant in true_positives:
 
-                print found_feature_data[variant]
-
                 fp_tp[feature].writerow({'project': sample_information[0],
                                          'dataset':sample_information[1],
                                          'sample':sample_information[2],
@@ -266,7 +264,9 @@ def VariantAssessor(query,tsv,output_file):
         data.append(all_dict['CM'])
         data.append(all_dict['NN'])
 
-        fp_fn.close()
+        fp_fn[feature].close()
+        fp_fp[feature].close()
+        fp_tp[feature].close()
 
     fieldnames=['project','dataset','sample' ,'false_positives','true_positives','false_negatives','tpr','fpr','precision','evidence_type','dream_accuracy']
 
