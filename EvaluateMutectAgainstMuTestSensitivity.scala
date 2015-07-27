@@ -70,13 +70,13 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     val submissionsFilename: File = new File(project_dir,"%s_submission.tsv".format(project_name))
 
-    add(new CreateAssessment(metadataFilename, mutectResultsFilename, submissionsFilename, evaluation_rules))
+    add(new normalNormalCreateAssessment(metadataFilename, mutectResultsFilename, submissionsFilename))
 
     val assessmentFilename: File = new File(project_dir,"%s_assessment.tsv".format(project_name))
 
     println(assessmentFilename.toString)
 
-    add(new VariantAssessment(m2_out_files.map(x => new File(x)) ,submissionsFilename, query,assessmentFilename))
+    add(new NormalNormalVariantAssessment(m2_out_files.map(x => new File(x)) ,submissionsFilename, query,assessmentFilename))
 
     }
 
@@ -132,12 +132,10 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
 
   /*
-mutest bam_aggregate [-h] -q <query>
-                             -n <normal_bam_list>
-                             -t <tumor_bam_list>
-                             -i <interval_list>
-                             -f <folder>
-                             -m <metadata>
+       mutest normal_normal_collector -q "{'project':'CRSP'}"
+                                      -o test.tsv
+                                      -n normal.list
+                                      -t tumor.list
 */
  def normalNormalCollector(query: String,
                    normal_bam_list: File,
@@ -145,7 +143,7 @@ mutest bam_aggregate [-h] -q <query>
                    tsv: String) : String = {
 
 
-   val cmd: String = "mutest normal_normal_aggregate -q %s -n %s -t %s -o %s".format(query, normal_bam_list, tumor_bam_list, tsv)
+   val cmd: String = "mutest normal_normal_collector -q %s -n %s -t %s -o %s".format(query, normal_bam_list, tumor_bam_list, tsv)
 
     return(cmd)
   }
@@ -158,14 +156,14 @@ mutest assessment_file_create -t <tsv>
                                  -o <output_file>
                                  -e <evaluation_rules>
 */
-  case class CreateAssessment(@Input tsv: File,
+  case class normalNormalCreateAssessment(@Input tsv: File,
                               @Input results: File,
                               @Output output_file: File,
                               @Argument rules: String) extends CommandLineFunction {
 
 
     override def commandLine: String = {
-      "mutest assessment_file_create -t %s -r %s -o %s -e %s".format(tsv, results, output_file, rules)
+      "mutest assessment_file_create -t %s -r %s -o %s -e NN".format(tsv, results, output_file)
     }
   }
 
@@ -175,7 +173,7 @@ mutest variant_assess -t <tsv>
                       -q <query>
                       -o <output>
 */
-  case class VariantAssessment(@Input resultsFiles: Seq[File],
+  case class NormalNormalVariantAssessment(@Input resultsFiles: Seq[File],
                                @Input tsv: File,
                                @Argument query: String,
                                @Output output: File) extends CommandLineFunction {
