@@ -40,7 +40,7 @@ def survey(filename):
             if not (n % 10000): logging.getLogger(__name__).info("Variants seen: "+str(n))
 
 
-    fp = csv.DictReader(open(filename,'w'), fieldnames=['project','dataset','sample','count'],sep='\t')
+    fp = csv.DictReader(open(filename,'w'), fieldnames=['project','dataset','sample','count'],delimiter='\t')
 
     for item in tally:
         fp.writerow({'project':item[0],'sample':item[2],'sample':item[2],'tally': tally[item] })
