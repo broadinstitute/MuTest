@@ -43,4 +43,4 @@ def survey(filename):
     fp = csv.DictWriter(open(filename,'w'), fieldnames=['project','dataset','sample','count'],delimiter='\t')
 
     for item in tally:
-        fp.writerow({'project':item[0],'sample':item[2],'sample':item[2],'count': tally[item] })
+        fp.writerow({'project':item[0],'dataset':item[2],'sample':item[2],'count': tally[item] })

@@ -264,20 +264,12 @@ def evaluate(submission, truth, vtype='SNV', ignorechroms=None, truthmask=True):
                 if passfilter(subrec): 
                     if not SV_BND_multimatch: # don't penalize BND multi-matches to truth intervals
 
-                        print subrec
-                        print "NOT FILTERED"
-
                         fpcount += 1
-                    else:
-                        print subrec
-                        print "FILTERED"
 
         else:
             if relevant(subrec, vtype, ignorechroms):
                 submasked += 1
 
-    print "tpcount, fpcount, subrecs, submasked, trurecs, trumasked:"
-    print tpcount, fpcount, subrecs, submasked, trurecs, trumasked
 
     # sanity checks
     if trurecs == 0:
@@ -285,11 +277,6 @@ def evaluate(submission, truth, vtype='SNV', ignorechroms=None, truthmask=True):
 
     if subrecs == 0:
         raise Exception("No unmasked variants in submission! Are you sure you selected the correct variant type (SNV/INDEL/SV)?\n")
-
-    print tpcount
-    print fpcount
-    print subrecs
-    print trurecs
 
     sensitivity = float(tpcount) / float(trurecs) #trurecs is a standin TP+FN
     precision   = float(tpcount) / float(tpcount + fpcount)
