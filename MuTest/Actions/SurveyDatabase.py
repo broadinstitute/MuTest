@@ -37,7 +37,7 @@ def survey(filename):
             tally[(project,'','')]+=1
             tally[('all','all','all')]+=1
 
-            if not (n % 1000): logging.getLogger(__name__).info("Variants seen: ")
+            if not (n % 10000): logging.getLogger(__name__).info("Variants seen: "+str(n))
 
 
     fp = csv.DictReader(open(filename,'w'), fieldnames=['project','dataset','sample','count'],sep='\t')
