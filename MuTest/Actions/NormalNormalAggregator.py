@@ -17,7 +17,7 @@ def NormalNormalAggregator(query, output_filename):
         print record
 
     fieldnames=['tumor_bam','normal_bam','data_filename','project','dataset','sample','evidence_type','author']
-    file = csv.DictWriter(open(output_filename,'w'),fieldnames=fieldnames,delimiter='\t')
+    file = csv.DictWriter(open(output_filename,'w'), fieldnames=fieldnames,delimiter='\t')
 
     for bam_set in bam_sets:
 

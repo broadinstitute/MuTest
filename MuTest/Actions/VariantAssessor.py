@@ -109,7 +109,7 @@ def VariantAssessor(query,tsv,output_file):
 
     for feature in ['snp','indel']:
 
-        filename = {}; fp_fn = {}; fp_fp={}; all_dict={}; fp_tp=()
+        filename = {}; fp_fn = {}; fp_fp={}; all_dict={}; fp_tp= []
 
         filename[feature] = feature+".false_negatives.tsv"
         fp_fn[feature] = csv.DictWriter(open(filename[feature],'w'),delimiter='\t',
