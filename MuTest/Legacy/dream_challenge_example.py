@@ -283,6 +283,12 @@ def evaluate(submission, truth, vtype='SNV', ignorechroms=None, truthmask=True):
     specificity = 1.0 - float(fpcount) / float(subrecs) #subrecs is a standin for TP+FP
     balaccuracy = (sensitivity + specificity) / 2.0     # balaccuracy
 
+    print 'tp:', tpcount
+    print 'fp:', fpcount
+    print 'trurecs', trurecs
+    print 'subrecs', subrecs
+    print
+
     return sensitivity, specificity, balaccuracy
 
 

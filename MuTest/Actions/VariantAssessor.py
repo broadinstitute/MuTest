@@ -204,7 +204,7 @@ def VariantAssessor(query,tsv,output_file):
                 except:
                     row_dict['precision']  = np.nan
 
-                row_dict['dream_accuracy'] = (row_dict['tpr'] + 1 -row_dict['precision'])/2.0
+                row_dict['dream_accuracy'] = (row_dict['tpr'] + row_dict['precision'])/2.0
 
                 print row_dict['tpr'], row_dict['precision'], row_dict['dream_accuracy']
 
@@ -272,7 +272,7 @@ def VariantAssessor(query,tsv,output_file):
 
 
 
-        all_dict['CM']['dream_accuracy'] = (all_dict['CM']['tpr'] + 1 -all_dict['CM']['precision'])/2.0
+        all_dict['CM']['dream_accuracy'] = (all_dict['CM']['tpr'] + all_dict['CM']['precision'])/2.0
 
         data.append(all_dict['CM'])
         data.append(all_dict['NN'])
