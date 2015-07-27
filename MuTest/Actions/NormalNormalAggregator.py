@@ -14,6 +14,7 @@ def NormalNormalAggregator(query, output_filename):
 
     for record in collection.find(ast.literal_eval(query)):
         bam_sets[(record['project'],record['dataset'])].add((record['sample'],record['file']))
+        print record
 
     fieldnames=['tumor_bam','normal_bam','data_filename','project','dataset','sample','evidence_type','author']
     file = csv.DictWriter(open(output_filename,'w'),fieldnames=fieldnames,delimiter='\t')
