@@ -2,6 +2,7 @@ import argparse
 from MuTest.Actions.AssessmentFileCreator import create_assessment_file
 from MuTest.Actions.NormalNormalAggregator import NormalNormalAggregator
 from MuTest.Actions.NormalNormalUploader import NormalNormalUploader
+from MuTest.Actions.SurveyDatabase import survey
 from MuTest.Actions.VariantUploader import VariantUploader
 from MuTest.Actions.BamAggregator import BamAggregator
 from MuTest.Actions.VariantAssessor import VariantAssessor
@@ -58,8 +59,16 @@ def main():
     normal_normal_uploader_parser.add_argument('-t','--tsv', help='The lists of normals to be uploaded.',type=str,metavar='<tsv>',required=True)
 
 
+    survey_parser = subparsers.add_parser('survey',
+                                        help  ='Surveys database.')
+
+    survey_parser.add_argument('-o','--output',
+                                      help='File where the results should be stored',
+                                      type=str,metavar='<output>', required=True)
+
+
     normal_normal_collector_parser = subparsers.add_parser('normal_normal_collector',
-                                        help  ='Collects .')
+                                        help  ='Collects bams for normal-normal execution.')
 
     normal_normal_collector_parser.add_argument('-q','--query',
                                                 help='The query for the dataset needed',
@@ -239,6 +248,9 @@ def main():
 
     if (args.subparser == "remove_queue_merge_mistakes"):
          remove_mistakes(args.directory)
+
+    if (args.subparser == "survey"):
+         survey(args.output)
 
 if __name__ == '__main__':
     main()

@@ -39,18 +39,17 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     (new File(project_dir)).mkdir()
 
-    println("Aggretating beams")
+    println("Collecting bams")
     val cmd = normalNormalCollector(query, normalFilename, tumorFilename, metadataFilename)
 
     cmd !
 
-    println("Aggregation complete.")
+    println("Collection complete.")
 
     val m2_out_files = new ListBuffer[String]
 
     val tumor_bams = QScriptUtils.createSeqFromFile(tumorFilename)
     val normal_bams = QScriptUtils.createSeqFromFile(normalFilename)
-    val intervals_files = QScriptUtils.createSeqFromFile(intervalsFilename)
 
     for (sampleIndex <- 0 until normal_bams.size) {
 
@@ -158,8 +157,7 @@ mutest assessment_file_create -t <tsv>
 */
   case class normalNormalCreateAssessment(@Input tsv: File,
                               @Input results: File,
-                              @Output output_file: File,
-                              @Argument rules: String) extends CommandLineFunction {
+                              @Output output_file: File) extends CommandLineFunction {
 
 
     override def commandLine: String = {
