@@ -214,43 +214,45 @@ def VariantAssessor(query,tsv,output_file):
             false_positives = list(found_variants[feature][sample_information].difference(known_true[feature][sample_information]))
             false_negatives = list(known_true[feature][sample_information].difference(found_variants[feature][sample_information]))
 
-            for true_positive in true_positives:
+            for variant in true_positives:
+
+                print found_feature_data[variant]
 
                 fp_tp[feature].writerow({'project': sample_information[0],
                                          'dataset':sample_information[1],
                                          'sample':sample_information[2],
-                                         'chromosome':true_positive[0],
-                                         'start':true_positive[1],
-                                         'ref':true_positive[2],
-                                         'alt':true_positive[3],
-                                         'ECNT':found_feature_data[true_positive]['ECNT'],
-                                         'HCNT':found_feature_data[true_positive]['HCNT'],
-                                         'NLOD':found_feature_data[true_positive]['NLOD'],
-                                         'TLOD':found_feature_data[true_positive]['TLOD']})
+                                         'chromosome':variant[0],
+                                         'start':variant[1],
+                                         'ref':variant[2],
+                                         'alt':variant[3],
+                                         'ECNT':found_feature_data[variant]['ECNT'],
+                                         'HCNT':found_feature_data[variant]['HCNT'],
+                                         'NLOD':found_feature_data[variant]['NLOD'],
+                                         'TLOD':found_feature_data[variant]['TLOD']})
 
-            for false_positive in false_positives:
+            for variant in false_positives:
 
                 fp_fp[feature].writerow({'project': sample_information[0],
                                          'dataset':sample_information[1],
                                          'sample':sample_information[2],
-                                         'chromosome':true_positive[0],
-                                         'start':false_positive[1],
-                                         'ref':false_positive[2],
-                                         'alt':false_positive[3],
-                                         'ECNT':found_feature_data[false_positive]['ECNT'],
-                                         'HCNT':found_feature_data[false_positive]['HCNT'],
-                                         'NLOD':found_feature_data[false_positive]['NLOD'],
-                                         'TLOD':found_feature_data[false_positive]['TLOD']})
+                                         'chromosome':variant[0],
+                                         'start':variant[1],
+                                         'ref':variant[2],
+                                         'alt':variant[3],
+                                         'ECNT':found_feature_data[variant]['ECNT'],
+                                         'HCNT':found_feature_data[variant]['HCNT'],
+                                         'NLOD':found_feature_data[variant]['NLOD'],
+                                         'TLOD':found_feature_data[variant]['TLOD']})
 
-            for false_negative in false_negatives:
+            for variant in false_negatives:
 
                 fp_fn[feature].writerow({'project': sample_information[0],
                                           'dataset':sample_information[1],
                                           'sample':sample_information[2],
                                           'chromosome':true_positive[0],
-                                          'start':false_negative[1],
-                                          'ref':false_negative[2],
-                                          'alt':false_negative[3]})
+                                          'start':variant[1],
+                                          'ref':variant[2],
+                                          'alt':variant[3]})
 
 
 

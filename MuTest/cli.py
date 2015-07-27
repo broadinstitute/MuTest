@@ -227,6 +227,7 @@ def main():
     if (args.subparser == "normal_normal_uploader"):
         NormalNormalUploader(args.tsv)
 
+
     if (args.subparser == "normal_normal_collector"):
         NormalNormalAggregator(args.normal_bam_list,args.tumor_bam_list,args.query, args.output_file)
 

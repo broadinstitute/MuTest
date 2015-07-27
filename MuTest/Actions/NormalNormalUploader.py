@@ -10,6 +10,8 @@ def NormalNormalUploader(tsv):
     for k,row in nn_file.iterrows():
         fp = open(row['file'])
 
+        collection.remove({'project':row['project'],'dataset':row['dataset']})
+
         n = 0
         for line in fp:
             n+=1

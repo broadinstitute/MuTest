@@ -19,6 +19,8 @@ def NormalNormalAggregator(normal_bam_list, tumor_bam_list,query, output_filenam
     fieldnames=['tumor_bam','normal_bam','data_filename','project','dataset','sample','evidence_type','author']
     file = csv.DictWriter(open(output_filename,'w'), fieldnames=fieldnames,delimiter='\t')
 
+    file.writeheader()
+
 
     normal_bam_list = open(normal_bam_list,'w')
     tumor_bam_list  = open(tumor_bam_list,'w')
