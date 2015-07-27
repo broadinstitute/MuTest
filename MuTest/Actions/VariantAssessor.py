@@ -84,9 +84,9 @@ def VariantAssessor(query,tsv,output_file):
         sample_information = get_entries_from_dict(variant_dict, keys=['project','dataset','sample'],return_type=tuple)
         variant = get_entries_from_dict(variant_dict, keys=['chromosome','start','ref','alt'],return_type=tuple)
 
-        print variant_dict
-
         found_feature_data[sample_information][variant] = get_entries_from_dict(variant_dict, keys=['ECNT','HCNT','NLOD','TLOD'],return_type=dict)
+
+        print found_feature_data[sample_information][variant]
 
         if is_snp(variant_dict):
             if sample_information in cm:
