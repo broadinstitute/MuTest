@@ -2,8 +2,8 @@ import ast
 from collections import defaultdict
 import csv
 import logging
-from pymongo import collection
 from MuTest.BasicUtilities.DictUtilities import get_entries_from_dict
+from MuTest.BasicUtilities.MongoUtilities import connect_to_mongo
 
 
 def survey(filename):
@@ -13,9 +13,11 @@ def survey(filename):
     query = "{'project' : { '$exists' : 'true' } }"
 
     tally = defaultdict(int)
+    
+    collector = connect_to_mongo()
 
     # collect query information
-    for record in collection.find(ast.literal_eval(query)):
+    for record in collector.find(ast.literal_eval(query)):
 
         sample_information = get_entries_from_dict(record, keys=['project',
                                                                  'dataset',
@@ -38,4 +40,4 @@ def survey(filename):
     fp = csv.DictReader(open(filename,'w'), fieldnames=['project','dataset','sample','count'],sep='\t')
 
     for item in tally:
-        fp.writerow({'project':item[0],'sample':item[2],'sample':item[2],'tally': tally[item]  })
+        fp.writerow({'project':item[0],'sample':item[2],'sample':item[2],'tally': tally[item] })
