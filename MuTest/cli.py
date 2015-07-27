@@ -7,6 +7,7 @@ from MuTest.Actions.BamAggregator import BamAggregator
 from MuTest.Actions.VariantAssessor import VariantAssessor
 from MuTest.Scripts.clean_database import delete_all
 from MuTest.Actions.VariantExtract import variant_extract
+from MuTest.Scripts.remove_queue_mistakes import remove_mistakes
 
 import logging
 
@@ -38,6 +39,14 @@ def main():
 
     assessment_file_create_parser = subparsers.add_parser('assessment_file_create',
                     help  ='Creates the file used for assessment of algorithmic results')
+
+
+    remove_queue_merge_mistakes_parser = subparsers.add_parser('remove_queue_merge_mistakes',
+                         help  ='Queue sometimes mangles vcfs. This command removes those bad files.')
+
+    remove_queue_merge_mistakes_parser.add_argument('-d','--directory',
+                                                    help='Directory containing vcfs of interest.',
+                                                    type=str,metavar='<directory>',required=True)
 
 
     bam_aggregator_parser = subparsers.add_parser('bam_aggregate',
@@ -213,6 +222,9 @@ def main():
 
     if (args.subparser == "variant_extract"):
         variant_extract(args.query, args.output_filename, args.max_number_of_records)
+
+     if (args.subparser == "remove_queue_merge_mistakes"):
+         remove_mistakes(args.directory)
 
 if __name__ == '__main__':
     main()

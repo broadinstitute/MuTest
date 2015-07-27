@@ -17,23 +17,6 @@ def pp_dict(x):
     for key in x.keys():
         print key+": "+str(x[key])
 
-def save_set(fp,list_data,sample_information,extra_information, prefix=None):
-
-    if prefix is None: prefix = {}
-
-    prefix={'project': sample_information[0],
-            'dataset': sample_information[1],
-            'sample': sample_information[2]}
-
-    list_data = list(list_data)
-    for entry in list_data:
-
-        print prefix
-        print extra_information.keys()
-
-        prefix = merge_dicts(prefix, extra_information[entry])
-        fp.writerow("\t".join(prefix+entry)+"\n")
-
 
 def VariantAssessor(query,tsv,output_file):
 
@@ -126,11 +109,20 @@ def VariantAssessor(query,tsv,output_file):
 
     for feature in ['snp','indel']:
 
-        filename = {}; fp = {}; all_dict={}
+        filename = {}; fp_fn = {}; fp_fp={}; all_dict={}; fp_tp=()
 
-        filename[feature] = feature+".missed_positives.tsv"
-        fp[feature] = csv.DictWriter(open(filename[feature],'w'),delimiter='\t',
-            fieldnames=['project','dataset','sample','chromosome','start','ref','alt','ECNT','HCNT','NLOD','TLOD']  )
+        filename[feature] = feature+".false_negatives.tsv"
+        fp_fn[feature] = csv.DictWriter(open(filename[feature],'w'),delimiter='\t',
+            fieldnames=['project','dataset','sample','chromosome','start','ref','alt'])
+
+        filename[feature] = feature+".false_positives.tsv"
+        fp_fp[feature] = csv.DictWriter(open(filename[feature],'w'),delimiter='\t',
+            fieldnames=['project','dataset','sample','chromosome','start','ref','alt','ECNT','HCNT','NLOD','TLOD'])
+
+        filename[feature] = feature+".true_positives.tsv"
+        fp_tp[feature] = csv.DictWriter(open(filename[feature],'w'),delimiter='\t',
+            fieldnames=['project','dataset','sample','chromosome','start','ref','alt','ECNT','HCNT','NLOD','TLOD'])
+
 
         for eval_type in ['CM','NN']:
 
@@ -206,19 +198,50 @@ def VariantAssessor(query,tsv,output_file):
 
             data.append(row_dict)
 
-            prefix = {'project': sample_information[0],
-                      'dataset':sample_information[1],
-                      'sample':sample_information[2]}
 
 
-            print found_feature_data.keys()
-            print
+            true_positives  = list(found_variants[feature][sample_information].intersection(known_true[feature][sample_information]))
+            false_positives = list(found_variants[feature][sample_information].difference(known_true[feature][sample_information]))
+            false_negatives = list(known_true[feature][sample_information].difference(found_variants[feature][sample_information]))
 
-            save_set(fp[feature],
-                     list(known_true[feature][sample_information].difference(found_variants[feature][sample_information])),
-                     sample_information,
-                     found_feature_data[sample_information],
-                     prefix=prefix)
+            for true_positive in true_positives:
+
+                fp_tp[feature].writerow({'project': sample_information[0],
+                                         'dataset':sample_information[1],
+                                         'sample':sample_information[2],
+                                         'chromosome':true_positive[0],
+                                         'start':true_positive[1],
+                                         'ref':true_positive[2],
+                                         'alt':true_positive[3],
+                                         'ECNT':found_feature_data[true_positive]['ECNT'],
+                                         'HCNT':found_feature_data[true_positive]['HCNT'],
+                                         'NLOD':found_feature_data[true_positive]['NLOD'],
+                                         'TLOD':found_feature_data[true_positive]['TLOD']})
+
+            for false_positive in false_positives:
+
+                fp_fp[feature].writerow({'project': sample_information[0],
+                                         'dataset':sample_information[1],
+                                         'sample':sample_information[2],
+                                         'chromosome':true_positive[0],
+                                         'start':false_positive[1],
+                                         'ref':false_positive[2],
+                                         'alt':false_positive[3],
+                                         'ECNT':found_feature_data[false_positive]['ECNT'],
+                                         'HCNT':found_feature_data[false_positive]['HCNT'],
+                                         'NLOD':found_feature_data[false_positive]['NLOD'],
+                                         'TLOD':found_feature_data[false_positive]['TLOD']})
+
+            for false_negative in false_negatives:
+
+                fp_fn[feature].writerow({'project': sample_information[0],
+                                          'dataset':sample_information[1],
+                                          'sample':sample_information[2],
+                                          'chromosome':true_positive[0],
+                                          'start':false_negative[1],
+                                          'ref':false_negative[2],
+                                          'alt':false_negative[3]})
+
 
 
 
@@ -231,7 +254,7 @@ def VariantAssessor(query,tsv,output_file):
         data.append(all_dict['CM'])
         data.append(all_dict['NN'])
 
-        fp.close()
+        fp_fn.close()
 
     fieldnames=['project','dataset','sample' ,'false_positives','true_positives','false_negatives','tpr','fpr','precision','evidence_type','dream_accuracy']
 
