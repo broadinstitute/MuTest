@@ -4,7 +4,7 @@ from MuTest.SupportLibraries.DataGatherer import query_processor
 import ast
 import csv
 
-def NormalNormalAggregator(query, output_filename, tumor_bam_):
+def NormalNormalAggregator(normal_bam_list, tumor_bam_list,query, output_filename):
 
     collection = connect_to_mongo(collection='NormalNormalData')
 
@@ -18,6 +18,10 @@ def NormalNormalAggregator(query, output_filename, tumor_bam_):
 
     fieldnames=['tumor_bam','normal_bam','data_filename','project','dataset','sample','evidence_type','author']
     file = csv.DictWriter(open(output_filename,'w'), fieldnames=fieldnames,delimiter='\t')
+
+
+    normal_bam_list = open(normal_bam_list,'w')
+    tumor_bam_list  = open(tumor_bam_list,'w')
 
     for bam_set in bam_sets:
 
@@ -42,5 +46,8 @@ def NormalNormalAggregator(query, output_filename, tumor_bam_):
                  'sample': '%s-%s'%(sample1,sample2),
                  'evidence_type': 'NN',
                  'author': 'None'}
+
+                normal_bam_list.write(bam1+'\n')
+                tumor_bam_list.write(bam2+'\n')
 
                 file.writerow(row)

@@ -176,7 +176,7 @@ mutest bam_aggregate [-h] -q <query>
                    tsv: String) : String = {
 
 
-   val cmd: String = "mutest bam_aggregate -q %s -n %s -t %s -i %s -f %s -m %s".format(query, normal_bam_list, tumor_bam_list, interval_list, folder, metadata)
+   val cmd: String = "mutest normal_normal_aggregate -q %s -n %s -t %s -i %s -f %s -m %s".format(query, normal_bam_list, tumor_bam_list, interval_list, folder, metadata)
 
     return(cmd)
   }
