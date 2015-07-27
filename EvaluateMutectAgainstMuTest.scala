@@ -118,6 +118,36 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
   }
 
 
+  case class mutect2_normal_normal(tumor: File, normal: File, scatter: Int, project_path: String) extends M2 {
+
+    /*
+    def swapExt(orig: String, ext: String) = (orig.split('.') match {
+      case xs @ Array(x) => xs
+      case y => y.init
+    }) :+ ext mkString "."
+    */
+    @Input(doc = "")
+    val tumorFile: File = tumor
+
+    @Input(doc = "")
+    val normalFile: File = normal
+
+    this.reference_sequence = new File("/humgen/1kg/reference/human_g1k_v37_decoy.fasta")
+    this.cosmic :+= new File("/dsde/working/kcarr/b37_cosmic_v54_120711.vcf")
+    this.dbsnp = new File("/humgen/gsa-hpprojects/GATK/bundle/current/b37/dbsnp_138.b37.vcf")
+    this.normal_panel = List(new File("/crsp/fh-data/reference/hg19/capture-pipeline/v1.0/refseq_exome_10bp_hg19_300_1kg_normal_panel.vcf"))
+
+    this.memoryLimit = Some(2)
+    this.input_file = List(new TaggedFile(normalFile, "normal"), new TaggedFile(tumorFile, "tumor"))
+    this.out = new File(project_path, swapExt(tumorFile.toString,"bam", "vcf").toString() )
+    this.scatterCount = scatter
+
+    //this.allowNonUniqueKmersInRef = true
+    //this.minDanglingBranchLength = 2
+  }
+
+
+
   case class MakeStringFileList ( stringList: Seq[String], outputFilename: File) extends InProcessFunction {
 
     @Output(doc = "")
