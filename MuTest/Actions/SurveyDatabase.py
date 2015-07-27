@@ -35,7 +35,7 @@ def survey(filename):
             tally[(project,dataset,sample)]+=1
             tally[(project,dataset,'')]+=1
             tally[(project,'','')]+=1
-            tally[('all','all','all')]+=1
+            tally[('','','')]+=1
 
             if not (n % 10000): logging.getLogger(__name__).info("Variants seen: "+str(n))
 
