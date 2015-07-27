@@ -199,7 +199,10 @@ def VariantAssessor(query,tsv,output_file):
                 all_dict['CM']['false_negatives'] += FN
                 all_dict['CM']['false_positives'] +=  FP
 
-                row_dict['precision'] = TP/(TP+FP)
+                try:
+                    row_dict['precision'] = TP/(TP+FP)
+                except:
+                    row_dict['precision']  = np.nan
 
                 row_dict['dream_accuracy'] = (row_dict['tpr'] + 1 -row_dict['precision'])/2.0
 
@@ -254,10 +257,20 @@ def VariantAssessor(query,tsv,output_file):
 
 
 
+        try:
+            all_dict['CM']['tpr'] = all_dict['CM']['true_positives']/(all_dict['CM']['true_positives']+all_dict['CM']['false_negatives'])
+        except:
+            all_dict['CM']['tpr'] = np.nan
 
-        all_dict['CM']['tpr'] = all_dict['CM']['true_positives']/(all_dict['CM']['true_positives']+all_dict['CM']['false_negatives'])
+
         all_dict['CM']['dream_accuracy'] = (all_dict['CM']['tpr'] + 1 -all_dict['CM']['precision'])/2.0
-        all_dict['CM']['precision'] = all_dict['CM']['true_positives']/(all_dict['CM']['true_positives']+all_dict['CM']['false_positives'])
+
+        try:
+            all_dict['CM']['precision'] = all_dict['CM']['true_positives']/(all_dict['CM']['true_positives']+all_dict['CM']['false_positives'])
+        except:
+            all_dict['CM']['precision'] = np.nan
+
+
 
         all_dict['CM']['dream_accuracy'] = (all_dict['CM']['tpr'] + 1 -all_dict['CM']['precision'])/2.0
 
