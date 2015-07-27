@@ -264,10 +264,6 @@ def VariantAssessor(query,tsv,output_file):
         data.append(all_dict['CM'])
         data.append(all_dict['NN'])
 
-        fp_fn[feature].close()
-        fp_fp[feature].close()
-        fp_tp[feature].close()
-
     fieldnames=['project','dataset','sample' ,'false_positives','true_positives','false_negatives','tpr','fpr','precision','evidence_type','dream_accuracy']
 
     pd.DataFrame(data).to_csv(output_file, sep='\t',index=False,columns=fieldnames)
