@@ -86,10 +86,6 @@ def VariantAssessor(query,tsv,output_file):
 
         found_feature_data[sample_information][variant] = get_entries_from_dict(variant_dict, keys=['ECNT','HCNT','NLOD','TLOD'],return_type=dict)
 
-        print found_feature_data[sample_information][variant]
-
-        exit(0)
-
         if is_snp(variant_dict):
             if sample_information in cm:
                 found_variants['snp'][sample_information].add(variant)
@@ -229,10 +225,10 @@ def VariantAssessor(query,tsv,output_file):
                                          'start':variant[1],
                                          'ref':variant[2],
                                          'alt':variant[3],
-                                         'ECNT':found_feature_data[variant]['ECNT'],
-                                         'HCNT':found_feature_data[variant]['HCNT'],
-                                         'NLOD':found_feature_data[variant]['NLOD'],
-                                         'TLOD':found_feature_data[variant]['TLOD']})
+                                         'ECNT':found_feature_data[sample_information][variant]['ECNT'],
+                                         'HCNT':found_feature_data[sample_information][variant]['HCNT'],
+                                         'NLOD':found_feature_data[sample_information][variant]['NLOD'],
+                                         'TLOD':found_feature_data[sample_information][variant]['TLOD']})
 
             for variant in false_positives:
 
@@ -243,17 +239,17 @@ def VariantAssessor(query,tsv,output_file):
                                          'start':variant[1],
                                          'ref':variant[2],
                                          'alt':variant[3],
-                                         'ECNT':found_feature_data[variant]['ECNT'],
-                                         'HCNT':found_feature_data[variant]['HCNT'],
-                                         'NLOD':found_feature_data[variant]['NLOD'],
-                                         'TLOD':found_feature_data[variant]['TLOD']})
+                                         'ECNT':found_feature_data[sample_information][variant]['ECNT'],
+                                         'HCNT':found_feature_data[sample_information][variant]['HCNT'],
+                                         'NLOD':found_feature_data[sample_information][variant]['NLOD'],
+                                         'TLOD':found_feature_data[sample_information][variant]['TLOD']})
 
             for variant in false_negatives:
 
                 fp_fn[feature].writerow({'project': sample_information[0],
                                           'dataset':sample_information[1],
                                           'sample':sample_information[2],
-                                          'chromosome':true_positive[0],
+                                          'chromosome':variant[0],
                                           'start':variant[1],
                                           'ref':variant[2],
                                           'alt':variant[3]})
