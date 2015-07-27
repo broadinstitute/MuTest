@@ -88,6 +88,8 @@ def VariantAssessor(query,tsv,output_file):
 
         print found_feature_data[sample_information][variant]
 
+        exit(0)
+
         if is_snp(variant_dict):
             if sample_information in cm:
                 found_variants['snp'][sample_information].add(variant)
