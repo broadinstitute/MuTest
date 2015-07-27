@@ -112,16 +112,20 @@ def VariantAssessor(query,tsv,output_file):
         filename = {}; fp_fn = {}; fp_fp={}; all_dict={}; fp_tp= []
 
         filename[feature] = feature+".false_negatives.tsv"
-        fp_fn[feature] = csv.DictWriter(open(filename[feature],'w'),delimiter='\t',
-            fieldnames=['project','dataset','sample','chromosome','start','ref','alt'])
+        fp_fn[feature] = csv.DictWriter(open(filename[feature],'w'),
+                                        delimiter='\t',
+                                        fieldnames=['project','dataset','sample','chromosome','start','ref','alt'])
 
         filename[feature] = feature+".false_positives.tsv"
-        fp_fp[feature] = csv.DictWriter(open(filename[feature],'w'),delimiter='\t',
-            fieldnames=['project','dataset','sample','chromosome','start','ref','alt','ECNT','HCNT','NLOD','TLOD'])
+        fp_fp[feature] = csv.DictWriter(open(filename[feature],'w'),
+                                        delimiter='\t',
+                                        fieldnames=['project','dataset','sample','chromosome','start','ref','alt','ECNT','HCNT','NLOD','TLOD'])
+
 
         filename[feature] = feature+".true_positives.tsv"
-        fp_tp[feature] = csv.DictWriter(open(filename[feature],'w'),delimiter='\t',
-            fieldnames=['project','dataset','sample','chromosome','start','ref','alt','ECNT','HCNT','NLOD','TLOD'])
+        fp_tp[feature] = csv.DictWriter(open(filename[feature],'w'),
+                                        delimiter='\t',
+                                        fieldnames=['project','dataset','sample','chromosome','start','ref','alt','ECNT','HCNT','NLOD','TLOD'])
 
 
         for eval_type in ['CM','NN']:

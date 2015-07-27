@@ -4,7 +4,7 @@ from MuTest.SupportLibraries.DataGatherer import query_processor
 import ast
 import csv
 
-def NormalNormalAggregator(query, output_filename):
+def NormalNormalAggregator(query, output_filename, tumor_bam_):
 
     collection = connect_to_mongo(collection='NormalNormalData')
 

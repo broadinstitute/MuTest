@@ -70,6 +70,19 @@ def main():
                                                 type=str,metavar='<tsv>', required=True)
 
 
+    normal_normal_collector_parser.add_argument('-n','--normal_bam_list',
+                        help='The name of the normal bam list to be created.',
+                        type=str,
+                        metavar='<normal_bam_list>',
+                        required=True)
+
+    normal_normal_collector_parser.add_argument('-t','--tumor_bam_list',
+                        help='The name of the tumor bam list to be created.',
+                        type=str ,
+                        metavar='<tumor_bam_list>',
+                        required=True)
+
+
 
 
 
@@ -215,7 +228,7 @@ def main():
         NormalNormalUploader(args.tsv)
 
     if (args.subparser == "normal_normal_collector"):
-        NormalNormalAggregator(args.query, args.output_file)
+        NormalNormalAggregator(args.normal_bam_list,args.tumor_bam_list,args.query, args.output_file)
 
     if (args.subparser == "assessment_file_create"):
         create_assessment_file(args.tsv, args.results, args.output_file, args.evaluation_rules)
