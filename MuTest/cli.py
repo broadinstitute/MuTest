@@ -223,7 +223,7 @@ def main():
     if (args.subparser == "variant_extract"):
         variant_extract(args.query, args.output_filename, args.max_number_of_records)
 
-     if (args.subparser == "remove_queue_merge_mistakes"):
+    if (args.subparser == "remove_queue_merge_mistakes"):
          remove_mistakes(args.directory)
 
 if __name__ == '__main__':
