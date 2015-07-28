@@ -5,6 +5,8 @@ def is_indel(record):
     ref = record['ref']
     alt = record['alt']
 
+    if (ref == '-') | (alt == '-'): return True
+
     if 1 < len(ref) == 1 < len(alt):
         raise Exception("IsIndel: ref={ref} alt={alt}".format(ref=ref,alt=alt))
 
