@@ -42,9 +42,11 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     println("Collecting bams")
     val cmd = normalNormalCollector(query, normalFilename, tumorFilename, metadataFilename)
 
+    println(cmd)
+
     cmd !
 
-    println("Collection complete.")
+    println("Aggregation complete.")
 
     val m2_out_files = new ListBuffer[String]
 

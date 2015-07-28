@@ -111,7 +111,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     this.dbsnp = new File("/humgen/gsa-hpprojects/GATK/bundle/current/b37/dbsnp_138.b37.vcf")
     this.normal_panel = List(new File("/crsp/fh-data/reference/hg19/capture-pipeline/v1.0/refseq_exome_10bp_hg19_300_1kg_normal_panel.vcf"))
     this.intervalsString = List(intervalFile.toString)
-    #this.interval_padding = Some(50)
+    //this.interval_padding = Some(50)
     this.memoryLimit = Some(2)
     this.input_file = List(new TaggedFile(normalFile, "normal"), new TaggedFile(tumorFile, "tumor"))
     this.out = new File(project_path, swapExt(tumorFile.toString,"bam", "vcf").toString() )
