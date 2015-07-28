@@ -54,13 +54,13 @@ def main():
             selection_copy(source_file_name=filename,
                                destination_file_name=tp_destination,
                                column='Status',
-                               values=['TP'])
+                               values=['TP','UNKNOWN'])
 
 
             selection_copy(source_file_name=filename,
                                destination_file_name=fp_destination,
                                column='Status',
-                               values=['FP','UNKNOWN'])
+                               values=['FP'])
 
 if __name__ == '__main__':
     main()
