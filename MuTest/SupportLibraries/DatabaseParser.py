@@ -102,7 +102,7 @@ class DatabaseParser:
 
                     #filters for dream challenge
 
-                    if record.INFO.get('SVTYPE') in ('IGN', 'MSK','BND'): continue
+                    if record.INFO.has_key('SVTYPE'): continue
 
 
                     core_data = merge_dicts(core_data,record.INFO)
