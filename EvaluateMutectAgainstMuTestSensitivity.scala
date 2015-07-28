@@ -44,9 +44,9 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     println(cmd)
 
-    cmd !
+    Runtime.getRuntime().exec(cmd)
 
-    println("Aggregation complete.")
+    println("Collection complete.")
 
     val m2_out_files = new ListBuffer[String]
 
