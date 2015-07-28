@@ -114,19 +114,19 @@ def VariantAssessor(query,tsv,output_file):
         filename[feature] = feature+".false_negatives.tsv"
         fp_fn[feature] = csv.DictWriter(open(filename[feature],'w'),
                                         delimiter='\t',
-                                        fieldnames=['project','dataset','sample','chromosome','start','ref','alt'])
+                                        fieldnames=['project','dataset','sample','chromosome','start','ref','alt','variant_type'])
 
         filename[feature] = feature+".false_positives.tsv"
         fp_fp[feature] = csv.DictWriter(open(filename[feature],'w'),
                                         delimiter='\t',
-                                        fieldnames=['project','dataset','sample','chromosome','start','ref','alt','ECNT','HCNT','NLOD','TLOD'])
+                                        fieldnames=['project','dataset','sample','chromosome','start','ref','alt','ECNT','HCNT','NLOD','TLOD','variant_type'])
 
 
 
         filename[feature] = feature+".true_positives.tsv"
         fp_tp[feature] = csv.DictWriter(open(filename[feature],'w'),
                                         delimiter='\t',
-                                        fieldnames=['project','dataset','sample','chromosome','start','ref','alt','ECNT','HCNT','NLOD','TLOD'])
+                                        fieldnames=['project','dataset','sample','chromosome','start','ref','alt','ECNT','HCNT','NLOD','TLOD','variant_type'])
 
 
         fp_fn[feature].writeheader()
@@ -229,7 +229,8 @@ def VariantAssessor(query,tsv,output_file):
                                          'ECNT':found_feature_data[sample_information][variant]['ECNT'],
                                          'HCNT':found_feature_data[sample_information][variant]['HCNT'],
                                          'NLOD':found_feature_data[sample_information][variant]['NLOD'],
-                                         'TLOD':found_feature_data[sample_information][variant]['TLOD']})
+                                         'TLOD':found_feature_data[sample_information][variant]['TLOD'],
+                                         'variant_type':feature})
 
             for variant in false_positives:
 
@@ -243,7 +244,8 @@ def VariantAssessor(query,tsv,output_file):
                                          'ECNT':found_feature_data[sample_information][variant]['ECNT'],
                                          'HCNT':found_feature_data[sample_information][variant]['HCNT'],
                                          'NLOD':found_feature_data[sample_information][variant]['NLOD'],
-                                         'TLOD':found_feature_data[sample_information][variant]['TLOD']})
+                                         'TLOD':found_feature_data[sample_information][variant]['TLOD'],
+                                         'variant_type':feature})
 
             for variant in false_negatives:
 
@@ -253,7 +255,8 @@ def VariantAssessor(query,tsv,output_file):
                                           'chromosome':variant[0],
                                           'start':variant[1],
                                           'ref':variant[2],
-                                          'alt':variant[3]})
+                                          'alt':variant[3],
+                                          'variant_type':feature})
 
 
 
