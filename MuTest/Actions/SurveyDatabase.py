@@ -26,11 +26,16 @@ def survey(filename):
                                                                  'sample',
                                                                  'evidence_type'],return_type=dict)
 
+        feature = None
 
         if is_snp(record):
             feature = 'snp'
         if is_indel(record):
             feature = 'indel'
+
+        if feature is None:
+            print record
+            continue
 
 
         if sample_information['evidence_type'] == 'TP':
