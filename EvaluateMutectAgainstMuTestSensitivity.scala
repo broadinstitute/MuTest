@@ -44,7 +44,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     println(cmd)
 
-    Runtime.getRuntime().exec(cmd)
+    cmd !
 
     println("Collection complete.")
 
