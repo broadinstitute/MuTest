@@ -61,7 +61,9 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
         val m2 = new mutect2_normal_normal(tumor_bams(sampleIndex), normal_bams(sampleIndex), scatter, mutect_out_dir.toString)
 
-        m2_out_files += swapExt(tumor_bams(sampleIndex).toString,"bam", "")+swapExt(normal_bams(sampleIndex).toString,"bam", "")+"vcf"
+        m2.out = swapExt(tumor_bams(sampleIndex).toString,"bam", "")+swapExt(normal_bams(sampleIndex).toString,"bam", "")+"vcf"
+
+        m2_out_files += m2.out
 
         add(m2)
     }

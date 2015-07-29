@@ -67,7 +67,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
         m2.interval_padding=Some(padding)
 
-        m2_out_files += m2.out.getAbsolutePath()
+        m2_out_files += m2.out
 
         add(m2)
     }
