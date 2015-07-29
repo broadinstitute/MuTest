@@ -4,7 +4,7 @@ import pandas as pd
 def create_assessment_file(tsv, results, output_file, evaluation_rules):
     metadata = pd.read_csv(tsv,'\t')
 
-    if evaluation_rules == "NN":
+    if evaluation_rules != "NN":
         evaluation_rules  = evaluation_rules.split(',')
         evaluation_rules  = map(lambda x: tuple(x.split(':')),evaluation_rules)
         evaluation_rules = dict(evaluation_rules)
