@@ -165,6 +165,13 @@ class DatabaseParser:
 
             if dataset_type == "MAF":
 
+                if record.has_key('contig'): record['Chromosome'] = record.pop('contig')
+                if record.has_key('position'): record['Start_position'] = record.pop('position')
+                if record.has_key('ref_allele'): record['Reference_Allele'] = record.pop('ref_allele')
+                if record.has_key('alt_allele'): record['Tumor_Seq_Allele2'] = record.pop('alt_allele')
+                if not record.has_key('End_position'): record['End_position'] = record['Start_position']+ len(record['Reference_Allele'])-1
+
+
                 chrom = record['Chromosome']
                 start = record['Start_position']
                 end = record['End_position']

@@ -47,11 +47,11 @@ def VariantUploader(tsv,submit_to_filesystem=False):
 
         mongo_submission = merge_dicts(variant_dict, additional_data_dict)
 
+        # if the user is uploading a mutect1 maf ... rename fields
         if mongo_submission.has_key('chromosome'): mongo_submission['chromosome'] = mongo_submission.pop('contig')
         if mongo_submission.has_key('start'): mongo_submission['chromosome'] = mongo_submission.pop('position')
         if mongo_submission.has_key('ref'): mongo_submission['chromosome'] = mongo_submission.pop('ref_allele')
         if mongo_submission.has_key('alt'): mongo_submission['chromosome'] = mongo_submission.pop('alt_allele')
-
 
         unique_data = get_entries_from_dict(mongo_submission, keys=['chromosome',
                                                                     'start',
