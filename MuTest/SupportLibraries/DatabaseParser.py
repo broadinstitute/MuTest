@@ -178,6 +178,9 @@ class DatabaseParser:
                 ref   = record['Reference_Allele']
                 alt   = record['Tumor_Seq_Allele2']
 
+                if record.has_key('judgement'):
+                    if record['judgement'] != 'KEEP': continue
+
                 core_data = {"chromosome":chrom,"start":start,"end":end,"ref":ref,"alt":alt}
 
                 for key in record:
