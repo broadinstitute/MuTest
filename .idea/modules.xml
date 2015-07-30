@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/MuTest.iml" filepath="$PROJECT_DIR$/.idea/MuTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/SomaticDB.iml" filepath="$PROJECT_DIR$/.idea/SomaticDB.iml" />
     </modules>
   </component>

@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='MuTest',
 
-    version='alpha',
+    version='0.1',
 
     entry_points={
         'console_scripts': [
