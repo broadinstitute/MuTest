@@ -1,41 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MuTest/Scripts/MuTest2bed.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib/SomaticDB/Actions/AssessmentFileCreator.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib/SomaticDB/Actions/BamAggregator.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib/SomaticDB/Actions/VariantAssessor.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib/SomaticDB/Actions/VariantExtract.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib/SomaticDB/Actions/VariantUploader.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib/SomaticDB/Actions/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib/SomaticDB/BasicUtilities/DictUtilities.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib/SomaticDB/BasicUtilities/FileUtilities.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib/SomaticDB/BasicUtilities/IGVUtilities.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib/SomaticDB/BasicUtilities/MongoUtilities.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib/SomaticDB/BasicUtilities/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib/SomaticDB/PreprocessingParsers/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib/SomaticDB/PreprocessingParsers/parse_hcc.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib/SomaticDB/PreprocessingParsers/parse_mara.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib/SomaticDB/Scripts/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib/SomaticDB/Scripts/clean_database.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib/SomaticDB/SupportLibraries/ConfusionMatrix.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib/SomaticDB/SupportLibraries/ConfusionMatrixManager.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib/SomaticDB/SupportLibraries/DataGatherer.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib/SomaticDB/SupportLibraries/DatabaseParser.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib/SomaticDB/SupportLibraries/SomaticFileSystem.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib/SomaticDB/SupportLibraries/SubmissionFile.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib/SomaticDB/SupportLibraries/Variant.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib/SomaticDB/SupportLibraries/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib/SomaticDB/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib/SomaticDB/cli.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/somaticDB-alpha-py2.7.egg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/somaticDB-alpha.tar.gz" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup.py" afterPath="$PROJECT_DIR$/setup.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="" />
     <ignored path="SomaticDB.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
