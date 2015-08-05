@@ -48,8 +48,8 @@
       <file leaf-file-name="EvaluateMutectAgainstMuTest.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/EvaluateMutectAgainstMuTest.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47479483" vertical-offset="1230" max-vertical-offset="3270">
-              <caret line="108" column="99" selection-start-line="108" selection-start-column="99" selection-end-line="108" selection-end-column="99" />
+            <state vertical-scroll-proportion="0.14067996" vertical-offset="1230" max-vertical-offset="3270">
+              <caret line="89" column="124" selection-start-line="89" selection-start-column="124" selection-end-line="89" selection-end-column="124" />
               <folding />
             </state>
           </provider>
@@ -965,8 +965,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/EvaluateMutectAgainstMuTest.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47479483" vertical-offset="1230" max-vertical-offset="3270">
-          <caret line="108" column="99" selection-start-line="108" selection-start-column="99" selection-end-line="108" selection-end-column="99" />
+        <state vertical-scroll-proportion="0.14067996" vertical-offset="1230" max-vertical-offset="3270">
+          <caret line="89" column="124" selection-start-line="89" selection-start-column="124" selection-end-line="89" selection-end-column="124" />
           <folding />
         </state>
       </provider>

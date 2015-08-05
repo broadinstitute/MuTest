@@ -87,7 +87,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
 
 
-  case class mutect2(tumor: File, normal: File, interval: File, scatter: Int, padding: Int, project_path: String) extends MuTect {
+  case class mutect2(tumor: File, normal: File, interval: File, scatter: Int, padding: Int, project_path: String) extends M2 {
 
     /*
     def swapExt(orig: String, ext: String) = (orig.split('.') match {
