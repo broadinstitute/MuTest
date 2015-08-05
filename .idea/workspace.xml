@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EvaluateMutectAgainstMuTest.scala" afterPath="$PROJECT_DIR$/EvaluateMutectAgainstMuTest.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EvaluateMutect2AgainstMuTestExome.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SomaticDB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,11 +46,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EvaluateMutectAgainstMuTest.scala" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="EvaluateMutectAgainstMuTest.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/EvaluateMutectAgainstMuTest.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.14067996" vertical-offset="1230" max-vertical-offset="3270">
+            <state vertical-scroll-proportion="-3.8888888" vertical-offset="1230" max-vertical-offset="3270">
               <caret line="89" column="128" selection-start-line="89" selection-start-column="128" selection-end-line="89" selection-end-column="128" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EvaluateMutect2AgainstMuTestExome.scala" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/EvaluateMutect2AgainstMuTestExome.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.6529895" vertical-offset="1425" max-vertical-offset="3270">
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -89,16 +103,6 @@
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="parse_hcc.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MuTest/PreprocessingParsers/parse_hcc.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="1035">
-              <caret line="45" column="43" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="83" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -149,7 +153,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/somaticDB/DSDE_Database.py" />
         <option value="$PROJECT_DIR$/somaticDB/DSDEDatabase.py" />
         <option value="$PROJECT_DIR$/somaticDB/parse_database_upload.py" />
         <option value="$PROJECT_DIR$/somaticDB/ConfusionMatrix.py" />
@@ -200,6 +203,7 @@
         <option value="$PROJECT_DIR$/SomaticDB/SupportLibraries/DatabaseParser.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/EvaluateMutectAgainstMuTest.scala" />
+        <option value="$PROJECT_DIR$/EvaluateMutect2AgainstMuTestExome.scala" />
       </list>
     </option>
   </component>
@@ -584,13 +588,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/MuTest/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="105">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MuTest/Actions/VariantUploader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="31" max-vertical-offset="810">
@@ -965,8 +962,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/EvaluateMutectAgainstMuTest.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14067996" vertical-offset="1230" max-vertical-offset="3270">
+        <state vertical-scroll-proportion="-3.8888888" vertical-offset="1230" max-vertical-offset="3270">
           <caret line="89" column="128" selection-start-line="89" selection-start-column="128" selection-end-line="89" selection-end-column="128" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluateMutect2AgainstMuTestExome.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.6529895" vertical-offset="1425" max-vertical-offset="3270">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
