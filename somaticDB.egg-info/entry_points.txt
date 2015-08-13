@@ -1,6 +1,0 @@
-[console_scripts]
-clean_database = SomaticDB.Scripts.clean_database:main
-parse_hcc = SomaticDB.PreprocessingParsers.parse_hcc:main
-parse_mara = SomaticDB.PreprocessingParsers.parse_mara:main
-somaticdb = SomaticDB.cli:main
-

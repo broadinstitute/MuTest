@@ -5,6 +5,12 @@ setup(
 
     version='0.1',
 
+    author = "Kareem Carr ",
+
+    author_email= "kcarr@broadinstitute.org",
+
+    url = "https://github.com/broadinstitute/MuTest",
+
     entry_points={
         'console_scripts': [
         'mutest  = MuTest.cli:main',
@@ -23,7 +29,7 @@ setup(
 
     license='TODO: Determine license',
 
-    long_description='A somatic database in mongo.',
+    long_description='A package for communicating with the DSDE somatic mutation mongo database.',
 
     classifiers=[
         'Development Status :: 5 - Production/Stable',
