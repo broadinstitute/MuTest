@@ -7,10 +7,6 @@ MuTest
 INTRODUCTION
 ============
 
-[WHAT THE SOFTWARE IS. SHORT DESCRIPTION OF WHAT IS SPECIAL ABOUT THIS PARTICULAR DATABASE]
-[OVERVIEW OF BASIC CONCEPTS]
-[NAME SECTION YOU NEED TO GET STARTED IMMEDIATELY]
-
 Mutest is a python package for testing Mutect. It enables a centralized way of benchmarking the perfomance of Mutect (both M1 and M2).
 
 The curated database contains projects. Projects are collections of datasets and datasets are collections of samples. Each sample is a collection of mutation calls.  Projects are meant to be datasets that have all been processed in a similar way to produce truth sets. Within projects, there can be different datasets which ideally have some biological reason for being grouped together. For instance, datasets might include all LUAD or GBM samples.
@@ -19,8 +15,6 @@ If you are new to MuTest and wish to get started immediately with using it for a
 
 PREREQUISITES
 =============
-
-[OUTLINE OF PYTHON PACKAGES NEEDED]
 
 The package requires python 2.7.x to be installed and can be run locally on a labtop.
 Broad users must use the following dotkit::
@@ -62,8 +56,7 @@ All users of MuTest can submit files to MuTect database for their own use and th
 
 mutest normal_normal_uploader -t <tsv>
 
-
- The second type of submission are curated files containing true positive datasets composed of mafs or vcfs. The command is::
+The second type of submission are curated files containing true positive datasets composed of mafs or vcfs. The command is::
 
 mutest variant_upload -t <tsv>
 
