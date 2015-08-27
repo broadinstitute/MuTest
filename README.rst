@@ -21,7 +21,7 @@ Broad users must use the following dotkit::
 
     use .python-2.7.6-sqlite3-rtrees-vanilla
 
-The computer on which this code is run must have access to _Broad_ _internal_, as this
+The computer on which this code is run must have access to *Broad* *internal*, as this
 is where the ip for the database is accessible and jobs must be submitted from a host that can submit SGE jobs.
 
 Please install the python packages *numpy*, *pyvcf*, *pandas* and *pymongo* locally using::
