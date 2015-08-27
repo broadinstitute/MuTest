@@ -21,30 +21,30 @@ Broad users must use the following dotkit::
 
     use .python-2.7.6-sqlite3-rtrees-vanilla
 
-The computer on which this code is run must have access to _Broad internal_, as this
+The computer on which this code is run must have access to _Broad_ _internal_, as this
 is where the ip for the database is accessible and jobs must be submitted from a host that can submit SGE jobs.
 
-Please install the python packages _numpy_ , _pyvcf_ , _pandas_ and _pymongo_ locally using::
-	pip install numpy --user
-	pip install pandas --user
-	pip install pymongo --user
-	pip install pyvcf --user
+Please install the python packages *numpy* , *pyvcf* , *pandas* and *pymongo* locally using::
+    pip install numpy --user
+    pip install pandas --user
+    pip install pymongo --user
+    pip install pyvcf --user
 
 The raw data for the database is stored at _/dsde/working/somaticDB/master_.
 
 INSTALLATION
 ============
 
-Installation of the Mutest is very simple, just run the _installation script_::
+Installation of the Mutest is very simple, just run the _installation_ _script_::
 
 ./install.sh
 
 The script also functions as a reinstallation script. If any modifications or updates to Mutest occur, simply run the installation script to install the latest version.
 
-After installation, the command _somaticdb_ will now be available. To get help, you can
-type::
+After installation, the command _somaticdb_ will now be available. To get help, you can type::
 
 mutest -h
+
 
 RUNNING MUTEST
 ==============
