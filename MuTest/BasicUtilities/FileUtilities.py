@@ -1,6 +1,5 @@
 import os
 import sys
-from git import Repo
 
 def is_dir_empty(directory):
     return len(os.listdir(directory)) == 0
@@ -35,10 +34,4 @@ def spawn_daemon():
     return True # spawned process
 
 
-def get_git_branch(directory):
-    try:
-        repo = Repo(directory)
-        branch = repo.active_branch
-        return str(branch.name)
-    except:
-        return None
+
