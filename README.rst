@@ -51,11 +51,11 @@ SUBMITTING FILES TO THE DATABASE
 
 All users of MuTest can submit files to MuTect database for their own use and the benefit of other users. There are two types of submissions, normal-normal submissions, lists of normal bams which represent a sample that has been resequenced multiple times. These are useful for computing specificity. The command for doing this is as follows::
 
-mutest normal_normal_uploader -t <tsv>
+    mutest normal_normal_uploader -t <tsv>
 
 The second type of submission are curated files containing true positive datasets composed of mafs or vcfs. The command is::
 
-mutest variant_upload -t <tsv>
+    mutest variant_upload -t <tsv>
 
 The format for submission is a tsv with the following fields: tumor_bam, normal_bam, data_filename, project, dataset, sample, evidence_type and author.
 
