@@ -107,7 +107,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     this.reference_sequence = new File("/humgen/1kg/reference/human_g1k_v37_decoy.fasta")
     this.cosmic :+= new File("/dsde/working/kcarr/b37_cosmic_v54_120711.vcf")
     this.dbsnp = List(new File("/humgen/gsa-hpprojects/GATK/bundle/current/b37/dbsnp_138.b37.vcf"))
-    this.normal_panel = List(new File("/crsp/fh-data/reference/hg19/capture-pipeline/v1.0/refseq_exome_10bp_hg19_300_1kg_normal_panel.vcf"))
+    this.normal_panel = List(new File("/dsde/working/mutect/panel_of_normals/panel_of_normals_m2_ice/m2_406_ice_normals_ice+agilent_10bp.vcf"))
     this.intervalsString = List(intervalFile.toString)
     this.interval_padding = Some(padding)
     this.memoryLimit = Some(2)
