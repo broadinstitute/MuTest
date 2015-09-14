@@ -80,7 +80,7 @@ If one wants to measure specificity, this command is used::
 
 One also needs to provide the evaluation rules. This is a feature that will be removed, but is currently required.  For each project list the type of evaluation needed. It should either be CM for confusion matrix or NN for normal-normal called.  The evaluation rule is specified in this way "tcga:CM, hcc:NN".
 
-
+The output of the assessment command is a tab-separated file with the following headers: project, dataset, sample, false_positives, true_positives, false_negatives, tpr, fpr, precision, evidence_type and dream_accuracy.
 
 ASSESSMENT BY HAND
 ~~~~~~~~~~~~~~~~~~
