@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.rst" afterPath="$PROJECT_DIR$/README.rst" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SomaticDB.iws" />
@@ -26,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="README.rst" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="README.rst" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1354" max-vertical-offset="2280">
-              <caret line="122" column="42" selection-start-line="122" selection-start-column="42" selection-end-line="122" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.38444924" vertical-offset="994" max-vertical-offset="2295">
+              <caret line="78" column="104" selection-start-line="78" selection-start-column="104" selection-end-line="78" selection-end-column="104" />
               <folding />
             </state>
           </provider>
@@ -62,16 +62,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="M2specificity.scala" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="M2specificity.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/M2specificity.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5506118" vertical-offset="1110" max-vertical-offset="3090">
+            <state vertical-scroll-proportion="-18.333334" vertical-offset="1110" max-vertical-offset="3090">
               <caret line="107" column="140" selection-start-line="107" selection-start-column="140" selection-end-line="107" selection-end-column="140" />
               <folding />
             </state>
           </provider>
           <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
             <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="setup.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/setup.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
+              <caret line="31" column="96" selection-start-line="31" selection-start-column="96" selection-end-line="31" selection-end-column="96" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -136,10 +146,10 @@
         <option value="$PROJECT_DIR$/MuTest/Actions/VariantUploader.py" />
         <option value="$PROJECT_DIR$/MuTest/Actions/AssessmentFileCreator.py" />
         <option value="$PROJECT_DIR$/MuTest/BasicUtilities/FileUtilities.py" />
-        <option value="$PROJECT_DIR$/README.rst" />
         <option value="$PROJECT_DIR$/M1Sensitivity.scala" />
         <option value="$PROJECT_DIR$/M2Sensitivity.scala" />
         <option value="$PROJECT_DIR$/M2specificity.scala" />
+        <option value="$PROJECT_DIR$/README.rst" />
       </list>
     </option>
   </component>
@@ -453,7 +463,11 @@
       <created>1442253758022</created>
       <updated>1442253758022</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Merge branch 'master' of github.com:broadinstitute/SomaticDB&#10;&#10;# Conflicts:&#10;#&#9;SomaticDB/Legacy/evaluator.py&#10;#&#9;SomaticDB/ParsingScripts/parse_mara.py&#10;">
+      <created>1442254066764</created>
+      <updated>1442254066764</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -809,14 +823,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.50215983" vertical-offset="0" max-vertical-offset="926">
-          <caret line="31" column="96" selection-start-line="31" selection-start-column="96" selection-end-line="31" selection-end-column="96" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MANIFEST">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="903">
@@ -845,14 +851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.rst">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1354" max-vertical-offset="2280">
-          <caret line="122" column="42" selection-start-line="122" selection-start-column="42" selection-end-line="122" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/M1Sensitivity.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.4905663" vertical-offset="1344" max-vertical-offset="3240">
@@ -877,13 +875,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/M2specificity.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5506118" vertical-offset="1110" max-vertical-offset="3090">
+        <state vertical-scroll-proportion="-18.333334" vertical-offset="1110" max-vertical-offset="3090">
           <caret line="107" column="140" selection-start-line="107" selection-start-column="140" selection-end-line="107" selection-end-column="140" />
           <folding />
         </state>
       </provider>
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
+          <caret line="31" column="96" selection-start-line="31" selection-start-column="96" selection-end-line="31" selection-end-column="96" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.rst">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38444924" vertical-offset="994" max-vertical-offset="2295">
+          <caret line="78" column="104" selection-start-line="78" selection-start-column="104" selection-end-line="78" selection-end-column="104" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
