@@ -1,4 +1,4 @@
-import java.io.{PrintWriter, File}
+import java.io.{File, PrintWriter}
 import scala.collection.mutable.ListBuffer
 import org.broadinstitute.gatk.queue.QScript
 import org.broadinstitute.gatk.queue.extensions.gatk._
@@ -61,7 +61,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
         val m2 = new mutect2_normal_normal(tumor_bams(sampleIndex), normal_bams(sampleIndex), scatter, mutect_out_dir.toString)
 
-        m2.out = swapExt(tumor_bams(sampleIndex).toString,"bam", "")+swapExt(normal_bams(sampleIndex).toString,"bam", "")+"vcf"
+        m2.out = new File(project_dir,swapExt(tumor_bams(sampleIndex).toString,"bam", "")+swapExt(normal_bams(sampleIndex).toString,"bam", "")+"vcf")
 
         m2_out_files += m2.out
 
@@ -79,7 +79,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     println(assessmentFilename.toString)
 
-    add(new NormalNormalVariantAssessment(m2_out_files.map(x => new File(x)) ,submissionsFilename, query,assessmentFilename))
+    add(new NormalNormalVariantAssessment(m2_out_files.map(x => new File(x)) ,submissionsFilename, query,assessmentFilename,project_dir))
 
     }
 
@@ -115,6 +115,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     //this.allowNonUniqueKmersInRef = true
     //this.minDanglingBranchLength = 2
   }
+
 
 
 
@@ -177,17 +178,17 @@ mutest variant_assess -t <tsv>
                       -o <output>
 */
   case class NormalNormalVariantAssessment(@Input resultsFiles: Seq[File],
-                               @Input tsv: File,
-                               @Argument query: String,
-                               @Output output: File) extends CommandLineFunction {
+                                           @Input tsv: File,
+                                           @Argument query: String,
+                                           @Argument folder: File,
+                                           @Output output: File) extends CommandLineFunction {
 
     override def commandLine: String = {
-      "mutest variant_assess -t %s -q \"%s\" -o %s".format(tsv, query, output)
+      "mutest variant_assess -t %s -q \"%s\" -o %s -d %s".format(tsv, query, output,folder)
     }
   }
 
 }
-
 
 
 

@@ -1,4 +1,4 @@
-import java.io.{PrintWriter, File}
+import java.io.{File, PrintWriter}
 import scala.collection.mutable.ListBuffer
 import org.broadinstitute.gatk.queue.QScript
 import org.broadinstitute.gatk.queue.extensions.gatk._
@@ -81,7 +81,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     println(assessmentFilename.toString)
 
-    add(new VariantAssessment(m2_out_files.map(x => new File(x)) ,submissionsFilename, query,assessmentFilename))
+    add(new VariantAssessment(m2_out_files.map(x => new File(x)) ,submissionsFilename, query,assessmentFilename,project_dir))
 
     }
 
@@ -189,10 +189,11 @@ mutest variant_assess -t <tsv>
   case class VariantAssessment(@Input resultsFiles: Seq[File],
                                @Input tsv: File,
                                @Argument query: String,
+                               @Argument folder: File,
                                @Output output: File) extends CommandLineFunction {
 
     override def commandLine: String = {
-      "mutest variant_assess -t %s -q \"%s\" -o %s".format(tsv, query, output)
+      "mutest variant_assess -t %s -q \"%s\" -o %s -d %s".format(tsv, query, output,folder)
     }
   }
 

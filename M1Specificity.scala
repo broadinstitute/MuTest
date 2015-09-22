@@ -1,4 +1,4 @@
-import java.io.{PrintWriter, File}
+import java.io.{File, PrintWriter}
 import scala.collection.mutable.ListBuffer
 import org.broadinstitute.gatk.queue.QScript
 import org.broadinstitute.gatk.queue.extensions.gatk._
@@ -19,14 +19,9 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
   @Argument(shortName = "query", required = true, doc = "list of all normal files")
   var query: String = "all"
 
-  @Argument(shortName = "evaluation_rules", required = true, doc = "evalution rules on a project level")
-  var evaluation_rules: String = "tcga:ROCL,hcc:CM"
-
   @Argument(shortName = "sc", required = false, doc = "base scatter count")
   var scatter = 50
 
-  @Argument(shortName = "pd", required = false, doc = "padding for intervals")
-  var padding = 50
 
   def script() {
 
@@ -37,25 +32,26 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     val tumorFilename: File = new File(project_dir,"%s_tumor.list".format(project_name))
     val normalFilename: File = new File(project_dir,"%s_normal.list".format(project_name))
-    val intervalsFilename: File = new File(project_dir,"%s_intervals.list".format(project_name))
+
     val metadataFilename: File = new File(project_dir,"%s_metadata.tsv".format(project_name))
-    val folder : File = new File(project_dir,project_name+"_intervals")
+
     val mutectResultsFilename: File = new File(project_dir,"%s_mutect_results.tsv".format(project_name))
 
     (new File(project_dir)).mkdir()
 
-    println("Aggretating bams")
-    val cmd = AggregateBams(query, normalFilename, tumorFilename, intervalsFilename, folder, metadataFilename)
+    println("Collecting bams")
+    val cmd = normalNormalCollector(query, normalFilename, tumorFilename, metadataFilename)
+
+    println(cmd)
 
     cmd !
 
-    println("Aggregation complete.")
+    println("Collection complete.")
 
     val m2_out_files = new ListBuffer[String]
 
     val tumor_bams = QScriptUtils.createSeqFromFile(tumorFilename)
     val normal_bams = QScriptUtils.createSeqFromFile(normalFilename)
-    val intervals_files = QScriptUtils.createSeqFromFile(intervalsFilename)
 
     for (sampleIndex <- 0 until normal_bams.size) {
 
@@ -63,7 +59,9 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
         (new File(mutect_out_dir)).mkdir()
 
-        val m2 = new mutect2(tumor_bams(sampleIndex), normal_bams(sampleIndex), intervals_files(sampleIndex), scatter, padding, mutect_out_dir.toString)
+        val m2 = new mutect2_normal_normal(tumor_bams(sampleIndex), normal_bams(sampleIndex), scatter, mutect_out_dir.toString)
+
+        m2.out = new File(project_dir,swapExt(tumor_bams(sampleIndex).toString,"bam", "")+swapExt(normal_bams(sampleIndex).toString,"bam", "")+"vcf")
 
         m2_out_files += m2.out
 
@@ -75,19 +73,22 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     val submissionsFilename: File = new File(project_dir,"%s_submission.tsv".format(project_name))
 
-    add(new CreateAssessment(metadataFilename, mutectResultsFilename, submissionsFilename, evaluation_rules))
+    add(new normalNormalCreateAssessment(metadataFilename, mutectResultsFilename, submissionsFilename))
 
     val assessmentFilename: File = new File(project_dir,"%s_assessment.tsv".format(project_name))
 
     println(assessmentFilename.toString)
 
-    add(new VariantAssessment(m2_out_files.map(x => new File(x)) ,submissionsFilename, query,assessmentFilename,project_dir ))
+    add(new NormalNormalVariantAssessment(m2_out_files.map(x => new File(x)) ,submissionsFilename, query,assessmentFilename,project_dir))
 
     }
 
 
 
-  case class mutect2(tumor: File, normal: File, interval: File, scatter: Int, padding: Int, project_path: String) extends MuTect {
+
+
+
+  case class mutect2_normal_normal(tumor: File, normal: File, scatter: Int, project_path: String)  extends MuTect {
 
     /*
     def swapExt(orig: String, ext: String) = (orig.split('.') match {
@@ -101,24 +102,19 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     @Input(doc = "")
     val normalFile: File = normal
 
-    @Input(doc = "")
-    val intervalFile: File = interval
-
-    this.reference_sequence = new File("/humgen/1kg/reference/human_g1k_v37_decoy.fasta")
+    this.reference_sequence = new File("/seq/references/Homo_sapiens_assembly19/v1/Homo_sapiens_assembly19.fasta")
     this.cosmic :+= new File("/dsde/working/kcarr/b37_cosmic_v54_120711.vcf")
     this.dbsnp = List(new File("/humgen/gsa-hpprojects/GATK/bundle/current/b37/dbsnp_138.b37.vcf"))
     this.normal_panel = List(new File("/dsde/working/mutect/panel_of_normals/panel_of_normals_m2_ice/m2_406_ice_normals_ice+agilent_10bp.vcf"))
-    this.intervalsString = List(intervalFile.toString)
-    this.interval_padding = Some(padding)
     this.memoryLimit = Some(2)
     this.input_file = List(new TaggedFile(normalFile, "normal"), new TaggedFile(tumorFile, "tumor"))
     this.out = new File(project_path, swapExt(tumorFile.toString,"bam", "vcf").toString() )
     this.scatterCount = scatter
+    this.intervalsString :+= new File("/dsde/working/mutect/crsp_nn/whole_exome_illumina_coding_v1.Homo_sapiens_assembly19.targets.no_empty.interval_list")
 
     //this.allowNonUniqueKmersInRef = true
     //this.minDanglingBranchLength = 2
   }
-
 
 
 
@@ -141,22 +137,18 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
 
   /*
-mutest bam_aggregate [-h] -q <query>
-                             -n <normal_bam_list>
-                             -t <tumor_bam_list>
-                             -i <interval_list>
-                             -f <folder>
-                             -m <metadata>
+       mutest normal_normal_collector -q "{'project':'CRSP'}"
+                                      -o test.tsv
+                                      -n normal.list
+                                      -t tumor.list
 */
- def AggregateBams(query: String,
+ def normalNormalCollector(query: String,
                    normal_bam_list: File,
                    tumor_bam_list: File,
-                   interval_list: File,
-                   folder: File,
-                   metadata: String) : String = {
+                   tsv: String) : String = {
 
 
-   val cmd: String = "mutest bam_aggregate -q %s -n %s -t %s -i %s -f %s -m %s".format(query, normal_bam_list, tumor_bam_list, interval_list, folder, metadata)
+   val cmd: String = "mutest normal_normal_collector -q %s -n %s -t %s -o %s".format(query, normal_bam_list, tumor_bam_list, tsv)
 
     return(cmd)
   }
@@ -169,14 +161,13 @@ mutest assessment_file_create -t <tsv>
                                  -o <output_file>
                                  -e <evaluation_rules>
 */
-  case class CreateAssessment(@Input tsv: File,
+  case class normalNormalCreateAssessment(@Input tsv: File,
                               @Input results: File,
-                              @Output output_file: File,
-                              @Argument rules: String) extends CommandLineFunction {
+                              @Output output_file: File) extends CommandLineFunction {
 
 
     override def commandLine: String = {
-      "mutest assessment_file_create -t %s -r %s -o %s -e %s".format(tsv, results, output_file, rules)
+      "mutest assessment_file_create -t %s -r %s -o %s -e NN".format(tsv, results, output_file)
     }
   }
 
@@ -186,11 +177,11 @@ mutest variant_assess -t <tsv>
                       -q <query>
                       -o <output>
 */
-  case class VariantAssessment(@Input resultsFiles: Seq[File],
-                               @Input tsv: File,
-                               @Argument query: String,
-                               @Argument folder: File,
-                               @Output output: File) extends CommandLineFunction {
+  case class NormalNormalVariantAssessment(@Input resultsFiles: Seq[File],
+                                           @Input tsv: File,
+                                           @Argument query: String,
+                                           @Argument folder: File,
+                                           @Output output: File) extends CommandLineFunction {
 
     override def commandLine: String = {
       "mutest variant_assess -t %s -q \"%s\" -o %s -d %s".format(tsv, query, output,folder)

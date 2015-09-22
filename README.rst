@@ -5,23 +5,23 @@ MuTest
 INTRODUCTION
 ============
 
-Mutest is a python package for testing Mutect. It enables a centralized way of benchmarking the perfomance of Mutect (both M1 and M2).
+*MuTest* is a python package for testing MuTect. It enables a centralized way of benchmarking the perfomance of Mutect (both M1 and M2).
 
-One of the most important components of MuTest is a curated database. The database contains projects. Projects are collections of datasets; and datasets are collections of samples. Each sample is  collection of mutation calls stored in a single maf or vcf file.  Projects are meant to be collections of datasets that have all been processed in a similar way to produce truth sets.  . Within projects, there can be different datasets which ideally have some biological reason for being grouped together. For instance, a dataset might include all LUAD samples.
+One of the most important components of *MuTest* is a curated database. The database contains projects. Projects are collections of datasets; and datasets are collections of samples. Each sample is  collection of mutation calls stored in a single maf or vcf file.  Projects are meant to be collections of datasets that have all been processed in a similar way to produce truth sets.  . Within projects, there can be different datasets which ideally have some biological reason for being grouped together. For instance, a dataset might include all LUAD samples.
 
-If you are new to MuTest and wish to get started immediately with using it for assessment, please look at the sections on the prerequisites and installation, and then proceed to the section on automated assessment.
+If you are new to *MuTest* and wish to get started immediately with using it for assessment, please look at the sections on the prerequisites and installation, and then proceed to the section on automated assessment.
 
-The raw data for the database is stored at /dsde/working/somaticDB/master.  As of the writing of this guide, the ip address of the mongo server that stores the results of MuTest is
+The raw data for the database is stored at /dsde/working/somaticDB/master.  As of the writing of this guide, the ip address of the mongo server that stores the results of *MuTest* is 104.197.21.136
 
 PREREQUISITES
 =============
 
-The MuTest package requires python 2.7.x to be installed and can be run locally on a labtop.
+The *MuTest* package requires python 2.7.x to be installed and can be run locally on a labtop.
 The following document is recommend for Broad users::
 
     use .python-2.7.6-sqlite3-rtrees-vanilla
 
-In order to connect to the database, the system on which MuTest is run must access to _Broad internal_, as this is where the ip for the database is accessible and jobs must be submitted from a host that can submit SGE jobs.
+In order to connect to the database, the system on which *MuTest* is run must access to _Broad internal_, as this is where the ip for the database is accessible and jobs must be submitted from a host that can submit SGE jobs.
 
 Please install the python packages *numpy* , *pyvcf* , *pandas* and *pymongo* locally using::
 
@@ -33,11 +33,11 @@ Please install the python packages *numpy* , *pyvcf* , *pandas* and *pymongo* lo
 INSTALLATION
 ============
 
-Installation of the Mutest is very simple, just run the _installation script_::
+Installation of the *MuTest* is very simple, just run the _installation script_::
 
     ./install.sh
 
-The script also functions as a reinstallation script. If any modifications or updates to Mutest occur, simply run the installation script to install the latest version.  There is a version of install which installs MuTest to the local version of python, install_local.sh. This can be used if it's not possible to access the system python installation.
+The script also functions as a reinstallation script. If any modifications or updates to *MuTest* occur, simply run the installation script to install the latest version.  There is a version of install which installs *MuTest* to the local version of python, install_local.sh. This can be used if it's not possible to access the system python installation.
 
 After installation, the command _mutest_ will now be available. To get help, you can type::
 
@@ -49,7 +49,7 @@ RUNNING MUTEST
 SUBMITTING FILES TO THE DATABASE
 --------------------------------
 
-All users of MuTest can submit files to MuTect database for their own use and the benefit of other users. There are two types of submissions, normal-normal submissions, lists of normal bams which represent a sample that has been resequenced multiple times. These are useful for computing specificity. The command for doing this is as follows::
+All users of *MuTest* can submit files to MuTect database for their own use and the benefit of other users. There are two types of submissions, normal-normal submissions, lists of normal bams which represent a sample that has been resequenced multiple times. These are useful for computing specificity. The command for doing this is as follows::
 
     mutest normal_normal_uploader -t <tsv>
 
@@ -72,11 +72,13 @@ The most common workflow is assessing mutect on a list of datasets. In order, to
 
 There are two assessments that can be performed. One can measure performance on known true positive results using the following command::
 
-    java -jar <Queue jar> -qsub -jobQueue gsa -S M2Sensitivity -project_name <project> -query <query> -evaluation_rules <evaluation rules> -sc <scatter number> -pd <padding> -run
+    java -jar <Queue jar> -qsub -jobQueue gsa -S M2Sensitivity.scala -project_name <project> -query <query> -evaluation_rules <evaluation rules> -sc <scatter number> -pd <padding> -run
 
 If one wants to measure specificity, this command is used::
 
     java -jar <Queue jar> -qsub -jobQueue gsa -S M2Specifity.scala -project_name <project> -query <query> -evaluation_rules <evaluation rules> -sc <scatter number> -pd <padding> -run
+
+Replace M2Specificity with M1Specifity and M2Sensitivity with M1Sensitivity to assess M1.
 
 One also needs to provide the evaluation rules. This is a feature that will be removed, but is currently required.  For each project list the type of evaluation needed. It should either be CM for confusion matrix or NN for normal-normal called.  The evaluation rule is specified in this way "tcga:CM, hcc:NN".
 
@@ -85,7 +87,7 @@ The output of the assessment command is a tab-separated file with the following 
 ASSESSMENT BY HAND
 ~~~~~~~~~~~~~~~~~~
 
-The scala script provides an automated way of doing the following: gathering bams lists, running mutest on those bam lists, incorporating the results into a submission file and assessing that submission file with MuTest.
+The scala script provides an automated way of doing the following: gathering bams lists, running mutest on those bam lists, incorporating the results into a submission file and assessing that submission file with *MuTest*.
 
 The first command does the collection step::
 
@@ -120,9 +122,40 @@ UTILITIES
 
 A few utilities make it easier to interact with the contents of the database. For instance, it is possible to look at the variants associated with a particular query::
 
-	mutest variant_extract -t <output file>
+	mutest variant_extract -t <output file> -q <query>
 
 Further, one can get a list of all projects currently in the database and the counts of indels and SNVs stored in the database using the following command::
 
 	mutest survey -o <survey output file>
 
+
+Additional Information
+----------------------
+
+
+ValueError: invalid literal for int() with base 10
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following error frequently occurs due a bug in the way output is  reassembled by queue::
+
+    ValueError: invalid literal for int() with base 10: 'GT:AD:AF:ALT_F1R2:ALT_F2R1:FOXOG:QSS:REF_F1R2:REF_F2R1'
+
+
+It typically means one of the output files is corrupted. In the *Scripts* directory. There is a script called *remove_queue_mistakes.py* that fixes this problem. It is run like this::
+
+    python remove_queue_mistakes.py output_directory
+
+The *output_directory* is the directory where the output files are stored. If any of the files get deleted, then it means that these files were probably corrupted. In that case, one you just need to run the scala script again and it will job avoid.  This is because the script removes the appropriate *.done*.
+
+
+Dream Challenge Evaluation in *MuTest*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The evaluation of the DREAM dataset differs in *MuTest* compared to the official DREAM challenge evalution script. The DREAM challenge uses two sets of SVs for making. Some of these masks are always turned on while others are turned of or off based on a *masked* flag. In particular, algorithmic false positives which fall in these masked regions are not included in the evaluation of the performance of the algorithm. *MuTest* doesn't do any masking.
+
+OUTPUT
+~~~~~~
+
+*MuTest* produces an output directory where several output files are stored. The name of the output folder is specified with the *project* option to the scala script.
+
+'project','dataset','sample' ,'false_positives','true_positives','false_negatives','tpr','fpr','precision','evidence_type','dream_accuracy','variant_type'

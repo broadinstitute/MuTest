@@ -144,6 +144,7 @@ def main():
     variant_assessor_parser.add_argument('-t','--tsv', help='The list of datasets to be assessed.',type=str,metavar='<tsv>', required=True)
     variant_assessor_parser.add_argument('-q','--query', help='The query for the dataset needed',type=str,metavar='<query>', required=True)
     variant_assessor_parser.add_argument('-o','--output_file', help='The name of the file to be outputted.',type=str,metavar='<tsv>', required=True)
+    variant_assessor_parser.add_argument('-d','--outdir', help='The name of the file to be outputted.',type=str,metavar='<tsv>', default="")
 
 
     variant_uploader_parser = subparsers.add_parser('variant_upload',
@@ -222,7 +223,7 @@ def main():
 
 
     if (args.subparser == "variant_assess"):
-        VariantAssessor(args.query,args.tsv,args.output_file)
+        VariantAssessor(args.query,args.tsv,args.output_file,outdir=args.outdir)
 
     if (args.subparser == "variant_upload"):
         VariantUploader(args.tsv,submit_to_filesystem=False)

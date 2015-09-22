@@ -34,4 +34,3 @@ def spawn_daemon():
     return True # spawned process
 
 
-

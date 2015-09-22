@@ -18,7 +18,7 @@ def pp_dict(x):
         print key+": "+str(x[key])
 
 
-def VariantAssessor(query,tsv,output_file):
+def VariantAssessor(query,tsv,output_file,outdir=""):
 
     collection = connect_to_mongo()
 
@@ -112,7 +112,7 @@ def VariantAssessor(query,tsv,output_file):
         filename = {}; fp_fn = {}; fp_fp={}; all_dict={}; fp_tp= {}
 
         filename[feature] = feature+".false_negatives.tsv"
-        fp_fn[feature] = csv.DictWriter(open(filename[feature],'w'),
+        fp_fn[feature] = csv.DictWriter(open( os.path.join(outdir,filename[feature])  ,'w'),
                                         delimiter='\t',
                                         fieldnames=['project','dataset','sample','chromosome','start','ref','alt','variant_type'])
 
@@ -212,6 +212,7 @@ def VariantAssessor(query,tsv,output_file):
 
                 print row_dict['tpr'], row_dict['precision'], row_dict['dream_accuracy']
 
+                row_dict['variant_type'] = feature
 
             data.append(row_dict)
 
@@ -281,9 +282,11 @@ def VariantAssessor(query,tsv,output_file):
 
         all_dict['CM']['dream_accuracy'] = (all_dict['CM']['tpr'] + all_dict['CM']['precision'])/2.0
 
-        data.append(all_dict['CM'])
-        data.append(all_dict['NN'])
+        all_dict['CM']['variant_type'] = feature
 
-    fieldnames=['project','dataset','sample' ,'false_positives','true_positives','false_negatives','tpr','fpr','precision','evidence_type','dream_accuracy']
+        #data.append(all_dict['CM'])
+        #data.append(all_dict['NN'])
+
+    fieldnames=['project','dataset','sample' ,'false_positives','true_positives','false_negatives','tpr','fpr','precision','evidence_type','dream_accuracy','variant_type']
 
     pd.DataFrame(data).to_csv(output_file, sep='\t',index=False,columns=fieldnames)
