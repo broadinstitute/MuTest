@@ -148,14 +148,14 @@ It typically means one of the output files is corrupted. In the *Scripts* direct
 The *output_directory* is the directory where the output files are stored. If any of the files get deleted, then it means that these files were probably corrupted. In that case, one you just need to run the scala script again and it will job avoid.  This is because the script removes the appropriate *.done*.
 
 
-Dream Challenge Evaluation in *MuTest*
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+DREAM DATA EVALUATION
+~~~~~~~~~~~~~~~~~~~~~
 
 The evaluation of the DREAM dataset differs in *MuTest* compared to the official DREAM challenge evalution script. The DREAM challenge uses two sets of SVs for making. Some of these masks are always turned on while others are turned of or off based on a *masked* flag. In particular, algorithmic false positives which fall in these masked regions are not included in the evaluation of the performance of the algorithm. *MuTest* doesn't do any masking.
 
 OUTPUT
 ~~~~~~
 
-*MuTest* produces an output directory where several output files are stored. The name of the output folder is specified with the *project* option to the scala script.
+*MuTest* produces an output directory where several output files are stored. The name of the output folder is specified with the *project* option to the scala script. The most import file is called <project_name>_assessment.csv. This file contains the scoring for each sample along with metadata associated with each sample. Here is the list of specific column names: 'project','dataset','sample' ,'false_positives','true_positives','false_negatives','tpr','fpr','precision','evidence_type','dream_accuracy','variant_type'.
 
-'project','dataset','sample' ,'false_positives','true_positives','false_negatives','tpr','fpr','precision','evidence_type','dream_accuracy','variant_type'
+Queue produces several temp files which will need to be cleaned at the end of analyses otherwise they will take up lots of space. These includes files in *.queue/project_name/* and files that end with *.out* and *.done*

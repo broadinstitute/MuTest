@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/M1Specificity.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MuTest/BasicUtilities/FileUtilities.py" afterPath="$PROJECT_DIR$/MuTest/BasicUtilities/FileUtilities.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M1Sensitivity.scala" afterPath="$PROJECT_DIR$/M1Sensitivity.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M2Sensitivity.scala" afterPath="$PROJECT_DIR$/M2Sensitivity.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.rst" afterPath="$PROJECT_DIR$/README.rst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MuTest/Actions/VariantAssessor.py" afterPath="$PROJECT_DIR$/MuTest/Actions/VariantAssessor.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MuTest/cli.py" afterPath="$PROJECT_DIR$/MuTest/cli.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SomaticDB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,8 +28,8 @@
       <file leaf-file-name="README.rst" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5039909" vertical-offset="938" max-vertical-offset="2820">
-              <caret line="80" column="88" selection-start-line="80" selection-start-column="88" selection-end-line="80" selection-end-column="88" />
+            <state vertical-scroll-proportion="0.9657925" vertical-offset="1943" max-vertical-offset="2880">
+              <caret line="160" column="176" selection-start-line="160" selection-start-column="176" selection-end-line="160" selection-end-column="176" />
               <folding />
             </state>
           </provider>
@@ -1041,8 +1034,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5039909" vertical-offset="938" max-vertical-offset="2820">
-          <caret line="80" column="88" selection-start-line="80" selection-start-column="88" selection-end-line="80" selection-end-column="88" />
+        <state vertical-scroll-proportion="0.9657925" vertical-offset="1943" max-vertical-offset="2880">
+          <caret line="160" column="176" selection-start-line="160" selection-start-column="176" selection-end-line="160" selection-end-column="176" />
           <folding />
         </state>
       </provider>
