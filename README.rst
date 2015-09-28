@@ -122,7 +122,7 @@ UTILITIES
 
 A few utilities make it easier to interact with the contents of the database. For instance, it is possible to look at the variants associated with a particular query::
 
-	mutest variant_extract -t <output file> -q <query>
+	mutest variant_extract -o <output file> -q <query>
 
 Further, one can get a list of all projects currently in the database and the counts of indels and SNVs stored in the database using the following command::
 

@@ -47,6 +47,8 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     println("Aggretating bams")
     val cmd = AggregateBams(query, normalFilename, tumorFilename, intervalsFilename, folder, metadataFilename)
 
+    println(cmd)
+
     cmd !
 
     println("Aggregation complete.")
