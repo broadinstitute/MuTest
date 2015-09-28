@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MuTest/SupportLibraries/DataGatherer.py" afterPath="$PROJECT_DIR$/MuTest/SupportLibraries/DataGatherer.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M2Sensitivity.scala" afterPath="$PROJECT_DIR$/M2Sensitivity.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M2Specificity.scala" afterPath="$PROJECT_DIR$/M2Specificity.scala" />
     </list>
     <ignored path="SomaticDB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,14 +56,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="M2Sensitivity.scala" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="M2Sensitivity.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/M2Sensitivity.scala">
           <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-43.584908" vertical-offset="60" max-vertical-offset="3315">
-              <caret line="158" column="24" selection-start-line="158" selection-start-column="24" selection-end-line="158" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.15882353" vertical-offset="0" max-vertical-offset="3330">
+              <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -78,10 +79,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataGatherer.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="DataGatherer.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MuTest/SupportLibraries/DataGatherer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.09966777" vertical-offset="0" max-vertical-offset="903">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885">
               <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
               <folding />
             </state>
@@ -107,8 +108,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.150944" vertical-offset="1742" max-vertical-offset="3135">
-              <caret line="152" column="56" selection-start-line="152" selection-start-column="56" selection-end-line="152" selection-end-column="56" />
+            <state vertical-scroll-proportion="19.056604" vertical-offset="1745" max-vertical-offset="3150">
+              <caret line="49" column="34" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -196,12 +197,12 @@
         <option value="$PROJECT_DIR$/MuTest/Actions/VariantAssessor.py" />
         <option value="$PROJECT_DIR$/MuTest/cli.py" />
         <option value="$PROJECT_DIR$/README.rst" />
-        <option value="$PROJECT_DIR$/M2Specificity.scala" />
         <option value="$PROJECT_DIR$/M1Specificity.scala" />
         <option value="$PROJECT_DIR$/MuTest/Actions/BamAggregator.py" />
         <option value="$PROJECT_DIR$/M1Sensitivity.scala" />
-        <option value="$PROJECT_DIR$/M2Sensitivity.scala" />
         <option value="$PROJECT_DIR$/MuTest/SupportLibraries/DataGatherer.py" />
+        <option value="$PROJECT_DIR$/M2Specificity.scala" />
+        <option value="$PROJECT_DIR$/M2Sensitivity.scala" />
       </list>
     </option>
   </component>
@@ -964,28 +965,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/M2Specificity.scala">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.150944" vertical-offset="1742" max-vertical-offset="3135">
-          <caret line="152" column="56" selection-start-line="152" selection-start-column="56" selection-end-line="152" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/M1Specificity.scala">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.925926" vertical-offset="1742" max-vertical-offset="3150">
-          <caret line="152" column="62" selection-start-line="152" selection-start-column="62" selection-end-line="152" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MuTest/Actions/NormalNormalAggregator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855">
@@ -1005,17 +984,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/M2Sensitivity.scala">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-43.584908" vertical-offset="60" max-vertical-offset="3315">
-          <caret line="158" column="24" selection-start-line="158" selection-start-column="24" selection-end-line="158" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MuTest/Actions/BamAggregator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1545">
@@ -1026,8 +994,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MuTest/SupportLibraries/DataGatherer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09966777" vertical-offset="0" max-vertical-offset="903">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885">
           <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/M1Specificity.scala">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.925926" vertical-offset="1742" max-vertical-offset="3150">
+          <caret line="152" column="62" selection-start-line="152" selection-start-column="62" selection-end-line="152" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/M2Specificity.scala">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="19.056604" vertical-offset="1745" max-vertical-offset="3150">
+          <caret line="49" column="34" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/M2Sensitivity.scala">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15882353" vertical-offset="0" max-vertical-offset="3330">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
           <folding />
         </state>
       </provider>

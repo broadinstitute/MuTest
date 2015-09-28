@@ -7,6 +7,7 @@ import org.broadinstitute.gatk.queue.util.QScriptUtils
 import org.broadinstitute.gatk.utils.commandline.{Output, Input}
 import scala.sys.process._
 import scala.reflect.io.Path
+import java.lang.Runtime
 
 
 
@@ -46,7 +47,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     println(cmd)
 
-    cmd !
+    Runtime.getRuntime().exec(cmd)
 
     println("Collection complete.")
 
