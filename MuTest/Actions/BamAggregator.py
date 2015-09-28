@@ -115,7 +115,7 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
 
         intervals_dir = os.path.join(current_dir, folder)
 
-        current_filename = ".".join(["intervals", os.path.splitext(tumor_bam),os.path.splitext(normal_bam),"list"])
+        current_filename = ".".join(["intervals", os.path.splitext(tumor_bam)[0],os.path.splitext(normal_bam)[0],"list"])
         current_filename = os.path.join(intervals_dir, current_filename)
 
         if not os.path.exists(intervals_dir): os.mkdir(intervals_dir)
