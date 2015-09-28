@@ -7,7 +7,8 @@ import org.broadinstitute.gatk.utils.commandline.{Output, Input}
 import scala.sys.process._
 import scala.reflect.io.Path
 import java.io.{File, PrintWriter}
-import java.lang.{Runtime,Process}
+import java.lang.Runtime
+import java.lang.Process
 
 
 
