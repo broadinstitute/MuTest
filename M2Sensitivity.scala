@@ -7,7 +7,7 @@ import org.broadinstitute.gatk.utils.commandline.{Output, Input}
 import scala.sys.process._
 import scala.reflect.io.Path
 import java.io.{File, PrintWriter}
-import java.lang.Runtime
+import java.lang.{Runtime,Process}
 
 
 
@@ -53,7 +53,14 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     println(cmd)
 
     println("exec command with wait")
-    Runtime.getRuntime().exec(cmd).waitFor()
+    Process p=Runtime.getRuntime().exec(cmd)
+
+    try {
+      p.waitFor();
+      System.out.println("Here 2");//this will only be seen after +- 10 seconds and process has finished
+   } catch (InterruptedException ex) {
+      ex.printStackTrace();
+                                     }
 
     println("Aggregation complete.")
 
