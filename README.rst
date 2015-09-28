@@ -156,6 +156,6 @@ The evaluation of the DREAM dataset differs in *MuTest* compared to the official
 OUTPUT
 ~~~~~~
 
-*MuTest* produces an output directory where several output files are stored. The name of the output folder is specified with the *project* option to the scala script. The most import file is called <project_name>_assessment.csv. This file contains the scoring for each sample along with metadata associated with each sample. Here is the list of specific column names: 'project','dataset','sample' ,'false_positives','true_positives','false_negatives','tpr','fpr','precision','evidence_type','dream_accuracy','variant_type'.
+*MuTest* produces an output directory where several output files are stored. The name of the output folder is specified with the *project* option to the scala script. The most important file is called <project_name>_assessment.csv. This file contains the scoring for each sample along with metadata associated with each sample. Here is the list of specific column names: 'project','dataset','sample' ,'false_positives','true_positives','false_negatives','tpr','fpr','precision','evidence_type','dream_accuracy' and 'variant_type'.
 
 Queue produces several temp files which will need to be cleaned at the end of analyses otherwise they will take up lots of space. These includes files in *.queue/project_name/* and files that end with *.out* and *.done*
