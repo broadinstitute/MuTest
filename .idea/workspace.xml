@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M2Sensitivity.scala" afterPath="$PROJECT_DIR$/M2Sensitivity.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M2Specificity.scala" afterPath="$PROJECT_DIR$/M2Specificity.scala" />
     </list>
     <ignored path="SomaticDB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,8 +61,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15882353" vertical-offset="0" max-vertical-offset="3330">
-              <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.7" vertical-offset="1850" max-vertical-offset="3330">
+              <caret line="163" column="52" selection-start-line="163" selection-start-column="52" selection-end-line="163" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -1027,8 +1026,8 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15882353" vertical-offset="0" max-vertical-offset="3330">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.7" vertical-offset="1850" max-vertical-offset="3330">
+          <caret line="163" column="52" selection-start-line="163" selection-start-column="52" selection-end-line="163" selection-end-column="52" />
           <folding />
         </state>
       </provider>
