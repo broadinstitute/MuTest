@@ -35,7 +35,7 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
 
     query = ast.literal_eval(query)
 
-    print query
+    print query = query.strip('"')
     print type(query)
 
     for record in collection.find(query):
