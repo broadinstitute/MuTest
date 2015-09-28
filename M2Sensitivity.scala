@@ -52,15 +52,10 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     println(cmd)
 
-    println("exec command with wait")
+    println("exec command with wait 2")
     Process p=Runtime.getRuntime().exec(cmd)
+    p.waitFor();
 
-    try {
-      p.waitFor();
-      System.out.println("Here 2");//this will only be seen after +- 10 seconds and process has finished
-   } catch (InterruptedException ex) {
-      ex.printStackTrace();
-                                     }
 
     println("Aggregation complete.")
 
