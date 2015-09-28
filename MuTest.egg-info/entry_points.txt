@@ -1,0 +1,6 @@
+[console_scripts]
+clean_database = MuTest.Scripts.clean_database:main
+mutest = MuTest.cli:main
+parse_hcc = MuTest.PreprocessingParsers.parse_hcc:main
+parse_mara = MuTest.PreprocessingParsers.parse_mara:main
+
