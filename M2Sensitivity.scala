@@ -53,6 +53,8 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     println(cmd)
 
+    cmd = "echo \"Cheetos\""
+
     cmd !
 
     //println("exec command with wait 2")
