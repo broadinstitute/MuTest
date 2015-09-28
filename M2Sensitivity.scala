@@ -57,14 +57,6 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     val p=Runtime.getRuntime().exec(cmd)
     p.waitFor();
 
-
-    BufferedReader input = new BufferedReader(new InputStreamReader(p.getInputStream()));
-    while ((val line = input.readLine()) != null) {
-     System.out.println(line);
-    }
-    input.close();
-
-
     println("Aggregation complete.")
 
     val m2_out_files = new ListBuffer[String]
