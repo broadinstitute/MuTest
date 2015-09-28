@@ -6,6 +6,8 @@ import logging
 def query_processor(selections):
     query = selections.strip('"')
 
+    print query
+
     if 'all' in selections:
         query = "{'project' : { '$exists' : 'true' } }"
     else:
