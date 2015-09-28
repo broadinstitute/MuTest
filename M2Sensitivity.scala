@@ -53,9 +53,11 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     println(cmd)
 
-    println("exec command with wait 2")
-    val p=Runtime.getRuntime().exec(cmd)
-    p.waitFor();
+    cmd !
+
+    //println("exec command with wait 2")
+    //val p=Runtime.getRuntime().exec(cmd)
+    //p.waitFor();
 
     println("Aggregation complete.")
 
