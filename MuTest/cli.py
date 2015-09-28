@@ -220,7 +220,7 @@ def main():
 
     if (args.subparser == "bam_aggregate"):
         print "bam: "+args.query
-        BamAggregator(args.query, args.normal_bam_list, args.tumor_bam_list, args.interval_list,args.metadata_list,args.folder)
+        #BamAggregator(args.query, args.normal_bam_list, args.tumor_bam_list, args.interval_list,args.metadata_list,args.folder)
 
 
     if (args.subparser == "variant_assess"):
