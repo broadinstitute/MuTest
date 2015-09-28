@@ -79,6 +79,12 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
         metadata_list[(tumor_bam, normal_bam)]['evidence_type'] = '.'
         metadata_list[(tumor_bam, normal_bam)]['author']='.'
 
+
+    print 'OPENNING FILES HERE.'
+    print 'tumor_bam_file: ' + tumor_bam_list_name
+    print 'normal_bam_file: ' + normal_bam_list_name
+    print 'interval file:'+ interval_list_name
+
     tumor_bam_file = open(tumor_bam_list_name,'w')
     normal_bam_file = open(normal_bam_list_name,'w')
     interval_file = open(interval_list_name,'w')
