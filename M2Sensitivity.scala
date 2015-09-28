@@ -53,7 +53,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     println(cmd)
 
     println("exec command:")
-    Runtime.getRuntime().exec(cmd)
+    Runtime.getRuntime().exec(cmd).waitFor()
 
     println("Aggregation complete.")
 
