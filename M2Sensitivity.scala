@@ -7,7 +7,6 @@ import org.broadinstitute.gatk.utils.commandline.{Output, Input}
 import scala.sys.process._
 import scala.reflect.io.Path
 import java.io.{File, PrintWriter}
-import java.util.{Process, Runtime}
 
 
 
@@ -52,9 +51,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     println(cmd)
 
-    Process process = Runtime.getRuntime().exec(cmd)
-
-    //cmd !
+    cmd !
 
     println("Aggregation complete.")
 
