@@ -51,7 +51,9 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     println(cmd)
 
-    cmd !
+    Process process = Runtime.getRuntime().exec(cmd)
+
+    //cmd !
 
     println("Aggregation complete.")
 
