@@ -27,6 +27,10 @@ def setup_logging(log_filename):
 
 
 def main():
+    import sys
+
+    print sys.argv
+
 
     description = """\nMuTest is a python package for interacting with a mongo database that stores somatic variants. It provides a centralized way of benchmarking the perfomance of algorithms which either generate or refine somatic variant calls.."""
 
