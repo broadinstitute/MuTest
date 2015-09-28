@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="" />
+    <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MuTest/Actions/BamAggregator.py" afterPath="$PROJECT_DIR$/MuTest/Actions/BamAggregator.py" />
+    </list>
     <ignored path="SomaticDB.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -53,24 +55,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="M2Sensitivity.scala" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="M2Sensitivity.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/M2Sensitivity.scala">
           <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.24705882" vertical-offset="615" max-vertical-offset="3465">
-              <caret line="55" column="6" selection-start-line="55" selection-start-column="6" selection-end-line="55" selection-end-column="6" />
+            <state vertical-scroll-proportion="-5.943396" vertical-offset="615" max-vertical-offset="3465">
+              <caret line="62" column="38" selection-start-line="62" selection-start-column="38" selection-end-line="62" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BamAggregator.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="BamAggregator.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MuTest/Actions/BamAggregator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1545">
-              <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.23255815" vertical-offset="45" max-vertical-offset="1575">
+              <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -195,11 +197,11 @@
         <option value="$PROJECT_DIR$/MuTest/cli.py" />
         <option value="$PROJECT_DIR$/README.rst" />
         <option value="$PROJECT_DIR$/M1Specificity.scala" />
-        <option value="$PROJECT_DIR$/MuTest/Actions/BamAggregator.py" />
         <option value="$PROJECT_DIR$/M1Sensitivity.scala" />
         <option value="$PROJECT_DIR$/MuTest/SupportLibraries/DataGatherer.py" />
         <option value="$PROJECT_DIR$/M2Specificity.scala" />
         <option value="$PROJECT_DIR$/M2Sensitivity.scala" />
+        <option value="$PROJECT_DIR$/MuTest/Actions/BamAggregator.py" />
       </list>
     </option>
   </component>
@@ -981,14 +983,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MuTest/Actions/BamAggregator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1545">
-          <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MuTest/SupportLibraries/DataGatherer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885">
@@ -1024,8 +1018,16 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24705882" vertical-offset="615" max-vertical-offset="3465">
-          <caret line="55" column="6" selection-start-line="55" selection-start-column="6" selection-end-line="55" selection-end-column="6" />
+        <state vertical-scroll-proportion="-5.943396" vertical-offset="615" max-vertical-offset="3465">
+          <caret line="62" column="38" selection-start-line="62" selection-start-column="38" selection-end-line="62" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MuTest/Actions/BamAggregator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23255815" vertical-offset="45" max-vertical-offset="1575">
+          <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
           <folding />
         </state>
       </provider>
