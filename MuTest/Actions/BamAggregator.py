@@ -126,8 +126,7 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
 
         print "made this folder:", intervals_dir, os.path.exists(intervals_dir)
 
-        for thing in os.listdir(intervals_dir):
-            print thing
+
 
         current_interval_file = open(current_filename,'w')
 
@@ -142,6 +141,9 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
         current_interval_file.close()
 
         interval_file.write( current_filename +'\n')
+
+    for thing in os.listdir(intervals_dir):
+            print "file in dir:", thing
 
     tumor_bam_file.close()
     normal_bam_file.close()
