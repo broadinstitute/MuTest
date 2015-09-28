@@ -6,7 +6,8 @@ import org.broadinstitute.gatk.queue.util.QScriptUtils
 import org.broadinstitute.gatk.utils.commandline.{Output, Input}
 import scala.sys.process._
 import scala.reflect.io.Path
-import java.io.{File, PrintWriter, Process}
+import java.io.{File, PrintWriter}
+import java.util.{Process, Runtime}
 
 
 
