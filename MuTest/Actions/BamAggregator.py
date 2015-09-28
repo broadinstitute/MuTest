@@ -47,10 +47,6 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
     doesrecordloop = False
 
 
-    file = open('/dsde/working/kcarr/LAURATESTS/M2SENS/project/this.txt','w')
-    file.write('Anything.')
-    file.close()
-
     for record in collection.find(query):
 
         if doesrecordloop == False:
