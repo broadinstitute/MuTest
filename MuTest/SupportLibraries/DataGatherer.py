@@ -4,7 +4,6 @@ from MuTest.SupportLibraries.DatabaseParser import DatabaseParser
 import logging
 
 def query_processor(selections):
-    query = selections.strip('"')
 
     print query
 
