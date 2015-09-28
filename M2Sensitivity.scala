@@ -53,7 +53,10 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     println(cmd)
 
-    cmd !
+    val somestuff = cmd !
+
+    println("Exit status:")
+    println(somestuff)
 
     println("Aggregation complete.")
 
