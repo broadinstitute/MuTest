@@ -44,11 +44,13 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
 
     print "directory:"+os.getcwd()
 
-
+    doesrecordloop = False
 
     for record in collection.find(query):
 
-        print record
+        if doesrecordloop == False:
+            print "Contains at least one record."
+            doesrecordloop = True
 
         if not record.has_key('tumor_bam'):
             print record
