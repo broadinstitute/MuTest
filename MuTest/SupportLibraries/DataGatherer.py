@@ -4,10 +4,7 @@ from MuTest.SupportLibraries.DatabaseParser import DatabaseParser
 import logging
 
 def query_processor(selections):
-
-    print query
-
-    if 'all' in selections:
+    if 'ALL' in selections:
         query = "{'project' : { '$exists' : 'true' } }"
     else:
         query = selections
