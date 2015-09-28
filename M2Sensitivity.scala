@@ -53,7 +53,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     println(cmd)
 
-    val somestuff = cmd !
+    val somestuff = cmd !!
 
     println("Exit status:")
     println(somestuff)
