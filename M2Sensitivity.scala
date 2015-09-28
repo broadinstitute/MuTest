@@ -49,7 +49,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     println("Project directory created: "+project_dir)
 
     println("Aggretating bams")
-    val cmd = AggregateBams(query, normalFilename, tumorFilename, intervalsFilename, folder, metadataFilename)
+    var cmd = AggregateBams(query, normalFilename, tumorFilename, intervalsFilename, folder, metadataFilename)
 
     println(cmd)
 
