@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MuTest/Actions/BamAggregator.py" afterPath="$PROJECT_DIR$/MuTest/Actions/BamAggregator.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MuTest/cli.py" afterPath="$PROJECT_DIR$/MuTest/cli.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MuTest/SupportLibraries/DataGatherer.py" afterPath="$PROJECT_DIR$/MuTest/SupportLibraries/DataGatherer.py" />
     </list>
     <ignored path="SomaticDB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -82,8 +81,8 @@
       <file leaf-file-name="DataGatherer.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MuTest/SupportLibraries/DataGatherer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.03322259" vertical-offset="0" max-vertical-offset="903">
-              <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.11627907" vertical-offset="0" max-vertical-offset="915">
+              <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -198,11 +197,11 @@
         <option value="$PROJECT_DIR$/README.rst" />
         <option value="$PROJECT_DIR$/M1Specificity.scala" />
         <option value="$PROJECT_DIR$/M1Sensitivity.scala" />
-        <option value="$PROJECT_DIR$/MuTest/SupportLibraries/DataGatherer.py" />
         <option value="$PROJECT_DIR$/M2Specificity.scala" />
         <option value="$PROJECT_DIR$/M2Sensitivity.scala" />
         <option value="$PROJECT_DIR$/MuTest/cli.py" />
         <option value="$PROJECT_DIR$/MuTest/Actions/BamAggregator.py" />
+        <option value="$PROJECT_DIR$/MuTest/SupportLibraries/DataGatherer.py" />
       </list>
     </option>
   </component>
@@ -1029,8 +1028,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MuTest/SupportLibraries/DataGatherer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.03322259" vertical-offset="0" max-vertical-offset="903">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.11627907" vertical-offset="0" max-vertical-offset="915">
+          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
           <folding />
         </state>
       </provider>
