@@ -59,7 +59,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
 
     BufferedReader input = new BufferedReader(new InputStreamReader(p.getInputStream()));
-    while ((line = input.readLine()) != null) {
+    while ((val line = input.readLine()) != null) {
      System.out.println(line);
     }
     input.close();
