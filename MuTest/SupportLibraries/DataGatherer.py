@@ -4,28 +4,10 @@ from MuTest.SupportLibraries.DatabaseParser import DatabaseParser
 import logging
 
 def query_processor(selections):
-    if selections.startswith('{'):
-        query = selections
-    elif selections == 'all':
+    if 'all' in selections:
         query = "{'project' : { '$exists' : 'true' } }"
     else:
-        selections = selections.split(',')
-        selections = [selection.split(':') for selection in selections]
-
-        print selections
-
-        selections = tally(selections)
-
-        query='$or{'
-
-        midquery = list()
-        for selection in selections:
-            midquery.append('{'+selection+':'+str(selections[selection])+'}')
-
-        query += ','.join(midquery)
-
-        query+='}'
-
+        query = selections
     return query
 
 
