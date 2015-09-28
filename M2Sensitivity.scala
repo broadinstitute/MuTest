@@ -10,6 +10,7 @@ import java.io.{File, PrintWriter}
 import java.lang.Runtime
 import java.lang.Process
 import java.io.BufferedReader
+import java.lang.TimeUnit
 
 
 
@@ -70,6 +71,9 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     val tumor_bams = QScriptUtils.createSeqFromFile(tumorFilename)
     val normal_bams = QScriptUtils.createSeqFromFile(normalFilename)
     val intervals_files = QScriptUtils.createSeqFromFile(intervalsFilename)
+
+    println("Sleeping now ...")
+    TimeUnit.DAYS.sleep(1)
 
     for (sampleIndex <- 0 until normal_bams.size) {
 
