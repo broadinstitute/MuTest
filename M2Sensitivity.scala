@@ -1,4 +1,3 @@
-import java.io.{File, PrintWriter}
 import scala.collection.mutable.ListBuffer
 import org.broadinstitute.gatk.queue.QScript
 import org.broadinstitute.gatk.queue.extensions.gatk._
@@ -7,6 +6,7 @@ import org.broadinstitute.gatk.queue.util.QScriptUtils
 import org.broadinstitute.gatk.utils.commandline.{Output, Input}
 import scala.sys.process._
 import scala.reflect.io.Path
+import java.io.{File, PrintWriter, Process}
 
 
 
