@@ -39,6 +39,8 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     (new File(project_dir)).mkdir()
 
+    println("Project directory created: "+project_dir)
+
     println("Collecting bams")
     val cmd = normalNormalCollector(query, normalFilename, tumorFilename, metadataFilename)
 
@@ -148,7 +150,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
                    tsv: String) : String = {
 
 
-   val cmd: String = "mutest normal_normal_collector -q %s -n %s -t %s -o %s".format(query, normal_bam_list, tumor_bam_list, tsv)
+   val cmd: String = "mutest normal_normal_collector -q \"%s\" -n %s -t %s -o %s".format(query, normal_bam_list, tumor_bam_list, tsv)
 
     return(cmd)
   }

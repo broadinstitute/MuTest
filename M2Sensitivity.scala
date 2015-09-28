@@ -44,6 +44,8 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     (new File(project_dir)).mkdir()
 
+    println("Project directory created: "+project_dir)
+
     println("Aggretating bams")
     val cmd = AggregateBams(query, normalFilename, tumorFilename, intervalsFilename, folder, metadataFilename)
 
@@ -158,7 +160,7 @@ mutest bam_aggregate [-h] -q <query>
                    metadata: String) : String = {
 
 
-   val cmd: String = "mutest bam_aggregate -q %s -n %s -t %s -i %s -f %s -m %s".format(query, normal_bam_list, tumor_bam_list, interval_list, folder, metadata)
+   val cmd: String = "mutest bam_aggregate -q \"%s\" -n %s -t %s -i %s -f %s -m %s".format(query, normal_bam_list, tumor_bam_list, interval_list, folder, metadata)
 
     return(cmd)
   }
