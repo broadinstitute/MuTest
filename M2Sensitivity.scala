@@ -44,6 +44,11 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     val folder : File = new File(project_dir,project_name+"_intervals")
     val mutectResultsFilename: File = new File(project_dir,"%s_mutect_results.tsv".format(project_name))
 
+    println('tumor    : '+tumorFilename)
+    println('normal   : '+normalFilename)
+    println('intervals: '+intervalsFilename)
+    println('folder   : '+folder)
+
     (new File(project_dir)).mkdir()
 
     println("Project directory created: "+project_dir)
