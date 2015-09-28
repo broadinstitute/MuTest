@@ -54,7 +54,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     println(cmd)
 
     println("exec command with wait 2")
-    p=Runtime.getRuntime().exec(cmd)
+    val p=Runtime.getRuntime().exec(cmd)
     p.waitFor();
 
 
