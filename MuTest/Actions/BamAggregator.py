@@ -27,7 +27,7 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
 
     collection = connect_to_mongo()
 
-    print query
+
 
     query = query_processor(query)
 
