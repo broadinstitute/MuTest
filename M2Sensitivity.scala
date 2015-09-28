@@ -19,7 +19,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
   var project_name: String = "default_project"
 
   @Argument(shortName = "query", required = true, doc = "list of all normal files")
-  var query: String = "all"
+  var query: String = "ALL"
 
   @Argument(shortName = "evaluation_rules", required = true, doc = "evalution rules on a project level")
   var evaluation_rules: String = "tcga:ROCL,hcc:CM"

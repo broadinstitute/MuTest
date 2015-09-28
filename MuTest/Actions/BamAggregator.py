@@ -41,6 +41,10 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
     print query
     print type(query)
 
+    print query.keys()
+    print query.values()
+    print query.items()
+
 
 
     for record in collection.find(query):
