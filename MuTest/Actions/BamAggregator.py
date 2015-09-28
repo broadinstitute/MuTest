@@ -124,6 +124,8 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
 
         if not os.path.exists(intervals_dir): os.mkdir(intervals_dir)
 
+        print "made this folder:", intervals_dir
+
         current_interval_file = open(current_filename,'w')
 
         sorted_intervals = sorted(list(interval_list[pair]),key=lambda x: int(x.split(':')[1].split('-')[0]))
