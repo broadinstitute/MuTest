@@ -91,7 +91,11 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
 
     location = os.path.dirname(tumor_bam_list_name)
 
-    f = open(os.path.join(location,'test.txt'),'w')
+    fname = os.path.join(location,'test.txt')
+
+    print "test:"+fname
+
+    f = open(fname,'w')
     f.close()
 
     for filename in os.listdir(location):
