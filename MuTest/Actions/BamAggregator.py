@@ -95,7 +95,7 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
     f.close()
 
     for filename in os.listdir(location):
-        print filename
+        if filename.endswith("list"): print filename
 
     fieldnames=['tumor_bam','normal_bam','data_filename','project','dataset','sample','evidence_type','author']
     metadata_file = csv.DictWriter(open(metadata_list_name,'w'),fieldnames=fieldnames,delimiter='\t')
@@ -115,7 +115,7 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
 
         intervals_dir = os.path.join(current_dir, folder)
 
-        current_filename = "intervals."+sample+".list"
+        current_filename = ".".join(["intervals", os.path.splitext(tumor_bam_file),os.path.splitext(normal_bam_file),"list"])
         current_filename = os.path.join(intervals_dir, current_filename)
 
         if not os.path.exists(intervals_dir): os.mkdir(intervals_dir)
