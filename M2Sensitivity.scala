@@ -53,7 +53,9 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     println(cmd)
 
-    cmd = "echo \"Cheetos\""
+    #cmd = "echo \"Cheetos\""
+
+    #echo "Cheetos"
 
     cmd !
 
