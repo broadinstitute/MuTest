@@ -33,11 +33,12 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
 
     metadata_list = {}
 
-    print "query:"+ query
+    query = ast.literal_eval(query)
 
-    print ast.literal_eval(query)
+    print query
+    print type(query)
 
-    for record in collection.find(ast.literal_eval(query)):
+    for record in collection.find(query):
 
         if not record.has_key('tumor_bam'):
             print record
