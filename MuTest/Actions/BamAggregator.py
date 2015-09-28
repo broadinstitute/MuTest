@@ -89,6 +89,11 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
     normal_bam_file = open(normal_bam_list_name,'w')
     interval_file = open(interval_list_name,'w')
 
+    location = os.path.dirname(tumor_bam_list_name)
+
+    for filename in os.listdir(location):
+        print filename
+
     fieldnames=['tumor_bam','normal_bam','data_filename','project','dataset','sample','evidence_type','author']
     metadata_file = csv.DictWriter(open(metadata_list_name,'w'),fieldnames=fieldnames,delimiter='\t')
     metadata_file.writeheader()
