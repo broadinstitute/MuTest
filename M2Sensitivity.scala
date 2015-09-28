@@ -77,7 +77,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     for (sampleIndex <- 0 until normal_bams.size) {
 
-        //val mutect_out_dir: String = (Path( cwd ) / project_name / "mutect_results").toString()
+        val mutect_out_dir: String = (Path( cwd ) / project_name / "mutect_results").toString()
 
         //(new File(mutect_out_dir)).mkdir()
 
