@@ -73,7 +73,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     val intervals_files = QScriptUtils.createSeqFromFile(intervalsFilename)
 
     //println("Sleeping now ...")
-    //TimeUnit.DAYS.sleep(1)
+    TimeUnit.DAYS.sleep(1)
 
     for (sampleIndex <- 0 until normal_bams.size) {
 
