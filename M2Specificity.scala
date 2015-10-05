@@ -71,16 +71,16 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
         add(m2)
     }
 
-    add(new MakeStringFileList(m2_out_files, mutectResultsFilename))
+    //add(new MakeStringFileList(m2_out_files, mutectResultsFilename))
 
 
-    val submissionsFilename: File = new File(project_dir,"%s_submission.tsv".format(project_name))
+    //val submissionsFilename: File = new File(project_dir,"%s_submission.tsv".format(project_name))
 
-    add(new normalNormalCreateAssessment(metadataFilename, mutectResultsFilename, submissionsFilename))
+    //add(new normalNormalCreateAssessment(metadataFilename, mutectResultsFilename, submissionsFilename))
 
-    val assessmentFilename: File = new File(project_dir,"%s_assessment.tsv".format(project_name))
+    //val assessmentFilename: File = new File(project_dir,"%s_assessment.tsv".format(project_name))
 
-    println(assessmentFilename.toString)
+    //println(assessmentFilename.toString)
 
     //add(new NormalNormalVariantAssessment(m2_out_files.map(x => new File(x)) ,submissionsFilename, query,project_dir,assessmentFilename))
 
