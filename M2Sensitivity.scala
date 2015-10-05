@@ -211,7 +211,7 @@ mutest variant_assess -t <tsv>
                                @Output output: File) extends CommandLineFunction {
 
     override def commandLine: String = {
-      "ls -l" //"mutest variant_assess -t %s -q \"%s\" -o %s -d %s".format(tsv, query, output,folder)
+      "ls -l > %s".format(output) //"mutest variant_assess -t %s -q \"%s\" -o %s -d %s".format(tsv, query, output,folder)
     }
   }
 
