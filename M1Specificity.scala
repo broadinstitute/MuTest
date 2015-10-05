@@ -81,7 +81,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     println(assessmentFilename.toString)
 
-    add(new NormalNormalVariantAssessment(m2_out_files.map(x => new File(x)) ,submissionsFilename, query,assessmentFilename,project_dir))
+    add(new NormalNormalVariantAssessment(m2_out_files.map(x => new File(x)) ,submissionsFilename, query,project_dir,assessmentFilename))
 
     }
 

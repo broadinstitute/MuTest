@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="" />
+    <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M1Sensitivity.scala" afterPath="$PROJECT_DIR$/M1Sensitivity.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M1Specificity.scala" afterPath="$PROJECT_DIR$/M1Specificity.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M2Specificity.scala" afterPath="$PROJECT_DIR$/M2Specificity.scala" />
+    </list>
     <ignored path="SomaticDB.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -59,7 +63,7 @@
       <file leaf-file-name="VariantAssessor.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MuTest/Actions/VariantAssessor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.72748" vertical-offset="0" max-vertical-offset="4260">
+            <state vertical-scroll-proportion="2.013683" vertical-offset="70" max-vertical-offset="5184">
               <caret line="114" column="48" selection-start-line="114" selection-start-column="47" selection-end-line="114" selection-end-column="48" />
               <folding />
             </state>
@@ -1017,7 +1021,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MuTest/Actions/VariantAssessor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.72748" vertical-offset="0" max-vertical-offset="4260">
+        <state vertical-scroll-proportion="2.013683" vertical-offset="70" max-vertical-offset="5184">
           <caret line="114" column="48" selection-start-line="114" selection-start-column="47" selection-end-line="114" selection-end-column="48" />
           <folding />
         </state>
