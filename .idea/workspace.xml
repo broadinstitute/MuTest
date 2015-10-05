@@ -61,9 +61,11 @@
       <file leaf-file-name="VariantAssessor.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MuTest/Actions/VariantAssessor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5436">
-              <caret line="0" column="10" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
-              <folding />
+            <state vertical-scroll-proportion="0.6613455" vertical-offset="1796" max-vertical-offset="5436">
+              <caret line="131" column="85" selection-start-line="131" selection-start-column="85" selection-end-line="131" selection-end-column="85" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1006,9 +1008,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MuTest/Actions/VariantAssessor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5436">
-          <caret line="0" column="10" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
-          <folding />
+        <state vertical-scroll-proportion="0.6613455" vertical-offset="1796" max-vertical-offset="5436">
+          <caret line="131" column="85" selection-start-line="131" selection-start-column="85" selection-end-line="131" selection-end-column="85" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

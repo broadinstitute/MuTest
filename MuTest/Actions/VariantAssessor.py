@@ -121,7 +121,7 @@ def VariantAssessor(query,tsv,output_file,outdir=""):
         #fieldnames=['project','dataset','sample','chromosome','start','ref','alt','ECNT','HCNT','NLOD','TLOD','variant_type']
         fieldnames=['project','dataset','sample','chromosome','start','ref','alt','variant_type']
         filename[feature] = feature+".false_positives.tsv"
-        fp_fp[feature] = csv.DictWriter(open(filename[feature],'w'),
+        fp_fp[feature] = csv.DictWriter(open( os.path.join(outdir,filename[feature]) ,'w'),
                                         delimiter='\t',
                                         fieldnames=fieldnames)
 
@@ -129,7 +129,7 @@ def VariantAssessor(query,tsv,output_file,outdir=""):
         #fieldnames=['project','dataset','sample','chromosome','start','ref','alt','ECNT','HCNT','NLOD','TLOD','variant_type']
         fieldnames=['project','dataset','sample','chromosome','start','ref','alt','variant_type']
         filename[feature] = feature+".true_positives.tsv"
-        fp_tp[feature] = csv.DictWriter(open(filename[feature],'w'),
+        fp_tp[feature] = csv.DictWriter(open( os.path.join(outdir,filename[feature]) ,'w'),
                                         delimiter='\t',
                                         fieldnames=fieldnames)
 
