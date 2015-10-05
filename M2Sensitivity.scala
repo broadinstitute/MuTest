@@ -99,7 +99,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     println(assessmentFilename.toString)
 
-    add(new VariantAssessment(m2_out_files.map(x => new File(x)) ,submissionsFilename, query,assessmentFilename,project_dir))
+    add(new VariantAssessment(m2_out_files.map(x => new File(x)) ,submissionsFilename, query,project_dir,assessmentFilename))
 
     }
 
@@ -211,7 +211,7 @@ mutest variant_assess -t <tsv>
                                @Output output: File) extends CommandLineFunction {
 
     override def commandLine: String = {
-      "ls -l > %s".format(output) //"mutest variant_assess -t %s -q \"%s\" -o %s -d %s".format(tsv, query, output,folder)
+      "touch %s".format(output) //"mutest variant_assess -t %s -q \"%s\" -o %s -d %s".format(tsv, query, output,folder)
     }
   }
 
