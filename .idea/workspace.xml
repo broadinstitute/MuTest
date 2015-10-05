@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M1Sensitivity.scala" afterPath="$PROJECT_DIR$/M1Sensitivity.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M1Specificity.scala" afterPath="$PROJECT_DIR$/M1Specificity.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M2Specificity.scala" afterPath="$PROJECT_DIR$/M2Specificity.scala" />
-    </list>
+    <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="" />
     <ignored path="SomaticDB.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,8 +36,8 @@
       <file leaf-file-name="M2Sensitivity.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/M2Sensitivity.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="69.22222" vertical-offset="2634" max-vertical-offset="3525">
-              <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+            <state vertical-scroll-proportion="69.22222" vertical-offset="2619" max-vertical-offset="3525">
+              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1002,8 +998,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/M2Sensitivity.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="69.22222" vertical-offset="2634" max-vertical-offset="3525">
-          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        <state vertical-scroll-proportion="69.22222" vertical-offset="2619" max-vertical-offset="3525">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
           <folding />
         </state>
       </provider>
