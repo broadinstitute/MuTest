@@ -10,9 +10,12 @@ def NormalNormalAggregator(normal_bam_list, tumor_bam_list,query, output_filenam
 
     query = query_processor(query)
 
+    query = query.strip('"')
+    query = ast.literal_eval(query)
+
     bam_sets=defaultdict(set)
 
-    for record in collection.find(ast.literal_eval(query)):
+    for record in collection.find(query):
         bam_sets[(record['project'],record['dataset'])].add((record['sample'],record['file']))
         print record
 
