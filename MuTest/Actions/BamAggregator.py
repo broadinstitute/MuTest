@@ -117,7 +117,7 @@ def BamAggregator(query, normal_bam_list_name, tumor_bam_list_name, interval_lis
         sample =\
             "".join([random.choice('abcdef0123456789') for k in range(40)])
 
-        intervals_dir = folder # os.path.join(current_dir, folder)
+        intervals_dir = folder
 
         current_filename = ".".join(["intervals", os.path.splitext(os.path.basename(tumor_bam))[0],os.path.splitext(os.path.basename(normal_bam))[0],"list"])
         current_filename = os.path.join(intervals_dir, current_filename)
