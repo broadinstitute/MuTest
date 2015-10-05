@@ -88,10 +88,10 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
         add(m2)
     }
 
-    //add(new MakeStringFileList(m2_out_files, mutectResultsFilename))
+    add(new MakeStringFileList(m2_out_files, mutectResultsFilename))
 
 
-    //val submissionsFilename: File = new File(project_dir,"%s_submission.tsv".format(project_name))
+    val submissionsFilename: File = new File(project_dir,"%s_submission.tsv".format(project_name))
 
     //add(new CreateAssessment(metadataFilename, mutectResultsFilename, submissionsFilename, evaluation_rules))
 
