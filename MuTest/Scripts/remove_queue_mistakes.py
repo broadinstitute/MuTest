@@ -1,4 +1,7 @@
 import os
+import sys
+
+directory = sys.argv[1]
 
 def consistent(filename):
     file = open(filename)
@@ -28,3 +31,6 @@ def remove_mistakes(directory):
 
             os.remove(filename)
             os.remove(done_file)
+
+if __name__ == '__main__':
+    remove_mistakes(directory)
