@@ -26,8 +26,8 @@
       <file leaf-file-name="cli.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MuTest/cli.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="4005">
-              <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
+            <state vertical-scroll-proportion="-11.230769" vertical-offset="2963" max-vertical-offset="3840">
+              <caret line="229" column="17" selection-start-line="229" selection-start-column="17" selection-end-line="229" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -59,8 +59,20 @@
       <file leaf-file-name="VariantAssessor.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MuTest/Actions/VariantAssessor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.013683" vertical-offset="70" max-vertical-offset="5184">
-              <caret line="114" column="48" selection-start-line="114" selection-start-column="47" selection-end-line="114" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.33295324" vertical-offset="68" max-vertical-offset="5418">
+              <caret line="20" column="5" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="53" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="make_raw_histogram_data.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MuTest/make_raw_histogram_data.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -116,16 +128,6 @@
           </provider>
           <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
             <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NormalNormalAggregator.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MuTest/Actions/NormalNormalAggregator.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="915">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
           </provider>
         </entry>
       </file>
@@ -185,7 +187,6 @@
         <option value="$PROJECT_DIR$/MuTest/Actions/AssessmentFileCreator.py" />
         <option value="$PROJECT_DIR$/MuTest/BasicUtilities/FileUtilities.py" />
         <option value="$PROJECT_DIR$/M2specificity.scala" />
-        <option value="$PROJECT_DIR$/MuTest/Actions/VariantAssessor.py" />
         <option value="$PROJECT_DIR$/README.rst" />
         <option value="$PROJECT_DIR$/M1Specificity.scala" />
         <option value="$PROJECT_DIR$/M1Sensitivity.scala" />
@@ -194,6 +195,7 @@
         <option value="$PROJECT_DIR$/MuTest/cli.py" />
         <option value="$PROJECT_DIR$/MuTest/Actions/BamAggregator.py" />
         <option value="$PROJECT_DIR$/M2Sensitivity.scala" />
+        <option value="$PROJECT_DIR$/MuTest/Actions/VariantAssessor.py" />
       </list>
     </option>
   </component>
@@ -817,13 +819,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MuTest/make_raw_histogram_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MuTest/BasicUtilities/DictUtilities.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="1155">
@@ -937,14 +932,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MuTest/cli.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3840">
-          <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MuTest/Actions/NormalNormalAggregator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855">
@@ -1015,11 +1002,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MuTest/make_raw_histogram_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MuTest/cli.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.230769" vertical-offset="2963" max-vertical-offset="3840">
+          <caret line="229" column="17" selection-start-line="229" selection-start-column="17" selection-end-line="229" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MuTest/Actions/VariantAssessor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.013683" vertical-offset="70" max-vertical-offset="5184">
-          <caret line="114" column="48" selection-start-line="114" selection-start-column="47" selection-end-line="114" selection-end-column="48" />
-          <folding />
+        <state vertical-scroll-proportion="0.33295324" vertical-offset="68" max-vertical-offset="5418">
+          <caret line="20" column="5" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
