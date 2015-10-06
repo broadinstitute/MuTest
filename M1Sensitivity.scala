@@ -1,4 +1,3 @@
-import java.io.{PrintWriter, File}
 import scala.collection.mutable.ListBuffer
 import org.broadinstitute.gatk.queue.QScript
 import org.broadinstitute.gatk.queue.extensions.gatk._
@@ -7,7 +6,11 @@ import org.broadinstitute.gatk.queue.util.QScriptUtils
 import org.broadinstitute.gatk.utils.commandline.{Output, Input}
 import scala.sys.process._
 import scala.reflect.io.Path
-
+import java.io.{File, PrintWriter}
+import java.lang.Runtime
+import java.lang.Process
+import java.io.BufferedReader
+import java.util.concurrent.TimeUnit
 
 
 
@@ -17,10 +20,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
   var project_name: String = "default_project"
 
   @Argument(shortName = "query", required = true, doc = "list of all normal files")
-  var query: String = "all"
-
-  @Argument(shortName = "evaluation_rules", required = true, doc = "evalution rules on a project level")
-  var evaluation_rules: String = "tcga:ROCL,hcc:CM"
+  var query: String = "ALL"
 
   @Argument(shortName = "sc", required = false, doc = "base scatter count")
   var scatter = 50
@@ -33,6 +33,8 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     val cwd = System.getProperty("user.dir")
     val project_dir: String = (Path( cwd ) / project_name).toString()
 
+    println(project_dir)
+
     val tumorFilename: File = new File(project_dir,"%s_tumor.list".format(project_name))
     val normalFilename: File = new File(project_dir,"%s_normal.list".format(project_name))
     val intervalsFilename: File = new File(project_dir,"%s_intervals.list".format(project_name))
@@ -40,16 +42,24 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     val folder : File = new File(project_dir,project_name+"_intervals")
     val mutectResultsFilename: File = new File(project_dir,"%s_mutect_results.tsv".format(project_name))
 
+    println("tumor    : "+tumorFilename)
+    println("normal   : "+normalFilename)
+    println("intervals: "+intervalsFilename)
+    println("folder   : "+folder)
+
     (new File(project_dir)).mkdir()
 
     println("Project directory created: "+project_dir)
 
     println("Aggretating bams")
-    val cmd = AggregateBams(query, normalFilename, tumorFilename, intervalsFilename, folder, metadataFilename)
+    var cmd = AggregateBams(query, normalFilename, tumorFilename, intervalsFilename, folder, metadataFilename)
 
     println(cmd)
 
-    cmd !
+    val somestuff = cmd !!
+
+    println("Exit status:")
+    println(somestuff)
 
     println("Aggregation complete.")
 
@@ -58,6 +68,9 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     val tumor_bams = QScriptUtils.createSeqFromFile(tumorFilename)
     val normal_bams = QScriptUtils.createSeqFromFile(normalFilename)
     val intervals_files = QScriptUtils.createSeqFromFile(intervalsFilename)
+
+    //println("Sleeping now ...")
+    TimeUnit.SECONDS.sleep(30)
 
     for (sampleIndex <- 0 until normal_bams.size) {
 
@@ -77,13 +90,13 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     val submissionsFilename: File = new File(project_dir,"%s_submission.tsv".format(project_name))
 
-    add(new CreateAssessment(metadataFilename, mutectResultsFilename, submissionsFilename, evaluation_rules))
+    add(new CreateAssessment(metadataFilename, mutectResultsFilename, submissionsFilename, "NN"))
 
     val assessmentFilename: File = new File(project_dir,"%s_assessment.tsv".format(project_name))
 
     println(assessmentFilename.toString)
 
-    add(new VariantAssessment(m2_out_files.map(x => new File(x)) ,submissionsFilename, query,project_dir,assessmentFilename ))
+    add(new VariantAssessment(m2_out_files.map(x => new File(x)) ,submissionsFilename, query,project_dir,assessmentFilename))
 
     }
 

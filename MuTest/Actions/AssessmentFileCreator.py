@@ -4,12 +4,7 @@ import pandas as pd
 def create_assessment_file(tsv, results, output_file, evaluation_rules):
     metadata = pd.read_csv(tsv,'\t')
 
-    if evaluation_rules != "NN":
-        evaluation_rules  = evaluation_rules.split(',')
-        evaluation_rules  = map(lambda x: tuple(x.split(':')),evaluation_rules)
-        evaluation_rules = dict(evaluation_rules)
-    else:
-       evaluation_rules = defaultdict(lambda : "NN")
+    evaluation_rules = defaultdict(lambda : evaluation_rules)
 
     results_data = map(lambda x: x.strip(), open(results).readlines())
 
@@ -25,10 +20,7 @@ def create_assessment_file(tsv, results, output_file, evaluation_rules):
 
         evaluation_rule = metadata['project']
 
-        if evaluation_rules.has_key(evaluation_rule):
-            metadata['evidence_type'] = evaluation_rules[evaluation_rule]
-        else:
-            metadata['evidence_type'] ='.'
+        metadata['evidence_type'] = evaluation_rules.strip('\"')
 
         out_rows.append(metadata)
 

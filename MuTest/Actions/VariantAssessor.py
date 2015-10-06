@@ -288,6 +288,6 @@ def VariantAssessor(query,tsv,output_file,outdir=""):
         #data.append(all_dict['CM'])
         #data.append(all_dict['NN'])
 
-    fieldnames=['project','dataset','sample' ,'false_positives','true_positives','false_negatives','tpr','fpr','precision','evidence_type','dream_accuracy','variant_type']
+    fieldnames=['project','dataset','sample' ,'false_positives','true_positives','false_negatives','tpr','precision','evidence_type','dream_accuracy','variant_type']
 
-    pd.DataFrame(data).to_csv(output_file, sep='\t',index=False,columns=fieldnames)
+    pd.DataFrame(data).to_csv(output_file, sep='\t',index=False,columns=fieldnames,na_rep='nan')

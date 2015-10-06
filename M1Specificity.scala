@@ -7,6 +7,7 @@ import org.broadinstitute.gatk.queue.util.QScriptUtils
 import org.broadinstitute.gatk.utils.commandline.{Output, Input}
 import scala.sys.process._
 import scala.reflect.io.Path
+import java.lang.Runtime
 
 
 
@@ -46,7 +47,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     println(cmd)
 
-    cmd !
+    cmd !!
 
     println("Collection complete.")
 
@@ -63,7 +64,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
         val m2 = new mutect2_normal_normal(tumor_bams(sampleIndex), normal_bams(sampleIndex), scatter, mutect_out_dir.toString)
 
-        m2.out = new File(project_dir,swapExt(tumor_bams(sampleIndex).toString,"bam", "")+swapExt(normal_bams(sampleIndex).toString,"bam", "")+"vcf")
+        m2.out = new File(mutect_out_dir,swapExt(tumor_bams(sampleIndex).toString,"bam", "")+swapExt(normal_bams(sampleIndex).toString,"bam", "")+"vcf")
 
         m2_out_files += m2.out
 
@@ -90,7 +91,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
 
 
-  case class mutect2_normal_normal(tumor: File, normal: File, scatter: Int, project_path: String)  extends MuTect {
+  case class mutect2_normal_normal(tumor: File, normal: File, scatter: Int, project_path: String) extends MuTect {
 
     /*
     def swapExt(orig: String, ext: String) = (orig.split('.') match {
@@ -191,7 +192,6 @@ mutest variant_assess -t <tsv>
   }
 
 }
-
 
 
 

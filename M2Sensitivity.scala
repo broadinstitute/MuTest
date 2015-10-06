@@ -22,9 +22,6 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
   @Argument(shortName = "query", required = true, doc = "list of all normal files")
   var query: String = "ALL"
 
-  @Argument(shortName = "evaluation_rules", required = true, doc = "evalution rules on a project level")
-  var evaluation_rules: String = "tcga:ROCL,hcc:CM"
-
   @Argument(shortName = "sc", required = false, doc = "base scatter count")
   var scatter = 50
 
@@ -93,7 +90,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     val submissionsFilename: File = new File(project_dir,"%s_submission.tsv".format(project_name))
 
-    add(new CreateAssessment(metadataFilename, mutectResultsFilename, submissionsFilename, evaluation_rules))
+    add(new CreateAssessment(metadataFilename, mutectResultsFilename, submissionsFilename, "NN"))
 
     val assessmentFilename: File = new File(project_dir,"%s_assessment.tsv".format(project_name))
 
