@@ -9,7 +9,7 @@ from pymongo import MongoClient
 #     return variants
 
 def connect_to_mongo(collection='ValidationData'):
-    client = MongoClient('69.173.65.108',27017)
+    client = MongoClient('69.173.65.108',27000)
     client.somatic_db_master.authenticate('kareem', 'p1IU5lec5WM7NeA')
     db = client['somatic_db_master']
     variants = db[collection]
