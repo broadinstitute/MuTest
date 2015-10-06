@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MuTest/Actions/AssessmentFileCreator.py" afterPath="$PROJECT_DIR$/MuTest/Actions/AssessmentFileCreator.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M1Sensitivity.scala" afterPath="$PROJECT_DIR$/M1Sensitivity.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M1Specificity.scala" afterPath="$PROJECT_DIR$/M1Specificity.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M2Sensitivity.scala" afterPath="$PROJECT_DIR$/M2Sensitivity.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MuTest/BasicUtilities/MongoUtilities.py" afterPath="$PROJECT_DIR$/MuTest/BasicUtilities/MongoUtilities.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MuTest/Actions/VariantAssessor.py" afterPath="$PROJECT_DIR$/MuTest/Actions/VariantAssessor.py" />
-    </list>
+    <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="" />
     <ignored path="SomaticDB.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
