@@ -180,7 +180,7 @@ def VariantAssessor(query,tsv,output_file,outdir=""):
             if assessment_type == 'NN':
 
                 row_dict['false_positives'] =len(false_positive)
-                all_dict['NN'] += len(false_positive)
+                row_dict['precision'] = 0
 
             if assessment_type == 'CM':
 
