@@ -66,6 +66,9 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
         m2.out = new File(mutect_out_dir,swapExt(tumor_bams(sampleIndex).toString,"bam", "")+swapExt(normal_bams(sampleIndex).toString,"bam", "")+"vcf")
 
+
+        println(mutect_out_dir)
+
         m2_out_files += m2.out
 
         add(m2)
