@@ -66,11 +66,6 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
         m2.out = new File(mutect_out_dir,swapExt(tumor_bams(sampleIndex).toString,"bam", "")+swapExt(normal_bams(sampleIndex).toString,"bam", "")+"vcf")
 
-        println(m2.out.toString)
-        println("next.")
-
-        println(mutect_out_dir)
-
         m2_out_files += m2.out
 
         add(m2)
@@ -85,7 +80,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     val assessmentFilename: File = new File(project_dir,"%s_assessment.tsv".format(project_name))
 
-    //add(new NormalNormalVariantAssessment(m2_out_files.map(x => new File(x)) ,submissionsFilename, query,project_dir,assessmentFilename))
+    add(new NormalNormalVariantAssessment(m2_out_files.map(x => new File(x)) ,submissionsFilename, query,project_dir,assessmentFilename))
 
     }
 
