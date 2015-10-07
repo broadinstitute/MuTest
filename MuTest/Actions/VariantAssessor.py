@@ -90,19 +90,12 @@ def VariantAssessor(query,tsv,output_file,outdir=""):
         #found_feature_data[sample_information][variant] = get_entries_from_dict(variant_dict, keys=['ECNT','HCNT','NLOD','TLOD'],return_type=dict)
 
         if is_snp(variant_dict):
-            if sample_information in cm:
                 found_variants['snp'][sample_information].add(variant)
 
-            if sample_information in normal_normal:
-                false_positive['snp'][sample_information].add(variant)
 
 
         elif is_indel(variant_dict):
-            if sample_information in cm:
                 found_variants['indel'][sample_information].add(variant)
-
-            if sample_information in normal_normal:
-                false_positive['indel'][sample_information].add(variant)
 
     #print found_feature_data.keys()
 
