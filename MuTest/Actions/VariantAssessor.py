@@ -179,7 +179,8 @@ def VariantAssessor(query,tsv,output_file,outdir=""):
 
             if assessment_type == 'NN':
 
-                row_dict['false_positives'] =len(false_positive)
+                FN = np.float(len(known_true[feature][sample_information].difference(found_variants[feature][sample_information])))
+                row_dict['false_positives'] = FN
                 row_dict['precision'] = 0
 
             if assessment_type == 'CM':
