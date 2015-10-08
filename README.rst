@@ -159,3 +159,33 @@ OUTPUT
 *MuTest* produces an output directory where several output files are stored. The name of the output folder is specified with the *project* option to the scala script. The most important file is called <project_name>_assessment.csv. This file contains the scoring for each sample along with metadata associated with each sample. Here is the list of specific column names: 'project','dataset','sample' ,'false_positives','true_positives','false_negatives','tpr','fpr','precision','evidence_type','dream_accuracy' and 'variant_type'.
 
 Queue produces several temp files which will need to be cleaned at the end of analyses otherwise they will take up lots of space. These includes files in *.queue/project_name/* and files that end with *.out* and *.done*
+
+SETTING UP YOUR OWN MONGO DB
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To set up a mongo server for MuTest please do the following.  First start the server and point it at a particular directory. For instance::
+
+    mkdir MONGO_DIR
+
+Then, to start the server, type::
+
+    mongod --dbpath MONGO_DIR/
+
+Next, you must create the database where the data is stored::
+
+    use somatic_db_master
+
+Then we must add the username and password
+
+    db.addUser("kareem", "p1IU5lec5WM7NeA")
+
+Finally, we have to shut down the server::
+
+    use admin
+    db.shutdownServer();
+
+Finally, the server can be restarted allowing for authentification::
+
+    mongod --dbpath MONGO_DIR/ --auth
+
+The server should now be ready for general use.
