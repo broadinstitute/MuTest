@@ -175,7 +175,7 @@ Next, you must create the database where the data is stored::
 
     use somatic_db_master
 
-Then we must add the username and password
+Then we must add the username and password::
 
     db.addUser("kareem", "p1IU5lec5WM7NeA")
 
