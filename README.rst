@@ -168,9 +168,13 @@ To set up a mongo server for MuTest please do the following.  First start the se
 
 Then, to start the server, type::
 
-    mongod --dbpath MONGO_DIR/
+    mongod --dbpath MONGO_DIR/ --port 27017
 
-Next, you must create the database where the data is stored::
+Next, you need to connect using the mongo client::
+
+    mongo --port 27017 <ip of the mongo server>
+
+The port specified in the example is the default mongo port, it can be changed if the 27017 port is too busy. Within the mongo client, you must create the database where the data is stored::
 
     use somatic_db_master
 
