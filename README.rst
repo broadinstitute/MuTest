@@ -72,15 +72,14 @@ The most common workflow is assessing mutect on a list of datasets. In order, to
 
 There are two assessments that can be performed. One can measure performance on known true positive results using the following command::
 
-    java -jar <Queue jar> -qsub -jobQueue gsa -S M2Sensitivity.scala -project_name <project> -query <query> -evaluation_rules <evaluation rules> -sc <scatter number> -pd <padding> -run
+    java -jar <Queue jar> -qsub -jobQueue gsa -S M2Sensitivity.scala -project_name <project> -query <query> -sc <scatter number> -pd <padding> -run
 
 If one wants to measure specificity, this command is used::
 
-    java -jar <Queue jar> -qsub -jobQueue gsa -S M2Specifity.scala -project_name <project> -query <query> -evaluation_rules <evaluation rules> -sc <scatter number> -pd <padding> -run
+    java -jar <Queue jar> -qsub -jobQueue gsa -S M2Specifity.scala -project_name <project> -query <query> -sc <scatter number> -pd <padding> -run
 
 Replace M2Specificity with M1Specifity and M2Sensitivity with M1Sensitivity to assess M1.
 
-One also needs to provide the evaluation rules. This is a feature that will be removed, but is currently required.  For each project list the type of evaluation needed. It should either be CM for confusion matrix or NN for normal-normal called.  The evaluation rule is specified in this way "tcga:CM, hcc:NN".
 
 The output of the assessment command is a tab-separated file with the following headers: project, dataset, sample, false_positives, true_positives, false_negatives, tpr, fpr, precision, evidence_type and dream_accuracy.
 

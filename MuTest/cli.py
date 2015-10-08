@@ -192,7 +192,7 @@ def main():
                                                required=True)
 
     assessment_file_create_parser.add_argument('-e','--evaluation_rules',
-                                               help='Rules for how to treat evidence in the mutestDB. eg. "tcga:ROCL,hcc:CM"',
+                                               help='Rules for how to treat evidence in the mutestDB. eg. "CM" for confusion matrix or "NN" for normal-normal calling',
                                                type=str,
                                                metavar='<evaluation_rules>')
 
