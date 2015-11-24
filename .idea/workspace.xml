@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/kareemcarr.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M2Sensitivity.scala" afterPath="$PROJECT_DIR$/M2Sensitivity.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/MuTest.iml" afterPath="$PROJECT_DIR$/.idea/MuTest.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="0f52835a-cb25-4d33-b9f1-62ffdeb52f01" name="Default" comment="" />
     <ignored path="SomaticDB.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -579,7 +571,7 @@
       <created>1429400138733</created>
       <option name="number" value="Default" />
       <updated>1429400138733</updated>
-      <workItem from="1448364572840" duration="440000" />
+      <workItem from="1448364572840" duration="484000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of github.com:broadinstitute/SomaticDB&#10;&#10;# Conflicts:&#10;#&#9;SomaticDB/Legacy/evaluator.py&#10;#&#9;SomaticDB/ParsingScripts/parse_mara.py&#10;">
       <created>1440675039560</created>
@@ -675,7 +667,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="440000" />
+    <option name="totallyTimeSpent" value="484000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
