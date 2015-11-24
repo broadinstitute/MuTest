@@ -127,7 +127,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
     this.interval_padding = Some(padding)
     this.memoryLimit = Some(2)
     this.input_file = List(new TaggedFile(normalFile, "normal"), new TaggedFile(tumorFile, "tumor"))
-    this.out = new File(project_path, swapExt(tumorFile.toString,"bam", "vcf").toString() )
+    this.out = new File(project_path, swapExt(tumorFile.toString,"bam", "").toString()+"."+swapExt(normalFile.toString,"bam", "").toString()+".vcf" )
     this.scatterCount = scatter
 
     //this.allowNonUniqueKmersInRef = true
@@ -136,8 +136,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
 
 
-
-
+  
   case class MakeStringFileList ( stringList: Seq[String], outputFilename: File) extends InProcessFunction {
 
     @Output(doc = "")
