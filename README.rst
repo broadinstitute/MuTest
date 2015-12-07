@@ -42,6 +42,10 @@ The script also functions as a reinstallation script. If any modifications or up
 After installation, the command _mutest_ will now be available. To get help, you can type::
 
     mutest -h
+    
+For a local install, in order to run mutest, you will likely have to add the local bin directory to your path:
+
+``PATH=$PATH:/home/unix/<username>/.local/bin/``
 
 RUNNING MUTEST
 ==============
