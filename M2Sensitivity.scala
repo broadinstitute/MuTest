@@ -28,6 +28,9 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
   @Argument(shortName = "pd", required = false, doc = "padding for intervals")
   var padding = 50
 
+  @Argument(shortName = "fast", required = false, doc = "skip bam aggregation")
+  var skipAggregation = false
+
   def script() {
 
     val cwd = System.getProperty("user.dir")
@@ -51,17 +54,18 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
     println("Project directory created: "+project_dir)
 
-    println("Aggretating bams")
-    var cmd = AggregateBams(query, normalFilename, tumorFilename, intervalsFilename, folder, metadataFilename)
+    if (!skipAggregation) {
+        println("Aggretating bams")
+        var cmd = AggregateBams(query, normalFilename, tumorFilename, intervalsFilename, folder, metadataFilename)
 
-    println(cmd)
+        println(cmd)
 
-    val somestuff = cmd !!
+        val somestuff = cmd !!
 
-    println("Exit status:")
-    println(somestuff)
-
-    println("Aggregation complete.")
+        println("Exit status:")
+        println(somestuff)
+        println("Aggregation complete.")
+    }
 
     val m2_out_files = new ListBuffer[String]
 
@@ -76,7 +80,7 @@ class Qscript_Mutect_with_SomaticDB extends QScript {
 
         val mutect_out_dir: String = (Path( cwd ) / project_name / "mutect_results").toString()
 
-        (new File(mutect_out_dir)).mkdir()
+       (new File(mutect_out_dir)).mkdir()
 
         val m2 = new mutect2(tumor_bams(sampleIndex), normal_bams(sampleIndex), intervals_files(sampleIndex), scatter, padding, mutect_out_dir.toString)
 
